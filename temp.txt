@@ -1,0 +1,2 @@
+http://172.17.196.195:90/game2/_create_db.php?serverid=1
+http://172.17.196.195:90/game2/user/_create_user_db.php

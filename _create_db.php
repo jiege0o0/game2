@@ -1,0 +1,91 @@
+﻿<?php 
+$serverID = $_GET["serverid"];
+if(!$serverID)
+	die('no serverID');
+	
+$filePath = dirname(__FILE__).'/';
+require_once($filePath."_config.php");
+
+
+	
+	
+$connect=mysql_connect($sql_url,$sql_user,$sql_password)or die('message=F,Could not connect: ' . mysql_error()); 
+mysql_select_db($sql_db,$connect)or die('Could not select database'); 
+mysql_query("set names utf8");
+//自己的数据
+mysql_query("
+Create TABLE g2_".$sql_table."user_data(
+gameid varchar(32) NOT NULL Unique Key,
+uid INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+nick varchar(30),
+type TINYINT UNSIGNED,
+hourcoin INT UNSIGNED,
+rmb INT UNSIGNED default 0,
+diamond INT UNSIGNED default 0,
+level TINYINT UNSIGNED default 1,
+tec_force SMALLINT UNSIGNED default 0,
+coin BIGINT UNSIGNED default 0,
+energy varchar(255),
+card Text,
+prop Text,
+tec Text,
+atk_list Text,
+def_list Text,
+hang Text,
+active Text,
+land_key varchar(63),
+last_land INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+//会被其它人写到的数据
+mysql_query("
+Create TABLE g2_".$sql_table."user_open(
+gameid varchar(32) NOT NULL Unique Key,
+master_step Text,
+mailtime INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+
+//关注的人
+mysql_query("
+Create TABLE g2_".$sql_table."friend(
+gameid varchar(32) NOT NULL Unique Key,
+friend Text
+)",$connect)or die("message=F,Invalid query: " . mysql_error());
+
+
+//奴隶表
+mysql_query("
+Create TABLE g2_".$sql_table."slave(
+openid varchar(32) NOT NULL,
+nick varchar(30),
+type TINYINT UNSIGNED,
+hourcoin INT UNSIGNED,
+tec_force SMALLINT UNSIGNED,
+level TINYINT UNSIGNED,
+master varchar(32),
+addtime INT UNSIGNED,
+protime INT UNSIGNED,
+gettime INT UNSIGNED,
+UNIQUE (master),
+UNIQUE (openid),
+UNIQUE (tec_force)
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+
+//日志（邮件）
+mysql_query("
+Create TABLE g2_".$sql_table."mail(
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+from_gameid varchar(16),
+to_gameid varchar(16),
+type TINYINT UNSIGNED,
+content varchar(8138),
+stat TINYINT UNSIGNED,
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+
+
+echo "成功".time();
+?>
