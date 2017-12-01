@@ -32,6 +32,8 @@ do{
 	$posData->id = $id;
 	$posData->name = $name;
 	$posData->list = $msg->list;
+	
+	$returnData->id = $id;
 		
 	if($type == 'atk')
 	{

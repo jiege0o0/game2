@@ -1,16 +1,18 @@
 <?php 
+	require_once($filePath."cache/base.php");
 	$monster = array();
 	foreach($list as $key=>$value)
 	{
 		if(!$monster[$value])
 		{
 			$skillID = (int)$value;
-			if($skillID < 100 && !in_array($skillID,$userData->card->monster,true))
+			debug($userData);
+			if($skillID < 100 && $monster[$skillID]['level'] > 1 &&!in_array($skillID,$userData->card->monster,true))
 			{
 				$returnData -> fail = 2;
 				break;
 			}
-			if($skillID > 100 && !in_array($skillID,$userData->card->skill,true))
+			if($skillID > 100 && $skill[$skillID]['level'] > 1 && !in_array($skillID,$userData->card->skill,true))
 			{
 				$returnData -> fail = 2;
 				break;
