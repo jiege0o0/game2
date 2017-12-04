@@ -44,6 +44,7 @@ class GameUser{
 		$this->coin = (int)$data['coin'];
 		$this->rmb = (int)$data['rmb'];
 		$this->diamond = (int)$data['diamond'];
+		$this->land_key = (int)$data['land_key'];
 		$this->tec = $this->decode($data['tec'],'{"main":{},"monster":{}}');
 		$this->prop = $this->decode($data['prop']);
 		$this->energy = $this->decode($data['energy'],'{"v":0,"t":0}');
@@ -229,8 +230,8 @@ class GameUser{
 			return true;
 		array_push($arr,addKey('last_land',time()));	
 			
-		$sql = "update g2_".$sql_table."user_data set ".join(",",$arr)." where gameid='".$this->gameid."'";
-		 // debug($sql);
+		$sql = "update ".getSQLTable('user_data')." set ".join(",",$arr)." where gameid='".$this->gameid."'";
+		 debug($sql);
 		if(!$conne->uidRst($sql))//写用户数据失败
 		{
 			$mySendData->error = 4;

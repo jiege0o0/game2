@@ -21,7 +21,7 @@
 			$userOpen = $conne->getRowsRst($sql);
 		}
 	
-		//$userData['last_land'] = $time;
+		$userData['last_land'] = $time;
 		$userData['land_key'] = $time;
 		$userData = new GameUser($userData,$userOpen);
 		

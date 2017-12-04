@@ -93,14 +93,17 @@
 			{
 				require_once($filePath."tool/conn.php");
 				require_once($filePath."object/game_user.php");
-				$sql = "select * from ".$sql_table."user_data where gameid='".$msg->gameid."' and land_key=".$msg->landid;
+				$sql = "select * from ".getSQLTable('user_data')." where gameid='".$msg->gameid."' and land_key=".$msg->landid;
 				$userData = $conne->getRowsRst($sql);
 				if(!$userData)//登录失效
 				{
 					$mySendData->error = 2;
 					break;
 				}
-				$userData = new GameUser($userData);
+				
+				$sql = "select * from ".getSQLTable('user_open')." where gameid='".$gameid."'";
+				$userOpen = $conne->getRowsRst($sql);
+				$userData = new GameUser($userData,$userOpen);
 			}	
 			
 			//登录的特殊处理
@@ -166,5 +169,6 @@
 	}
 	
 	unset($returnData->stopLog);	
+	$userData->write2DB();
 	sendToClient($mySendData);
 ?>

@@ -1,12 +1,6 @@
 <?php 
 $id=$msg->id;
-$name=$msg->name;
 $type=$msg->type;
-if($msg->list)
-{
-	$temp = str_replace("|",",",$msg->list);
-	$list = explode(",",$temp);
-}
 
 
 do{
@@ -28,17 +22,8 @@ do{
 		$returnData -> fail = 1;
 		break;
 	}
-	if($list)
-	{
-		require_once($filePath."pos/test_list.php");
-		if($returnData -> fail)
-			break;
-		$findData->list = $msg->list;
-	}
-	if($name)
-		$findData->name = base64_encode($name);
 	
-		
+	$findData->close = !$findData->close;
 	if($type == 'atk')
 	{
 		$userData->setChangeKey('atk_list');

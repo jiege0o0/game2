@@ -42,9 +42,11 @@ do{
 	}
 	else
 	{
+		debug($userData->def_list);
 		array_push($userData->def_list->list,$posData);
 		$userData->setChangeKey('def_list');
 	}
+	
 }while(false)
 
 

@@ -5,9 +5,9 @@ $type=$msg->type;
 
 do{
 	if($type == 'atk')
-		$data = &($userData->atk_list->list);
+		$data = & $userData->atk_list->list;
 	else
-		$data = &($userData->def_list->list);
+		$data = & $userData->def_list->list;
 			
 	foreach($data as $key=>$value)
 	{
