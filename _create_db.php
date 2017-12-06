@@ -32,6 +32,7 @@ tec Text,
 atk_list Text,
 def_list Text,
 hang Text,
+pk_common Text,
 active Text,
 land_key varchar(63),
 last_land INT UNSIGNED

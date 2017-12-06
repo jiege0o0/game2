@@ -101,7 +101,7 @@
 					break;
 				}
 				
-				$sql = "select * from ".getSQLTable('user_open')." where gameid='".$gameid."'";
+				$sql = "select * from ".getSQLTable('user_open')." where gameid='".$msg->gameid."'";
 				$userOpen = $conne->getRowsRst($sql);
 				$userData = new GameUser($userData,$userOpen);
 			}	
@@ -169,6 +169,7 @@
 	}
 	
 	unset($returnData->stopLog);	
-	$userData->write2DB();
+	if(isset($msg->landid) && isset($msg->gameid))
+		$userData->write2DB();
 	sendToClient($mySendData);
 ?>

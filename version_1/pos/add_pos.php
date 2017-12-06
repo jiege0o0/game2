@@ -30,7 +30,7 @@ do{
 		
 	$posData = new stdClass();
 	$posData->id = $id;
-	$posData->name = $name;
+	$posData->name = base64_encode($name);
 	$posData->list = $msg->list;
 	
 	$returnData->id = $id;

@@ -21,6 +21,7 @@ class GameUser{
 	public $hang;
 	public $active;
 	public $card;
+	public $pk_common;
 	
 	private $changeKey = array();
 	
@@ -49,10 +50,11 @@ class GameUser{
 		$this->prop = $this->decode($data['prop']);
 		$this->energy = $this->decode($data['energy'],'{"v":0,"t":0}');
 		$this->active = $this->decode($data['active'],'{"task":{}}');//活动
-		$this->atk_list = $this->decode($data['atk_list'],'{"list":[]}');//活动
-		$this->def_list = $this->decode($data['def_list'],'{"list":[]}');//活动
-		$this->hang = $this->decode($data['hang'],'{"level":0,"time":0}');//活动
-		$this->card = $this->decode($data['card'],'{"monster":[],"skill":[]}');//活动
+		$this->atk_list = $this->decode($data['atk_list'],'{"list":[]}');
+		$this->def_list = $this->decode($data['def_list'],'{"list":[]}');
+		$this->hang = $this->decode($data['hang'],'{"level":0,"time":0}');
+		$this->card = $this->decode($data['card'],'{"monster":[],"skill":[]}');
+		$this->pk_common = $this->decode($data['pk_common'],'{"pktype":"","pkdata":null}');
 	}
 	
 	function decode($v,$default = null){
@@ -86,6 +88,16 @@ class GameUser{
 	}
 	
 	//体力相关==============================================
+	function testEnergy($v){
+		global $returnData;
+		if($this->getEnergy() < $v)
+		{
+			$returnData->sync_energy = $userData->energy;
+			return false;
+		}
+		return true;
+	}
+	
 	function getEnergy(){
 		$this->resetEnergy();
 		return $this->energy->v;// + $this->energy->rmb;
@@ -110,6 +122,8 @@ class GameUser{
 			$this->energy->t = $this->energy->t + $add*$cd;
 		}
 	}
+	
+	
 	//==============================================   end
 	
 	function addDiamond($v){
@@ -147,6 +161,10 @@ class GameUser{
 		$returnData->{'sync_tec_'.$type}->{$id} = $this->tec->{$type}->{$id};
 		
 		$this->resetForce();
+	}
+	
+	function getHp(){
+		return 3;
 	}
 	
 	//取道具数量
@@ -222,7 +240,9 @@ class GameUser{
 		if($this->changeKey['hang'])
 			array_push($arr,addKey('hang',$this->hang,true));		
 		if($this->changeKey['card'])
-			array_push($arr,addKey('card',$this->card,true));	
+			array_push($arr,addKey('card',$this->card,true));
+		if($this->changeKey['pk_common'])
+			array_push($arr,addKey('pk_common',$this->pk_common,true));	
 				
 			
 			

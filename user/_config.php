@@ -11,5 +11,5 @@
 	// $sql_user = "qdm218719323";	
 	// $sql_password = "c3312819";	
 	// $sql_db = 'qdm218719323_db';
-	// $sql_table = 'user';
+	// $sql_table = '';
 ?>

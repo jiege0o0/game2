@@ -6,12 +6,12 @@
 		if(!$useData[$value])
 		{
 			$skillID = (int)$value;
-			if($skillID < 100 && $monster[$skillID]['level'] > 1 &&!in_array($skillID,$userData->card->monster,true))
+			if($skillID < 100 && $monster_base[$skillID]['level'] > 1 &&!in_array($skillID,$userData->card->monster,true))
 			{
 				$returnData -> fail = 2;
 				break;
 			}
-			if($skillID > 100 && $skill[$skillID]['level'] > 1 && !in_array($skillID,$userData->card->skill,true))
+			if($skillID > 100 && $skill_base[$skillID]['level'] > 1 && !in_array($skillID,$userData->card->skill,true))
 			{
 				$returnData -> fail = 2;
 				break;
