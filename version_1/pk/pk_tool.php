@@ -10,19 +10,17 @@
 		$player->type = $userData->type;
 		$list = explode(",",$list);
 		$len = count($list);
-		if($len <= 10)
+		if($len <= 6)
 		{
-			usort($list,randomSortFun);
 			$player->card = join(",",$list);
 		}
 		else
 		{	
-			$len = ceil(($len-10)/5);
-			$newList = array_slice($list,0,10);
-			usort($newList,randomSortFun);
+			$len = ceil(($len-6)/6);
+			$newList = array_slice($list,0,6);
 			for($i=0;$i<$len;$i++)
 			{
-				$temp = array_slice($list,10 + $i*5,5);
+				$temp = array_slice($list,6 + $i*6,6);
 				usort($temp,randomSortFun);
 				$newList = array_merge($newList,$temp);
 			}
