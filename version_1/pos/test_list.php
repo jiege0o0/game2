@@ -21,12 +21,12 @@
 		else
 		{
 			$useData[$value] ++;
-			// if($useData[$value] > 3)
-			// {
-				// $returnData -> fail = 3;
-				// debug($userData);
-				// break;
-			// }	
+			if($useData[$value] > 3)
+			{
+				$returnData -> fail = 3;
+				debug($userData);
+				break;
+			}	
 		}
 	}
 	

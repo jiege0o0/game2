@@ -27,8 +27,8 @@ do{
 	}
 	
 
-	//$userData->hang->level = $hangIndex;
-	// $userData->setChangeKey('hang');
+	$userData->hang->level = $hangIndex;
+	$userData->setChangeKey('hang');
 
 }while(false)
 
