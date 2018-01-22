@@ -30,6 +30,20 @@
 		return $player;
 	}
 	
+	//创建玩家防御数据
+	function createDefPlayer($id,$team,$userData,$list){
+		$player = new stdClass();
+		$player->id = $id;
+		$player->team = $team;
+		$player->gameid = $userData->gameid;
+		$player->nick = base64_encode($userData->nick);
+		$player->force = $userData->tec_force;
+		$player->type = $userData->type;
+		$player->autolist = $list;
+		$player->hp = $userData->getHp();
+		return $player;
+	}
+	
 	//创建怪物数据
 	function createNpcPlayer($id,$team,$data){
 		$player = new stdClass();

@@ -37,6 +37,8 @@ class GameUser{
 		$this->level = (int)$data['level'];
 		$this->tec_force = (int)$data['tec_force'];
 		$this->last_land = $data['last_land'];
+		$this->def_list = $this->decode($data['def_list'],'{"list":[]}');
+		
 		
 		if($openData == null)
 			return;
@@ -51,7 +53,6 @@ class GameUser{
 		$this->energy = $this->decode($data['energy'],'{"v":0,"t":0}');
 		$this->active = $this->decode($data['active'],'{"task":{}}');//»î¶¯
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":[]}');
-		$this->def_list = $this->decode($data['def_list'],'{"list":[]}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"time":0}');
 		$this->card = $this->decode($data['card'],'{"monster":[],"skill":[]}');
 		$this->pk_common = $this->decode($data['pk_common'],'{"pktype":"","pkdata":null}');

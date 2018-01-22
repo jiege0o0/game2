@@ -18,8 +18,8 @@ Create TABLE g2_".$sql_table."user_data(
 gameid varchar(32) NOT NULL Unique Key,
 uid INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 nick varchar(30),
-type TINYINT UNSIGNED,
-hourcoin INT UNSIGNED,
+type TINYINT UNSIGNED default 0,
+hourcoin INT UNSIGNED default 0,
 rmb INT UNSIGNED default 0,
 diamond INT UNSIGNED default 0,
 level TINYINT UNSIGNED default 1,
@@ -43,7 +43,8 @@ mysql_query("
 Create TABLE g2_".$sql_table."user_open(
 gameid varchar(32) NOT NULL Unique Key,
 master_step Text,
-mailtime INT UNSIGNED
+mailtime INT UNSIGNED,
+slave_time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 
@@ -58,7 +59,7 @@ friend Text
 //奴隶表
 mysql_query("
 Create TABLE g2_".$sql_table."slave(
-openid varchar(32) NOT NULL,
+gameid varchar(32) NOT NULL,
 nick varchar(30),
 type TINYINT UNSIGNED,
 hourcoin INT UNSIGNED,
@@ -67,10 +68,10 @@ level TINYINT UNSIGNED,
 master varchar(32),
 addtime INT UNSIGNED,
 protime INT UNSIGNED,
-gettime INT UNSIGNED,
-UNIQUE (master),
+awardtime INT UNSIGNED,
+INDEX (master),
 UNIQUE (openid),
-UNIQUE (tec_force)
+INDEX (tec_force)
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 
