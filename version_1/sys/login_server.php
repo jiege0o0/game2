@@ -24,6 +24,12 @@
 		$userData['last_land'] = $time;
 		$userData['land_key'] = $time;
 		$userData = new GameUser($userData,$userOpen);
+		// $userData->addCoin(1);
+		if($userData->resetCoin())
+		{
+			$userData->write2DB(true);
+			unset($returnData->sync_coin);
+		}
 		
 		//用户数据处理
 		

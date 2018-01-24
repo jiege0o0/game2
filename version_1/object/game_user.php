@@ -23,9 +23,13 @@ class GameUser{
 	public $card;
 	public $pk_common;
 	
+	
+	private $openDataChange = false;
+	private $haveSetCoin = false;
+	
 	private $changeKey = array();
 	
-	private $openData;
+	public $openData;
 
 	//初始化类
 	function __construct($data,$openData=null){
@@ -44,7 +48,7 @@ class GameUser{
 			return;
 		$this->openData = $openData;
 		
-		$this->coin = (int)$data['coin'];
+		$this->coin = $this->decode($data['coin'],'{"v":0,"t":'.time().',"st":0}');
 		$this->rmb = (int)$data['rmb'];
 		$this->diamond = (int)$data['diamond'];
 		$this->land_key = (int)$data['land_key'];
@@ -136,14 +140,95 @@ class GameUser{
 		$returnData->sync_diamond = $this->diamond;
 	}
 	
+	//取钱
+	function getCoin(){
+		$this->resetCoin();
+		return $this->coin->v;
+	}
+	
 	//加钱
 	function addCoin($v){
 		if(!$v)
 			return;
 		global $returnData;
-		$this->coin += $v;
+		$this->resetCoin();
+		$this->coin->v += $v;
 		$this->setChangeKey('coin');
 		$returnData->sync_coin = $this->coin;
+	}
+	
+	//因为主人关系而使钱发生变化
+	function resetCoin(){
+		if($this->haveSetCoin)
+			return false;
+		global $returnData;
+		$b = false;
+		$this->haveSetCoin = true;
+		$time = time();
+		
+		//生产影响
+		$cd = 60;
+		$step = round($this->hourcoin/60);
+		$add = floor(($time - $this->coin->t)/$cd);
+		if($add > 0)
+		{
+			$this->coin->v += $add*$step;
+			$this->coin->t = $this->coin->t + $add*$cd;
+			$b = true;
+		}
+		
+		
+		//奴隶影响
+		$list = explode(",",$this->openData['masterstep']);
+		$len = count($list);
+		
+		if($len > 1)
+		{
+			$this->setChangeKey('masterstep');
+			$this->openDataChange = true;
+			$this->openData['masterstep'] = $list[$len - 1];
+		}
+		
+		//计算需要扣的钱
+		$count = 0;
+		$lastData = explode("|",$list[0]);
+		for($i = 1;$i<$len;$i++)//选处理多次变动的历史
+		{
+			$temp = explode("|",$list[$i]);
+			$t = (int)$temp[1];
+			if($t > $this->coin->st)//未处理过的
+			{
+				if($lastData[0] == 1)//成为奴隶
+				{
+					$t0 = (int)$lastData[1];
+					$count += floor(($t - $t0)/3600);//每小时结算一次
+				}
+				$this->coin->st = $t;
+			}
+			$lastData = $temp;
+		}
+		
+		if($lastData[0] == 1)//成为奴隶
+		{
+			$num = floor(($time - $this->coin->st)/3600);//每小时结算一次
+			if($num)
+			{
+				$this->coin->st += $num*3600;
+				$count += $num;
+			}
+		}
+		if($count)
+		{
+			$this->coin->v -= $count*floor($this->hourcoin*0.2);
+			$b = true;
+		}
+		
+		if($b)
+		{
+			$this->setChangeKey('coin');
+			$returnData->sync_coin = $this->coin;
+		}
+		return $b;
 	}
 	
 	//升级科技
@@ -194,14 +279,14 @@ class GameUser{
 		$returnData->sync_prop->{$propID} = $this->prop->{$propID};
 	}
 	
-	//受科技和挂机影响
+	//受科技影响
 	function resetHourCoin(){
 	
 	}
 
 	
 	//把结果写回数据库
-	function write2DB(){
+	function write2DB($fromLogin = false){
 		//return false;
 		function addKey($key,$value,$needEncode=false){
 			if($needEncode)
@@ -210,7 +295,13 @@ class GameUser{
 				return $key."=".$value;
 		}
 		
-		global $conne,$msg,$mySendData,$sql_table;
+		global $conne,$msg,$mySendData,$sql_table,$returnData;
+		
+		if(!$fromLogin)
+		{
+			$returnData->sync_news = $this->openData;
+		}
+		
 		$arr = array();
 		
 		if($this->changeKey['rmb'])
@@ -219,8 +310,6 @@ class GameUser{
 			array_push($arr,addKey('level',$this->level));
 		if($this->changeKey['tec_force'])
 			array_push($arr,addKey('tec_force',$this->tec_force));
-		if($this->changeKey['coin'])
-			array_push($arr,addKey('coin',$this->coin));
 		if($this->changeKey['diamond'])
 			array_push($arr,addKey('diamond',$this->diamond));
 		if($this->changeKey['hourcoin'])
@@ -230,6 +319,8 @@ class GameUser{
 			array_push($arr,addKey('tec',$this->tec,true));
 		if($this->changeKey['prop'])
 			array_push($arr,addKey('prop',$this->prop,true));
+		if($this->changeKey['coin'])
+			array_push($arr,addKey('coin',$this->coin,true));	
 		if($this->changeKey['energy'])
 			array_push($arr,addKey('energy',$this->energy,true));	
 		if($this->changeKey['active'])
@@ -247,18 +338,37 @@ class GameUser{
 				
 			
 			
-		if(count($arr) == 0)
-			return true;
-		array_push($arr,addKey('last_land',time()));	
-			
-		$sql = "update ".getSQLTable('user_data')." set ".join(",",$arr)." where gameid='".$this->gameid."'";
-		 debug($sql);
-		if(!$conne->uidRst($sql))//写用户数据失败
+		if(count($arr) > 0)
 		{
-			$mySendData->error = 4;
-			return false;
-		}
+			array_push($arr,addKey('last_land',time()));	
+			$sql = "update ".getSQLTable('user_data')." set ".join(",",$arr)." where gameid='".$this->gameid."'";
+			 debug($sql);
+			if(!$conne->uidRst($sql))//写用户数据失败
+			{
+				$mySendData->error = 4;
+				return false;
+			}
+		}		
 		
+		if($this->openDataChange)
+		{
+			$arr = array();
+			if($this->changeKey['masterstep'])
+				array_push($arr,addKey('masterstep',"'".$this->openData['masterstep']."'"));
+				
+			if(count($arr))
+			{
+				$sql = "update ".getSQLTable('user_open')." set ".join(",",$arr)." where gameid='".$this->gameid."'";
+				debug($sql);
+				if(!$conne->uidRst($sql))//写用户数据失败
+				{
+					$mySendData->error = 4;
+					return false;
+				}
+			}
+			
+		}
+		$this->changeKey = array();
 		return true;
 			
 	}

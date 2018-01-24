@@ -33,7 +33,7 @@ do{
 	if($result['master'] != $master)
 	{
 		$returnData -> fail = 2;
-		$returnData -> otherid = $otherid 
+		$returnData -> otherid = $otherid; 
 		break;
 	}
 	$lastMaster = $result['master'];
@@ -43,20 +43,20 @@ do{
 	
 	//通知对方及其原主人
 	$sqlArr = array();
-	$sql = "update ".getSQLTable('user_open')." set master_step=concat(master_step,'|1,".$time."'),slave_time=".$time.",mail_time=".$time." where gameid='".$otherid."'";
-	array_push($sqlArr,$sql);
+	$sql = "update ".getSQLTable('user_open')." set masterstep=concat(masterstep,',1|".$time."'),slavetime=".$time.",mailtime=".$time." where gameid='".$otherid."'";
+	$conne->uidRst($sql);
 	
 	$oo = new stdClass();
 	$oo->nick = base64_encode($userData->nick);
 	$oo->type = $userData->type;
 	$oo = json_encode($oo);
 	$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',1,'".$oo."',".$time.")";
-	array_push($sqlArr,$sql);
+	$conne->uidRst($sql);
 	
 	if($master != $otherid)
 	{
-		$sql = "update ".getSQLTable('user_open')." set slave_time=".$time.",mail_time=".$time." where gameid='".$master."'";
-		array_push($sqlArr,$sql);
+		$sql = "update ".getSQLTable('user_open')." set slavetime=".$time.",mailtime=".$time." where gameid='".$master."'";
+		$conne->uidRst($sql);
 		
 		$oo = new stdClass();
 		$oo->nick = base64_encode($userData->nick);
@@ -65,9 +65,11 @@ do{
 		$oo->type = $userData->type;
 		$oo = json_encode($oo);
 		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',2,'".$oo."',".$time.")";
-		array_push($sqlArr,$sql);
+		$conne->uidRst($sql);
 	}
-
+	// $result = $conne->uidRst(join(";",$sqlArr));
+	// debug($result);
+	// debug(join(";",$sqlArr));
 	
 
 }while(false)

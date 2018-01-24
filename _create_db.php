@@ -24,7 +24,7 @@ rmb INT UNSIGNED default 0,
 diamond INT UNSIGNED default 0,
 level TINYINT UNSIGNED default 1,
 tec_force SMALLINT UNSIGNED default 0,
-coin BIGINT UNSIGNED default 0,
+coin varchar(255),
 energy varchar(255),
 card Text,
 prop Text,
@@ -42,9 +42,9 @@ last_land INT UNSIGNED
 mysql_query("
 Create TABLE g2_".$sql_table."user_open(
 gameid varchar(32) NOT NULL Unique Key,
-master_step Text,
+masterstep Text default '0|0',
 mailtime INT UNSIGNED,
-slave_time INT UNSIGNED
+slavetime INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 
