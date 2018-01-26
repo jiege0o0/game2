@@ -169,7 +169,7 @@
 	}
 	
 	unset($returnData->stopLog);	
-	if(isset($msg->landid) && isset($msg->gameid))
+	if(isset($msg->landid) && isset($msg->gameid) && !$returnData->fail && !$mySendData->error)
 		$userData->write2DB();
 	sendToClient($mySendData);
 ?>

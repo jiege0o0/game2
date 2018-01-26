@@ -89,6 +89,7 @@ do{
 	$userData->addEnergy(-1);
 	$userData->pk_common->pktype = 'slave';
 	$userData->pk_common->pkdata = $pkData;
+	$userData->pk_common->pkcard = $list;
 	$userData->pk_common->otherid = $otherid;
 	$userData->pk_common->master = $master;
 	$userData->pk_common->nick = base64_encode($otherData->nick);

@@ -22,6 +22,7 @@
 		$returnUser->level = $otherUser->level;
 		$returnUser->tec_force = $otherUser->tec_force;
 		$returnUser->last_land = $otherUser->last_land;
+		$returnUser->last_card = $otherUser->pk_common->pkcard;
 		
 		$returnData->info = $returnUser;
 		

@@ -1,40 +1,57 @@
 <?php 
-$id=$msg->id;
-$type=$msg->type;
+
+// $rankType = 'force';
+// $rankScore = 10;
+// require($filePath."rank/add_rank.php");
 
 
 do{
-	if($type == 'atk')
-		$data = & $userData->atk_list->list;
-	else
-		$data = & $userData->def_list->list;
-			
-	foreach($data as $key=>$value)
-	{
-		if($value->id == $id)
-		{
-			$find = true;
-			array_splice($data,$key,1);
-			break;
-		}
-	}
-	
-	if(!$find)
+	$sql = "select * from ".getSQLTable('slave')." where gameid in('".join(",",$msg->ids)."')";
+	$result = $conne->getRowsArray($sql);
+	$len = count($result);
+	if(!$result || $len == 0)//没数据
 	{
 		$returnData -> fail = 1;
 		break;
 	}
-	
+	$time = time();
+	$arr = array();
+	$addCoin = 0;
+	$changeTime = array();
+	for($i=0;$i<$len;$i++)
+	{
+		$data = $result[$i];
+		if($data['master']!=$userData->gameid)//主人变了
+		{
+			$returnData -> fail = 3;
+			break;
+		}
 		
-	if($type == 'atk')
-	{
-		$userData->setChangeKey('atk_list');
+		$num = floor(($time - $data['awardtime'])/3600);
+		if($num)
+		{
+			$addCoin += min(8,$num)*$data['hourcoin'];
+			$changeTime[$data['gameid']] = $num;
+			array_push($arr,"update ".getSQLTable('slave')." set awardtime=awardtime+".($num*3600)." where gameid='".$data['gameid']."'");
+		}
+		else//时间未到
+		{
+			$returnData -> fail = 2;
+			break;
+		}
 	}
-	else
+	
+	if($returnData -> fail)
+		break;
+	
+	$userData->addCoin($addCoin);
+	for($i=0;$i<$len;$i++)
 	{
-		$userData->setChangeKey('def_list');
+		$conne->uidRst($arr[$i]);
+		debug($arr[$i]);
 	}
+	$returnData->coin = $addCoin;
+	$returnData->changetime = $changeTime;
+	
 }while(false)
-
-
 ?> 

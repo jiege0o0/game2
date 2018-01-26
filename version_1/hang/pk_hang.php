@@ -38,6 +38,7 @@ do{
 	$userData->addEnergy(-1);
 	$userData->pk_common->pktype = 'hang';
 	$userData->pk_common->pkdata = $pkData;
+	$userData->pk_common->pkcard = $list;
 	$userData->pk_common->level = $hangIndex;
 	$userData->pk_common->time = time();
 	$userData->setChangeKey('pk_common');

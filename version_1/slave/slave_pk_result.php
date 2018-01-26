@@ -3,7 +3,8 @@ $list=$msg->list;
 $hangIndex=$userData->hang->level + 1;
 require_once($filePath."pk/pk_tool.php");
 require_once($filePath."cache/base.php");
-do{		
+do{	
+	
 	if($userData->pk_common->pktype != 'slave')//最近不是打这个
 	{
 		$returnData -> fail = 1;
@@ -36,22 +37,27 @@ do{
 		$returnData -> otherid = $otherid; 
 		break;
 	}
+	$pkMaster = $userData->gameid == $otherid;
 	$lastMaster = $result['master'];
 	$time = time();
-	$sql = "update ".getSQLTable('slave')." set master='".$userData->gameid."',addtime=".$time.",protime=".($time+3600*2).",awardtime=".$time." where gameid='".$otherid."'";
+	$protime = $pkMaster ?($time+300):($time+3600*2);
+	$sql = "update ".getSQLTable('slave')." set master='".$userData->gameid."',addtime=".$time.",protime=".$protime.",awardtime=".$time." where gameid='".$otherid."'";
 	$conne->uidRst($sql);
 	
 	//通知对方及其原主人
-	$sqlArr = array();
-	$sql = "update ".getSQLTable('user_open')." set masterstep=concat(masterstep,',1|".$time."'),slavetime=".$time.",mailtime=".$time." where gameid='".$otherid."'";
+	$sql = "update ".getSQLTable('user_open')." set masterstep=concat(masterstep,',".($pkMaster?0:1)."|".$time."'),slavetime=".$time.",mailtime=".$time." where gameid='".$otherid."'";
 	$conne->uidRst($sql);
 	
-	$oo = new stdClass();
-	$oo->nick = base64_encode($userData->nick);
-	$oo->type = $userData->type;
-	$oo = json_encode($oo);
-	$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',1,'".$oo."',".$time.")";
-	$conne->uidRst($sql);
+	if(!$pkMaster)
+	{
+		$oo = new stdClass();
+		$oo->nick = base64_encode($userData->nick);
+		$oo->type = $userData->type;
+		$oo = json_encode($oo);
+		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',1,'".$oo."',".$time.")";
+		$conne->uidRst($sql);
+	}
+	
 	
 	if($master != $otherid)
 	{
@@ -67,9 +73,7 @@ do{
 		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',2,'".$oo."',".$time.")";
 		$conne->uidRst($sql);
 	}
-	// $result = $conne->uidRst(join(";",$sqlArr));
-	// debug($result);
-	// debug(join(";",$sqlArr));
+
 	
 
 }while(false)

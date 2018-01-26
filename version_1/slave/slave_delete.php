@@ -1,40 +1,8 @@
 <?php 
-$id=$msg->id;
-$type=$msg->type;
-
-
+$otherid=$msg->otherid;
+$master=$msg->gameid;
 do{
-	if($type == 'atk')
-		$data = & $userData->atk_list->list;
-	else
-		$data = & $userData->def_list->list;
-			
-	foreach($data as $key=>$value)
-	{
-		if($value->id == $id)
-		{
-			$find = true;
-			array_splice($data,$key,1);
-			break;
-		}
-	}
-	
-	if(!$find)
-	{
-		$returnData -> fail = 1;
-		break;
-	}
-	
-		
-	if($type == 'atk')
-	{
-		$userData->setChangeKey('atk_list');
-	}
-	else
-	{
-		$userData->setChangeKey('def_list');
-	}
+	$sql = "update ".getSQLTable('slave')." set master=gameid,protime=".(time() + 10)." where gameid='".$otherid."' and master='".$master."'";
+	$conne->uidRst($sql);
 }while(false)
-
-
 ?> 

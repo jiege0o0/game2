@@ -12,6 +12,8 @@ require_once($filePath."_config.php");
 $connect=mysql_connect($sql_url,$sql_user,$sql_password)or die('message=F,Could not connect: ' . mysql_error()); 
 mysql_select_db($sql_db,$connect)or die('Could not select database'); 
 mysql_query("set names utf8");
+
+/*
 //自己的数据
 mysql_query("
 Create TABLE g2_".$sql_table."user_data(
@@ -85,7 +87,33 @@ type TINYINT UNSIGNED,
 content varchar(8138),
 stat TINYINT UNSIGNED,
 time INT UNSIGNED
-)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+
+//排行榜
+$rankName = array('force','hang','hourcoin');
+foreach($rankName as $key=>$value)
+{
+	mysql_query("
+	Create TABLE g2_".$sql_table."rank_".$value."(
+	gameid varchar(32) NOT NULL Unique Key,
+	nick varchar(30),
+	type TINYINT UNSIGNED,
+	score INT UNSIGNED,
+	time INT UNSIGNED
+	)",$connect)or die("message=F,Invalid query: " . mysql_error());
+
+	//往表插入数据
+	$sql = "insert into g2_".$sql_table."rank_".$value."(gameid,score,time) values";
+	$arr = array();
+	for($i=1;$i<=100;$i++)
+	{
+		array_push($arr,"('_".$i."',0,0)");
+	}
+	$sql2 = implode(',',$arr);
+	mysql_query($sql.$sql2,
+	$connect)or die("message=F,Invalid query: " . mysql_error()); 
+}
+
 
 
 

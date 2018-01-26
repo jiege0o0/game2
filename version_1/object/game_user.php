@@ -42,6 +42,7 @@ class GameUser{
 		$this->tec_force = (int)$data['tec_force'];
 		$this->last_land = $data['last_land'];
 		$this->def_list = $this->decode($data['def_list'],'{"list":[]}');
+		$this->pk_common = $this->decode($data['pk_common'],'{"pktype":"","pkdata":null}');
 		
 		
 		if($openData == null)
@@ -59,7 +60,7 @@ class GameUser{
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":[]}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"time":0}');
 		$this->card = $this->decode($data['card'],'{"monster":[],"skill":[]}');
-		$this->pk_common = $this->decode($data['pk_common'],'{"pktype":"","pkdata":null}');
+		
 	}
 	
 	function decode($v,$default = null){
@@ -299,7 +300,7 @@ class GameUser{
 		
 		if(!$fromLogin)
 		{
-			$returnData->sync_news = $this->openData;
+			$returnData->sync_opendata = $this->openData;
 		}
 		
 		$arr = array();
