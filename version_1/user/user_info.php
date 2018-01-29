@@ -27,8 +27,25 @@
 		$returnData->info = $returnUser;
 		
 		
+		$conne->close_rst();
 		$sql = "select * from ".getSQLTable('slave')." where gameid='".$otherUser->gameid."' or master='".$otherUser->gameid."'";
-		$returnData->slave = $conne->getRowsArray($sql);
+		$result = $conne->getRowsArray($sql);
+		foreach($result as $key=>$value)
+		{
+			if($value['gameid'] == $otherUser->gameid)
+			{
+				$returnData->self = $value;	
+				array_splice($result,$key,1);
+				if($value['gameid'] != $value['master'])
+				{
+					$conne->close_rst();
+					$sql = "select * from ".getSQLTable('slave')." where gameid='".$value['master']."'";
+					$master = $conne->getRowsRst($sql);
+				}
+			}
+		}
+		$returnData->slave = $result;		
+		$returnData->master = $master;	
 
 		
 		
