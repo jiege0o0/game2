@@ -17,6 +17,7 @@
 		$returnUser = new stdClass();
 		$returnUser->gameid = $otherUser->gameid;
 		$returnUser->nick = $otherUser->nick;
+		$returnUser->head = $otherUser->head;
 		$returnUser->type = $otherUser->type;
 		$returnUser->hourcoin = $otherUser->hourcoin;
 		$returnUser->level = $otherUser->level;

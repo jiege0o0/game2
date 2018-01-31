@@ -53,6 +53,7 @@ do{
 		$oo = new stdClass();
 		$oo->nick = base64_encode($userData->nick);
 		$oo->type = $userData->type;
+		$oo->head = $userData->head;
 		$oo = json_encode($oo);
 		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',1,'".$oo."',".$time.")";
 		$conne->uidRst($sql);
@@ -69,6 +70,7 @@ do{
 		$oo->slave_nick = base64_encode($userData->pk_common->nick);
 		$oo->slave_gameid = $otherid;
 		$oo->type = $userData->type;
+		$oo->head = $userData->head;
 		$oo = json_encode($oo);
 		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',2,'".$oo."',".$time.")";
 		$conne->uidRst($sql);

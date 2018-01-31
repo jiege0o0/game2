@@ -20,6 +20,7 @@ Create TABLE g2_".$sql_table."user_data(
 gameid varchar(32) NOT NULL Unique Key,
 uid INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 nick varchar(30),
+head varchar(255),
 type TINYINT UNSIGNED default 0,
 hourcoin INT UNSIGNED default 0,
 rmb INT UNSIGNED default 0,
@@ -63,6 +64,7 @@ mysql_query("
 Create TABLE g2_".$sql_table."slave(
 gameid varchar(32) NOT NULL,
 nick varchar(30),
+head varchar(255),
 type TINYINT UNSIGNED,
 hourcoin INT UNSIGNED,
 tec_force SMALLINT UNSIGNED,
@@ -97,6 +99,7 @@ foreach($rankName as $key=>$value)
 	Create TABLE g2_".$sql_table."rank_".$value."(
 	gameid varchar(32) NOT NULL Unique Key,
 	nick varchar(30),
+	head varchar(255),
 	type TINYINT UNSIGNED,
 	score INT UNSIGNED,
 	time INT UNSIGNED

@@ -5,6 +5,7 @@ class GameUser{
 	public $uid;
 	public $nick;
 	public $type;
+	public $head;
 	public $hourcoin;
 	public $level;
 	public $tec_force;
@@ -36,6 +37,7 @@ class GameUser{
 		$this->gameid = $data['gameid'];
 		$this->uid = $data['uid'];
 		$this->nick = $data['nick'];
+		$this->head = $data['head'];
 		$this->type = $data['type'];
 		$this->hourcoin = $data['hourcoin'];
 		$this->level = (int)$data['level'];
@@ -315,6 +317,8 @@ class GameUser{
 			array_push($arr,addKey('diamond',$this->diamond));
 		if($this->changeKey['hourcoin'])
 			array_push($arr,addKey('hourcoin',$this->hourcoin));
+		if($this->changeKey['head'])
+			array_push($arr,addKey('head',$this->head));
 			
 		if($this->changeKey['tec'])
 			array_push($arr,addKey('tec',$this->tec,true));
