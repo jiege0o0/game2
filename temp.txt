@@ -11,4 +11,40 @@ http://172.17.196.195:9021/index.html?debug_server=1&app=1
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1
 http://172.17.196.195:9020/index.html?debug_server=1&app=1
 
+2周到100关
+
+20*5
+
+=B8 + FLOOR((A9-1)/10+1,1)
+
+获得:last = (last || 20) + 3*lv  
+消耗:last = (last || 20) + power(lv,2)*30 - lv*50
+
+
+
+
+
+
+挂机奖励
+商店UI
+设置界面
+个人信息
+升级科技
+邮件领奖
+结算奖励
+
+
+关注系统
+
+
+NPC奴隶
+道具设计
+科技设计
+技能设计
+挂机数据
+
+
+=RIGHT(A3,LEN(A3)-FIND("_",A3))
+=I2&","&R2&","&B2&","&C2&","&D2&","&E2
+
 

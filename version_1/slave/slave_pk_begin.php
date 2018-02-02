@@ -77,7 +77,14 @@ do{
 	}
 	$defList = $defList[rand(0,$len-1)]->list;
 	
-	
+	$sql = "select * from ".getSQLTable('slave')." where gameid='".$msg->gameid."'";
+	$result = $conne->getRowsRst($sql);
+	if(!$result)//找不到自己
+	{
+		$sql = "insert into ".getSQLTable('slave')."(gameid,nick,type,head,hourcoin,tec_force,level,master) values('".$userData->gameid."','".$userData->nick."',".$userData->type.",'".$userData->head."',".$userData->hourcoin.",".$userData->tec_force.",".$userData->level.",'".$userData->gameid."')";
+		$conne->uidRst($sql);	
+	}
+
 	
 	$pkData = new stdClass();
 	$pkData->seed = time();

@@ -2,13 +2,15 @@
 do{
 	$sql = "select * from ".getSQLTable('slave')." where gameid='".$msg->gameid."' or master='".$msg->gameid."'";
 	$result = $conne->getRowsArray($sql);
+	debug($userData->head);
+	debug($sql);
 	if(!$result)
 	{
 		$sql = "insert into ".getSQLTable('slave')."(gameid,nick,type,head,hourcoin,tec_force,level,master) values('".$msg->gameid."','".$userData->nick."',".$userData->type.",'".$userData->head."',".$userData->hourcoin.",".$userData->tec_force.",".$userData->level.",'".$msg->gameid."')";
 		$conne->uidRst($sql);	
-
+debug($sql);
 		$returnData->slave = array();		
-		$returnData->master = array();		
+		// $returnData->master;		
 	}
 	else
 	{

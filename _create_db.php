@@ -13,7 +13,7 @@ $connect=mysql_connect($sql_url,$sql_user,$sql_password)or die('message=F,Could 
 mysql_select_db($sql_db,$connect)or die('Could not select database'); 
 mysql_query("set names utf8");
 
-/*
+
 //自己的数据
 mysql_query("
 Create TABLE g2_".$sql_table."user_data(
@@ -45,7 +45,7 @@ last_land INT UNSIGNED
 mysql_query("
 Create TABLE g2_".$sql_table."user_open(
 gameid varchar(32) NOT NULL Unique Key,
-masterstep Text default '0|0',
+masterstep Text,
 mailtime INT UNSIGNED,
 slavetime INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
@@ -74,7 +74,7 @@ addtime INT UNSIGNED,
 protime INT UNSIGNED,
 awardtime INT UNSIGNED,
 INDEX (master),
-UNIQUE (openid),
+UNIQUE (gameid),
 INDEX (tec_force)
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
@@ -89,7 +89,7 @@ type TINYINT UNSIGNED,
 content varchar(8138),
 stat TINYINT UNSIGNED,
 time INT UNSIGNED
-)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 //排行榜
 $rankName = array('force','hang','hourcoin');
