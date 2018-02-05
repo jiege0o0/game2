@@ -1,61 +1,89 @@
 <?php 
-function getPropCD(){
-	
+require_once($filePath."cache/base.php");
+//当前等级下，产出单位个的间隔
+function getPropCD($clv,$slv,$tlv){
+	$hourEarn = ($clv-$slv + 1)*(1 + $tlv*5/100);
+	if($hourEarn <= 0)
+		return 0;
+	return 3600/$hourEarn;
+}
+
+function getCDByIndex($data,$index){
+	return(int)$data[$index];
 }
 
 
 do{
+	if($userData->hang->cd)
+		$awardCD = explode(",",$userData->hang->cd);
+	else
+		$awardCD = array();
 	$level = $userData->hang->level;
-	
-	$coinCD = 3600/(90+$level*10);
-	
-
-	$sql = "select * from ".getSQLTable('slave')." where gameid in('".join(",",$msg->ids)."')";
-	$result = $conne->getRowsArray($sql);
-	$len = count($result);
-	if(!$result || $len == 0)//没数据
+	$lastTime = $userData->hang->awardtime;
+	$cd = min(3600*8,time()- $lastTime);//离上次结算经过的时间
+	if($cd<60)//未到领奖时间
 	{
 		$returnData -> fail = 1;
 		break;
 	}
-	$time = time();
-	$arr = array();
-	$addCoin = 0;
-	$changeTime = array();
-	for($i=0;$i<$len;$i++)
-	{
-		$data = $result[$i];
-		if($data['master']!=$userData->gameid)//主人变了
-		{
-			$returnData -> fail = 3;
-			break;
-		}
-		
-		$num = floor(($time - $data['awardtime'])/3600);
-		if($num)
-		{
-			$addCoin += min(8,$num)*$data['hourcoin'];
-			$changeTime[$data['gameid']] = $num;
-			array_push($arr,"update ".getSQLTable('slave')." set awardtime=awardtime+".($num*3600)." where gameid='".$data['gameid']."'");
-		}
-		else//时间未到
-		{
-			$returnData -> fail = 2;
-			break;
-		}
-	}
+	$award = new stdClass();
+	$award->props = array();
 	
-	if($returnData -> fail)
-		break;
-	
+	$coinCD = 3600/(90+$level*10);
+	$lastCoinCD = getCDByIndex($awardCD,0);
+	if($lastCoinCD)
+		$lastCoinCD += $cd;
+	else
+		$lastCoinCD = $cd;
+	$addCoin = floor($lastCoinCD/$coinCD);
+	$awardCD[0] = floor($lastCoinCD)%$coinCD + 1;
 	$userData->addCoin($addCoin);
-	for($i=0;$i<$len;$i++)
+	$award->coin = $addCoin;
+	
+	$maxPropID = 0;
+	foreach($prop_base as $key=>$value)
 	{
-		$conne->uidRst($arr[$i]);
-		debug($arr[$i]);
+		if($value['hanglevel'] && $value['hanglevel']>=$level)
+		{
+			$propCD = getPropCD($level,$value['hanglevel'],$userData->getTecLevel(300 + $key););
+			if($propCD)
+			{
+				$maxPropID = max($maxPropID,$key);
+				$lastCD = getCDByIndex($awardCD,$value['id']);
+				if($lastCD)
+					$lastCD += $cd;
+				else
+					$lastCD = $cd;
+				
+				$addProp = floor($lastCD/$propCD);
+
+				
+				if($addProp)
+				{
+					$awardCD[$value['id']] = floor($lastCD)%$propCD + 1;	
+					$award->props[$key] = $addProp;
+					$userData->addProp($key,$addProp);
+				}
+				else
+				{
+					$awardCD[$value['id']] = $lastCD;
+				}
+			}
+		}
 	}
-	$returnData->coin = $addCoin;
-	$returnData->changetime = $changeTime;
+	
+	
+	$userData->hang->awardtime = time();
+	for($i=0;$i<=$maxPropID;$i++)
+	{
+		if(!$awardCD[$i])
+			$awardCD[$i] = 1;
+	}
+	$userData->hang->cd = join(",",$awardCD);
+	$userData->setChangeKey('hang');
+	
+	$returnData->award = $award;
+	$returnData->awardtime = $userData->hang->awardtime;
 	
 }while(false)
 ?> 

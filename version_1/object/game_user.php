@@ -60,7 +60,7 @@ class GameUser{
 		$this->energy = $this->decode($data['energy'],'{"v":0,"t":0}');
 		$this->active = $this->decode($data['active'],'{"task":{}}');//活动
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":[]}');
-		$this->hang = $this->decode($data['hang'],'{"level":0,"time":0}');
+		$this->hang = $this->decode($data['hang'],'{"level":0,"cd":""}');
 		$this->card = $this->decode($data['card'],'{"monster":[],"skill":[]}');
 		
 	}
@@ -234,23 +234,80 @@ class GameUser{
 		return $b;
 	}
 	
+	function getTecLevel($id){
+		global $tec_base;
+		if($this->tec->{$id})
+			return $this->tec->{$id};
+		if($tec_base[$id]['type'] == 1)
+			return 1;
+		return 0;
+	}
+	
 	//升级科技
-	function levelUpTec($type,$id){
-		global $returnData;
-		if($this->tec->{$type}->{$id})
-			$this->tec->{$type}->{$id} ++;
-		else
-			$this->tec->{$type}->{$id} = 1;
+	function levelUpTec($id){
+		global $returnData,$prop_base;
+		$this->tec->{$id} = $this->getTecLevel($id) + 1;
 		$this->setChangeKey('tec');
 		
-		if(!$returnData->{'sync_tec_'.$type})
+		if(!$returnData->{'sync_tec'})
 		{
-			$returnData->{'sync_tec_'.$type} = new stdClass();
+			$returnData->{'sync_tec'} = new stdClass();
 		}
-		$returnData->{'sync_tec_'.$type}->{$id} = $this->tec->{$type}->{$id};
+		$returnData->{'sync_tec'}->{$id} = $this->tec->{$id};
 		
-		$this->resetForce();
+		//重置每小时金币
+		$vo = $prop_base[$id];
+		if($vo['type'] == 2)
+			$this->resetForce();
+		else if($vo['type'] == 3)
+			$this->resetHourCoin();
 	}
+	
+	//受科技影响
+	function resetHourCoin(){
+		global $returnData,$prop_base;
+		$value = 0;
+		foreach($prop_base as $key=>$value)
+		{
+			if($value['type'] == 3)
+			{
+				$level = $this->getTecLevel();
+				if($level)
+					$value += $this->getTecValue($level,$value['value1'],3);
+			}
+		}
+		$this->hourcoin = $value;
+		$returnData->sync_hourcoin = $value;
+		$userData->setChangeKey('hourcoin');
+	}
+	
+	//受科技影响
+	function resetForce(){
+		global $returnData,$prop_base;
+		$value = 0;
+		foreach($prop_base as $key=>$value)
+		{
+			if($value['type'] == 2)
+			{
+				$level = $this->getTecLevel();
+				if($level)
+					$value += $this->getTecValue($level,$value['value1'],0.3);
+			}
+		}
+		$this->tec_force = $value;
+		$returnData->sync_tec_force = $value;
+		$userData->setChangeKey('tec_force');
+	}
+	
+	function getTecValue($level,$begin,$step){
+		$v = $begin;
+		for($i=1;$i<$level;$i++)
+		{	
+			$v += max(1,floor($step*$i));
+		}
+		return $v;
+	}
+	
 	
 	function getHp(){
 		return 3;
@@ -259,7 +316,7 @@ class GameUser{
 	//取道具数量
 	function getPropNum($propID){
 		if($this->prop->{$propID})
-			return $this->prop->{$propID}->num;
+			return $this->prop->{$propID};
 		return 0;
 	}
 	
@@ -268,11 +325,10 @@ class GameUser{
 		global $returnData;
 		if(!$this->prop->{$propID})
 		{
-			$this->prop->{$propID} = new stdClass();
-			$this->prop->{$propID}->num = 0;
+			$this->prop->{$propID} = 0;
 		}
 			
-		$this->prop->{$propID}->num += $num;
+		$this->prop->{$propID} += $num;
 		$this->setChangeKey('prop');	
 		
 		if(!$returnData->sync_prop)
@@ -282,10 +338,7 @@ class GameUser{
 		$returnData->sync_prop->{$propID} = $this->prop->{$propID};
 	}
 	
-	//受科技影响
-	function resetHourCoin(){
-	
-	}
+
 
 	
 	//把结果写回数据库

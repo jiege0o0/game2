@@ -28,7 +28,13 @@ do{
 	
 
 	$userData->hang->level = $hangIndex;
+	if(!$userData->hang->awardtime)
+		$userData->hang->awardtime = time();
+	$userData->hang->pktime = time();
 	$userData->setChangeKey('hang');
+	$returnData->level = $userData->hang->level;
+	$returnData->pktime = $userData->hang->pktime;
+	
 
 }while(false)
 

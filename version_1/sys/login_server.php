@@ -32,7 +32,7 @@
 		}
 		
 		//用户数据处理
-		
+		unset($userData->hang->cd);
 		
 		
 		
