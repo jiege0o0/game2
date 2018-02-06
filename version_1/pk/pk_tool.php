@@ -151,15 +151,6 @@
 	function getUserPKData($list,$player){
 		global $monster_base,$skill_base;
 		$orgin = explode(",",$player->card);
-		$len = count($orgin);
-		$useCard = array();
-		for($i=0;$i<$len;$i++)
-        {
-			if($useCard[$orgin[$i]])
-				$useCard[$orgin[$i]] ++;
-			else
-				$useCard[$orgin[$i]] = 1;
-		}
 		
 		$result = new stdClass();
 		$result->list = array();
@@ -191,12 +182,14 @@
 				$result->fail = 101;
 				break;
 			}	
-			if(!$useCard[$id])//使用了不存在的卡
+			$index = array_search($id, $orgin);
+			$isOK = $index === 0 || ($index>0 && $index <6);//只可以用前6张
+			if(!$isOK)//使用了不合法的卡
 			{
 				$result->fail = 102;
 				break;
 			}
-			$useCard[$id] --;
+			array_splice($orgin,$index,1);
 			array_push($result->list,array(
 				"mid"=>$id,
 				"time"=>$time,

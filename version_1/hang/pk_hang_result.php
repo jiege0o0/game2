@@ -26,6 +26,38 @@ do{
 		break;
 	}
 	
+	$upProp = array(5,20,40,70,100,150,200,250,300,350,400,550,600,650,700,750,800,850,900);//19¸ö
+	$award = new stdClass();
+	$award->props = array();
+	$addCoin = 90+$hangIndex*10 + floor($hangIndex/5)*20;
+	$userData->addCoin($addCoin);
+	$award->coin = $addCoin;
+	
+	if(in_array($hangIndex,$upProp))
+	{
+		$award->props[101] = 1;
+		$userData->addProp(101,1);
+	}
+	
+	$award->props[102] = 1;
+	$userData->addProp(102,1);
+	
+	$propArr = array();
+	foreach($prop_base as $key=>$value)
+	{
+		if($value['hanglevel'] && $value['hanglevel']<=$hangIndex + 5)
+		{
+			array_push($propArr,$value);
+		}
+	}
+	usort($propArr,"my_hang_sort");
+	$addProp = $propArr[rand(0,2)];
+	$num = max(1,$hangIndex - $addProp['hanglevel'] + 5);
+	$award->props[$addProp['id']] = $num;
+	$userData->addProp($addProp['id'],$num);
+	
+	$returnData->award = $award;
+	
 
 	$userData->hang->level = $hangIndex;
 	if(!$userData->hang->awardtime)
@@ -36,7 +68,16 @@ do{
 	$returnData->pktime = $userData->hang->pktime;
 	
 
-}while(false)
+}while(false);
+
+function my_hang_sort($a,$b)
+{
+	if ($a['hanglevel'] > $b['hanglevel'])
+		return -1;
+	if ($a['hanglevel'] < $b['hanglevel'])
+		return 1;
+	return 0;
+}
 
 
 ?> 

@@ -1,33 +1,41 @@
 <?php 
 	require_once($filePath."cache/base.php");
 	$useData = array();
-	foreach($list as $key=>$value)
+	$maxNum =  19 + $userData->getTecLevel(4);;
+	if(count($list) > $maxNum)
 	{
-		if(!$useData[$value])
+		$returnData -> fail = 4;
+	}
+	else
+	{
+		foreach($list as $key=>$value)
 		{
-			$skillID = (int)$value;
-			if($skillID < 100 && $monster_base[$skillID]['level'] > 1 &&!in_array($skillID,$userData->card->monster,true))
+			if(!$useData[$value])
 			{
-				$returnData -> fail = 2;
-				break;
+				$skillID = (int)$value;
+				if($skillID < 100 && $monster_base[$skillID]['level'] > 1 &&!in_array($skillID,$userData->card->monster,true))
+				{
+					$returnData -> fail = 2;
+					break;
+				}
+				if($skillID > 100 && $skill_base[$skillID]['level'] > 1 && !in_array($skillID,$userData->card->skill,true))
+				{
+					$returnData -> fail = 2;
+					break;
+				}
+				$useData[$value] = 1;
 			}
-			if($skillID > 100 && $skill_base[$skillID]['level'] > 1 && !in_array($skillID,$userData->card->skill,true))
+			else
 			{
-				$returnData -> fail = 2;
-				break;
+				$useData[$value] ++;
+				if($useData[$value] > 3)
+				{
+					$returnData -> fail = 3;
+					break;
+				}	
 			}
-			$useData[$value] = 1;
-		}
-		else
-		{
-			$useData[$value] ++;
-			if($useData[$value] > 3)
-			{
-				$returnData -> fail = 3;
-				debug($userData);
-				break;
-			}	
 		}
 	}
+	
 	
 ?> 

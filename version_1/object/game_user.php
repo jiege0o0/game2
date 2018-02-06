@@ -45,6 +45,7 @@ class GameUser{
 		$this->last_land = $data['last_land'];
 		$this->def_list = $this->decode($data['def_list'],'{"list":[]}');
 		$this->pk_common = $this->decode($data['pk_common'],'{"pktype":"","pkdata":null}');
+		$this->tec = $this->decode($data['tec'],'{}');
 		
 		
 		if($openData == null)
@@ -55,7 +56,6 @@ class GameUser{
 		$this->rmb = (int)$data['rmb'];
 		$this->diamond = (int)$data['diamond'];
 		$this->land_key = (int)$data['land_key'];
-		$this->tec = $this->decode($data['tec'],'{"main":{},"monster":{}}');
 		$this->prop = $this->decode($data['prop']);
 		$this->energy = $this->decode($data['energy'],'{"v":0,"t":0}');
 		$this->active = $this->decode($data['active'],'{"task":{}}');//活动
@@ -265,13 +265,13 @@ class GameUser{
 	
 	//受科技影响
 	function resetHourCoin(){
-		global $returnData,$prop_base;
+		global $returnData,$tec_base;
 		$value = 0;
-		foreach($prop_base as $key=>$value)
+		foreach($tec_base as $key=>$value)
 		{
 			if($value['type'] == 3)
 			{
-				$level = $this->getTecLevel();
+				$level = $this->getTecLevel($key);
 				if($level)
 					$value += $this->getTecValue($level,$value['value1'],3);
 			}
@@ -283,13 +283,13 @@ class GameUser{
 	
 	//受科技影响
 	function resetForce(){
-		global $returnData,$prop_base;
+		global $returnData,$tec_base;
 		$value = 0;
-		foreach($prop_base as $key=>$value)
+		foreach($tec_base as $key=>$value)
 		{
 			if($value['type'] == 2)
 			{
-				$level = $this->getTecLevel();
+				$level = $this->getTecLevel($key);
 				if($level)
 					$value += $this->getTecValue($level,$value['value1'],0.3);
 			}
@@ -310,7 +310,7 @@ class GameUser{
 	
 	
 	function getHp(){
-		return 3;
+		return 2 + $this->getTecLevel(2);
 	}
 	
 	//取道具数量

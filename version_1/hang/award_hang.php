@@ -29,7 +29,7 @@ do{
 	$award = new stdClass();
 	$award->props = array();
 	
-	$coinCD = 3600/(90+$level*10);
+	$coinCD = 3600/(90+$level*10 + floor($level/5)*20);
 	$lastCoinCD = getCDByIndex($awardCD,0);
 	if($lastCoinCD)
 		$lastCoinCD += $cd;
@@ -43,9 +43,9 @@ do{
 	$maxPropID = 0;
 	foreach($prop_base as $key=>$value)
 	{
-		if($value['hanglevel'] && $value['hanglevel']>=$level)
+		if($value['hanglevel'] && $value['hanglevel']<=$level)
 		{
-			$propCD = getPropCD($level,$value['hanglevel'],$userData->getTecLevel(300 + $key););
+			$propCD = getPropCD($level,$value['hanglevel'],$userData->getTecLevel(300 + $key));
 			if($propCD)
 			{
 				$maxPropID = max($maxPropID,$key);

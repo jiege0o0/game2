@@ -1,12 +1,4 @@
 <?php 
-	function getTecValue($level,$begin,$step){
-		$v = $begin;
-		for($i=1;$i<$level;$i++)
-		{	
-			$v += max(1,floor($step*$i));
-		}
-		return $v;
-	}
-	for($i=1;$i<100;$i++)
-		echo $i.'-'.getTecValue($i,1,0.33).'<br/>';
+	$upProp = array(5,20,40,70,100,150,200,250,300,350,400,550,600,650,700,750,800,850,900);
+	echo in_array(50,$upProp);
 ?> 

@@ -31,6 +31,15 @@ do{
 	$pkData = new stdClass();
 	$pkData->seed = time();
 	$pkData->players = array();
+	
+	//计算关卡战力
+	$force=1;
+	for($i=1;$i<$hangIndex;$i++)
+	{	
+		$force+=floor($i/10+1);
+	}
+	
+	$hang_base[$hangIndex]['force']=$force;
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
 	array_push($pkData->players,createNpcPlayer(2,2,$hang_base[$hangIndex]));
 	

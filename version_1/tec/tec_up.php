@@ -30,13 +30,15 @@ function getOtherNeed($lv,$type){
 	
 $id=$msg->id;
 $lv = $userData->getTecLevel($id);
-$vo = $prop_base[$id];
+$vo = $tec_base[$id];
 $coin = getCoinNeed($lv + $vo['coinlv'] + $vo['step']*$lv); 
 $arr = array();
 $idAdd = 0;
 if($vo['type'] == 1)//通用类型需要的道具会变化
 {
 	$idAdd += $lv - 1;
+	if($vo['id'] == 1)
+		array_push($arr,array('id'=>101,'num'=>1));
 }
 if($vo['prop1'])
 	array_push($arr,array('id'=>$vo['prop1']+ $idAdd,'num'=>getOtherNeed($lv,1)));
@@ -48,9 +50,20 @@ if($vo['prop3'])
 
 
 do{
+	if($vo['type'] == 1 && $id != 1)
+	{
+		if($userData->getTecLevel(1) < $userData->getTecLevel($id) + $vo['level'])
+		{
+			$returnData -> fail = 3;
+			$returnData -> level = $userData->getTecLevel($id);
+			break;
+		}
+	}
+
 	if($userData->getCoin() < $coin)
 	{
 		$returnData -> fail = 1;
+		$returnData -> level = $userData->getTecLevel($id);
 		$returnData->sync_coin = $userData->coin;
 		break;
 	}
@@ -61,6 +74,7 @@ do{
 		if($userData->getPropNum($value['id']) < $value['num'])
 		{
 			$returnData -> fail = 2;
+			$returnData -> level = $userData->getTecLevel($id);
 			$returnData->sync_prop = new stdClass();
 			$returnData->sync_prop->{$value['id']} = $userData->getPropNum($value['id']);
 			break;
