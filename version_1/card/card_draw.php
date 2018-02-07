@@ -1,20 +1,66 @@
 <?php 
-$force1 = min(floor($userData->tec_force * 0.9),$userData->tec_force - 5);
-$force2 = max(floor($userData->tec_force * 1.1),$userData->tec_force + 5);
+require_once($filePath."cache/base.php");
+$id = $userData->gameid;
+$cost = 1;
+$tecLevel = $userData->getTecLevel(1);
 do{
-	$time = time();
-	$sql = "select * from ".getSQLTable('slave')." where tec_force between ".$force1." and ".$force2." and gameid!='".$msg->gameid."' and master!='".$msg->gameid."' and protime<".$time." limit 30";
-	$result = $conne->getRowsArray($sql);
-	debug($sql);
-	if(!$result || count($result) < 5)
+	if($userData->getPropNum(102) < $cost)
 	{
-		if($result)
-			$conne->close_rst();
-		$force1 = min(floor($userData->tec_force * 0.8),$userData->tec_force - 5);
-		$sql = "select * from ".getSQLTable('slave')." where tec_force between ".$force1." and ".$force2." and gameid!='".$msg->gameid."' and master!='".$msg->gameid."' and protime<".$time." limit 30";
-		$result = $conne->getRowsArray($sql);
+		$returnData -> fail = 1;
+		break;
 	}
-	$returnData->list = $result;
+	$haveSkill = array();
+	$noSkill = array();
+	foreach($skill_base as $key=>$value)
+	{
+		if($value['level'] <= $tecLevel)
+		{
+			if($value['level'] <=1 || in_array($value['id'],$userData->card->skill))
+				array_push($haveSkill,$value['id']);
+			else
+				array_push($noSkill,$value['id']);
+		}
+	}
+	$len1 = count($haveSkill);
+	$len2 = count($noSkill);
+	
+	if($len1 == $len2)
+	{
+		$returnData -> fail = 2;
+		break;
+	}
+	
+	$earnProp = 0;
+	if(rand(1,$len1 + $len2) <= $len2)//中
+	{
+		$index = rand(1,$len1 + $len2);
+		if($index <= $len2)//中上中
+			$id = $noSkill[$index-1];
+		else
+		{
+			$id = $haveSkill[$index-$len2-1];
+			$earnProp = 1;
+		}
+	}
+	else
+	{
+		$id = $haveSkill[rand(0,$len1-1)];
+		$earnProp = 1;
+	}
+	$userData->addProp(102,-$cost);
+	if($earnProp)
+	{
+		$userData->addProp(103,$earnProp);
+	}
+	else
+	{
+		array_push($userData->card->skill,$id);
+		$userData->setChangeKey('card');
+	}
+	
+	$returnData -> id = $id;
+	$returnData -> addprop = $earnProp;
+	
 }while(false)
 
 ?> 

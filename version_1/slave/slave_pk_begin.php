@@ -29,6 +29,12 @@ do{
 		break;
 	}
 	
+	if($result['protime'] > time())//保护中
+	{
+		$returnData -> fail = 7;
+		break;
+	}
+	
 	if(!$userData->testEnergy(1))//没体力
 	{
 		$returnData -> fail = 1;

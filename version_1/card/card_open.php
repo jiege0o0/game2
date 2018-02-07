@@ -1,20 +1,26 @@
 <?php 
-$id = min(floor($userData->tec_force * 0.9),$userData->tec_force - 5);
-$force2 = max(floor($userData->tec_force * 1.1),$userData->tec_force + 5);
+require_once($filePath."cache/base.php");
+$id = $userData->gameid;
+$coin = floor(pow($monster_base[$id]['level'],3.05)*100-2000);
 do{
-	$time = time();
-	$sql = "select * from ".getSQLTable('slave')." where tec_force between ".$force1." and ".$force2." and gameid!='".$msg->gameid."' and master!='".$msg->gameid."' and protime<".$time." limit 30";
-	$result = $conne->getRowsArray($sql);
-	debug($sql);
-	if(!$result || count($result) < 5)
+	if($userData->getCoin() < $coin)
 	{
-		if($result)
-			$conne->close_rst();
-		$force1 = min(floor($userData->tec_force * 0.8),$userData->tec_force - 5);
-		$sql = "select * from ".getSQLTable('slave')." where tec_force between ".$force1." and ".$force2." and gameid!='".$msg->gameid."' and master!='".$msg->gameid."' and protime<".$time." limit 30";
-		$result = $conne->getRowsArray($sql);
+		$returnData -> fail = 1;
+		$returnData->sync_coin = $userData->coin;
+		break;
 	}
-	$returnData->list = $result;
+	
+	if(in_array($id,$userData->card->monster))
+	{
+		$returnData -> fail = 2;
+		break;
+	}
+	
+	array_push($userData->card->monster,$id);
+	$userData->addCoin(-$coin);
+	$userData->setChangeKey('card');
+	$returnData -> id = $id;
+	
 }while(false)
 
 ?> 

@@ -37,6 +37,13 @@ do{
 		$returnData -> otherid = $otherid; 
 		break;
 	}
+	
+	if($result['protime'] > time())//±£»¤ÖĞ
+	{
+		$returnData -> fail = 3;
+		break;
+	}
+	
 	$pkMaster = $userData->gameid == $otherid;
 	$lastMaster = $result['master'];
 	$time = time();
