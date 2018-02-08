@@ -1,6 +1,5 @@
 <?php 
 require_once($filePath."cache/base.php");
-$id = $userData->gameid;
 $cost = 1;
 $tecLevel = $userData->getTecLevel(1);
 do{
@@ -15,7 +14,7 @@ do{
 	{
 		if($value['level'] <= $tecLevel)
 		{
-			if($value['level'] <=1 || in_array($value['id'],$userData->card->skill))
+			if($value['level'] == 0 || in_array($value['id'],$userData->card->skill))
 				array_push($haveSkill,$value['id']);
 			else
 				array_push($noSkill,$value['id']);

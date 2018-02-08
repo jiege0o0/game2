@@ -1,6 +1,6 @@
 <?php 
 require_once($filePath."cache/base.php");
-$id = $userData->gameid;
+$id = $msg->id;
 $cost = 30;
 do{
 	if($userData->getPropNum(103) < $cost)

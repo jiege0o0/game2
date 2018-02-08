@@ -1,7 +1,7 @@
 <?php 
 require_once($filePath."cache/base.php");
-$id = $userData->gameid;
-$coin = floor(pow($monster_base[$id]['level'],3.05)*100-2000);
+$id = $msg->id;
+$coin = floor(pow($monster_base[$id]['level'],3.05)*100);
 do{
 	if($userData->getCoin() < $coin)
 	{

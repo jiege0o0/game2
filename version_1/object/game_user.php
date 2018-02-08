@@ -94,6 +94,9 @@ class GameUser{
 	function setChangeKey($key){
 		$this->changeKey[$key] = 1;
 	}
+	function setOpenDataChange(){
+		$this->openDataChange = true;
+	}
 	
 	//体力相关==============================================
 	function testEnergy($v){
@@ -265,7 +268,7 @@ class GameUser{
 	
 	//受科技影响
 	function resetHourCoin(){
-		global $returnData,$tec_base;
+		global $returnData,$tec_base,$rankType,$rankScore;
 		$value = 0;
 		foreach($tec_base as $key=>$value)
 		{
@@ -279,11 +282,17 @@ class GameUser{
 		$this->hourcoin = $value;
 		$returnData->sync_hourcoin = $value;
 		$userData->setChangeKey('hourcoin');
+		
+		$rankType = 'hourcoin';
+		$rankScore = $this->hourcoin;
+		require($filePath."rank/add_rank.php");
+		require($filePath."slave/slave_reset_list.php");
+		
 	}
 	
 	//受科技影响
 	function resetForce(){
-		global $returnData,$tec_base;
+		global $returnData,$tec_base,$rankType,$rankScore;
 		$value = 0;
 		foreach($tec_base as $key=>$value)
 		{
@@ -297,6 +306,11 @@ class GameUser{
 		$this->tec_force = $value;
 		$returnData->sync_tec_force = $value;
 		$userData->setChangeKey('tec_force');
+		
+		$rankType = 'force';
+		$rankScore = $this->tec_force;
+		require($filePath."rank/add_rank.php");
+		require($filePath."slave/slave_reset_list.php");
 	}
 	
 	function getTecValue($level,$begin,$step){
@@ -413,6 +427,8 @@ class GameUser{
 			$arr = array();
 			if($this->changeKey['masterstep'])
 				array_push($arr,addKey('masterstep',"'".$this->openData['masterstep']."'"));
+			if($this->changeKey['mailtime'])
+				array_push($arr,addKey('mailtime',$this->openData['mailtime']));
 				
 			if(count($arr))
 			{

@@ -20,19 +20,48 @@
 			$conne->uidRst($sql2);
 			$userOpen = $conne->getRowsRst($sql);
 		}
-	
+		$writeDB = false;
 		$userData['last_land'] = $time;
 		$userData['land_key'] = $time;
 		$userData = new GameUser($userData,$userOpen);
 		// $userData->addCoin(1);
 		if($userData->resetCoin())
 		{
-			$userData->write2DB(true);
+			$writeDB = true;
 			unset($returnData->sync_coin);
 		}
 		
 		//用户数据处理
 		unset($userData->hang->cd);
+		
+		if(!$userData->active->p0 || $userData->active->p0<1518081448)
+		{
+			$oo = new stdClass();
+			$oo->des = base64_encode('给个奖你');
+			$oo->award = new stdClass();
+			$oo->award->coin = 10;
+			$oo->award->props = new stdClass();
+			$oo->award->props->{1} = 1;
+			$oo = json_encode($oo);
+			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('sys','".$userData->gameid."',101,'".$oo."',".$time.")";
+			$conne->uidRst($sql);
+			
+			
+			$userData->active->p0 = $time;
+			$userData->openData['mailtime'] = $time;
+			$userData->setOpenDataChange();
+			$userData->setChangeKey('mailtime');
+			$userData->setChangeKey('active');
+			
+			$writeDB = true;
+		}
+		
+		
+		
+		if($writeDB)
+		{
+			$userData->write2DB(true);
+		}
 		
 		
 		

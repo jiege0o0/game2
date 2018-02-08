@@ -33,7 +33,7 @@ do{
 	$userData->addCoin($addCoin);
 	$award->coin = $addCoin;
 	
-	if(in_array($hangIndex,$upProp))
+	if(in_array($hangIndex,$upProp) && $userData->getPropNum(101) == 0)
 	{
 		$award->props[101] = 1;
 		$userData->addProp(101,1);
