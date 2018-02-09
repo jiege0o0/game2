@@ -109,6 +109,12 @@ shop varchar(255),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
+mysql_query("
+Create TABLE g2_".$sql_table."view(
+gameid varchar(32) NOT NULL Unique Key,
+viewlist Text
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
 //排行榜
 $rankName = array('force','hang','hourcoin');
 foreach($rankName as $key=>$value)
