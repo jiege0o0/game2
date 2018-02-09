@@ -22,6 +22,7 @@ do{
 	if($userData->diamond < $count)//²»¹»×êÊ¯
 	{
 		$returnData -> fail = 1;
+		$returnData->sync_diamond = $userData->diamond;
 		break;
 	}
 	$userData->addDiamond(-$count);

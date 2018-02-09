@@ -162,14 +162,16 @@
 		}
 	}
 	
+	
+	
+	unset($returnData->stopLog);	
+	if(isset($msg->landid) && isset($msg->gameid) && !$returnData->fail && !$mySendData->error)
+		$userData->write2DB();
+		
 	if($debugC)
 	{
 		$mySendData->runtime = microtime(true) - $startT;
 		$mySendData->debug = $debugArr;
 	}
-	
-	unset($returnData->stopLog);	
-	if(isset($msg->landid) && isset($msg->gameid) && !$returnData->fail && !$mySendData->error)
-		$userData->write2DB();
 	sendToClient($mySendData);
 ?>

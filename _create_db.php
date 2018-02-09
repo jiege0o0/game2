@@ -91,6 +91,24 @@ stat TINYINT UNSIGNED,
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
+mysql_query("
+Create TABLE g2_".$sql_table."pay_log(
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+orderno varchar(32),
+orderno2 varchar(8),
+goodsid varchar(32),
+gameid varchar(32),
+time INT UNSIGNED,
+INDEX(orderno,gameid,orderno2)
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+mysql_query("
+Create TABLE g2_".$sql_table."shop(
+gameid varchar(32) NOT NULL Unique Key,
+shop varchar(255),
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
 //排行榜
 $rankName = array('force','hang','hourcoin');
 foreach($rankName as $key=>$value)

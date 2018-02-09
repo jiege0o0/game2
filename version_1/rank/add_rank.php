@@ -6,6 +6,7 @@ $time = time();
 do{
 	//更上榜上数据
 	$sql = "update ".getSQLTable('rank_'.$rankType)." set score=".$rankScore.",time=".$time.",head='".$userData->head."' where gameid='".$userData->gameid."'";
+	// debug($sql);
 	$result = $conne->uidRst($sql);
 	if(!$result)//没有则改变最小值的数据（如果该值小于自己的）
 	{

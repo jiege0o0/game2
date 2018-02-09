@@ -248,7 +248,7 @@ class GameUser{
 	
 	//升级科技
 	function levelUpTec($id){
-		global $returnData,$prop_base;
+		global $returnData,$tec_base;
 		$this->tec->{$id} = $this->getTecLevel($id) + 1;
 		$this->setChangeKey('tec');
 		
@@ -259,7 +259,7 @@ class GameUser{
 		$returnData->{'sync_tec'}->{$id} = $this->tec->{$id};
 		
 		//重置每小时金币
-		$vo = $prop_base[$id];
+		$vo = $tec_base[$id];
 		if($vo['type'] == 2)
 			$this->resetForce();
 		else if($vo['type'] == 3)
@@ -268,19 +268,22 @@ class GameUser{
 	
 	//受科技影响
 	function resetHourCoin(){
-		global $returnData,$tec_base,$rankType,$rankScore;
-		$value = 0;
+		global $returnData,$tec_base,$rankType,$rankScore,$filePath,$conne,$userData;
+		$force = 0;
 		foreach($tec_base as $key=>$value)
 		{
 			if($value['type'] == 3)
 			{
 				$level = $this->getTecLevel($key);
 				if($level)
-					$value += $this->getTecValue($level,$value['value1'],3);
+				{
+					$addValue = $this->getTecValue($level,$value['value1'],3);
+					$force += $addValue;
+				}
 			}
 		}
-		$this->hourcoin = $value;
-		$returnData->sync_hourcoin = $value;
+		$this->hourcoin = $force;
+		$returnData->sync_hourcoin = $force;
 		$userData->setChangeKey('hourcoin');
 		
 		$rankType = 'hourcoin';
@@ -292,20 +295,23 @@ class GameUser{
 	
 	//受科技影响
 	function resetForce(){
-		global $returnData,$tec_base,$rankType,$rankScore;
-		$value = 0;
+		global $returnData,$tec_base,$rankType,$rankScore,$filePath,$conne,$userData;
+		$force = 0;
 		foreach($tec_base as $key=>$value)
 		{
 			if($value['type'] == 2)
 			{
 				$level = $this->getTecLevel($key);
 				if($level)
-					$value += $this->getTecValue($level,$value['value1'],0.3);
+				{
+					$addValue = $this->getTecValue($level,$value['value1'],0.3);
+					$force += $addValue;
+				}
 			}
 		}
-		$this->tec_force = $value;
-		$returnData->sync_tec_force = $value;
-		$userData->setChangeKey('tec_force');
+		$this->tec_force = $force;
+		$returnData->sync_tec_force = $force;
+		$this->setChangeKey('tec_force');
 		
 		$rankType = 'force';
 		$rankScore = $this->tec_force;
@@ -414,7 +420,7 @@ class GameUser{
 		{
 			array_push($arr,addKey('last_land',time()));	
 			$sql = "update ".getSQLTable('user_data')." set ".join(",",$arr)." where gameid='".$this->gameid."'";
-			 debug($sql);
+			 //debug($sql);
 			if(!$conne->uidRst($sql))//写用户数据失败
 			{
 				$mySendData->error = 4;
@@ -433,7 +439,7 @@ class GameUser{
 			if(count($arr))
 			{
 				$sql = "update ".getSQLTable('user_open')." set ".join(",",$arr)." where gameid='".$this->gameid."'";
-				debug($sql);
+				// debug($sql);
 				if(!$conne->uidRst($sql))//写用户数据失败
 				{
 					$mySendData->error = 4;
