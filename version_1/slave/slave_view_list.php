@@ -22,7 +22,7 @@
 		
 		if(count($needRenew))//更新好友信息
 		{
-			$sql = "select gameid,nick,head,tec_force,hourcoin,type from ".getSQLTable('user_data')." where gameid in('".join($needRenew,"','")."')";
+			$sql = "select gameid,nick,head,tec_force,hourcoin,type,level from ".getSQLTable('user_data')." where gameid in('".join($needRenew,"','")."')";
 			$result2 = $conne->getRowsArray($sql);
 			
 			foreach($result2 as $key=>$value)
@@ -34,6 +34,7 @@
 				$obj->{$otherid}->tec_force = $value['tec_force'];
 				$obj->{$otherid}->hourcoin = $value['hourcoin'];
 				$obj->{$otherid}->type = $value['type'];
+				$obj->{$otherid}->level = $value['level'];
 				$obj->{$otherid}->time = $now;
 			}
 			$sql = "update ".getSQLTable('view')." set viewlist='".json_encode($obj)."' where gameid='".$userData->gameid."'";

@@ -264,6 +264,13 @@ class GameUser{
 			$this->resetForce();
 		else if($vo['type'] == 3)
 			$this->resetHourCoin();
+		else if($id == 1)//主城等级
+		{
+			$this->level = $this->tec->{$id};
+			$this->setChangeKey('level');	
+			require($filePath."slave/slave_reset_list.php");
+		}
+			
 	}
 	
 	//受科技影响
