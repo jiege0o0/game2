@@ -276,7 +276,7 @@ class GameUser{
 	//受科技影响
 	function resetHourCoin(){
 		global $returnData,$tec_base,$rankType,$rankScore,$filePath,$conne,$userData;
-		$force = 0;
+		$force = 10;
 		foreach($tec_base as $key=>$value)
 		{
 			if($value['type'] == 3)

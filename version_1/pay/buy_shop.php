@@ -38,6 +38,8 @@
 		}
 		if($shopValue->id == 'coin')
 			$userData->addCoin($shopValue->num);
+		else if($shopValue->id == 'energy')
+			$userData->addEnergy($shopValue->num);
 		else
 			$userData->addProp($shopValue->id,$shopValue->num);
 		$userData->addDiamond(-$shopValue->diamond);

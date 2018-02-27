@@ -43,6 +43,8 @@
 				));
 			}
 		}
+	
+				
 		//钱
 		$coinCD = 3600/(90+$level*10 + floor($level/5)*20);
 		array_push($arr,array(
@@ -60,11 +62,18 @@
 				));
 		}
 		
-		if(count($arr) > 6)//最多取6个
+		if(count($arr) > 5)//最多取6个
 		{
 			usort($arr,randomSortFun);
-			$arr = array_slice($arr,0,6);
+			$arr = array_slice($arr,0,5);
 		}
+		//体力(必有)
+		$num = rand(10,20);
+		array_push($arr,array(
+					'id'=>'energy',
+					'num'=>$num,
+					'diamond'=>$num*5
+				));
 		
 		$returnData->shop = $arr;
 		if($result)
