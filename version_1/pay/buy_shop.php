@@ -24,7 +24,7 @@
 			$returnData->fail = 2;
 			break;
 		}
-		if($shopValue->num == 0)
+		if($shopValue->isbuy)
 		{
 			$returnData->fail = 3;
 			break;
@@ -42,7 +42,7 @@
 			$userData->addProp($shopValue->id,$shopValue->num);
 		$userData->addDiamond(-$shopValue->diamond);
 		
-		$arr[$shopKey]->num = 0;
+		$arr[$shopKey]->isbuy = true;
 		$sql = "update ".getSQLTable('shop')." set shop='".json_encode($arr)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
 		
