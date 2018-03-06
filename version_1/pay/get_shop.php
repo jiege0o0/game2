@@ -35,6 +35,7 @@
 			}
 			else if($value['diamond'] && $key != 101)
 			{
+				//技能令...
 				$num = rand(1,5);
 				array_push($arr,array(
 					'id'=>$key,
@@ -61,6 +62,7 @@
 					'diamond'=>$prop_base[101]['diamond']
 				));
 		}
+
 		
 		if(count($arr) > 5)//最多取6个
 		{

@@ -39,8 +39,13 @@ do{
 		$userData->addProp(101,1);
 	}
 	
-	$award->props[102] = 1;
-	$userData->addProp(102,1);
+	if(!$award->props[101] && $hangIndex%2 == 0)
+	{
+		$award->props[102] = 1;
+		$userData->addProp(102,1);
+	}
+	
+	
 	
 	$propArr = array();
 	foreach($prop_base as $key=>$value)

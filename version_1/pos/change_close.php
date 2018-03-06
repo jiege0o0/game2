@@ -8,15 +8,9 @@ do{
 		$data = & $userData->atk_list->list;
 	else
 		$data = & $userData->def_list->list;
-			
-	foreach($data as $key=>$value)
-	{
-		if($value->id == $id)
-		{
-			$findData = &$data[$key];
-			break;
-		}
-	}
+		
+	$findData = &$data->{$id};
+	
 	if(!$findData)
 	{
 		$returnData -> fail = 1;

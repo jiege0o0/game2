@@ -1,6 +1,5 @@
 <?php 
 $id=$msg->id;
-$name=$msg->name;
 $type=$msg->type;
 if($msg->list)
 {
@@ -15,14 +14,7 @@ do{
 	else
 		$data = & $userData->def_list->list;
 			
-	foreach($data as $key=>$value)
-	{
-		if($value->id == $id)
-		{
-			$findData = &$data[$key];
-			break;
-		}
-	}
+	$findData = &$data->{$id};
 	if(!$findData)
 	{
 		$returnData -> fail = 1;
@@ -35,8 +27,7 @@ do{
 			break;
 		$findData->list = $msg->list;
 	}
-	if($name)
-		$findData->name = base64_encode($name);
+
 	
 		
 	if($type == 'atk')

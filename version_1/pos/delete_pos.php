@@ -14,7 +14,7 @@ do{
 		if($value->id == $id)
 		{
 			$find = true;
-			array_splice($data,$key,1);
+			unset($data->{$key});
 			break;
 		}
 	}
