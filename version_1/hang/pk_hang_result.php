@@ -26,7 +26,11 @@ do{
 		break;
 	}
 	
-	$upProp = array(5,20,40,70,100,150,200,250,300,350,400,550,600,650,700,750,800,850,900);//19¸ö
+	$upProp = array();//19¸ö
+	for($i=4;$i<=22;$i++)
+	{
+		array_push($upProp,$prop_base[$i]['hanglevel']);
+	}
 	$award = new stdClass();
 	$award->props = array();
 	$addCoin = 90+$hangIndex*10 + floor($hangIndex/5)*20;
