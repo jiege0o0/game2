@@ -30,7 +30,7 @@ do{
 		$num = floor(($time - $data['awardtime'])/3600);
 		if($num)
 		{
-			$addCoin += min(8,$num)*$data['hourcoin'];
+			$addCoin += min(10,$num)*$data['hourcoin'];
 			$changeTime[$data['gameid']] = $num;
 			array_push($arr,"update ".getSQLTable('slave')." set awardtime=awardtime+".($num*3600)." where gameid='".$data['gameid']."'");
 		}

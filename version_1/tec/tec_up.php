@@ -27,6 +27,94 @@ function getOtherNeed($lv,$type){
 	return floor($base);
 }
 
+//升级科技
+function levelUpTec($id){
+	global $returnData,$tec_base,$userData;
+	$userData->tec->{$id} = $userData->getTecLevel($id) + 1;
+	$userData->setChangeKey('tec');
+	
+	if(!$returnData->{'sync_tec'})
+	{
+		$returnData->{'sync_tec'} = new stdClass();
+	}
+	$returnData->{'sync_tec'}->{$id} = $userData->tec->{$id};
+	
+	//重置每小时金币
+	$vo = $tec_base[$id];
+	if($vo['type'] == 2)
+		resetForce();
+	else if($vo['type'] == 3)
+		resetHourCoin();
+	else if($id == 1)//主城等级
+	{
+		$userData->level = $userData->tec->{$id};
+		$userData->setChangeKey('level');	
+		require($filePath."slave/slave_reset_list.php");
+	}	
+}
+
+//受科技影响
+function resetHourCoin(){
+	global $returnData,$tec_base,$rankType,$rankScore,$filePath,$conne,$userData;
+	$force = 10;
+	foreach($tec_base as $key=>$value)
+	{
+		if($value['type'] == 3)
+		{
+			$level = $userData->getTecLevel($key);
+			if($level)
+			{
+				$addValue = getTecValue($level,$value['value1'],3);
+				$force += $addValue;
+			}
+		}
+	}
+	$userData->hourcoin = $force;
+	$returnData->sync_hourcoin = $force;
+	$userData->setChangeKey('hourcoin');
+	
+	$rankType = 'hourcoin';
+	$rankScore = $userData->hourcoin;
+	require($filePath."rank/add_rank.php");
+	require($filePath."slave/slave_reset_list.php");
+	
+}
+
+//受科技影响
+function resetForce(){
+	global $returnData,$tec_base,$rankType,$rankScore,$filePath,$conne,$userData;
+	$force = 0;
+	foreach($tec_base as $key=>$value)
+	{
+		if($value['type'] == 2)
+		{
+			$level = $userData->getTecLevel($key);
+			if($level)
+			{
+				$addValue = getTecValue($level,$value['value1'],0.3);
+				$force += $addValue;
+			}
+		}
+	}
+	$userData->tec_force = $force;
+	$returnData->sync_tec_force = $force;
+	$userData->setChangeKey('tec_force');
+	
+	$rankType = 'force';
+	$rankScore = $this->tec_force;
+	require($filePath."rank/add_rank.php");
+	require($filePath."slave/slave_reset_list.php");
+}
+
+function getTecValue($level,$begin,$step){
+	$v = $begin;
+	for($i=1;$i<$level;$i++)
+	{	
+		$v += max(1,floor($step*$i));
+	}
+	return $v;
+}
+
 	
 $id=$msg->id;
 $lv = $userData->getTecLevel($id);
@@ -85,7 +173,7 @@ do{
 	if($returnData -> fail)
 		break;
 	
-	$userData->levelUpTec($id);	
+	levelUpTec($id);	
 }while(false)
 
 

@@ -12,6 +12,7 @@ do{
 	$pkData = $userData->pk_common->pkdata;
 	
 	$playerData = getUserPKData($list,$pkData->players[0]);
+	$enempList = $pkData->players[1]->autolist;
 	if($playerData -> fail)//出怪顺序有问题
 	{
 		$returnData -> fail = $playerData -> fail;
@@ -19,6 +20,7 @@ do{
 	}
 	$pkData->players[0] = $playerData;
 	$pkData->players[1] = getAutoPKData($pkData->players[1]);
+	
 	
 	require_once($filePath."pk/pk.php");
 	if($returnData -> fail)//PK结果有问题
@@ -72,9 +74,11 @@ do{
 	if(!$userData->hang->awardtime)
 		$userData->hang->awardtime = time();
 	$userData->hang->pktime = time();
+	$userData->hang->lastlist = $enempList;
 	$userData->setChangeKey('hang');
 	$returnData->level = $userData->hang->level;
 	$returnData->pktime = $userData->hang->pktime;
+	$returnData->lastlist = $userData->hang->lastlist;
 	
 
 }while(false);

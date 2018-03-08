@@ -20,7 +20,7 @@ do{
 		$awardCD = array();
 	$level = $userData->hang->level;
 	$lastTime = $userData->hang->awardtime;
-	$cd = min(3600*8,time()- $lastTime);//离上次结算经过的时间
+	$cd = min(3600*10,time()- $lastTime);//离上次结算经过的时间
 	if($cd<60)//未到领奖时间
 	{
 		$returnData -> fail = 1;

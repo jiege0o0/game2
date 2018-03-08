@@ -34,7 +34,7 @@
 		//用户数据处理
 		unset($userData->hang->cd);
 		
-		if(!$userData->active->p0 || $userData->active->p0<1518081448)
+		if(!$userData->active->p0 || $userData->active->p0<1520498485)
 		{
 			$oo = new stdClass();
 			$oo->des = base64_encode('给个奖你');
