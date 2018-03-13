@@ -13,7 +13,7 @@ $connect=mysql_connect($sql_url,$sql_user,$sql_password)or die('message=F,Could 
 mysql_select_db($sql_db,$connect)or die('Could not select database'); 
 mysql_query("set names utf8");
 
-
+/*
 //自己的数据
 mysql_query("
 Create TABLE g2_".$sql_table."user_data(
@@ -113,8 +113,26 @@ mysql_query("
 Create TABLE g2_".$sql_table."view(
 gameid varchar(32) NOT NULL Unique Key,
 viewlist Text
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+
+mysql_query("
+Create TABLE g2_".$sql_table."card_like(
+id SMALLINT UNSIGNED NOT NULL Unique Key,
+like_num INT UNSIGNED,
+unlike_num INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
+//往表插入数据
+$sql = "insert into g2_".$sql_table."card_like(id,like_num,unlike_num) values";
+$arr = array();
+for($i=1;$i<=300;$i++)
+{
+	array_push($arr,"(".$i.",0,0)");
+}
+$sql2 = implode(',',$arr);
+mysql_query($sql.$sql2,
+$connect)or die("message=F,Invalid query: " . mysql_error()); 
+/*
 //排行榜
 $rankName = array('force','hang','hourcoin');
 foreach($rankName as $key=>$value)
@@ -139,7 +157,7 @@ foreach($rankName as $key=>$value)
 	$sql2 = implode(',',$arr);
 	mysql_query($sql.$sql2,
 	$connect)or die("message=F,Invalid query: " . mysql_error()); 
-}
+}*/
 
 
 

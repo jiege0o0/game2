@@ -6,10 +6,16 @@ do{
 	if($userData->getPropNum(103) < $cost)
 	{
 		$returnData -> fail = 1;
-		$returnData->sync_coin = $userData->coin;
+		$returnData->sync_prop->{103} = $userData->getPropNum(103);
 		break;
 	}
 	
+	if($skill_base[$id]['level'] > $userData->level)
+	{
+		$returnData -> fail = 3;
+		break;
+	}
+
 	if(in_array($id,$userData->card->skill))
 	{
 		$returnData -> fail = 2;
