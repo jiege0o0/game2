@@ -9,6 +9,7 @@ http://172.17.196.195:90/game2/test.php?serverid=1
 http://172.17.196.195:9021/index.html?debug_server=1&debug=1
 http://172.17.196.195:9021/index.html?debug_server=1&app=1
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1
+http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1
 http://172.17.196.195:9020/index.html?debug_server=1&app=1
 
 2周到100关
@@ -33,12 +34,16 @@ http://172.17.196.195:9020/index.html?debug_server=1&app=1
 
 技能设计
 文案：道具，科技
-中毒
 声音
-新手引导
-平衡算法
+新手引导*
+蛇女技能
+红点相关
 
 
+
+录像回放-
+中毒-
+平衡算法-
 首页-
 帮助-
 图标:道具-，科技-，头像-,系统邮件-

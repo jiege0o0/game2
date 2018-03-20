@@ -21,6 +21,7 @@
 			$userOpen = $conne->getRowsRst($sql);
 		}
 		$writeDB = false;
+		$lastLand = $userData['last_land'];
 		$userData['last_land'] = $time;
 		$userData['land_key'] = $time;
 		$userData = new GameUser($userData,$userOpen);
@@ -34,10 +35,25 @@
 		//用户数据处理
 		unset($userData->hang->cd);
 		
+		if(!isSameDate($lastLand))
+		{
+			$oo = new stdClass();
+			$oo->des = base64_encode('测试期间登录奖励');
+			$oo->award = new stdClass();
+			$oo->award->diamond = 100;
+			$oo = json_encode($oo);
+			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('sys','".$userData->gameid."',101,'".$oo."',".$time.")";
+			$conne->uidRst($sql);
+			
+			$userData->openData['mailtime'] = $time;
+			$userData->setOpenDataChange();
+			$userData->setChangeKey('mailtime');
+		}
+		
 		if(!$userData->active->p0 || $userData->active->p0<1520498485)
 		{
 			$oo = new stdClass();
-			$oo->des = base64_encode('给个奖你');
+			$oo->des = base64_encode('系统给你发奖罗~');
 			$oo->award = new stdClass();
 			$oo->award->coin = 10;
 			$oo->award->props = new stdClass();
@@ -55,8 +71,6 @@
 			
 			$writeDB = true;
 		}
-		
-		
 		
 		if($writeDB)
 		{

@@ -5,6 +5,7 @@
 		$player->id = $id;
 		$player->team = $team;
 		$player->gameid = $userData->gameid;
+		$player->head = $userData->head;
 		$player->nick = base64_encode($userData->nick);
 		$player->force = $userData->tec_force;
 		$player->type = $userData->type;
@@ -36,6 +37,7 @@
 		$player->id = $id;
 		$player->team = $team;
 		$player->gameid = $userData->gameid;
+		$player->head = $userData->head;
 		$player->nick = base64_encode($userData->nick);
 		$player->force = $userData->tec_force;
 		$player->type = $userData->type;
@@ -54,6 +56,16 @@
 		$player->type = $data['type'];
 		$player->autolist = $data['list'];
 		$player->hp = $data['hp'];
+		
+		//ÕÒÍ·Ïñ
+		$list = explode(",",$player->autolist);
+		$index = 0;
+		while($list[$index] && $list[$index] > 100)
+			$index ++;
+		if($list[$index])
+			$player->head = $list[$index];
+		else
+			$player->head = 1;
 		return $player;
 	}
 	

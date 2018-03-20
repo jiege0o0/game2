@@ -15,10 +15,22 @@ do{
 	{
 		$userData->addCoin($award->coin);
 	}
-	foreach($award->props as $key=>$value)
+	if($award->diamond)
 	{
-		$userData->addProp($key,$value);
+		$userData->addDiamond($award->diamond);
 	}
+	if($award->energy)
+	{
+		$userData->addEnergy($award->energy);
+	}
+	if($award->props)
+	{
+		foreach($award->props as $key=>$value)
+		{
+			$userData->addProp($key,$value);
+		}
+	}
+	
 	
 	$sql = "update ".getSQLTable('mail')." set stat=1 where id=".$msg->id."";
 	if(!$conne->uidRst($sql))

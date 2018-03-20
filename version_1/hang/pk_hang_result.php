@@ -80,6 +80,11 @@ do{
 	$returnData->pktime = $userData->hang->pktime;
 	$returnData->lastlist = $userData->hang->lastlist;
 	
+	//»Î∞Ò
+	$rankType = 'hang';
+	$rankScore = $hangIndex;
+	require($filePath."rank/add_rank.php");
+	
 
 }while(false);
 

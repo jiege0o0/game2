@@ -113,7 +113,7 @@ mysql_query("
 Create TABLE g2_".$sql_table."view(
 gameid varchar(32) NOT NULL Unique Key,
 viewlist Text
-)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 mysql_query("
 Create TABLE g2_".$sql_table."card_like(
@@ -132,7 +132,7 @@ for($i=1;$i<=300;$i++)
 $sql2 = implode(',',$arr);
 mysql_query($sql.$sql2,
 $connect)or die("message=F,Invalid query: " . mysql_error()); 
-/*
+
 //排行榜
 $rankName = array('force','hang','hourcoin');
 foreach($rankName as $key=>$value)
@@ -158,6 +158,15 @@ foreach($rankName as $key=>$value)
 	mysql_query($sql.$sql2,
 	$connect)or die("message=F,Invalid query: " . mysql_error()); 
 }*/
+
+mysql_query("
+Create TABLE g2_".$sql_table."pk_recode(
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	gameid varchar(32) NOT NULL,
+	pkdata varchar(512),
+	time INT UNSIGNED,
+	INDEX (gameid)
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 
 

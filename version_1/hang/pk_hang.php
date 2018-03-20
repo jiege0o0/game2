@@ -7,7 +7,7 @@ require_once($filePath."cache/map".$mapIndex.".php");
 
 
 do{		
-	if(!$userData->testEnergy(1))//Ã»ÌåÁ¦
+	if(!$userData->testEnergy(1))//æ²¡ä½“åŠ›
 	{
 		$returnData -> fail = 1;
 		break;
@@ -32,7 +32,7 @@ do{
 	$pkData->seed = time();
 	$pkData->players = array();
 	
-	//¼ÆËã¹Ø¿¨Õ½Á¦
+	//è®¡ç®—å…³å¡æˆ˜åŠ›
 	$force=1;
 	for($i=1;$i<$hangIndex;$i++)
 	{	
@@ -41,7 +41,10 @@ do{
 	
 	$hang_base[$hangIndex]['force']=$force;
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
-	array_push($pkData->players,createNpcPlayer(2,2,$hang_base[$hangIndex]));
+	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);
+	$nick = 'æˆ˜å½¹'.$hangIndex;
+	$player->nick = base64_encode($nick);
+	array_push($pkData->players,$player);
 	
 	$returnData -> pkdata = $pkData;
 	$userData->addEnergy(-1);
