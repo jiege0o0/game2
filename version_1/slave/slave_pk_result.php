@@ -18,14 +18,6 @@ do{
 		$returnData -> fail = $playerData -> fail;
 		break;
 	}
-	$pkData->players[0] = $playerData;
-	$pkData->players[1] = getAutoPKData($pkData->players[1]);
-	
-	require_once($filePath."pk/pk.php");
-	if($returnData -> fail)//PK结果有问题
-	{
-		break;
-	}
 	
 	$otherid = $userData->pk_common->otherid;
 	$master = $userData->pk_common->master;
@@ -61,8 +53,20 @@ do{
 		$oo->nick = base64_encode($userData->nick);
 		$oo->type = $userData->type;
 		$oo->head = $userData->head;
+		$oo->rd = rand(0,9);
 		$oo = json_encode($oo);
 		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',1,'".$oo."',".$time.")";
+		$conne->uidRst($sql);
+	}
+	else
+	{
+		$oo = new stdClass();
+		$oo->nick = base64_encode($userData->nick);
+		$oo->type = $userData->type;
+		$oo->head = $userData->head;
+		$oo->rd = rand(0,9);
+		$oo = json_encode($oo);
+		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$master."',4,'".$oo."',".$time.")";
 		$conne->uidRst($sql);
 	}
 	
@@ -78,6 +82,7 @@ do{
 		$oo->slave_gameid = $otherid;
 		$oo->type = $userData->type;
 		$oo->head = $userData->head;
+		$oo->rd = rand(0,9);
 		$oo = json_encode($oo);
 		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',2,'".$oo."',".$time.")";
 		$conne->uidRst($sql);

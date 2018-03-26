@@ -34,6 +34,7 @@
 		
 		//用户数据处理
 		unset($userData->hang->cd);
+		$addMailAward = false;
 		
 		if(!isSameDate($lastLand))
 		{
@@ -42,12 +43,15 @@
 			$oo->award = new stdClass();
 			$oo->award->diamond = 100;
 			$oo = json_encode($oo);
-			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('sys','".$userData->gameid."',101,'".$oo."',".$time.")";
+			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,stat,time) values('sys','".$userData->gameid."',101,'".$oo."',0,".$time.")";
 			$conne->uidRst($sql);
 			
 			$userData->openData['mailtime'] = $time;
 			$userData->setOpenDataChange();
 			$userData->setChangeKey('mailtime');
+			
+			$addMailAward = true;
+			$writeDB = true;
 		}
 		
 		if(!$userData->active->p0 || $userData->active->p0<1520498485)
@@ -59,7 +63,7 @@
 			$oo->award->props = new stdClass();
 			$oo->award->props->{1} = 1;
 			$oo = json_encode($oo);
-			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('sys','".$userData->gameid."',101,'".$oo."',".$time.")";
+			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,stat,time) values('sys','".$userData->gameid."',101,'".$oo."',0,".$time.")";
 			$conne->uidRst($sql);
 			
 			
@@ -69,12 +73,30 @@
 			$userData->setChangeKey('mailtime');
 			$userData->setChangeKey('active');
 			
+			$addMailAward = true;
 			$writeDB = true;
 		}
 		
 		if($writeDB)
 		{
 			$userData->write2DB(true);
+		}
+		
+		//未开邮件
+		if($msg->mailtime)
+		{
+	
+			if($addMailAward)
+				$returnData->mailnum = 1;
+			else
+			{
+				$msgtime = max($msg->mailtime,time() - 72*3600);
+				$sql = "select * from ".getSQLTable('mail')." where to_gameid='".$userData->gameid."' and type>100 and stat!=1 and time>".$msgtime;
+				$result = $conne->getRowsArray($sql);
+				debug($sql);
+				if($result)
+					$returnData->mailnum = count($result);
+			}
 		}
 		
 		

@@ -18,15 +18,6 @@ do{
 		$returnData -> fail = $playerData -> fail;
 		break;
 	}
-	$pkData->players[0] = $playerData;
-	$pkData->players[1] = getAutoPKData($pkData->players[1]);
-	
-	
-	require_once($filePath."pk/pk.php");
-	if($returnData -> fail)//PK结果有问题
-	{
-		break;
-	}
 	
 	$upProp = array();//19个
 	for($i=4;$i<=22;$i++)

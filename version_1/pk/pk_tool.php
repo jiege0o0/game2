@@ -60,7 +60,7 @@
 		//找头像
 		$list = explode(",",$player->autolist);
 		$index = 0;
-		while($list[$index] && $list[$index] > 100)
+		while($list[$index] && $list[$index] > 200)//@skillID
 			$index ++;
 		if($list[$index])
 			$player->head = $list[$index];
@@ -68,37 +68,6 @@
 			$player->head = 1;
 		return $player;
 	}
-	
-	 //对自动队列进行解析
-    function decodeAutoList($arr) {
-        $returnArr = array();
-        $mpCost = 0;
-        $index = 1;
-		$len = count($arr);
-        for($i=0;$i<$len;$i++)
-        {
-            $group = explode("#",$arr[$i]);
-            $mp = getGroupMp($group);//上阵MP
-			
-            $t = getMPTime($mpCost + $mp);//可以同时上阵的时间点
-			$len2 = count($group);
-            for($j=0;$j<$len2;$j++)
-            {
-                $id = floor($group[$j]);
-                if($id < 0)
-                    continue;
-				$oo = array(
-				"mid"=>$id,
-				"time"=>$t,
-				"id"=>$index,
-				);
-                array_push($returnArr,$oo);
-                $index ++;
-            }
-            $mpCost += $mp;
-        }
-        return $returnArr;
-    }
 
     function getGroupMp($group){
 		global $monster_base,$skill_base;
@@ -112,7 +81,7 @@
                 $mp += -$id;
                 continue;
             }
-			else if($id < 100)
+			else if($id < 200)//@skillID
 				$mp += $monster_base['cost'];
 			else
 				$mp += $skill_base['cost'];
@@ -144,19 +113,31 @@
 
     }
 	
-	//得到用于PK的数据结构
-	function getAutoPKData($player){
-		$result = new stdClass();
-		$result->list = decodeAutoList($player->autolist);
-		$result->hp = $player->hp;
-		$result->type = $player->type;
-		$result->force = $player->force;
-		$result->id = $player->id;
-		$result->team = $player->team;
-		
-		
-		return $result;
+	function getMPList(){
+		$mpList = array(0);
+		$max = 250;
+		for($i=1;$i<=$max;$i++)
+		{
+			$mpList[$i] = getMPTime($i);
+		}
+		return $mpList; 
 	}
+	
+	function addMPTime($arr,$time,$mp){
+		$len = count($arr);
+		for($i=0;$i<$len;$i++)
+		{
+			if($arr[$i] >= $time)
+			{
+				while($mp>0)
+				{
+					array_splice($arr,$i,0,$time);
+					$mp--;
+				}
+				break;
+			}
+		}
+    }
 	
 	
 	//得到用于PK的数据结构 step#id,step#id,
@@ -175,7 +156,7 @@
 		
 		
 		
-		
+		$mpList = getMPList();
 		$stepCD = 50;
 		$mpCost = 0;
 		$list = explode(",",$list);
@@ -185,11 +166,41 @@
 			$group = explode("#",$list[$i]);
 			$time = $group[0]*$stepCD; 
 			$id = $group[1];
-			if($id < 100)
-				$mpCost += $monster_base['cost'];
+			if($id < 200)//@skillID
+			{
+				$mpCost += $monster_base[$id]['cost'];
+			}
 			else
-				$mpCost += $skill_base['cost'];
-			if(getMPTime($mpCost) > $time)//MP不够
+			{
+				$mpCost += $skill_base[$id]['cost'];
+				if($skill_base[$id]['sv4'] == -10001)
+				{
+					addMPTime(&$mpList,$time + 3000 + $skill_base[$id]['cd']*1000,$skill_base[$id]['sv1']);
+				}
+			}
+				
+				// if(id > 0)
+            // {
+                // var vo = CM.getCardVO(id);
+                // var mp = vo.cost
+                // var t = mpList[mpCost + mp]//可以同时上阵的时间点
+                // returnArr.push({
+                    // mid:id,
+                    // time:t,
+                    // id:index
+                // })
+                // index ++;
+
+                // if(!vo.isMonster && vo.sv4 == -10001)
+                // {
+                    // this.addMPTime(mpList,t + PKConfig.beforeCD + vo.cd,vo.sv1)
+                // }
+            // }
+            // else
+            // {
+                // var mp = -id;
+            // }
+			if($mpList[$mpCost] > $time)//MP不够
 			{
 				$result->fail = 101;
 				break;
