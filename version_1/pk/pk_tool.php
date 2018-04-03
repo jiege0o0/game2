@@ -178,41 +178,24 @@
 					addMPTime(&$mpList,$time + 3000 + $skill_base[$id]['cd']*1000,$skill_base[$id]['sv1']);
 				}
 			}
-				
-				// if(id > 0)
-            // {
-                // var vo = CM.getCardVO(id);
-                // var mp = vo.cost
-                // var t = mpList[mpCost + mp]//可以同时上阵的时间点
-                // returnArr.push({
-                    // mid:id,
-                    // time:t,
-                    // id:index
-                // })
-                // index ++;
 
-                // if(!vo.isMonster && vo.sv4 == -10001)
-                // {
-                    // this.addMPTime(mpList,t + PKConfig.beforeCD + vo.cd,vo.sv1)
-                // }
-            // }
-            // else
-            // {
-                // var mp = -id;
-            // }
 			if($mpList[$mpCost] > $time)//MP不够
 			{
 				$result->fail = 101;
 				break;
 			}	
-			$index = array_search($id, $orgin);
-			$isOK = $index === 0 || ($index>0 && $index <6);//只可以用前6张
-			if(!$isOK)//使用了不合法的卡
+			if($id < 500)//非报警卡
 			{
-				$result->fail = 102;
-				break;
+				$index = array_search($id, $orgin);
+				$isOK = $index === 0 || ($index>0 && $index <6);//只可以用前6张
+				if(!$isOK)//使用了不合法的卡
+				{
+					$result->fail = 102;
+					break;
+				}
+				array_splice($orgin,$index,1);
 			}
-			array_splice($orgin,$index,1);
+			
 			array_push($result->list,array(
 				"mid"=>$id,
 				"time"=>$time,

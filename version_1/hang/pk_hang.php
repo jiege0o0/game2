@@ -42,7 +42,7 @@ do{
 	$hang_base[$hangIndex]['force']=$force;
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
 	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);
-	$nick = '战役'.$hangIndex;
+	$nick = '战役守卫'.$hangIndex;
 	$player->nick = base64_encode($nick);
 	array_push($pkData->players,$player);
 	

@@ -36,6 +36,8 @@ http://172.17.196.195:9020/index.html?debug_server=1&app=1
 文案：道具，科技
 声音
 清BUFF动画
+1v1服务器
+远征
 
 
 
