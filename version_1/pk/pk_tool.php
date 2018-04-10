@@ -123,7 +123,7 @@
 		return $mpList; 
 	}
 	
-	function addMPTime($arr,$time,$mp){
+	function addMPTime(&$arr,$time,$mp){
 		$len = count($arr);
 		for($i=0;$i<$len;$i++)
 		{
@@ -175,7 +175,7 @@
 				$mpCost += $skill_base[$id]['cost'];
 				if($skill_base[$id]['sv4'] == -10001)
 				{
-					addMPTime(&$mpList,$time + 3000 + $skill_base[$id]['cd']*1000,$skill_base[$id]['sv1']);
+					addMPTime($mpList,$time + 3000 + $skill_base[$id]['cd']*1000,$skill_base[$id]['sv1']);
 				}
 			}
 

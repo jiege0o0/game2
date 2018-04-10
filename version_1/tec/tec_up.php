@@ -101,7 +101,7 @@ function resetForce(){
 	$userData->setChangeKey('tec_force');
 	
 	$rankType = 'force';
-	$rankScore = $this->tec_force;
+	$rankScore = $userData->tec_force;
 	require($filePath."rank/add_rank.php");
 	require($filePath."slave/slave_reset_list.php");
 }
