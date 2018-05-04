@@ -7,7 +7,7 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Created>2006-09-16T00:00:00Z</Created>
-  <LastSaved>2018-04-03T08:25:41Z</LastSaved>
+  <LastSaved>2018-04-11T09:48:21Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -19,7 +19,6 @@
   <WindowWidth>14805</WindowWidth>
   <WindowTopX>240</WindowTopX>
   <WindowTopY>105</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -53,6 +52,21 @@
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11" ss:Color="#000000"/>
   </Style>
+  <Style ss:ID="s70">
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="11"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="monster_base">
   <Table ss:ExpandedColumnCount="29" ss:ExpandedRowCount="66" x:FullColumns="1"
@@ -77,21 +91,21 @@
     <Cell><Data ss:Type="String">#des</Data></Cell>
     <Cell><Data ss:Type="String">type</Data></Cell>
     <Cell><Data ss:Type="String">level</Data></Cell>
-    <Cell><Data ss:Type="String">atk</Data></Cell>
-    <Cell><Data ss:Type="String">atk2</Data></Cell>
-    <Cell><Data ss:Type="String">hp</Data></Cell>
-    <Cell><Data ss:Type="String">speed</Data></Cell>
-    <Cell><Data ss:Type="String">def</Data></Cell>
-    <Cell><Data ss:Type="String">atkcd</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">atkrage</Data></Cell>
-    <Cell><Data ss:Type="String">num</Data></Cell>
-    <Cell><Data ss:Type="String">cost</Data></Cell>
-    <Cell><Data ss:Type="String">space</Data></Cell>
-    <Cell><Data ss:Type="String">cd</Data></Cell>
-    <Cell><Data ss:Type="String">skillcd</Data></Cell>
-    <Cell><Data ss:Type="String">sv1</Data></Cell>
-    <Cell><Data ss:Type="String">sv2</Data></Cell>
-    <Cell><Data ss:Type="String">sv3</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#atk</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#atk2</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#hp</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#speed</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#def</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#atkcd</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#atkrage</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#num</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">cost</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#space</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#cd</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#skillcd</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#sv1</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#sv2</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#sv3</Data></Cell>
     <Cell><Data ss:Type="String">#width</Data></Cell>
     <Cell><Data ss:Type="String">#height</Data></Cell>
     <Cell><Data ss:Type="String">#headoff</Data></Cell>
@@ -99,7 +113,7 @@
     <Cell><Data ss:Type="String">#mcwidth</Data></Cell>
     <Cell><Data ss:Type="String">#mcheight</Data></Cell>
     <Cell><Data ss:Type="String">#mcnum</Data></Cell>
-    <Cell><Data ss:Type="String">mv_atk</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#mv_atk</Data></Cell>
     <Cell><Data ss:Type="String">#mv_atk2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34.5">
@@ -459,9 +473,9 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="Number">420</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
@@ -489,7 +503,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">520</Data></Cell>
+    <Cell><Data ss:Type="Number">420</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -577,7 +591,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">560</Data></Cell>
+    <Cell><Data ss:Type="Number">530</Data></Cell>
     <Cell><Data ss:Type="Number">42</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -605,9 +619,9 @@
     <Cell><Data ss:Type="String">对攻击者造成#1伤害</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">80</Data></Cell>
+    <Cell><Data ss:Type="Number">75</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">750</Data></Cell>
     <Cell><Data ss:Type="Number">44</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
     <Cell><Data ss:Type="Number">0.8</Data></Cell>
@@ -822,7 +836,7 @@
     <Cell><Data ss:Type="Number">1.2</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -873,19 +887,19 @@
     <Cell><Data ss:Type="String">攻击敌人并降低对方#1%的攻击、防御和速度，持续#2秒</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">35</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">120</Data></Cell>
+    <Cell><Data ss:Type="Number">150</Data></Cell>
     <Cell><Data ss:Type="Number">52</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">110</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">130</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">80</Data></Cell>
@@ -995,7 +1009,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">70</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">1100</Data></Cell>
+    <Cell><Data ss:Type="Number">1050</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1.8</Data></Cell>
@@ -1006,7 +1020,7 @@
     <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1143,12 +1157,12 @@
     <Cell><Data ss:Type="String">为一个单位增加魔盾，抵挡$1点伤害</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">60</Data></Cell>
+    <Cell><Data ss:Type="Number">67</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">500</Data></Cell>
     <Cell><Data ss:Type="Number">45</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">1.3</Data></Cell>
+    <Cell><Data ss:Type="Number">1.2</Data></Cell>
     <Cell><Data ss:Type="Number">200</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">16</Data></Cell>
@@ -1172,11 +1186,11 @@
     <Cell><Data ss:Type="String">攻击时对目标#1范围的单位造成$2伤害</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">80</Data></Cell>
+    <Cell><Data ss:Type="Number">90</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -1412,12 +1426,12 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="Number">390</Data></Cell>
     <Cell><Data ss:Type="Number">55</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -1503,7 +1517,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="Number">480</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1.2</Data></Cell>
@@ -1511,9 +1525,9 @@
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">90</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1532,7 +1546,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="Number">460</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1591,7 +1605,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="Number">480</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1624,7 +1638,7 @@
     <Cell><Data ss:Type="Number">900</Data></Cell>
     <Cell><Data ss:Type="Number">34</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">3.5</Data></Cell>
     <Cell><Data ss:Type="Number">200</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">16</Data></Cell>
@@ -1680,16 +1694,16 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">100</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">800</Data></Cell>
-    <Cell><Data ss:Type="Number">45</Data></Cell>
-    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">650</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1.5</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">120</Data></Cell>
@@ -1771,10 +1785,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>41</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1787,12 +1802,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>38</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1813,15 +1827,15 @@
     <Cell><Data ss:Type="String">id</Data></Cell>
     <Cell><Data ss:Type="String">#name</Data></Cell>
     <Cell><Data ss:Type="String">#des</Data></Cell>
-    <Cell><Data ss:Type="String">type</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#type</Data></Cell>
     <Cell><Data ss:Type="String">level</Data></Cell>
     <Cell><Data ss:Type="String">cost</Data></Cell>
-    <Cell><Data ss:Type="String">num</Data></Cell>
-    <Cell><Data ss:Type="String">cd</Data></Cell>
-    <Cell><Data ss:Type="String">sv1</Data></Cell>
-    <Cell><Data ss:Type="String">sv2</Data></Cell>
-    <Cell><Data ss:Type="String">sv3</Data></Cell>
-    <Cell><Data ss:Type="String">sv4</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#num</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#cd</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#sv1</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#sv2</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">#sv3</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sv4</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="93.75">
     <Cell ss:Index="4" ss:StyleID="s64"><Data ss:Type="String">1：攻击&#10;2：治疗&#10;3：辅助&#10;4：召唤&#10;5: 特殊</Data></Cell>
@@ -1840,7 +1854,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">202</Data></Cell>
@@ -1856,7 +1870,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">203</Data></Cell>
     <Cell><Data ss:Type="String">落雷</Data></Cell>
-    <Cell><Data ss:Type="String">敌方$2个最高-$1血</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">敌方#2个最高-$1血</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -1874,20 +1888,21 @@
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">35</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">205</Data></Cell>
-    <Cell><Data ss:Type="String">减防</Data></Cell>
-    <Cell><Data ss:Type="String">降低对方全体#1%防，持续#2秒</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">信仰之光</Data></Cell>
+    <Cell><Data ss:Type="String">回复我方单位$3点血量，并增加#1%防御，持续#2秒</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">206</Data></Cell>
@@ -1898,7 +1913,7 @@
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">80</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">207</Data></Cell>
@@ -1906,9 +1921,9 @@
     <Cell><Data ss:Type="String">召唤4宝，存活#1秒</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1931,11 +1946,10 @@
     <Cell><Data ss:Type="String">在领域持续期间，所有的已方单位死后获得一次复活机会并回复#1%的血，</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">210</Data></Cell>
@@ -1943,7 +1957,7 @@
     <Cell><Data ss:Type="String">随机#1个单位获得复活能力，死后复活机会并回复#2%的血，</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -1952,10 +1966,11 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">211</Data></Cell>
     <Cell><Data ss:Type="String">死亡召唤</Data></Cell>
-    <Cell><Data ss:Type="String">随机消灭一个敌方单位，并在该位置召唤#1个骷髅士兵，骷髅士兵持续#4秒</Data></Cell>
+    <Cell ss:StyleID="s63"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">随机消灭一个敌方单位，并在该位置召唤#1个骷髅士兵，骷髅士兵持续#2秒</Font></ss:Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -1967,7 +1982,7 @@
     <Cell><Data ss:Type="String">所有士兵都出现在前线，持续#1秒</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -1978,42 +1993,43 @@
     <Cell><Data ss:Type="String">接下来出战的单位都会生产一个一模一样的复制体，生产#1体积的单位后失效</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">214</Data></Cell>
-    <Cell><Data ss:Type="String">正面</Data></Cell>
+    <Cell><Data ss:Type="String">正面清除</Data></Cell>
     <Cell><Data ss:Type="String">清除敌方所有正面状态</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">215</Data></Cell>
-    <Cell><Data ss:Type="String">负面</Data></Cell>
+    <Cell><Data ss:Type="String">负面清除</Data></Cell>
     <Cell><Data ss:Type="String">清除我方所有负面状态</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">216</Data></Cell>
-    <Cell><Data ss:Type="String">加能量</Data></Cell>
-    <Cell><Data ss:Type="String">技能结束后获得#1点能量</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">生生不息</Data></Cell>
+    <Cell><Data ss:Type="String">回复我方单位$3点血量，并增加#1%攻击力，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="Number">-10001</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">217</Data></Cell>
@@ -2021,10 +2037,10 @@
     <Cell><Data ss:Type="String">马上缩短场上非准备中的单位类卡牌#1秒的CD</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">218</Data></Cell>
@@ -2032,7 +2048,7 @@
     <Cell><Data ss:Type="String">把场上所有单位移回出生点</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
@@ -2042,7 +2058,7 @@
     <Cell><Data ss:Type="String">所有我方单位获得魔免和#1%攻击和速度加成，持续#2秒，效果结束后该单马上死亡</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
@@ -2054,7 +2070,7 @@
     <Cell><Data ss:Type="String">获得金刚不坏之身，持续#1秒</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -2065,601 +2081,1182 @@
     <Cell><Data ss:Type="String">近战单位获得#1%的吸血能力</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
     <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">222</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">回复我方所有单位 30 血量</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">恢复秘诀</Data></Cell>
+    <Cell ss:StyleID="s63"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">回复我方所有单位$1血量</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">223</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成20点伤害，对召唤单位伤害翻倍</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">心灵震动</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">对所有敌人造成$1点伤害，对召唤单位伤害翻倍</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">224</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对最前方的300范围内的敌人造成80点伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">箭雨</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对最前方的#1范围内的敌人造成$2点伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">300</Data></Cell>
+    <Cell><Data ss:Type="Number">80</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">225</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对最前方的200范围内的敌人造成200点伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">火球</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对最前方的#1范围内的敌人造成$2点伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">226</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">战场上随机单位造成200伤害，1秒1次</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">天罚</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">战场上随机敌方单位造成$1伤害，每秒1次</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">227</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">最高的敌方血量单位造成400伤害，2秒1次</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">五雷轰顶</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">最高的敌方血量单位造成$1伤害，2秒1次</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">400</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">228</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">回复场上所有单位 300 血量</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">普天同庆</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">回复场上所有单位$1血量</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">300</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">229</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">降低场上所有堡垒属性的敌人的50</Font><Font
-       html:Size="9" html:Color="#000000">%攻击力</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">堡垒克制</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">降低场上所有堡垒属性的单位的#1%攻击力，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">230</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s63"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">降低场上所有自然属性的敌人的50</Font><Font
-       html:Size="9" html:Color="#000000">%</Font><B><Font html:Size="9"
-        html:Color="#660E7A">攻击力</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">自然克制</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">降低场上所有自然属性的单位的#1%攻击力，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">231</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">降低场上所有幽暗属性的敌人的50%</Font><B><Font
-        html:Size="9" html:Color="#660E7A">攻击力</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">幽暗克制</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">降低场上所有幽暗属性的单位的#1%攻击力，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">232</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">增加场上所有堡垒属性的单位的30</Font><Font
-       html:Size="9" html:Color="#000000">%攻击力</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">堡垒强化</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">增加场上所有堡垒属性的单位的#1%攻击力，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">233</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">增加场上所有自然属性的单位的30</Font><Font
-       html:Size="9" html:Color="#000000">%</Font><B><Font html:Size="9"
-        html:Color="#660E7A">攻击力</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">自然强化</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">增加场上所有自然属性的单位的#1%攻击力，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">234</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">增加场上所有幽暗属性的单位的30</Font><Font
-       html:Size="9" html:Color="#000000">%攻击力</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">幽暗强化</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">增加场上所有幽暗属性的单位的#1%攻击力，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">235</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">永久提高新产出单位100点生命值</Font><Font
-       html:Size="9" html:Color="#000000">，持续15秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">生命强化</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">永久提高#2秒内，已方新产出单位$1点生命值</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">236</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">永久提高新产出单位20点攻击力</Font><Font
-       html:Size="9" html:Color="#000000">，持续15秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">攻击强化</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">永久提高#2秒内，已方新产出单位$1点攻击力</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">237</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">永久提高新产出单位10点防御</Font><Font
-       html:Size="9" html:Color="#000000">，持续15秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">防御强化</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">永久提高#2秒内，已方新产出单位#1点防御</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">238</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">永久提高新产出单位200点生命值</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">持续15秒</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">生命强化Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">永久提高#2秒内，已方新产出单位$1点生命值</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">239</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">永久提高新产出单位40点攻击力</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">持续15秒</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">攻击强化Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">永久提高#2秒内，已方新产出单位$1点攻击力</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">240</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">永久提高新产出单位20点防御</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">持续15秒</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">防御强化Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">永久提高#2秒内，已方新产出单位#1点防御</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">241</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">对敌方新产出单位造成50点伤害</Font><Font
-       html:Size="9" html:Color="#000000">，持续15秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">剌杀</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对敌方新产出单位造成$1点伤害，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">242</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">进化</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">提升已方单位随机一项属性20</Font></B><Font html:Size="9"
-       html:Color="#000000">%，[生命上限，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">攻击</Font></B><Font html:Size="9" html:Color="#000000">，</Font><B><Font
-        html:Size="9" html:Color="#660E7A">移动</Font></B><Font html:Size="9"
-       html:Color="#000000">，</Font><B><Font html:Size="9" html:Color="#660E7A">速度</Font></B><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">防御</Font></B><Font html:Size="9" html:Color="#000000">] </Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">进化</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">永久提升已方场上单位随机一项属性#1%，[生命上限，攻击，速度，防御] </Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">243</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">使我方所有单位获得抵挡1次伤害的能力</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">并回复30点生命</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">格挡</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使我方所有单位获得抵挡#1次伤害的能力，并回复$2点生命</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">244</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">使我方所有单位获得抵挡3次伤害的能力</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">强力格挡</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使我方所有单位获得抵挡#1次伤害的能力</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">245</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Size="9"
-        html:Color="#660E7A">使我方随机3个单位获得魔盾</Font></B><Font html:Size="9"
-       html:Color="#000000">，可抵挡200点伤害</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">魔盾护体</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">使我方随机#1个单位获得魔盾，可抵挡$2点伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">246</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">晕所有敌人</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">持续3秒</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">大地震动</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">晕所有敌人，持续#1秒</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">247</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">晕所有敌人</Font><Font
-       html:Size="9" html:Color="#000000">，持续5秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">强列地震</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">晕所有敌人，持续#1秒</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">248</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">晕所有敌人</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">并造成100点伤害</Font></B><Font html:Size="9"
-       html:Color="#000000">，持续4秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">天崩地裂</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">晕所有敌人，并造成$2点伤害，持续#1秒</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">249</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">随机消灭场上3个单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">虚空裂缝</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">随机消灭场上#1个单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">250</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">随机消灭场上5个单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">虚空裂缝Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">随机消灭场上#1个单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">251</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">随机消灭场上8个单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">虚空裂缝Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">随机消灭场上#1个单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">252</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">随机消灭敌人1个单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">空间扭曲</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">随机消灭敌人#1个单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">253</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">随机消灭敌人3个单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">空间扭曲Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">随机消灭敌人#1个单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">254</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">随机消灭敌人5个单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">空间扭曲Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">随机消灭敌人#1个单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">255</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">消灭场上所有单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">扭曲虚空</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">消灭场上所有单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">256</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">使我方单位获得持续回血能力</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">每秒回复10点生命</Font></B><Font html:Size="9"
-       html:Color="#000000">，</Font><B><Font html:Size="9" html:Color="#660E7A">持续10秒</Font></B></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">大地之灵</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使我方单位获得持续回血能力，每秒回复$1点生命，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">257</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">使我方单位获得持续回血能力</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">每秒回复20点生命</Font></B><Font html:Size="9"
-       html:Color="#000000">，持续10秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">大地之灵Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使我方单位获得持续回血能力，每秒回复$1点生命，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">258</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">使我方单位获得持续回血能力，每秒回复30点生命，持续15秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">大地之灵Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使我方单位获得持续回血能力，每秒回复$1点生命，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">259</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">使敌人中毒，每秒降低10点生命，持续10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">暗黑毒素</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使敌人中毒，每秒降低$1点生命，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">260</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">使敌人中毒</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">每秒降低20点生命</Font></B><Font html:Size="9"
-       html:Color="#000000">，持续10秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">暗黑毒素Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使敌人中毒，每秒降低$1点生命，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">261</Data></Cell>
-    <Cell ss:Index="3"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">使敌人中毒</Font><Font
-       html:Size="9" html:Color="#000000">，</Font><B><Font html:Size="9"
-        html:Color="#660E7A">每秒降低30点生命</Font></B><Font html:Size="9"
-       html:Color="#000000">，持续15秒</Font></ss:Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">暗黑毒素Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使敌人中毒，每秒降低$1点生命，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">262</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">消灭所有血量低于100的单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">优胜劣汰</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">消灭所有血量低于$1的单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">263</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">消灭所有召唤单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">静默领域</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">消灭所有召唤单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">264</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">所有单位获得魔免，持续10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">魔免之光</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">所有单位获得魔免，持续#1秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">265</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">增加队伍1点生命</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">续命</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">增加队伍#1点生命</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">266</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">增加队伍2点生命</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">续命Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">增加队伍#1点生命</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">267</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">增加队伍3点生命</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">续命Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">增加队伍#1点生命</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">268</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">伤害对方队伍1点生命</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">斩杀</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">伤害敌方队伍#1点生命</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">269</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">伤害对方队伍2点生命</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">斩杀Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">伤害敌方队伍#1点生命</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">270</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">伤害对方队伍3点生命</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">斩杀Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">伤害敌方队伍#1点生命</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">271</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">7秒后获得+1点能量</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">能量熔炉</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">7秒后返还消耗能量并额外获得#1点能量</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="Number">-10001</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">272</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">12秒后获得+2点能量</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">能量熔炉Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">13秒后返还消耗能量并额外获得#1点能量</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="Number">-10001</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">273</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">15秒后获得+3点能量</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">能量熔炉Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">18秒后返还消耗能量并额外获得#1点能量</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="Number">-10001</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">274</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">20秒后获得+4点能量</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">能量熔炉Ⅳ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">24秒后返还消耗能量并额外获得#1点能量</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="Number">-10001</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">275</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">30秒后获得+5点能量</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">能量熔炉Ⅴ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">35秒后返还消耗能量并额外获得#1点能量</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">35</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="Number">-10001</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">276</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">缓速图腾</Data></Cell>
-    <Cell><Data ss:Type="String">在最前方建立一个缓速图腾，降低200范围内所有单位30%速度，持续10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">缓速图腾</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">在最前方建立一个缓速图腾，降低#1范围内所有单位#2%速度，持续#3秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">277</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">加速图腾</Data></Cell>
-    <Cell><Data ss:Type="String">在最前方建立一个加速图腾，增加200范围内所有单位30%速度，持续10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">加速图腾</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">在最前方建立一个加速图腾，增加#1范围内所有单位#2%速度，持续#3秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">278</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">恐惧</Data></Cell>
-    <Cell><Data ss:Type="String">降低所胡敌人20点护甲，持续5秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">恐惧</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">降低所有敌人#1点护甲，持续#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">279</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成60点堡垒属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">堡垒冲击</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点堡垒属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">280</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成60点自然属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">自然之力</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点自然属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">281</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成60点幽暗属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">幽暗刺杀</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点幽暗属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">282</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成100点堡垒属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">堡垒冲击Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点堡垒属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">283</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成100点自然属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">自然之力Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点自然属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">284</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成100点幽暗属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">幽暗刺杀Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点幽暗属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">285</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成200点堡垒属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">堡垒冲击Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点堡垒属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">286</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成200点自然属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">自然之力Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点自然属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">287</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌人造成200点幽暗属性的伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">幽暗刺杀Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌人造成$1点幽暗属性的伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">288</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">对所有敌方召唤单位造成150点伤害</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">静默术</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">对所有敌方召唤单位造成$1点伤害</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">150</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">289</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">使场上所有召唤单位的存活时间增加10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">召唤之神</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">使场上所有召唤单位的存活时间增加#1秒</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">290</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">在最前方建立一个治疗图腾，对200范围内的友军每秒回复30血量，持续10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">治疗图腾</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">在最前方建立一个治疗图腾，对#1范围内的友军每秒回复$2血量，持续#3秒</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">291</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">在最前方建立一个火焰图腾，对200范围内的敌军每秒造成30点伤害，持续10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">火焰图腾</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">在最前方建立一个火焰图腾，对#1范围内的敌军每秒造成$2点伤害，持续#3秒</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">292</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">消灭地图上所有的堡垒属性的单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">堡垒禁区</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">消灭地图上所有的堡垒属性的单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">293</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">消灭地图上所有的自然属性的单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">自然禁区</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">消灭地图上所有的自然属性的单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">294</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">消灭地图上所有的幽暗属性的单位</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">幽暗禁区</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">消灭地图上所有的幽暗属性的单位,无视魔法免疫</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">295</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤3个雷电法师，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">法师小队</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤#1个雷电法师，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">296</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">在敌方后排召唤3个幻影剌客，存活5秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">后排杀手</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">在敌方后排召唤#1个幻影剌客，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">297</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">每秒召唤一个矿工，每个矿工存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">矿工队伍</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">每#CD秒召唤一个矿工，每个矿工存活#1秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">0.8</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">298</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤一个掌旗使，存活20秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">掌旗出动</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤#1个掌旗使，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">299</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤2个狂战士，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">狂战成双</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤#1个狂战士，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">300</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个巫医，存活30秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">巫医出击</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤#1个巫医，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">301</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个蛮荒兽人，存活30秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">蛮荒呼唤</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤#1个蛮荒兽人，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">302</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">在最前线召唤1个盾卫，存活30秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">盾卫帮我</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">在最前线召唤#1个盾卫，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">303</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">在敌方后排召唤1个铁甲卫士，存活30秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">铁甲拦截</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">在敌方后排召唤#1个铁甲卫士，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">304</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个饥饿兽人，存活40秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤饥饿</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个饥饿兽人，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">305</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个黑蘑菇，存活15秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤黑蘑菇</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个黑蘑菇，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">306</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个绿蘑菇，存活15秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤绿蘑菇</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个绿蘑菇，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">307</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个橙蘑菇，存活15秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤橙蘑菇</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个橙蘑菇，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">308</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个蓝蘑菇，存活15秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤蓝蘑菇</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个蓝蘑菇，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">309</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个红蘑菇，存活8秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">召唤红蘑菇</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个红蘑菇，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">310</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤5种不同的蘑菇，存活20秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">蘑菇军团</Data></Cell>
+    <Cell ss:StyleID="s63"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">召唤5种不同的蘑菇，存活#1秒</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">311</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个黑石人，存活30秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">黑石冲击</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个黑石人，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">312</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">在最前线召唤1个橙石人，存活20秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">橙石降临</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">在最前线召唤#1个橙石人，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">313</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">在最前线召唤1个蓝石人，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">蓝石降临</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">在最前线召唤#1个蓝石人，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">314</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个红石人，存活30秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">红石冲击</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个红石人，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">315</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个黑泥怪，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">黑色爆破</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个黑泥怪，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">316</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个橙泥怪，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">橙色爆破</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个橙泥怪，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">317</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个绿泥怪，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">绿色爆破</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个绿泥怪，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">318</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">在敌方后排召唤5个骷髅弓箭手，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">前置弓箭手</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">在敌方后排召唤#1个骷髅弓箭手，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">319</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤3个骷髅士兵，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">骷髅小队</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个骷髅士兵，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">320</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个蓝泥怪，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">蓝色爆破</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个蓝泥怪，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">321</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤3个木乃伊，存活15秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">好多木乃伊</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个木乃伊，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">322</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">召唤1个红泥怪，存活10秒</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="Number">2</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">323</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">324</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">325</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">326</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">红色爆破</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">召唤#1个红泥怪，存活#2秒</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:Index="135" ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">501</Data></Cell>
@@ -2695,13 +3292,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>102</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2717,7 +3313,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>123</ActiveRow>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
