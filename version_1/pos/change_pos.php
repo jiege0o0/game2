@@ -10,13 +10,14 @@ if($msg->list)
 
 do{
 	if($type == 'atk')
-		$data = & $userData->atk_list->list;
+		$data = &$userData->atk_list->list;
 	else
-		$data = & $userData->def_list->list;
+		$data = &$userData->def_list->list;
 			
 	$findData = &$data->{$id};
 	if(!$findData)
 	{
+		debug($data);
 		$returnData -> fail = 1;
 		break;
 	}
