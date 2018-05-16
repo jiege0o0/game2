@@ -141,7 +141,7 @@
 	
 	
 	//得到用于PK的数据结构 step#id,step#id,
-	function getUserPKData($list,$player){
+	function getUserPKData($list,$player,$cd,$key){
 		global $monster_base,$skill_base;
 		$orgin = explode(",",$player->card);
 		
@@ -152,6 +152,15 @@
 		$result->force = $player->force;
 		$result->id = $player->id;
 		$result->team = $player->team;
+		
+		
+		$card = $player->card;
+        $serverKey = substr(md5($cd.$card),-8);
+		if($serverKey != $key)//校验不通过
+		{
+			$result->fail = 103;
+			return $result;
+		}	
 
 		
 		

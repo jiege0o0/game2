@@ -19,8 +19,10 @@
 		if($result)	
 		{
 			$obj = json_decode($result['viewlist']);
-			$len = count($obj);
-			if($len >= 1)
+			$len = 0;
+			foreach($obj as $key=>$value)
+				$len ++;
+			if($len >= 30)//иооч
 			{
 				$returnData->fail = 1;
 				break;
