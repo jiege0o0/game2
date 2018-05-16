@@ -137,6 +137,28 @@
 				break;
 			}
 		}
+    }	
+	
+	function deleteSkillCard($card){
+		global $userData;
+		$arr = explode(",",$card);
+		$len = count($arr);
+		for($i=0;$i<$len;$i++)
+		{
+			$skillID = (int)$arr[$i];
+			if($skillID >= 200)//@skillID
+			{
+				if($userData->getSkill($skillID)>0)
+				{
+					$userData->addSkill($skillID,-1);
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+		return true;
     }
 	
 	

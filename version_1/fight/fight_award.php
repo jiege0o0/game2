@@ -39,13 +39,6 @@ do{
 		$force+=floor($i/10+1);
 	}
 	
-	if(!deleteSkillCard($list))//技能卡数量不足
-	{
-		$returnData -> fail = 3;
-		break;
-	}
-	
-	
 	$hang_base[$hangIndex]['force']=$force;
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
 	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);

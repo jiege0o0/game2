@@ -61,7 +61,7 @@ class GameUser{
 		$this->active = $this->decode($data['active'],'{"task":{}}');//活动
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":{}}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"cd":""}');
-		$this->card = $this->decode($data['card'],'{"monster":[],"skill":[]}');
+		$this->card = $this->decode($data['card'],'{"monster":[],"skill":{}}');
 		
 	}
 	
@@ -273,6 +273,31 @@ class GameUser{
 			$returnData->sync_prop = new stdClass();
 		}
 		$returnData->sync_prop->{$propID} = $this->prop->{$propID};
+	}
+	
+	//改变技能数量
+	function addSkill($skillID,$num){
+		global $returnData;
+		if(!$this->card->skill->{$skillID})
+		{
+			$this->card->skill->{$skillID} = $num
+		}
+		else
+		{
+			$this->card->skill->{$skillID} += $num;
+			if(!$this->card->skill->{$skillID})
+				unset($this->card->skill->{$skillID});
+		}
+			
+		$this->setChangeKey('card');	
+	}
+	
+	function getSkill($skillID){
+		if(!$this->card->skill->{$skillID})
+		{
+			return 0;
+		}
+		return $this->card->skill->{$skillID};
 	}
 	
 

@@ -157,7 +157,7 @@ foreach($rankName as $key=>$value)
 	$sql2 = implode(',',$arr);
 	mysql_query($sql.$sql2,
 	$connect)or die("message=F,Invalid query: " . mysql_error()); 
-}*/
+}
 
 mysql_query("
 Create TABLE g2_".$sql_table."pk_recode(
@@ -166,6 +166,15 @@ Create TABLE g2_".$sql_table."pk_recode(
 	pkdata varchar(512),
 	time INT UNSIGNED,
 	INDEX (gameid)
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+
+
+mysql_query("
+Create TABLE g2_".$sql_table."fight(
+gameid varchar(32) NOT NULL Unique Key,
+info varchar(255),
+shop varchar(255),
+time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 

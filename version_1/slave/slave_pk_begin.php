@@ -11,7 +11,7 @@ do{
 	$result = $conne->getRowsRst($sql);
 	if($result['num'] > $maxNum)//奴隶数达上限
 	{
-		$returnData -> fail = 7;
+		$returnData -> fail = 8;
 		break;
 	}	
 	
@@ -53,6 +53,12 @@ do{
 	if(!$list)
 	{
 		$returnData -> fail = 2;
+		break;
+	}
+	
+	if(!deleteSkillCard($list))//技能卡数量不足
+	{
+		$returnData -> fail = 9;
 		break;
 	}
 	
