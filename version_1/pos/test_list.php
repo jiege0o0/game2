@@ -18,7 +18,7 @@
 					$returnData -> fail = 2;
 					break;
 				}
-				if($skillID > 200 && $skill_base[$skillID]['level'] > 1 && !in_array($skillID,$userData->card->skill,true))//@skillID
+				if($skillID > 200 && !$userData->card->skill->{$skillID})//@skillID
 				{
 					$returnData -> fail = 2;
 					break;

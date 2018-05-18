@@ -280,7 +280,7 @@ class GameUser{
 		global $returnData;
 		if(!$this->card->skill->{$skillID})
 		{
-			$this->card->skill->{$skillID} = $num
+			$this->card->skill->{$skillID} = $num;
 		}
 		else
 		{

@@ -15,13 +15,33 @@
 		if($result && isSameDate($result['time']))
 		{
 			$returnData->shop = json_decode($result['shop']);
+			$returnData->info = json_decode($result['info']);
 			break;
+		}
+		//-----------------跨天了----------------
+		
+		if(!$result)
+		{
+			$info = new stdClass();
+			$info->num = 1;//免费次数
+			$info->level = 0;//开始等级
+			$info->maxlevel = 0;//最高等级
+			$info->step = 0;//当前步骤
+			$info->card = '';//上阵的卡
+			$info->enemy = '';//当前敌人
+			$info->award = '';//待选列表
+			$info->value = 0;//积分
+		}
+		else 
+		{
+			$info = json_decode($result['info']);
+			$info->num = 1;
 		}
 
 		//{id,num,diamond},
 		//生成shop数据	
 		$arr = array();
-		$level = $userData->hang->level;
+		$level = $info->level;
 		foreach($prop_base as $key=>$value)
 		{
 			if($value['hanglevel'] && $value['hanglevel']<=$level)//资源道具
@@ -80,10 +100,11 @@
 				
 		
 		$returnData->shop = $arr;
+		$returnData->info = $info;
 		if($result)
-			$sql = "update ".getSQLTable('fight')." set shop='".json_encode($arr)."',time=".time()." where gameid='".$userData->gameid."'";
+			$sql = "update ".getSQLTable('fight')." set shop='".json_encode($arr)."',info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
 		else
-			$sql = "insert into ".getSQLTable('fight')."(gameid,shop,time) values('".$userData->gameid."','".json_encode($arr)."',".time().")";
+			$sql = "insert into ".getSQLTable('fight')."(gameid,shop,info,time) values('".$userData->gameid."','".json_encode($arr)."','".json_encode($info)."',".time().")";
 		$conne->uidRst($sql);
 
 		
