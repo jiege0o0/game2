@@ -41,7 +41,9 @@
 		//{id,num,diamond},
 		//生成shop数据	
 		$arr = array();
-		$level = $info->level;
+		$level = $userData->hang->level;
+		if(!$level)
+			$level = 1;
 		foreach($prop_base as $key=>$value)
 		{
 			if($value['hanglevel'] && $value['hanglevel']<=$level)//资源道具
@@ -82,23 +84,38 @@
 					'diamond'=>$prop_base[101]['diamond']
 				));
 		}
-
 		
-		if(count($arr) > 5)//最多取6个
-		{
-			usort($arr,randomSortFun);
-			$arr = array_slice($arr,0,5);
-		}
-		//体力(必有)
+		//体力
 		$num = rand(10,20);
 		array_push($arr,array(
 					'id'=>'energy',
 					'num'=>$num,
 					'diamond'=>$num*5
 				));
-				
-				
+
 		
+		if(count($arr) > 3)//最多取4个
+		{
+			usort($arr,randomSortFun);
+			$arr = array_slice($arr,0,3);
+		}
+		
+		//必有3个技能
+		$tecLevel = $info->maxlevel;
+		$skillArr = array();
+		foreach($skill_base as $key=>$value)
+		{
+			if($value['level'] <= $tecLevel)
+			{
+				$num = rand(5,10);
+				array_push($skillArr,array('id'=>'skill'.$value['id'],'num'=>$num,'diamond'=>$num*8));
+			}
+		}
+		usort($skillArr,randomSortFun);
+		$skillArr = array_slice($skillArr,0,3);
+		
+		$arr = array_merge($arr,$skillArr);
+
 		$returnData->shop = $arr;
 		$returnData->info = $info;
 		if($result)

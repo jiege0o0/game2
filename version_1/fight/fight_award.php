@@ -1,61 +1,42 @@
 <?php 
-$id=$msg->id;
-$hangIndex=$userData->hang->level + 1;
-$mapIndex = ceil($hangIndex/100);
-require_once($filePath."pk/pk_tool.php");
-require_once($filePath."cache/map".$mapIndex.".php");
+$list=$msg->list;
 
-
+$sql = "select * from ".getSQLTable('fight')." where gameid='".$userData->gameid."'";
+$result = $conne->getRowsRst($sql);
+$info = json_decode($result['info']);
 do{		
-	if(!$userData->testEnergy(1))//没体力
+	$award = explode(",",$info->award);
+	foreach($list as $key=>$value)
 	{
-		$returnData -> fail = 1;
-		break;
-	}
-	
-	foreach($userData->atk_list->list as $key=>$value)
-	{
-		if($value->id == $id)
+		$index = array_search($value, $award);
+		$isOK = $index === 0 || $index>0;//只可以用前6张
+		if(!$isOK)
 		{
-			$list = $value->list;
+			$returnData -> fail = 1;
 			break;
 		}
+		array_splice($award,$index,1);			
 	}
-
-	if(!$list)
-	{
-		$returnData -> fail = 2;
+	if($returnData -> fail)
 		break;
+	
+	if($info->card)
+	{
+		// $chooseList = join(",",$list);
+		$info->card = $info->card.','.join(",",$list);
 	}
-	
-	$pkData = new stdClass();
-	$pkData->seed = time();
-	$pkData->players = array();
-	
-	//计算关卡战力
-	$force=1;
-	for($i=1;$i<$hangIndex;$i++)
-	{	
-		$force+=floor($i/10+1);
-	}
-	
-	$hang_base[$hangIndex]['force']=$force;
-	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
-	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);
-	$nick = '战役守卫'.$hangIndex;
-	$player->nick = base64_encode($nick);
-	array_push($pkData->players,$player);
-	
-	$returnData -> pkdata = $pkData;
-	$userData->addEnergy(-1);
-	$userData->pk_common->pktype = 'hang';
-	$userData->pk_common->pkdata = $pkData;
-	$userData->pk_common->pkcard = $list;
-	$userData->pk_common->level = $hangIndex;
-	$userData->pk_common->time = time();
-	$userData->setChangeKey('pk_common');
+	else
+		$info->card = join(",",$list);
+		
+	$info->award = '';
+	$info->card = $info->card;
 
-}while(false)
+
+	$sql = "update ".getSQLTable('fight')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
+	$conne->uidRst($sql);
+
+}while(false);
+
 
 
 ?> 

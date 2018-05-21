@@ -16,11 +16,13 @@
 				if($skillID < 200 && $monster_base[$skillID]['level'] > 1 &&!in_array($skillID,$userData->card->monster,true))//@skillID
 				{
 					$returnData -> fail = 2;
+					$returnData -> id = $skillID;
 					break;
 				}
 				if($skillID > 200 && !$userData->card->skill->{$skillID})//@skillID
 				{
 					$returnData -> fail = 2;
+					$returnData -> id = $skillID;
 					break;
 				}
 				$useData[$value] = 1;

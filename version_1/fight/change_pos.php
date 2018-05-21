@@ -1,44 +1,24 @@
 <?php 
-$id=$msg->id;
-$type=$msg->type;
-if($msg->list)
-{
-	$temp = str_replace("|",",",$msg->list);
-	$list = explode(",",$temp);
-}
+$list=$msg->list;
 
+$sql = "select * from ".getSQLTable('fight')." where gameid='".$userData->gameid."'";
+$result = $conne->getRowsRst($sql);
+$info = json_decode($result['info']);
+
+
+$oldCard = explode(",",$info->card);
+$newCard = explode(",",$list);
 
 do{
-	if($type == 'atk')
-		$data = &$userData->atk_list->list;
-	else
-		$data = &$userData->def_list->list;
-			
-	$findData = &$data->{$id};
-	if(!$findData)
+	if(sort($oldCard) != sort($newCard))
 	{
-		debug($data);
 		$returnData -> fail = 1;
 		break;
 	}
-	if($list)
-	{
-		require_once($filePath."pos/test_list.php");
-		if($returnData -> fail)
-			break;
-		$findData->list = $msg->list;
-	}
-
+	$info->card = $list;
+	$sql = "update ".getSQLTable('fight')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
+	$conne->uidRst($sql);
 	
-		
-	if($type == 'atk')
-	{
-		$userData->setChangeKey('atk_list');
-	}
-	else
-	{
-		$userData->setChangeKey('def_list');
-	}
 }while(false)
 
 

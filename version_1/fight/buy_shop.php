@@ -30,22 +30,26 @@
 			break;
 		}
 		
-		if($userData->diamond < $shopValue->diamond)
+		$info = json_decode($result['info']);
+		if($info->value < $shopValue->diamond)
 		{
 			$returnData->fail = 4;
-			$returnData->sync_diamond = $userData->diamond;
+			$returnData->value = $info->value;
 			break;
 		}
 		if($shopValue->id == 'coin')
 			$userData->addCoin($shopValue->num);
 		else if($shopValue->id == 'energy')
 			$userData->addEnergy($shopValue->num);
+		else if(substr($shopValue->id,0,5) == 'skill')
+			$userData->addSkill(substr($shopValue->id,5),$shopValue->num);
 		else
 			$userData->addProp($shopValue->id,$shopValue->num);
-		$userData->addDiamond(-$shopValue->diamond);
+			
+		$info->value -=$shopValue->diamond;
 		
 		$arr[$shopKey]->isbuy = true;
-		$sql = "update ".getSQLTable('fight')." set shop='".json_encode($arr)."' where gameid='".$userData->gameid."'";
+		$sql = "update ".getSQLTable('fight')." set shop='".json_encode($arr)."',info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
 		
 		

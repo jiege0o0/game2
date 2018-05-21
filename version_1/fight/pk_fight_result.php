@@ -1,10 +1,14 @@
 <?php 
 $list=$msg->list;
-$hangIndex=$userData->hang->level + 1;
+
 require_once($filePath."pk/pk_tool.php");
 require_once($filePath."cache/base.php");
+
+$sql = "select * from ".getSQLTable('fight')." where gameid='".$userData->gameid."'";
+$result = $conne->getRowsRst($sql);
+$info = json_decode($result['info']);
 do{		
-	if($userData->pk_common->pktype != 'hang' || $userData->pk_common->level != $hangIndex)//最近不是打这个
+	if($userData->pk_common->pktype != 'fight' || $userData->pk_common->level != $info->step)//最近不是打这个
 	{
 		$returnData -> fail = 1;
 		break;
@@ -19,74 +23,68 @@ do{
 		break;
 	}
 	
-	$upProp = array();//19个
-	for($i=4;$i<=22;$i++)
+	//减去手牌
+	$card = explode(",",$info->card);
+	foreach($playerData->list as $key=>$value)
 	{
-		array_push($upProp,$prop_base[$i]['hanglevel']);
+		$index = array_search($value->mid, $card);
+		array_splice($card,$index,1);			
 	}
-	$award = new stdClass();
-	$award->props = array();
-	$addCoin = 90+$hangIndex*10 + floor($hangIndex/5)*20;
-	$userData->addCoin($addCoin);
-	$award->coin = $addCoin;
+	$info->card = join(",",$card);
+	$info->step ++;
+	if($info->step + $info->level > $info->maxlevel)
+		$info->maxlevel = $info->step + $info->level;
+	$info->enemy = '';
 	
-	if(in_array($hangIndex,$upProp) && $userData->getPropNum(101) == 0)
+	
+	$tecLevel = $info->maxlevel;
+	$skillArr = array();
+	foreach($skill_base as $key=>$value)
 	{
-		$award->props[101] = 1;
-		$userData->addProp(101,1);
-	}
-	
-	// if(!$award->props[101] && $hangIndex%2 == 0)
-	// {
-		// $award->props[102] = 1;
-		// $userData->addProp(102,1);
-	// }
-	
-	
-	
-	$propArr = array();
-	foreach($prop_base as $key=>$value)
-	{
-		if($value['hanglevel'] && $value['hanglevel']<=$hangIndex + 5)
+		if($value['level'] <= $tecLevel)
 		{
-			array_push($propArr,$value);
+			array_push($skillArr,$value['id']);
+			array_push($skillArr,$value['id']);
 		}
 	}
-	usort($propArr,"my_hang_sort");
-	$addProp = $propArr[rand(0,2)];
-	$num = max(1,$hangIndex - $addProp['hanglevel'] + 5);
-	$award->props[$addProp['id']] = $num;
-	$userData->addProp($addProp['id'],$num);
+	$tecLevel = $userData->getTecLevel(1);
+	foreach($monster_base as $key=>$value)
+	{
+		if($value['level'] <= $tecLevel)
+		{
+			array_push($skillArr,$value['id']);
+			array_push($skillArr,$value['id']);
+			array_push($skillArr,$value['id']);
+		}
+	}
+	
+	usort($skillArr,randomSortFun);
+	$skillArr = array_slice($skillArr,0,9);
+	
+	$info->award = join(",",$skillArr);
+	
+	
+	
+	
+	$award = new stdClass();
+	$addCoin = 10+($info->level + $info->step)*3;
+	$award->coin = $addCoin;
+	$userData->addCoin($addCoin);
+	
+	$addValue = 10;
+	$award->fightvalue = $addValue;
+	$info->value += $addValue;
 	
 	$returnData->award = $award;
+	$returnData->cardaward = $info->award;
+	$returnData->card = $info->card;
 	
 
-	$userData->hang->level = $hangIndex;
-	if(!$userData->hang->awardtime)
-		$userData->hang->awardtime = time();
-	$userData->hang->pktime = time();
-	$userData->hang->lastlist = $enempList;
-	$userData->setChangeKey('hang');
-	$returnData->level = $userData->hang->level;
-	$returnData->pktime = $userData->hang->pktime;
-	$returnData->lastlist = $userData->hang->lastlist;
-	
-	//入榜
-	$rankType = 'hang';
-	$rankScore = $hangIndex;
-	require($filePath."rank/add_rank.php");
-	
+	$sql = "update ".getSQLTable('fight')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
+	$conne->uidRst($sql);
 
 }while(false);
 
-function my_hang_sort($a,$b)
-{
-	if ($a['hanglevel'] > $b['hanglevel'])
-		return -1;
-	if ($a['hanglevel'] < $b['hanglevel'])
-		return 1;
-	return 0;
-}
 
 
 ?> 

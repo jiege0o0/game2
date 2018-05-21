@@ -1,9 +1,6 @@
 <?php 
 $id=$msg->id;
-$hangIndex=$userData->hang->level + 1;
-$mapIndex = ceil($hangIndex/100);
 require_once($filePath."pk/pk_tool.php");
-require_once($filePath."cache/map".$mapIndex.".php");
 
 
 do{		
@@ -13,53 +10,52 @@ do{
 		break;
 	}
 	
-	foreach($userData->atk_list->list as $key=>$value)
+	$sql = "select * from ".getSQLTable('fight')." where gameid='".$userData->gameid."'";
+	$result = $conne->getRowsRst($sql);
+	$info = json_decode($result['info']);
+	$list = $info->card;
+	
+	//产生敌人
+	if(!$info->enemy)
 	{
-		if($value->id == $id)
-		{
-			$list = $value->list;
-			break;
-		}
-	}
-
-	if(!$list)
-	{
-		$returnData -> fail = 2;
-		break;
+		//计算关卡战力
+		$force=1;
+		$enemy = array();
+		$enemy['force'] = $force;
+		$enemy['list'] = '' + rand(1,3);
+		$enemy['type'] = 1;
+		$enemy['hp'] = $userData->getHp();
+		
+		
+		$player = createNpcPlayer(2,2,$enemy);
+		$nick = '关卡守卫'.$info->step;
+		$player->nick = base64_encode($nick);
+		
+		$info->enemy = $player;
+		
+		$sql = "update ".getSQLTable('fight')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
+		$conne->uidRst($sql);
 	}
 	
-	if(!deleteSkillCard($list))//技能卡数量不足
-	{
-		$returnData -> fail = 3;
-		break;
-	}
 	
 	$pkData = new stdClass();
 	$pkData->seed = time();
 	$pkData->players = array();
-	
-	//计算关卡战力
-	$force=1;
-	for($i=1;$i<$hangIndex;$i++)
-	{	
-		$force+=floor($i/10+1);
-	}
-	
-	$hang_base[$hangIndex]['force']=$force;
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
-	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);
-	$nick = '战役守卫'.$hangIndex;
-	$player->nick = base64_encode($nick);
-	array_push($pkData->players,$player);
+	array_push($pkData->players,$info->enemy);
+
+	
 	
 	$returnData -> pkdata = $pkData;
 	$userData->addEnergy(-1);
-	$userData->pk_common->pktype = 'hang';
+	$userData->pk_common->pktype = 'fight';
 	$userData->pk_common->pkdata = $pkData;
 	$userData->pk_common->pkcard = $list;
-	$userData->pk_common->level = $hangIndex;
+	$userData->pk_common->level = $info->step;
 	$userData->pk_common->time = time();
 	$userData->setChangeKey('pk_common');
+	
+	
 
 }while(false)
 

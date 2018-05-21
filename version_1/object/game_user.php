@@ -288,6 +288,15 @@ class GameUser{
 			if(!$this->card->skill->{$skillID})
 				unset($this->card->skill->{$skillID});
 		}
+		
+		if(!$returnData->sync_skill)
+		{
+			$returnData->sync_skill = new stdClass();
+		}
+		if($this->card->skill->{$skillID})
+			$returnData->sync_skill->{$skillID} = $this->card->skill->{$skillID};
+		else
+			$returnData->sync_skill->{$skillID} = 0;
 			
 		$this->setChangeKey('card');	
 	}
