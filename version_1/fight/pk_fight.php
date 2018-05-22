@@ -22,7 +22,7 @@ do{
 		$force=1;
 		$enemy = array();
 		$enemy['force'] = $force;
-		$enemy['list'] = '' + rand(1,3);
+		$enemy['list'] = ''.rand(1,3);
 		$enemy['type'] = 1;
 		$enemy['hp'] = $userData->getHp();
 		

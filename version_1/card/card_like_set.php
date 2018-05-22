@@ -23,7 +23,7 @@ do{
 		$returnData -> fail = 2;
 		break;
 	}
-	$canSet = $skill_base[$id]['level'] == 0 || in_array($id,$userData->card->skill) || in_array($id,$userData->card->monster);
+	$canSet = $skill_base[$id]['level'] == 0 || $userData->card->skill->{$id} || in_array($id,$userData->card->monster);
 	if(!$canSet)
 	{
 		$returnData -> fail = 3;
