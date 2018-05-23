@@ -148,9 +148,11 @@
 			$skillID = (int)$arr[$i];
 			if($skillID >= 200)//@skillID
 			{
-				if($userData->getSkill($skillID)>0)
+				$num = $userData->getSkill($skillID);
+				if($num>0)
 				{
-					$userData->addSkill($skillID,-1);
+					if($num < 999)//@skillID  
+						$userData->addSkill($skillID,-1);
 				}
 				else
 				{
