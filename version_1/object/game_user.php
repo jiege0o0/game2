@@ -309,6 +309,10 @@ class GameUser{
 		return $this->card->skill->{$skillID};
 	}
 	
+	function maxCardNum(){
+		return 19 + $this->getTecLevel(4);
+	}
+	
 
 
 	

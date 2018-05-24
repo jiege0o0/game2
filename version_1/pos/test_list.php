@@ -1,7 +1,7 @@
 <?php 
 	require_once($filePath."cache/base.php");
 	$useData = array();
-	$maxNum =  19 + $userData->getTecLevel(4);;
+	$maxNum =  $userData->maxCardNum();
 	if(count($list) > $maxNum)
 	{
 		$returnData -> fail = 4;

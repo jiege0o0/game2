@@ -24,9 +24,7 @@
 		{
 			$info = new stdClass();
 			$info->num = 1;//免费次数
-			$info->level = 0;//开始等级
-			$info->maxlevel = 0;//最高等级
-			$info->step = 0;//当前步骤
+			$info->step = -1;//当前步骤
 			$info->card = '';//上阵的卡
 			$info->enemy = '';//当前敌人
 			$info->award = '';//待选列表
@@ -75,15 +73,6 @@
 					'num'=>round(24*3600/$coinCD),
 					'diamond'=>60
 				));
-		//升级卡
-		if($level >= 10 && $userData->getPropNum(101) == 0)
-		{
-			array_push($arr,array(
-					'id'=>101,
-					'num'=>1,
-					'diamond'=>$prop_base[101]['diamond']
-				));
-		}
 		
 		//体力
 		$num = rand(10,20);
@@ -94,18 +83,18 @@
 				));
 
 		
-		if(count($arr) > 3)//最多取4个
+		if(count($arr) > 3)//最多取3个
 		{
 			usort($arr,randomSortFun);
 			$arr = array_slice($arr,0,3);
 		}
 		
 		//必有3个技能
-		$tecLevel = $info->maxlevel;
+		$tecLevel = min($userData->tec_force/10,950);
 		$skillArr = array();
 		foreach($skill_base as $key=>$value)
 		{
-			if($value['level'] <= $tecLevel)
+			if($value['level'] <= $tecLevel && $userData->getSkill($key) < 999)//@skill
 			{
 				$num = rand(5,10);
 				array_push($skillArr,array('id'=>'skill'.$value['id'],'num'=>$num,'diamond'=>$num*8));

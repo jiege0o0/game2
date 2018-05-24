@@ -18,17 +18,42 @@ do{
 	//产生敌人
 	if(!$info->enemy)
 	{
+		require_once($filePath."cache/base.php");
 		//计算关卡战力
-		$force=1;
+		$force= $userData->tec_force + max(round($info->step/20*$userData->tec_force),5);
 		$enemy = array();
 		$enemy['force'] = $force;
-		$enemy['list'] = ''.rand(1,3);
-		$enemy['type'] = 1;
+		
+		$tecLevel = $userData->level;
+		$skillArr = array();
+		foreach($monster_base as $key=>$value)
+		{
+			if($value['level'] <= $tecLevel)
+			{
+				array_push($skillArr,$value);
+			}
+		}
+		shuffle($skillArr);
+		$skillArr = array_slice($skillArr,0,4);
+		usort($skillArr,"my_fight_sort");
+		array_splice($skillArr,rand(2,3),1);
+		$arr = array();
+		$len = $userData->maxCardNum() + 3;
+		for($i=0;$i<$len;$i++)
+		{
+			array_push($arr,$skillArr[rand(0,2)]['id']);
+		}
+		$enemy['list'] = join(",",$arr);
+		
+
+		
+		
+		$enemy['type'] = $skillArr[0]['type'];
 		$enemy['hp'] = $userData->getHp();
 		
 		
 		$player = createNpcPlayer(2,2,$enemy);
-		$nick = '关卡守卫'.$info->step;
+		$nick = '远征守卫'.($info->step + 1);
 		$player->nick = base64_encode($nick);
 		
 		$info->enemy = $player;
@@ -57,7 +82,15 @@ do{
 	
 	
 
-}while(false)
+}while(false);
 
+function my_fight_sort($a,$b)
+{
+	if ($a['cost'] < $b['cost'])
+		return -1;
+	if ($a['cost'] > $b['cost'])
+		return 1;
+	return 0;
+}
 
 ?> 

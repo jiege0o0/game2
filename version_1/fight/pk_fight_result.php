@@ -32,12 +32,10 @@ do{
 	}
 	$info->card = join(",",$card);
 	$info->step ++;
-	if($info->step + $info->level > $info->maxlevel)
-		$info->maxlevel = $info->step + $info->level;
 	$info->enemy = '';
 	
 	
-	$tecLevel = $info->maxlevel;
+	$tecLevel = min($userData->tec_force/10,950);
 	$skillArr = array();
 	foreach($skill_base as $key=>$value)
 	{

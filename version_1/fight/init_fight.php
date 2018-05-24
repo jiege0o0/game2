@@ -53,7 +53,6 @@ do{
 	}
 	
 	$info->card = $card;
-	$info->level = max(1,$info->maxlevel - 5);
 	$info->step = 0;//当前步骤
 	$info->enemy = '';//当前敌人
 	$info->award = '';//待选列表

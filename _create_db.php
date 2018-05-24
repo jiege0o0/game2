@@ -172,7 +172,7 @@ Create TABLE g2_".$sql_table."pk_recode(
 mysql_query("
 Create TABLE g2_".$sql_table."fight(
 gameid varchar(32) NOT NULL Unique Key,
-info varchar(255),
+info varchar(512),
 shop varchar(255),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
