@@ -23,6 +23,8 @@ do{
 		break;
 	}
 	
+	$force = $info->enemy->force;
+	
 	//¼õÈ¥ÊÖÅÆ
 	$card = explode(",",$info->card);
 	foreach($playerData->list as $key=>$value)
@@ -65,11 +67,11 @@ do{
 	
 	
 	$award = new stdClass();
-	$addCoin = 10+($info->level + $info->step)*3;
+	$addCoin = ($info->step)*10 + floor($force/20);
 	$award->coin = $addCoin;
 	$userData->addCoin($addCoin);
 	
-	$addValue = 10;
+	$addValue = $info->step*10;
 	$award->fightvalue = $addValue;
 	$info->value += $addValue;
 	

@@ -38,7 +38,7 @@ do{
 		usort($skillArr,"my_fight_sort");
 		array_splice($skillArr,rand(2,3),1);
 		$arr = array();
-		$len = $userData->maxCardNum() + 3;
+		$len = 5 + $info->step;//$userData->maxCardNum() + 3;
 		for($i=0;$i<$len;$i++)
 		{
 			array_push($arr,$skillArr[rand(0,2)]['id']);
