@@ -19,8 +19,11 @@ do{
 	{
 		$group = explode("#",$list[$i]);
 		$id = $group[1];
-		$index = array_search($id, $card);
-		array_splice($card,$index,1);			
+		if($id < 500)
+		{
+			$index = array_search($id, $card);
+			array_splice($card,$index,1);		
+		}	
 	}
 	$info->card = join(",",$card);
 	$returnData->card = $info->card;

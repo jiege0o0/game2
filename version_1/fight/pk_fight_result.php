@@ -29,8 +29,11 @@ do{
 	$card = explode(",",$info->card);
 	foreach($playerData->list as $key=>$value)
 	{
-		$index = array_search($value->mid, $card);
-		array_splice($card,$index,1);			
+		if($value->mid < 500)
+		{
+			$index = array_search($value->mid, $card);
+			array_splice($card,$index,1);			
+		}
 	}
 	$info->card = join(",",$card);
 	$info->step ++;

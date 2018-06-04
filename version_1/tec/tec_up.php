@@ -29,7 +29,7 @@ function getOtherNeed($lv,$type){
 
 //Éý¼¶¿Æ¼¼
 function levelUpTec($id){
-	global $returnData,$tec_base,$userData;
+	global $returnData,$tec_base,$userData,$conne,$filePath;
 	$userData->tec->{$id} = $userData->getTecLevel($id) + 1;
 	$userData->setChangeKey('tec');
 	

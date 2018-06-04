@@ -75,7 +75,6 @@ do{
 	$userData->addEnergy(-1);
 	$userData->pk_common->pktype = 'fight';
 	$userData->pk_common->pkdata = $pkData;
-	$userData->pk_common->pkcard = $list;
 	$userData->pk_common->level = $info->step;
 	$userData->pk_common->time = time();
 	$userData->setChangeKey('pk_common');
