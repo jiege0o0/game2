@@ -166,7 +166,7 @@ Create TABLE g2_".$sql_table."pk_recode(
 	pkdata varchar(512),
 	time INT UNSIGNED,
 	INDEX (gameid)
-)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 
 mysql_query("
@@ -175,7 +175,31 @@ gameid varchar(32) NOT NULL Unique Key,
 info varchar(512),
 shop varchar(255),
 time INT UNSIGNED
-)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+
+mysql_query("
+Create TABLE g2_".$sql_table."video(
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+level INT UNSIGNED,
+info varchar(255),
+data varchar(512),
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error());
+
+//往表插入数据
+$sql = "insert into g2_".$sql_table."video(level,time) values";
+$arr = array();
+for($i=1;$i<=2000;$i++)
+{
+	array_push($arr,"(".$i.",0)");
+	array_push($arr,"(".$i.",0)");
+	array_push($arr,"(".$i.",0)");
+	array_push($arr,"(".$i.",0)");
+	array_push($arr,"(".$i.",0)");
+}
+$sql2 = implode(',',$arr);
+mysql_query($sql.$sql2,
+$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 
 

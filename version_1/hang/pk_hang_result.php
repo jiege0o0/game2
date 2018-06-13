@@ -76,6 +76,29 @@ do{
 	$rankScore = $hangIndex;
 	require($filePath."rank/add_rank.php");
 	
+	if($userData->hang->level > 10)
+	{
+		//ÈëÂ¼Ïñ
+		$info = new stdClass();
+		$info->gameid = $userData->gameid;
+		$info->nick = base64_encode($userData->nick);
+		$info->type = $userData->type;
+		$info->head = $userData->head;
+		$info->force = $playerData->force;
+		$info->cd = $msg->cd;
+		$data->version = $pk_version;
+
+		$data = new stdClass();
+		$data->pkdata = $pkData;
+		$data->pklist = $list;
+
+		
+		$sql = "update ".getSQLTable('video')." set info='".json_encode($info)."',data='".json_encode($data)."',time=".time()." where level=".($userData->hang->level)." order by time limit 1";
+		$conne->uidRst($sql);
+	}
+	
+	
+	
 
 }while(false);
 
