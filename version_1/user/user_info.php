@@ -6,6 +6,7 @@
 	do{
 		require_once($filePath."tool/conn.php");
 		require_once($filePath."object/game_user.php");
+		require_once($filePath."cache/base.php");
 		if($otherid)
 			$sql = "select * from ".getSQLTable('user_data')." where gameid='".$otherid."'";
 		else if($othernick)
@@ -32,6 +33,12 @@
 		$returnUser->tec_force = $otherUser->tec_force;
 		$returnUser->last_land = $otherUser->last_land;
 		$returnUser->last_card = $otherUser->pk_common->pkcard;
+		
+		$returnUser->hp = $otherUser->getHp();
+		$returnUser->maxslave = $otherUser->getMaxSlave();
+		$returnUser->maxcard = $otherUser->maxCardNum();
+		
+		
 		
 		$returnData->info = $returnUser;
 		

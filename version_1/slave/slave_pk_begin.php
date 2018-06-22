@@ -3,10 +3,11 @@ $id=$msg->id;
 $otherid=$msg->otherid;
 $master=$msg->master;
 require_once($filePath."pk/pk_tool.php");
+require_once($filePath."cache/base.php");
 
 
 do{	
-	$maxNum = 5;
+	$maxNum = $userData->getMaxSlave();
 	$sql = "select count(*) as num from ".getSQLTable('slave')." where master='".$msg->gameid."' and gameid!='".$msg->gameid."'";
 	$result = $conne->getRowsRst($sql);
 	if($result['num'] > $maxNum)//奴隶数达上限

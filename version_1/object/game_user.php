@@ -249,6 +249,12 @@ class GameUser{
 	function getHp(){
 		return 2 + $this->getTecLevel(2);
 	}
+	function getMaxSlave(){
+		return 1 + $this->getTecLevel(3);
+	}
+	function maxCardNum(){
+		return 19 + $this->getTecLevel(4);
+	}
 	
 	//取道具数量
 	function getPropNum($propID){
@@ -309,9 +315,7 @@ class GameUser{
 		return $this->card->skill->{$skillID};
 	}
 	
-	function maxCardNum(){
-		return 19 + $this->getTecLevel(4);
-	}
+	
 	
 
 
