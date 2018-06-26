@@ -52,7 +52,7 @@ class GameUser{
 			return;
 		$this->openData = $openData;
 		
-		$this->coin = $this->decode($data['coin'],'{"v":0,"t":'.time().',"st":0}');
+		$this->coin = $this->decode($data['coin'],'{"v":100,"t":'.time().',"st":0}');
 		$this->rmb = (int)$data['rmb'];
 		$this->diamond = (int)$data['diamond'];
 		$this->land_key = (int)$data['land_key'];

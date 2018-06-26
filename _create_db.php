@@ -159,14 +159,14 @@ foreach($rankName as $key=>$value)
 	$connect)or die("message=F,Invalid query: " . mysql_error()); 
 }
 
-mysql_query("
-Create TABLE g2_".$sql_table."pk_recode(
-	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	gameid varchar(32) NOT NULL,
-	pkdata varchar(512),
-	time INT UNSIGNED,
-	INDEX (gameid)
-)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+// mysql_query("
+// Create TABLE g2_".$sql_table."pk_recode(
+	// id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	// gameid varchar(32) NOT NULL,
+	// pkdata varchar(512),
+	// time INT UNSIGNED,
+	// INDEX (gameid)
+// )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 
 mysql_query("
@@ -182,7 +182,7 @@ Create TABLE g2_".$sql_table."video(
 id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 level INT UNSIGNED,
 info varchar(255),
-data varchar(512),
+data varchar(1023),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error());
 
