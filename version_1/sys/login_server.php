@@ -8,7 +8,10 @@
 	if($userData)//有这个玩家
 	{
 		$time = time();
-		$sql = "update ".getSQLTable('user_data')." set last_land=".$time.",land_key='".$time."' where gameid='".$gameid."'";
+		// $sql = "update ".getSQLTable('user_data')." set last_land=".$time.",land_key='".$time."' where gameid='".$gameid."'";
+		// $conne->uidRst($sql);
+
+		$sql = "update ".getSQLTable('slave')." set logintime=".$time." where gameid='".$gameid."'";
 		$conne->uidRst($sql);
 		
 		//开放数据
@@ -20,15 +23,16 @@
 			$conne->uidRst($sql2);
 			$userOpen = $conne->getRowsRst($sql);
 		}
-		$writeDB = false;
+		$writeDB = true;
 		$lastLand = $userData['last_land'];
 		$userData['last_land'] = $time;
 		$userData['land_key'] = $time;
 		$userData = new GameUser($userData,$userOpen);
+		$userData->setChangeKey('land_key');
 		// $userData->addCoin(1);
 		if($userData->resetCoin())
 		{
-			$writeDB = true;
+			//$writeDB = true;
 			unset($returnData->sync_coin);
 		}
 		
@@ -51,7 +55,7 @@
 			$userData->setChangeKey('mailtime');
 			
 			$addMailAward = true;
-			$writeDB = true;
+			// $writeDB = true;
 		}
 		
 		if(!$userData->active->p0 || $userData->active->p0<1520498485)
@@ -77,7 +81,7 @@
 			$userData->setChangeKey('active');
 			
 			$addMailAward = true;
-			$writeDB = true;
+			// $writeDB = true;
 		}
 		
 		if($writeDB)

@@ -55,13 +55,13 @@ class GameUser{
 		$this->coin = $this->decode($data['coin'],'{"v":100,"t":'.time().',"st":0}');
 		$this->rmb = (int)$data['rmb'];
 		$this->diamond = (int)$data['diamond'];
-		$this->land_key = (int)$data['land_key'];
+		$this->land_key = $data['land_key'];
 		$this->prop = $this->decode($data['prop']);
 		$this->energy = $this->decode($data['energy'],'{"v":0,"t":0}');
 		$this->active = $this->decode($data['active'],'{"task":{}}');//»î¶¯
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":{}}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"cd":""}');
-		$this->card = $this->decode($data['card'],'{"monster":[],"skill":{}}');
+		$this->card = $this->decode($data['card'],'{"monster":[],"skill":{"201":50,"202":50,"203":50}}');
 		
 	}
 	
@@ -351,6 +351,8 @@ class GameUser{
 			array_push($arr,addKey('hourcoin',$this->hourcoin));
 		if($this->changeKey['head'])
 			array_push($arr,addKey('head',$this->head));
+		if($this->changeKey['land_key'])
+			array_push($arr,addKey('land_key',"'".$this->land_key."'"));
 			
 		if($this->changeKey['tec'])
 			array_push($arr,addKey('tec',$this->tec,true));

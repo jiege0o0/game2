@@ -73,6 +73,7 @@ master varchar(32),
 addtime INT UNSIGNED,
 protime INT UNSIGNED,
 awardtime INT UNSIGNED,
+logintime INT UNSIGNED,
 INDEX (master),
 UNIQUE (gameid),
 INDEX (tec_force)

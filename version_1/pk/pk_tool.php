@@ -41,6 +41,7 @@
 		$player->nick = base64_encode($userData->nick);
 		$player->force = $userData->tec_force;
 		$player->type = $userData->type;
+		$player->def = 10;
 		$player->autolist = $list;
 		$player->hp = $userData->getHp();
 		return $player;
@@ -56,6 +57,7 @@
 		$player->type = $data['type'];
 		$player->autolist = $data['list'];
 		$player->hp = $data['hp'];
+		$player->def = 5;
 		
 		//ÕÒÍ·Ïñ
 		$list = explode(",",$player->autolist);
