@@ -51,6 +51,8 @@ do{
 		$returnData -> fail = 14;
 		break;
 	}
+	if($userData->hang->level > 30)
+		recordPKData('fight_init',$card);
 	
 	$info->card = $card;
 	$info->step = 0;//当前步骤

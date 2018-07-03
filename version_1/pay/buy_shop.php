@@ -9,6 +9,10 @@
 			break;
 		}
 		$arr = json_decode($result['shop']);
+		// debug($result['shop']);
+		// debug($arr);
+		// break;
+		
 		foreach($arr as $key=>$value)
 		{
 			if($value->id == $id)
@@ -24,13 +28,16 @@
 			$returnData->fail = 2;
 			break;
 		}
-		if($shopValue->isbuy)
-		{
-			$returnData->fail = 3;
-			break;
-		}
+		if(!$shopValue->times)
+			$shopValue->times = 0;
+		$need = $shopValue->diamond *($shopValue->times + 1);
+		// if($shopValue->isbuy)
+		// {
+			// $returnData->fail = 3;
+			// break;
+		// }
 		
-		if($userData->diamond < $shopValue->diamond)
+		if($userData->diamond < $need)
 		{
 			$returnData->fail = 4;
 			$returnData->sync_diamond = $userData->diamond;
@@ -42,9 +49,9 @@
 			$userData->addEnergy($shopValue->num);
 		else
 			$userData->addProp($shopValue->id,$shopValue->num);
-		$userData->addDiamond(-$shopValue->diamond);
+		$userData->addDiamond(-$need);
 		
-		$arr[$shopKey]->isbuy = true;
+		$arr[$shopKey]->times++;
 		$sql = "update ".getSQLTable('shop')." set shop='".json_encode($arr)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
 		

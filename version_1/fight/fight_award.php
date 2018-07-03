@@ -27,6 +27,9 @@ do{
 	}
 	else
 		$info->card = join(",",$list);
+	
+	if($userData->hang->level > 30)	
+		recordPKData('fight_get',$list);
 		
 	$info->award = '';
 	$info->card = $info->card;

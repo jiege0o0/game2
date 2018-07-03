@@ -106,7 +106,7 @@ INDEX(orderno,gameid,orderno2)
 mysql_query("
 Create TABLE g2_".$sql_table."shop(
 gameid varchar(32) NOT NULL Unique Key,
-shop varchar(255),
+shop varchar(511),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 

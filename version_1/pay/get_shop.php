@@ -30,6 +30,7 @@
 				array_push($arr,array(
 					'id'=>$key,
 					'num'=>round(24*3600/$propCD),
+					'times'=>0,
 					'diamond'=>60
 				));
 			}
@@ -40,6 +41,7 @@
 				array_push($arr,array(
 					'id'=>$key,
 					'num'=>$num,
+					'times'=>0,
 					'diamond'=>$num * $value['diamond']
 				));
 			}
@@ -51,6 +53,7 @@
 		array_push($arr,array(
 					'id'=>'coin',
 					'num'=>round(24*3600/$coinCD),
+					'times'=>0,
 					'diamond'=>60
 				));
 		//Éı¼¶¿¨
@@ -59,6 +62,7 @@
 			array_push($arr,array(
 					'id'=>101,
 					'num'=>1,
+					'times'=>0,
 					'diamond'=>$prop_base[101]['diamond']
 				));
 		}
@@ -74,6 +78,7 @@
 		array_push($arr,array(
 					'id'=>'energy',
 					'num'=>$num,
+					'times'=>0,
 					'diamond'=>$num*5
 				));
 		

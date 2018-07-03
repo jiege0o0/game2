@@ -44,8 +44,8 @@ do{
 		$returnData -> fail = 3;
 		break;
 	}
-	
-	
+	//if($hangIndex > 20)
+		recordPKData('hang',$list);
 	$hang_base[$hangIndex]['force']=$force;
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
 	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);
