@@ -171,6 +171,15 @@
 		return true;
     }
 	
+	//返还技能卡牌
+	function backSkillCard($list){
+		global $userData;
+		foreach($list as $key=>$skillID)
+		{
+			$userData->addSkill($skillID,1);
+		}
+	}
+	
 	
 	//得到用于PK的数据结构 step#id,step#id,
 	function getUserPKData($list,$player,$cd,$key){
@@ -184,6 +193,7 @@
 		$result->force = $player->force;
 		$result->id = $player->id;
 		$result->team = $player->team;
+		$result->skill = array();
 		
 		
 		$card = $player->card;
@@ -243,6 +253,17 @@
 				"id"=>$i,
 				));
 		}
+		
+		//返还未使用的技能卡
+		$len = count($orgin);
+		for($i=0;$i<$len;$i++)
+		{
+			$id = $orgin[$i];
+			if($id > 200)//@skillID
+				array_push($result->skill,$id);
+		}
 		return $result;
 	}
+	
+	
 ?> 

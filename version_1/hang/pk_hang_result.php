@@ -12,6 +12,7 @@ do{
 	$pkData = $userData->pk_common->pkdata;
 	
 	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key);
+	backSkillCard($playerData->skill);
 	$enempList = $pkData->players[1]->autolist;
 	if($playerData -> fail)//出怪顺序有问题
 	{
