@@ -39,6 +39,7 @@ pk_common Text,
 active Text,
 land_key varchar(63),
 last_land INT UNSIGNED
+regtime INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 //会被其它人写到的数据

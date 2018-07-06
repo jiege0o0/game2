@@ -11,6 +11,7 @@ http://172.17.196.195:9021/index.html?debug_server=1&app=1
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1
 http://172.17.196.195:9020/index.html?debug_server=1&app=1
+http://172.17.196.195:9020/index.html
 
 2周到100关
 
@@ -48,6 +49,7 @@ http://172.17.196.195:9020/index.html?debug_server=1&app=1
 
 
 已完成：DM.createHang(11,27);
+
 https://mall.flash8f.com/loading1.php?openid=E524AC511C836629EEF314BBCDCEBCAF&openkey=C6015394DBDBE54A10E2466EF19670E2&iscloseSocket=&ip=s2001-mall.flash8f.com&area=2001&port=8011
 
 --monsterinfo
@@ -59,13 +61,16 @@ TAPTAP素材，--图标
 
 关卡数据重设
 
---多个号间奴隶测试
+升级引擎
+
+拖放逻辑
 
 终身王卡：战役收益双倍，时产双倍，每天登录赠送100钻石
 
 --改数据后奴隶取2次数据
+--多个号间奴隶测试
 
-升级引擎
+
 
 --PK中属性提示缩到右下角
 --删除变成清空

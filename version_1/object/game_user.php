@@ -23,6 +23,7 @@ class GameUser{
 	public $active;
 	public $card;
 	public $pk_common;
+	public $regtime;
 	
 	
 	private $openDataChange = false;
@@ -54,10 +55,11 @@ class GameUser{
 		
 		$this->coin = $this->decode($data['coin'],'{"v":100,"t":'.time().',"st":0}');
 		$this->rmb = (int)$data['rmb'];
+		$this->regtime = (int)$data['regtime'];
 		$this->diamond = (int)$data['diamond'];
 		$this->land_key = $data['land_key'];
 		$this->prop = $this->decode($data['prop']);
-		$this->energy = $this->decode($data['energy'],'{"v":0,"t":0}');
+		$this->energy = $this->decode($data['energy'],'{"v":40,"t":'.$this->regtime.'}');
 		$this->active = $this->decode($data['active'],'{"task":{}}');//»î¶¯
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":{}}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"cd":""}');

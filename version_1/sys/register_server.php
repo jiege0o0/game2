@@ -28,7 +28,7 @@ do{
 	$time = time();
 	$baseHead = array(2,3,6,31,41,64,65,76);
 	$head = $baseHead[rand(0,7)];
-	$sql = "insert into ".getSQLTable('user_data')."(gameid,nick,type,head,last_land,land_key) values('".$gameid."','".$nick."',".$type.",'".$head."',".$time.",'".$time."')";
+	$sql = "insert into ".getSQLTable('user_data')."(gameid,nick,type,head,last_land,regtime,land_key) values('".$gameid."','".$nick."',".$type.",'".$head."',".$time.",".$time.",'".$time."')";
 	$num = $conne->uidRst($sql);
 	if($num == 1){//注册成功
 		$returnData->data = 'success';

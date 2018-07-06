@@ -176,7 +176,9 @@
 		global $userData;
 		foreach($list as $key=>$skillID)
 		{
-			$userData->addSkill($skillID,1);
+			$num = $userData->getSkill($skillID);
+			if($num < 999)
+				$userData->addSkill($skillID,1);
 		}
 	}
 	

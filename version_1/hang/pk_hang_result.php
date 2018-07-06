@@ -28,14 +28,17 @@ do{
 	$award = new stdClass();
 	$award->props = array();
 	$addCoin = 90+$hangIndex*10 + floor($hangIndex/5)*20;
-	$userData->addCoin($addCoin);
-	$award->coin = $addCoin;
+	
 	
 	if(in_array($hangIndex,$upProp) && $userData->getPropNum(101) == 0)
 	{
 		$award->props[101] = 1;
 		$userData->addProp(101,1);
+		$addCoin += 500;
 	}
+	
+	$userData->addCoin($addCoin);
+	$award->coin = $addCoin;
 	
 	// if(!$award->props[101] && $hangIndex%2 == 0)
 	// {
@@ -46,9 +49,14 @@ do{
 	
 	
 	$propArr = array();
+	if($hangIndex > 10)
+		$propLevel = $hangIndex + 5;
+	else
+		$propLevel = $hangIndex;
+	
 	foreach($prop_base as $key=>$value)
 	{
-		if($value['hanglevel'] && $value['hanglevel']<=$hangIndex + 5)
+		if($value['hanglevel'] && $value['hanglevel']<=$propLevel)
 		{
 			array_push($propArr,$value);
 		}
