@@ -97,7 +97,7 @@
 			if($value['level'] <= $tecLevel && $userData->getSkill($key) < 999)//@skill
 			{
 				$num = rand(5,10);
-				array_push($skillArr,array('id'=>'skill'.$value['id'],'num'=>$num,'diamond'=>$num*8));
+				array_push($skillArr,array('id'=>'skill'.$value['id'],'num'=>$num,'diamond'=>$num*10));
 			}
 		}
 		usort($skillArr,randomSortFun);

@@ -95,11 +95,13 @@ do{
 		$info->head = $userData->head;
 		$info->force = $playerData->force;
 		$info->cd = $msg->cd;
-		$data->version = $pk_version;
+		$info->version = $pk_version;
+		
 
 		$data = new stdClass();
 		$data->pkdata = $pkData;
 		$data->pklist = $list;
+		
 
 		
 		$sql = "update ".getSQLTable('video')." set info='".json_encode($info)."',data='".json_encode($data)."',time=".time()." where level=".($userData->hang->level)." order by time limit 1";

@@ -66,12 +66,29 @@
 					'diamond'=>$prop_base[101]['diamond']
 				));
 		}
-
 		
-		if(count($arr) > 5)//最多取6个
+		//必有1个技能
+		$tecLevel = min($userData->tec_force/10,950);
+		$skillArr = array();
+		foreach($skill_base as $key=>$value)
+		{
+			if($value['level'] <= $tecLevel && $userData->getSkill($key) < 999)//@skill
+			{
+				$num = rand(5,10);
+				array_push($skillArr,array('id'=>'skill'.$value['id'],'num'=>$num,'diamond'=>$num*10,'times'=>0,));
+			}
+		}
+		
+		
+
+		$tempNum = 5;
+		if($skillArr[0])
+			$tempNum = 4;
+		
+		if(count($arr) > $tempNum)//最多取6个
 		{
 			usort($arr,randomSortFun);
-			$arr = array_slice($arr,0,5);
+			$arr = array_slice($arr,0,$tempNum);
 		}
 		//体力(必有)
 		$num = rand(10,20);
@@ -81,6 +98,15 @@
 					'times'=>0,
 					'diamond'=>$num*5
 				));
+		
+		if($skillArr[0])
+		{
+			usort($skillArr,randomSortFun);
+			array_push($arr,$skillArr[0]);
+		}
+		
+		
+		
 		
 		$returnData->shop = $arr;
 		if($result)

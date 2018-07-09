@@ -40,14 +40,18 @@ do{
 	$info->enemy = '';
 	
 	
+	//补充卡组
 	$tecLevel = min($userData->tec_force/10,950);
 	$skillArr = array();
+	$awardSkillArr = array();
 	foreach($skill_base as $key=>$value)
 	{
 		if($value['level'] <= $tecLevel)
 		{
 			array_push($skillArr,$value['id']);
 			array_push($skillArr,$value['id']);
+			if($userData->getSkill($value['id']) < 999)
+				array_push($awardSkillArr,$value['id']);
 		}
 	}
 	$tecLevel = $userData->getTecLevel(1);
@@ -63,8 +67,9 @@ do{
 	
 	usort($skillArr,randomSortFun);
 	$skillArr = array_slice($skillArr,0,9);
-	
 	$info->award = join(",",$skillArr);
+	
+
 	
 	
 	
@@ -77,6 +82,23 @@ do{
 	$addValue = $info->step*10;
 	$award->fightvalue = $addValue;
 	$info->value += $addValue;
+	
+	//奖励1-2个技能
+	if(count($awardSkillArr)>0)
+	{
+		$award->skills = new stdClass();
+		usort($awardSkillArr,randomSortFun);
+		$num = rand(1,2);
+		for($i=0;$i<$num;$i++)
+		{
+			if($awardSkillArr[$i])
+			{
+				$award->skills->{$awardSkillArr[$i]} = 1;
+				$userData->addSkill($awardSkillArr[$i],1);
+			}
+		}
+	}
+	
 	
 	$returnData->award = $award;
 	$returnData->cardaward = $info->award;
