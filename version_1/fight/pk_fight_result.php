@@ -8,11 +8,36 @@ $sql = "select * from ".getSQLTable('fight')." where gameid='".$userData->gameid
 $result = $conne->getRowsRst($sql);
 $info = json_decode($result['info']);
 do{		
-	if($userData->pk_common->pktype != 'fight' || $userData->pk_common->level != $info->step)//最近不是打这个
+	if($userData->pk_common->pktype != 'fight')//最近不是打这个
 	{
 		$returnData -> fail = 1;
 		break;
 	}
+	
+	if($userData->pk_common->lastkey == $msg->key)
+	{
+		$lastData = $userData->pk_common->lastreturn;
+		foreach($lastData as $key=>$value)
+		{
+			$returnData ->{$key} = $value;
+		}
+		break;
+	}
+	$userData->pk_common->lastkey = $msg->key;
+	$userData->pk_common->lastreturn = $returnData;
+	$userData->setChangeKey('pk_common');
+	
+	if($userData->pk_common->level != $info->step)
+	{
+		$returnData -> fail = 2;
+		break;
+	}
+	
+	
+	$userData->pk_common->lastkey == $msg->key;
+	$userData->pk_common->lastreturn = $returnData;
+	
+	
 	$pkData = $userData->pk_common->pkdata;
 	
 	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key);

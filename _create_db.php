@@ -13,7 +13,7 @@ $connect=mysql_connect($sql_url,$sql_user,$sql_password)or die('message=F,Could 
 mysql_select_db($sql_db,$connect)or die('Could not select database'); 
 mysql_query("set names utf8");
 
-/*
+
 //自己的数据
 mysql_query("
 Create TABLE g2_".$sql_table."user_data(
@@ -38,7 +38,7 @@ hang Text,
 pk_common Text,
 active Text,
 land_key varchar(63),
-last_land INT UNSIGNED
+last_land INT UNSIGNED,
 regtime INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
@@ -177,7 +177,7 @@ gameid varchar(32) NOT NULL Unique Key,
 info varchar(512),
 shop varchar(255),
 time INT UNSIGNED
-)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 mysql_query("
 Create TABLE g2_".$sql_table."video(

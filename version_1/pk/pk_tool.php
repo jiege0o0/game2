@@ -199,10 +199,11 @@
 		
 		
 		$card = $player->card;
-        $serverKey = substr(md5($cd.$card),-8);
+        $serverKey = substr(md5($cd.$card.$list),-8);
 		if($serverKey != $key)//校验不通过
 		{
 			$result->fail = 103;
+			debug($serverKey);
 			return $result;
 		}	
 

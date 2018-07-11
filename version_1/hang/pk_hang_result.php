@@ -4,9 +4,29 @@ $hangIndex=$userData->hang->level + 1;
 require_once($filePath."pk/pk_tool.php");
 require_once($filePath."cache/base.php");
 do{		
-	if($userData->pk_common->pktype != 'hang' || $userData->pk_common->level != $hangIndex)//最近不是打这个
+	if($userData->pk_common->pktype != 'hang')//最近不是打这个
 	{
 		$returnData -> fail = 1;
+		break;
+	}
+	
+	if($userData->pk_common->lastkey == $msg->key)
+	{
+		$lastData = $userData->pk_common->lastreturn;
+		foreach($lastData as $key=>$value)
+		{
+			$returnData ->{$key} = $value;
+		}
+		break;
+	}
+	$userData->pk_common->lastkey = $msg->key;
+	$userData->pk_common->lastreturn = $returnData;
+	$userData->setChangeKey('pk_common');
+	
+	
+	if($userData->pk_common->level != $hangIndex)//最近不是打这个
+	{
+		$returnData -> fail = 2;
 		break;
 	}
 	$pkData = $userData->pk_common->pkdata;
