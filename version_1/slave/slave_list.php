@@ -9,7 +9,9 @@ do{
 		$sql = "insert into ".getSQLTable('slave')."(gameid,nick,type,head,hourcoin,tec_force,level,master,protime,logintime) values('".$msg->gameid."','".$userData->nick."',".$userData->type.",'".$userData->head."',".$userData->hourcoin.",".$userData->tec_force.",".$userData->level.",'".$msg->gameid."',0,".time().")";
 		$conne->uidRst($sql);	
 		debug($sql);
-		$returnData->slave = array();		
+		$returnData->slave = array();	
+		$userData->active->slave_open=true;	
+		$userData->setChangeKey('active');		
 		// $returnData->master;		
 	}
 	else

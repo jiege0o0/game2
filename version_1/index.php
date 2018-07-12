@@ -104,6 +104,10 @@
 				$sql = "select * from ".getSQLTable('user_open')." where gameid='".$msg->gameid."'";
 				$userOpen = $conne->getRowsRst($sql);
 				$userData = new GameUser($userData,$userOpen);
+				
+				
+				//垮天，登录接口不进这
+				require_once($filePath."sys/pass_day.php");
 			}	
 			
 			//登录的特殊处理

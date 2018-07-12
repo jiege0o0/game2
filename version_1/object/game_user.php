@@ -381,9 +381,10 @@ class GameUser{
 			
 		if(count($arr) > 0)
 		{
-			array_push($arr,addKey('last_land',time()));	
+			$this->last_land = time();
+			array_push($arr,addKey('last_land',$this->last_land));	
 			$sql = "update ".getSQLTable('user_data')." set ".join(",",$arr)." where gameid='".$this->gameid."'";
-			 //debug($sql);
+			 // debug($sql);
 			if(!$conne->uidRst($sql))//写用户数据失败
 			{
 				$mySendData->error = 4;

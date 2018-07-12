@@ -5,6 +5,20 @@ $master=$msg->master;
 require_once($filePath."pk/pk_tool.php");
 require_once($filePath."cache/base.php");
 
+if(!$userData->active->slave_open)//记得标志，不用每次读数据库
+{
+	$sql = "select * from ".getSQLTable('slave')." where gameid='".$msg->gameid."'";
+	$result = $conne->getRowsRst($sql);
+	if(!$result)
+	{
+		$sql = "insert into ".getSQLTable('slave')."(gameid,nick,type,head,hourcoin,tec_force,level,master,protime,logintime) values('".$msg->gameid."','".$userData->nick."',".$userData->type.",'".$userData->head."',".$userData->hourcoin.",".$userData->tec_force.",".$userData->level.",'".$msg->gameid."',0,".time().")";
+		$conne->uidRst($sql);		
+	}
+	$userData->active->slave_open=true;	
+	$userData->setChangeKey('active');	
+debug(11111);	
+}
+
 
 do{	
 	$maxNum = $userData->getMaxSlave();
