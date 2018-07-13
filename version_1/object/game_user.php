@@ -105,7 +105,7 @@ class GameUser{
 		global $returnData;
 		if($this->getEnergy() < $v)
 		{
-			$returnData->sync_energy = $userData->energy;
+			$returnData->sync_energy = $this->energy;
 			return false;
 		}
 		return true;

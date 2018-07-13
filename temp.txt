@@ -13,6 +13,16 @@ http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1
 http://172.17.196.195:9020/index.html?debug_server=1&app=1
 http://172.17.196.195:9020/index.html
 
+
+//手动编译
+tsc
+//生成文件
+build.bat
+//运行
+node index.js
+
+
+
 2周到100关
 
 20*5
@@ -46,6 +56,16 @@ http://172.17.196.195:9020/index.html
 102 -- 1
 119 -- 1
 166 -- 1
+
+convas下调优性能
+表情放大
+技能换图片
+首页下方图标
+宝石给太多了/钱给少了？
+
+
+
+--排行处理
 
 
 已完成：DM.createHang(11,27);
@@ -162,6 +182,8 @@ NPC奴隶X
 
 =RIGHT(A3,LEN(A3)-FIND("_",A3))
 =I2&","&R2&","&B2&","&C2&","&D2&","&E2
+
+
 
 
 

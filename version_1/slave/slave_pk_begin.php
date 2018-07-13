@@ -16,7 +16,7 @@ if(!$userData->active->slave_open)//记得标志，不用每次读数据库
 	}
 	$userData->active->slave_open=true;	
 	$userData->setChangeKey('active');	
-debug(11111);	
+	
 }
 
 
