@@ -47,7 +47,7 @@ do{
 	}
 	$award = new stdClass();
 	$award->props = array();
-	$addCoin = 90+$hangIndex*10 + floor($hangIndex/5)*20;
+	$addCoin = 90+$hangIndex*15 + floor($hangIndex/5)*30;
 	
 	
 	if(in_array($hangIndex,$upProp) && $userData->getPropNum(101) == 0)

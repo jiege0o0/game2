@@ -2,7 +2,7 @@
 require_once($filePath."cache/base.php");
 //当前等级下，产出单位个的间隔
 function getPropCD($clv,$slv,$tlv){
-	$hourEarn = ($clv-$slv + 1)*(1 + $tlv*5/100);
+	$hourEarn = (floor(min($clv-$slv,100)/5) + 1)*(1 + $tlv*5/100);
 	if($hourEarn <= 0)
 		return 0;
 	return 3600/$hourEarn;
@@ -29,13 +29,13 @@ do{
 	$award = new stdClass();
 	$award->props = array();
 	
-	$coinCD = 3600/(90+$level*10 + floor($level/5)*20);
+	$coinCD = 10;//3600/(90+$level*10 + floor($level/5)*20);
 	$lastCoinCD = getCDByIndex($awardCD,0);
 	if($lastCoinCD)
 		$lastCoinCD += $cd;
 	else
 		$lastCoinCD = $cd;
-	$addCoin = floor($lastCoinCD/$coinCD);
+	$addCoin = floor($lastCoinCD/$coinCD*0.3*pow($level,0.85));
 	$awardCD[0] = floor($lastCoinCD)%$coinCD + 1;
 	$userData->addCoin($addCoin);
 	$award->coin = $addCoin;

@@ -1,6 +1,6 @@
 <?php 
 $list=$msg->list;
-
+require_once($filePath."pk/pk_tool.php");
 $sql = "select * from ".getSQLTable('fight')." where gameid='".$userData->gameid."'";
 $result = $conne->getRowsRst($sql);
 $info = json_decode($result['info']);

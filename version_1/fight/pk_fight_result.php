@@ -100,11 +100,11 @@ do{
 	
 	
 	$award = new stdClass();
-	$addCoin = ($info->step)*10 + floor($force/20);
+	$addCoin = ($info->step)*15 + floor($force/20);
 	$award->coin = $addCoin;
 	$userData->addCoin($addCoin);
 	
-	$addValue = $info->step*10;
+	$addValue = $info->step*8;
 	$award->fightvalue = $addValue;
 	$info->value += $addValue;
 	
