@@ -64,7 +64,7 @@ function resetHourCoin(){
 			$level = $userData->getTecLevel($key);
 			if($level)
 			{
-				$addValue = getTecValue($level,$value['value1'],3);
+				$addValue = getTecValue($level,$value['value1'],10);
 				$force += $addValue;
 			}
 		}

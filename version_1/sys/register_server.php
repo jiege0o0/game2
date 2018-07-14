@@ -21,6 +21,7 @@ do{
 	if($conne->getRowsNum($sql))
 	{
 		$returnData -> fail = 3;
+		$returnData -> stopLog = true;
 		break;
 	}
 
