@@ -112,13 +112,17 @@
 		$returnData->data = $userData;
 		$userData->opentime = $serverOpenTime;
 		
-		$logtime = 0;
+		$logtime = 1531635879;
 		if($msg->logtime < $logtime)
 		{
 			$returnData->logtext = new stdClass();
 			$returnData->logtext->text = 
-				'队伍技能增加至50个|'.
-				'UI优化';
+				'游戏性能优化提升|'.
+				'金币获得效率提高|'.
+				'技能费用降低|'.
+				'远征难度降低|'.
+				'一些BUG修复|'.
+				'希望大家能给这个游戏打分投票，让更多玩家参与进来，后面新增的实时PK功能需要足够数量的玩家才能匹配起来';
 			$returnData->logtext->time = $logtime;
 		}
 		

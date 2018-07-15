@@ -2,7 +2,7 @@
 	require_once($filePath."cache/base.php");
 	//当前等级下，产出单位个的间隔
 	function getPropCD($clv,$slv,$tlv){
-		$hourEarn = ($clv-$slv + 1)*(1 + $tlv*5/100);
+		$hourEarn = (floor(min($clv-$slv,100)/3) + 1)*(1 + $tlv*5/100);
 		if($hourEarn <= 0)
 			return 0;
 		return 3600/$hourEarn;
@@ -49,22 +49,36 @@
 	
 				
 		//钱
-		$coinCD = 3600/(90+$level*10 + floor($level/5)*20);
+		$coin = floor(3600/10*0.3*pow($level,0.85))*24;
 		array_push($arr,array(
 					'id'=>'coin',
-					'num'=>round(24*3600/$coinCD),
+					'num'=>$coin,
 					'times'=>0,
 					'diamond'=>60
 				));
+				
+				
 		//升级卡
 		if($level >= 10 && $userData->getPropNum(101) == 0)
 		{
-			array_push($arr,array(
+			for($i=4;$i<=22;$i++)
+			{
+				$upProp[$i-2] = $prop_base[$i]['hanglevel'];
+			}
+			$passLevel = (int)$upProp[$userData->level];
+			$nextLevel = (int)$upProp[$userData->level+1];
+			if($nextLevel && $level < $nextLevel && (!$passLevel || $level>=$passLevel))
+			{
+				array_push($arr,array(
 					'id'=>101,
 					'num'=>1,
 					'times'=>0,
+					'level'=>$nextLevel,
 					'diamond'=>$prop_base[101]['diamond']
 				));
+			}
+			
+			
 		}
 		
 		//必有1个技能
@@ -98,6 +112,8 @@
 					'times'=>0,
 					'diamond'=>$num*5
 				));
+				
+	
 		
 		if($skillArr[0])
 		{

@@ -24,6 +24,7 @@
 	$mySendData = new stdClass();
 	$mySendData->head = $head;
 	$mySendData->msg = $returnData;
+	$runSqlArr = array();
 	
 	if($debugC){
 		$startT = microtime(true);
@@ -172,10 +173,21 @@
 	if(isset($msg->landid) && isset($msg->gameid) && !$returnData->fail && !$mySendData->error)
 		$userData->write2DB();
 		
+	if(!$returnData->fail && !$mySendData->error)
+	{
+		foreach($runSqlArr as $key=>$value)
+		{
+			$conne->uidRst($value);
+		}
+	}
+		
 	if($debugC)
 	{
 		$mySendData->runtime = microtime(true) - $startT;
 		$mySendData->debug = $debugArr;
 	}
+	
+	$returnData-> close_version = 1;
+	$returnData-> close_time = time()+10*60;
 	sendToClient($mySendData);
 ?>

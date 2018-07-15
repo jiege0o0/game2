@@ -40,7 +40,7 @@ do{
 		break;
 	}
 	
-	$upProp = array();//19¸ö
+	$upProp = array(-1);//19¸ö
 	for($i=4;$i<=22;$i++)
 	{
 		array_push($upProp,$prop_base[$i]['hanglevel']);
@@ -49,8 +49,10 @@ do{
 	$award->props = array();
 	$addCoin = 90+$hangIndex*15 + floor($hangIndex/5)*30;
 	
-	
-	if(in_array($hangIndex,$upProp) && $userData->getPropNum(101) == 0)
+	$index = array_search($hangIndex, $upProp);
+	debug($index);
+	debug($userData->getPropNum(101) + ($userData->level - 1));
+	if($index && $userData->getPropNum(101) + ($userData->level - 1) < $index)
 	{
 		$award->props[101] = 1;
 		$userData->addProp(101,1);

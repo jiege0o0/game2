@@ -24,7 +24,7 @@ do{
 	$maxNum = $userData->getMaxSlave();
 	$sql = "select count(*) as num from ".getSQLTable('slave')." where master='".$msg->gameid."' and gameid!='".$msg->gameid."'";
 	$result = $conne->getRowsRst($sql);
-	if($result['num'] > $maxNum)//奴隶数达上限
+	if($result['num'] >= $maxNum)//奴隶数达上限
 	{
 		$returnData -> fail = 8;
 		break;
@@ -47,6 +47,7 @@ do{
 	if($result['protime'] > time())//保护中
 	{
 		$returnData -> fail = 7;
+		$returnData ->p = $result['protime'];
 		break;
 	}
 	
@@ -77,7 +78,7 @@ do{
 		break;
 	}
 	
-	$sql = "select * from ".getSQLTable('user_data')." where gameid='".$otherid."'";
+	$sql = "select * from ".getSQLTable('user_data')." where gameid='".$master."'";
 	$otherData = $conne->getRowsRst($sql);
 	if(!$otherData)//没有这个玩家
 	{

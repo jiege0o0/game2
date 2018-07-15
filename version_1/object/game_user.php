@@ -177,7 +177,7 @@ class GameUser{
 		//Éú²úÓ°Ïì
 		$cd = 60;
 		$step = round($this->hourcoin/60);
-		$add = floor(($time - $this->coin->t)/$cd);
+		$add = floor(min($time - $this->coin->t,3600*48)/$cd);
 		if($add > 0)
 		{
 			$this->coin->v += $add*$step;
