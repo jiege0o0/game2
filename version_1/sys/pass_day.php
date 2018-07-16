@@ -105,6 +105,37 @@
 			
 		}
 	}
+	
+	
+	//改战力
+	if(!$userData->active->p3)
+	{
+		$userData->active->p3 = 1;
+		$userData->setChangeKey('active');	
+		require_once($filePath."cache/base.php"); 
+		$force = 0;
+		foreach($tec_base as $key=>$value)
+		{
+			if($value['type'] == 2)
+			{
+				$level = $userData->getTecLevel($key);
+				if($level)
+				{
+					$addValue = getTecValueX($level,$value['value1'],1.5);
+					$force += $addValue;
+				}
+			}
+		}
+		$userData->tec_force = $force;
+		$returnData->sync_tec_force = $force;
+		$userData->setChangeKey('tec_force');
+
+		$rankType = 'force';
+		$rankScore = $userData->tec_force;
+		require($filePath."rank/add_rank.php");
+		require($filePath."slave/slave_reset_list.php");
+	}
+	
 	$returnData->mail_award = $addMailAward;
 	
 function getTecValueX($level,$begin,$step){

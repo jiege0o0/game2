@@ -187,7 +187,7 @@
 		$mySendData->debug = $debugArr;
 	}
 	
-	$returnData-> close_version = 1;
-	$returnData-> close_time = time()+10*60;
+	$returnData-> close_version = 3;
+	$returnData-> close_time = 1531726997+10*60;
 	sendToClient($mySendData);
 ?>

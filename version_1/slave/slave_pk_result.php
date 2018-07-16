@@ -80,6 +80,7 @@ do{
 		$oo = json_encode($oo);
 		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',1,'".$oo."',".$time.")";
 		$conne->uidRst($sql);
+		debug($sql);
 		
 		if($master != $otherid)//抢奴隶,发给原主人
 		{
@@ -88,15 +89,16 @@ do{
 			
 			$oo = new stdClass();
 			$oo->nick = base64_encode($userData->nick);
-			$oo->slave_nick = $userData->pk_common->nick;
+			$oo->slave_nick = base64_encode($result['nick']);
 			$oo->slave_gameid = $otherid;
 			$oo->type = $userData->type;
 			$oo->head = $userData->head;
 			$oo->rd = rand(0,9);
 			$oo->pkdata = $videoPKData;
 			$oo = json_encode($oo);
-			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$otherid."',2,'".$oo."',".$time.")";
+			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$master."',2,'".$oo."',".$time.")";
 			$conne->uidRst($sql);
+			debug($sql);
 		}
 	}
 	else//反抗成功
@@ -110,6 +112,7 @@ do{
 		$oo = json_encode($oo);
 		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,time) values('".$userData->gameid."','".$master."',4,'".$oo."',".$time.")";
 		$conne->uidRst($sql);
+		debug($sql);
 	}
 	
 	

@@ -91,7 +91,7 @@ function resetForce(){
 			$level = $userData->getTecLevel($key);
 			if($level)
 			{
-				$addValue = getTecValue($level,$value['value1'],0.3);
+				$addValue = getTecValue($level,$value['value1'],1.5);
 				$force += $addValue;
 			}
 		}
