@@ -9,7 +9,7 @@ do{
 	foreach($list as $key=>$value)
 	{
 		$index = array_search($value, $award);
-		$isOK = $index === 0 || $index>0;//只可以用前6张
+		$isOK = $index === 0 || $index>0;
 		if(!$isOK)
 		{
 			$returnData -> fail = 1;
@@ -29,7 +29,7 @@ do{
 		$info->card = join(",",$list);
 	
 	if($userData->hang->level > 30)	
-		recordPKData('fight_get',$list);
+		recordPKData('fight_get',join(",",$list));
 		
 	$info->award = '';
 	$info->card = $info->card;

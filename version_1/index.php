@@ -188,6 +188,6 @@
 	}
 	
 	$returnData-> close_version = 3;
-	$returnData-> close_time = 1531726997+10*60;
+	$returnData-> close_time = 1531816976+10*60;
 	sendToClient($mySendData);
 ?>

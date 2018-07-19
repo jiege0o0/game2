@@ -63,7 +63,7 @@ class GameUser{
 		$this->active = $this->decode($data['active'],'{"task":{}}');//»î¶¯
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":{}}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"cd":""}');
-		$this->card = $this->decode($data['card'],'{"monster":[],"skill":{"201":50,"202":50,"203":50}}');
+		$this->card = $this->decode($data['card'],'{"monster":[],"skill":{"201":30,"202":30,"203":30}}');
 		
 	}
 	
@@ -225,6 +225,7 @@ class GameUser{
 				$count += $num;
 			}
 		}
+		$this->coin->ss = $lastData[0] == 1;
 		if($count)
 		{
 			$this->coin->v -= $count*floor($this->hourcoin*0.2);

@@ -3,9 +3,14 @@ do{
 	$sql = "select * from ".getSQLTable('mail')." where id=".$msg->id."";
 	$result = $conne->getRowsRst($sql);
 	debug($result);
-	if(!$result || $result['stat'] || $result['type'] < 100)//没数据
+	if(!$result || $result['type'] < 100)//没数据
 	{
 		$returnData -> fail = 1;
+		break;
+	}
+	if($result['stat'])//done!
+	{
+		$returnData -> fail = 3;
 		break;
 	}
 	

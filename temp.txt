@@ -13,6 +13,11 @@ http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1
 http://172.17.196.195:9020/index.html?debug_server=1&app=1
 http://172.17.196.195:9020/index.html
 
+//取数据
+DM.getCardInfo()
+//清数据
+DM.cleanCardRecord('hange0o0')
+
 
 //手动编译
 tsc
@@ -58,10 +63,40 @@ node index.js
 166 -- 1
 
 --convas下调优性能
-表情放大
+
+
 技能换图片
 首页下方图标
-保护时间换图标
+聊天对话？
+
+表情放大
+技能按科技等级出
+切屏之后无法操作
+
+--加生命上限技能
+--科技再增加一个金币掉落提升
+
+
+--卡牌调整统计工具
+--清空统计相关PHP
+--战力提示明显点
+--保护的描述
+
+
+SlaveManager.getInstance().getProtectedWord(this.gameid,this.master)
+
+
+--属性相克，防御0.5->0.8,攻击2->1.5
+
+
+
+--显示观看位置
+--倒计时到0时的表现
+--左右切换
+
+--保护时间换图标
+--获取卡牌金币
+
 --宝石给太多了/钱给少了？
 
 

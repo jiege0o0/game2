@@ -21,14 +21,18 @@ if(!$userData->active->slave_open)//记得标志，不用每次读数据库
 
 
 do{	
-	$maxNum = $userData->getMaxSlave();
-	$sql = "select count(*) as num from ".getSQLTable('slave')." where master='".$msg->gameid."' and gameid!='".$msg->gameid."'";
-	$result = $conne->getRowsRst($sql);
-	if($result['num'] >= $maxNum)//奴隶数达上限
+	if($otherid != $msg->gameid)//打主人不用判断这个
 	{
-		$returnData -> fail = 8;
-		break;
-	}	
+		$maxNum = $userData->getMaxSlave();
+		$sql = "select count(*) as num from ".getSQLTable('slave')." where master='".$msg->gameid."' and gameid!='".$msg->gameid."'";
+		$result = $conne->getRowsRst($sql);
+		if($result['num'] >= $maxNum)//奴隶数达上限
+		{
+			$returnData -> fail = 8;
+			break;
+		}	
+	}
+	
 	
 	$sql = "select * from ".getSQLTable('slave')." where gameid='".$otherid."'";
 	$result = $conne->getRowsRst($sql);

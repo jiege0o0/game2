@@ -148,15 +148,18 @@
     }	
 	
 	function deleteSkillCard($card){
-		global $userData;
+		global $userData,$returnData;
 		$arr = explode(",",$card);
 		$len = count($arr);
+		$orginSkillNum = new stdClass();
 		for($i=0;$i<$len;$i++)
 		{
 			$skillID = (int)$arr[$i];
 			if($skillID >= 200)//@skillID
 			{
 				$num = $userData->getSkill($skillID);
+				if(!$orginSkillNum->{$skillID})
+					$orginSkillNum->{$skillID} = $num;
 				if($num>0)
 				{
 					if($num < 999)//@skillID  
@@ -164,6 +167,7 @@
 				}
 				else
 				{
+					$returnData->sync_skill->{$skillID} = $orginSkillNum->{$skillID};
 					return false;
 				}
 			}
