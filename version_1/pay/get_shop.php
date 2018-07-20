@@ -54,7 +54,7 @@
 		{
 			$coinLevel += $userData->getTecLevel(300 + $i);
 		}
-		$coin = floor(3600/10*0.3*pow($level,0.85)*(1+$coinLevel*0.002)*1.1)*24;
+		$coin = floor(3600/10*0.3*pow($level,0.85)*(1+$coinLevel*0.002)*1.1 + $userData->hourcoin*1.1)*12;
 		array_push($arr,array(
 					'id'=>'coin',
 					'num'=>$coin,

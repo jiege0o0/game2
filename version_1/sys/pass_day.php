@@ -19,7 +19,7 @@
 		$userData->setChangeKey('mailtime');
 		
 		$addMailAward = true;
-		
+		$userData->setChangeKey('last_land');
 		// debug($sql);
 		// $writeDB = true;
 	}

@@ -16,8 +16,8 @@ function getCoinNeed($lv){
 
 //升到该级需要的资源 type:1-3
 function getOtherNeed($lv,$type){
-	$v1 = 1.1;
-	$v2 = array(1.8,1.5,1.2);
+	$v1 = 1.2;
+	$v2 = array(2.2,2,1.8);
 	$v2 = $v2[$type-1];
 	$base = 2;
 	for($i=1;$i<$lv;$i++)
@@ -119,7 +119,8 @@ function getTecValue($level,$begin,$step){
 $id=$msg->id;
 $lv = $userData->getTecLevel($id);
 $vo = $tec_base[$id];
-$coin = getCoinNeed($lv + $vo['coinlv'] + $vo['step']*$lv); 
+$coin = getCoinNeed($vo['coinlv'] + $lv*(((int)$vo['step'])+0.8)); 
+debug($coin);
 $arr = array();
 $idAdd = 0;
 if($vo['type'] == 1)//通用类型需要的道具会变化

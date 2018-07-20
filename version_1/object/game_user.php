@@ -380,7 +380,7 @@ class GameUser{
 				
 			
 			
-		if(count($arr) > 0)
+		if(count($arr) > 0 || $this->changeKey['last_land'])
 		{
 			$this->last_land = time();
 			array_push($arr,addKey('last_land',$this->last_land));	
