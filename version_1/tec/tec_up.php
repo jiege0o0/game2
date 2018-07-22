@@ -64,7 +64,7 @@ function resetHourCoin(){
 			$level = $userData->getTecLevel($key);
 			if($level)
 			{
-				$addValue = getTecValue($level,$value['value1'],20);
+				$addValue = getTecValue($level + $value['coinlv'] - 1,20);
 				$force += $addValue;
 			}
 		}
@@ -91,7 +91,7 @@ function resetForce(){
 			$level = $userData->getTecLevel($key);
 			if($level)
 			{
-				$addValue = getTecValue($level,$value['value1'],1.5);
+				$addValue = getTecValue($level + $value['coinlv'] - 1,1.5);
 				$force += $addValue;
 			}
 		}
@@ -106,8 +106,8 @@ function resetForce(){
 	require($filePath."slave/slave_reset_list.php");
 }
 
-function getTecValue($level,$begin,$step){
-	$v = $begin;
+function getTecValue($level,$step){
+	$v = 1;
 	for($i=1;$i<$level;$i++)
 	{	
 		$v += max(1,floor($step*$i));
@@ -119,7 +119,9 @@ function getTecValue($level,$begin,$step){
 $id=$msg->id;
 $lv = $userData->getTecLevel($id);
 $vo = $tec_base[$id];
-$coin = getCoinNeed($vo['coinlv'] + $lv*(((int)$vo['step'])+0.8)); 
+// var coin = this.getCoinNeed((lv + vo.coinlv - 1)*(0.8+vo.step + vo.coinlv/200)) //ÐèÒªµÄÇ®
+// $coin = getCoinNeed($vo['coinlv'] + $lv*(((int)$vo['step'])+0.8)); 
+$coin = getCoinNeed(($lv + $vo['coinlv'] - 1)*(((int)$vo['step'])+0.8 + $vo['coinlv']/200)); 
 debug($coin);
 $arr = array();
 $idAdd = 0;

@@ -54,7 +54,7 @@
 		{
 			$coinLevel += $userData->getTecLevel(300 + $i);
 		}
-		$coin = floor(3600/10*0.3*pow($level,0.85)*(1+$coinLevel*0.002)*1.1 + $userData->hourcoin*1.1)*12;
+		$coin = floor(3600/10*0.3*pow($level,0.8)*(1+$coinLevel*0.002)*1.1 + $userData->hourcoin*1.1)*12;
 		array_push($arr,array(
 					'id'=>'coin',
 					'num'=>$coin,
@@ -87,7 +87,7 @@
 		}
 		
 		//必有1个技能
-		$tecLevel = min($userData->tec_force/10,950);
+		$tecLevel = $userData->level;
 		$skillArr = array();
 		foreach($skill_base as $key=>$value)
 		{

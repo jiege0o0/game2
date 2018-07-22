@@ -52,6 +52,16 @@ do{
 	$nick = '战役守卫'.$hangIndex;
 	$player->nick = base64_encode($nick);
 	
+	
+	$sql = "select gameid,tec_force from ".getSQLTable('slave')." where gameid=(select master from ".getSQLTable('slave')." where gameid='".$userData->gameid."')";
+	$result = $conne->getRowsRst($sql);
+	if($result && $result['gameid'] != $userData->gameid)
+	{
+		if((int)$result['tec_force'] > $userData->tec_force)
+		$pkData->players[0]->force += ceil(((int)$result['tec_force'] - $userData->tec_force)*0.05);
+	}
+	
+	
 	//战力上限
 	$maxDef = floor($hangIndex/5);
 	if($maxDef < $player->def)

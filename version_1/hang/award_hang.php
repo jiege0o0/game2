@@ -40,7 +40,7 @@ do{
 	{
 		$coinLevel += $userData->getTecLevel(300 + $i);
 	}
-	$addCoin = floor($lastCoinCD/$coinCD*0.3*pow($level,0.85)*(1+$coinLevel*0.002));
+	$addCoin = floor($lastCoinCD/$coinCD*0.3*pow($level,0.8)*(1+$coinLevel*0.002));
 	$awardCD[0] = floor($lastCoinCD)%$coinCD + 1;
 	
 	

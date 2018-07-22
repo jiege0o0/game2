@@ -38,6 +38,10 @@
 		
 		//用户数据处理
 		unset($userData->hang->cd);
+		unset($userData->active->p1);
+		unset($userData->active->p2);
+		unset($userData->active->p3);
+		unset($userData->active->p4);
 		require_once($filePath."sys/pass_day.php");
 		// $addMailAward = false;
 		

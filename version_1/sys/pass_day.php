@@ -52,15 +52,14 @@
 	}
 	
 	//改金币时产
-	if(!$userData->active->p2)
+	if(!$userData->active->p5)
 	{
-		$userData->active->p2 = $time;
+		$userData->active->p5 = 1;
 		$userData->setChangeKey('active');	
 		
+		require_once($filePath."cache/base.php"); 
 		if($userData->hourcoin > 10)
 		{
-			$lastHourCoin = $userData->hourcoin;
-			require_once($filePath."cache/base.php"); 
 			$force = 10;
 			foreach($tec_base as $key=>$value)
 			{
@@ -69,7 +68,7 @@
 					$level = $userData->getTecLevel($key);
 					if($level)
 					{
-						$addValue = getTecValueX($level,$value['value1'],20);
+						$addValue = getTecValueX($level + $value['coinlv'] - 1,20);
 						$force += $addValue;
 					}
 				}
@@ -81,38 +80,8 @@
 			$rankType = 'hourcoin';
 			$rankScore = $userData->hourcoin;
 			require($filePath."rank/add_rank.php");
-			require($filePath."slave/slave_reset_list.php");
-			
-			if(!$userData->active->p1)
-			{
-				$userData->active->p1 = $time;
-				$oo = new stdClass();
-				$oo->title = base64_encode('金币调整补偿');
-				$oo->des = base64_encode('现在金币科技的收益提高啦，根据你当前的收益情况，现补偿你资源如下：');
-				$oo->award = new stdClass();
-				$oo->award->coin = 100*$lastHourCoin;
-				$oo = json_encode($oo);
-				$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,stat,time) values('sys','".$userData->gameid."',101,'".$oo."',0,".$time.")";
-				//$conne->uidRst($sql);
-				array_push($runSqlArr,$sql);
-				
-				$userData->openData['mailtime'] = $time;
-				$userData->setOpenDataChange();
-				$userData->setChangeKey('mailtime');
-			
-				$addMailAward = true;
-			}
-			
 		}
-	}
-	
-	
-	//改战力
-	if(!$userData->active->p3)
-	{
-		$userData->active->p3 = 1;
-		$userData->setChangeKey('active');	
-		require_once($filePath."cache/base.php"); 
+		
 		$force = 0;
 		foreach($tec_base as $key=>$value)
 		{
@@ -121,7 +90,7 @@
 				$level = $userData->getTecLevel($key);
 				if($level)
 				{
-					$addValue = getTecValueX($level,$value['value1'],1.5);
+					$addValue = getTecValueX($level + $value['coinlv'] - 1,1.5);
 					$force += $addValue;
 				}
 			}
@@ -133,13 +102,16 @@
 		$rankType = 'force';
 		$rankScore = $userData->tec_force;
 		require($filePath."rank/add_rank.php");
+		
 		require($filePath."slave/slave_reset_list.php");
 	}
 	
+	
+	
 	$returnData->mail_award = $addMailAward;
 	
-function getTecValueX($level,$begin,$step){
-	$v = $begin;
+function getTecValueX($level,$step){
+	$v = 1;
 	for($i=1;$i<$level;$i++)
 	{	
 		$v += max(1,floor($step*$i));
