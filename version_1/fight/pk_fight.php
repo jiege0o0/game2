@@ -20,7 +20,7 @@ do{
 	{
 		require_once($filePath."cache/base.php");
 		//计算关卡战力
-		$force= $userData->tec_force + max(round($info->step/30*$userData->tec_force),2*$info->step);
+		$force= $userData->tec_force + max(round($info->step/28*$userData->tec_force),2*$info->step);
 		$enemy = array();
 		$enemy['force'] = $force;
 		
@@ -64,6 +64,7 @@ do{
 	
 	
 	$pkData = new stdClass();
+	$pkData->check = true;
 	$pkData->seed = time();
 	$pkData->players = array();
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));

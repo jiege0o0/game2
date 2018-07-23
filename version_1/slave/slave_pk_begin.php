@@ -121,6 +121,7 @@ do{
 	$pkData = new stdClass();
 	$pkData->seed = time();
 	$pkData->players = array();
+	$pkData->check = true;
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
 	array_push($pkData->players,createDefPlayer(2,2,$otherData,$defList));
 	

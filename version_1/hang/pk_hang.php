@@ -31,6 +31,7 @@ do{
 	$pkData = new stdClass();
 	$pkData->seed = time();
 	$pkData->players = array();
+	$pkData->check = true;
 	
 	//计算关卡战力
 	$force=1;

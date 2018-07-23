@@ -2,7 +2,7 @@
 require_once($filePath."cache/base.php");
 //当前等级下，产出单位个的间隔
 function getPropCD($clv,$slv,$tlv){
-	$hourEarn = (floor(min($clv-$slv,100)/10) + 1)*(1 + $tlv*5/100);
+	$hourEarn = (floor(min(max(1,$clv-$slv),100)/10) + 1)*(1 + $tlv*5/100);
 	if($hourEarn <= 0)
 		return 0;
 	return 3600/$hourEarn;
@@ -50,7 +50,7 @@ do{
 	$maxPropID = 0;
 	foreach($prop_base as $key=>$value)
 	{
-		if($value['hanglevel'] && $value['hanglevel']<=$level)
+		if($value['hanglevel'] && ($value['hanglevel']<=$level || $value['droplevel'] <= $userData->level))
 		{
 			$propCD = getPropCD($level,$value['hanglevel'],$userData->getTecLevel(300 + $key));
 			if($propCD)
