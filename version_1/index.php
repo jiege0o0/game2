@@ -25,6 +25,9 @@
 	$mySendData->head = $head;
 	$mySendData->msg = $returnData;
 	$runSqlArr = array();
+	//开启了会倒计时切服务器
+	// $returnData-> close_version = $game_version;
+	// $returnData-> close_time = 1532425803+10*60;
 	
 	if($debugC){
 		$startT = microtime(true);
@@ -75,6 +78,11 @@
 
 	try{	
 		do{
+			if($returnData-> close_version && $returnData-> close_version <= $game_version && time() - $returnData-> close_time > 0)
+			{
+				$mySendData->error = 1;
+				break;
+			}
 			// $mySendData->error = 99;
 			// $mySendData->error_str = '15时间改回正常';
 			// break;
@@ -107,12 +115,12 @@
 				$userData = new GameUser($userData,$userOpen);
 				
 				
-				//垮天，登录接口不进这
+				//垮天处理，登录接口不进这(没landid)
 				require_once($filePath."sys/pass_day.php");
 			}	
 			
 			//登录的特殊处理
-			if($head == 'sys.login_server' || $head == 'sys.login_server')
+			if($head == 'sys.login_server')// || $head == 'sys.login_server'
 			{
 				if($msg->h5)
 				{	
@@ -187,7 +195,6 @@
 		$mySendData->debug = $debugArr;
 	}
 	
-	$returnData-> close_version = 3;
-	$returnData-> close_time = 1531816976+10*60;
+	
 	sendToClient($mySendData);
 ?>

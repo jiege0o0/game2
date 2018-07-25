@@ -1,6 +1,6 @@
 <?php 
 	//创建玩家数据
-	function createUserPlayer($id,$team,$userData,$list){
+	function createUserPlayer($id,$team,$userData,$list,$isAuto=false){
 		$player = new stdClass();
 		$player->id = $id;
 		$player->team = $team;
@@ -9,24 +9,32 @@
 		$player->nick = base64_encode($userData->nick);
 		$player->force = $userData->tec_force;
 		$player->type = $userData->type;
-		$list = explode(",",$list);
-		$len = count($list);
-		if($len <= 6)
+		if($isAuto)
 		{
-			$player->card = join(",",$list);
+			$player->autolist = $list;
 		}
 		else
-		{	
-			$len = ceil(($len-6)/6);
-			$newList = array_slice($list,0,6);
-			for($i=0;$i<$len;$i++)
+		{
+			$list = explode(",",$list);
+			$len = count($list);
+			if($len <= 6)
 			{
-				$temp = array_slice($list,6 + $i*6,6);
-				usort($temp,randomSortFun);
-				$newList = array_merge($newList,$temp);
+				$player->card = join(",",$list);
 			}
-			$player->card = join(",",$newList);
+			else
+			{	
+				$len = ceil(($len-6)/6);
+				$newList = array_slice($list,0,6);
+				for($i=0;$i<$len;$i++)
+				{
+					$temp = array_slice($list,6 + $i*6,6);
+					usort($temp,randomSortFun);
+					$newList = array_merge($newList,$temp);
+				}
+				$player->card = join(",",$newList);
+			}
 		}
+		
 		$player->hp = $userData->getHp();
 		return $player;
 	}
@@ -188,9 +196,9 @@
 	
 	
 	//得到用于PK的数据结构 step#id,step#id,
-	function getUserPKData($list,$player,$cd,$key){
+	function getUserPKData($list,$player,$cd,$key,$seed){
 		global $monster_base,$skill_base;
-		$orgin = explode(",",$player->card);
+		
 		
 		$result = new stdClass();
 		$result->list = array();
@@ -199,14 +207,20 @@
 		$result->force = $player->force;
 		$result->id = $player->id;
 		$result->team = $player->team;
+		$result->isauto = !$player->card;
 		$result->skill = array();
 		
 		
 		$card = $player->card;
-        $serverKey = substr(md5($cd.$card.$list),-8);
+		if(!$card)
+			$card = $player->autolist;
+		$orgin = explode(",",$card);
+			
+        $serverKey = substr(md5($cd.$card.$list.$seed),-8);
 		if($serverKey != $key)//校验不通过
 		{
 			$result->fail = 103;
+			debug($seed);
 			debug($serverKey);
 			return $result;
 		}	

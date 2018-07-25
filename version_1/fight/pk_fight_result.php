@@ -40,7 +40,7 @@ do{
 	
 	$pkData = $userData->pk_common->pkdata;
 	
-	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key);
+	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key,$pkData->seed);
 	$enempList = $pkData->players[1]->autolist;
 	if($playerData -> fail)//出怪顺序有问题
 	{

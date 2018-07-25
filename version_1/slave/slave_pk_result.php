@@ -27,7 +27,7 @@ do{
 	
 	$pkData = $userData->pk_common->pkdata;
 	
-	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key);
+	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key,$pkData->seed);
 	backSkillCard($playerData->skill);
 	if($playerData -> fail)//出怪顺序有问题
 	{

@@ -31,7 +31,7 @@ do{
 	}
 	$pkData = $userData->pk_common->pkdata;
 	
-	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key);
+	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key,$pkData->seed);
 	backSkillCard($playerData->skill);
 	$enempList = $pkData->players[1]->autolist;
 	if($playerData -> fail)//出怪顺序有问题
@@ -85,7 +85,7 @@ do{
 	}
 	usort($propArr,"my_hang_sort");
 	$addProp = $propArr[rand(0,2)];
-	$num = max(1,$hangIndex - $addProp['hanglevel'] + 5);
+	$num = (int)min(100,max(0,($hangIndex - $addProp['hanglevel'])/10) + 5);
 	$award->props[$addProp['id']] = $num;
 	$userData->addProp($addProp['id'],$num);
 	
@@ -107,6 +107,7 @@ do{
 	$rankScore = $hangIndex;
 	require($filePath."rank/add_rank.php");
 	
+	debug($userData->hang->level);
 	if($userData->hang->level > 10)
 	{
 		//入录像
@@ -116,6 +117,7 @@ do{
 		$info->type = $userData->type;
 		$info->head = $userData->head;
 		$info->force = $playerData->force;
+		$info->isauto = $playerData->isauto;
 		$info->cd = $msg->cd;
 		$info->version = $pk_version;
 		
@@ -128,6 +130,7 @@ do{
 		
 		$sql = "update ".getSQLTable('video')." set info='".json_encode($info)."',data='".json_encode($data)."',time=".time()." where level=".($userData->hang->level)." order by time limit 1";
 		$conne->uidRst($sql);
+		debug($sql);
 	}
 	
 	

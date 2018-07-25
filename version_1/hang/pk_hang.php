@@ -4,7 +4,7 @@ $hangIndex=$userData->hang->level + 1;
 $mapIndex = ceil($hangIndex/100);
 require_once($filePath."pk/pk_tool.php");
 require_once($filePath."cache/map".$mapIndex.".php");
-
+$isAuto = $msg->isauto;
 
 do{		
 	if(!$userData->testEnergy(1))//没体力
@@ -13,7 +13,20 @@ do{
 		break;
 	}
 	
-	foreach($userData->atk_list->list as $key=>$value)
+	if($isAuto)
+	{
+		foreach($userData->def_list->list as $key=>$value)
+		{
+			if($value->id == $id)
+			{
+				$list = $value->list;
+				break;
+			}
+		}
+	}
+	else
+	{
+		foreach($userData->atk_list->list as $key=>$value)
 	{
 		if($value->id == $id)
 		{
@@ -21,6 +34,9 @@ do{
 			break;
 		}
 	}
+	}
+	
+	
 
 	if(!$list)
 	{
@@ -48,7 +64,7 @@ do{
 	if($hangIndex > 20)
 		recordPKData('hang',$list);
 	$hang_base[$hangIndex]['force']=$force;
-	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
+	array_push($pkData->players,createUserPlayer(1,1,$userData,$list,$isAuto));
 	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);
 	$nick = '战役守卫'.$hangIndex;
 	$player->nick = base64_encode($nick);
