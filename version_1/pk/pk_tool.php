@@ -79,10 +79,10 @@
 		return $player;
 	}
 	
-	function recordPKData($type,$str){
+	function recordPKData($type,$str,$add=''){
 		global $dataFilePath,$userData;
 		$file  = $dataFilePath.'log/use_'.$type.'.txt';//要写入文件的文件名（可以是任意文件名），如果文件不存在，将会创建一个
-		file_put_contents($file, $userData->level.'|'.$str.PHP_EOL,FILE_APPEND);
+		file_put_contents($file, $userData->level.'|'.$str.'|'.$add.PHP_EOL,FILE_APPEND);
 	}
 
     function getGroupMp($group){
