@@ -5,6 +5,7 @@
 	if(count($list) > $maxNum)
 	{
 		$returnData -> fail = 4;
+		$returnData -> maxNum = $maxNum; 
 	}
 	else
 	{

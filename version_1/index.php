@@ -27,7 +27,7 @@
 	$runSqlArr = array();
 	//开启了会倒计时切服务器
 	// $returnData-> close_version = $game_version;
-	// $returnData-> close_time = 1532425803+10*60;
+	// $returnData-> close_time = 1532569624+10*60;
 	
 	if($debugC){
 		$startT = microtime(true);
