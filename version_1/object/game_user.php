@@ -228,6 +228,8 @@ class GameUser{
 		$this->coin->ss = $lastData[0] == 1;
 		if($count)
 		{
+			if($count > 24)
+				$count = 24;
 			$this->coin->v -= $count*floor($this->hourcoin*0.2);
 			$b = true;
 		}

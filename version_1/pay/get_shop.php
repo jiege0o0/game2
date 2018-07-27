@@ -74,12 +74,13 @@
 			$nextLevel = (int)$upProp[$userData->level+1];
 			if($nextLevel && $level < $nextLevel && (!$passLevel || $level>=$passLevel))
 			{
+				$need = $userData->level * 100 + 88;
 				array_push($arr,array(
 					'id'=>101,
 					'num'=>1,
 					'times'=>0,
 					'level'=>$nextLevel,
-					'diamond'=>$prop_base[101]['diamond']
+					'diamond'=>$need
 				));
 			}
 			

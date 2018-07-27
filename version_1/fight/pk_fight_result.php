@@ -74,8 +74,7 @@ do{
 		if($value['level'] <= $tecLevel)
 		{
 			array_push($skillArr,$value['id']);
-			array_push($skillArr,$value['id']);
-			if($userData->getSkill($value['id']) < 999)
+			if($userData->getSkill($value['id']) < 999)//½±ÀøÓÃµÄ
 				array_push($awardSkillArr,$value['id']);
 		}
 	}
