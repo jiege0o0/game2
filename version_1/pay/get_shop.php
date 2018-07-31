@@ -46,6 +46,17 @@
 				));
 			}
 		}
+		
+		//×ÊÔ´±¦Ïä
+		for($i=1;$i<=24;$i++)
+		{
+			array_push($arr,array(
+					'id'=>'box_resource',
+					'num'=>$i,
+					'times'=>0,
+					'diamond'=>floor(pow($i,0.95) * 20)
+				));
+		}
 	
 				
 		//Ç®

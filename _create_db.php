@@ -13,7 +13,7 @@ $connect=mysql_connect($sql_url,$sql_user,$sql_password)or die('message=F,Could 
 mysql_select_db($sql_db,$connect)or die('Could not select database'); 
 mysql_query("set names utf8");
 
-
+/*
 //自己的数据
 mysql_query("
 Create TABLE g2_".$sql_table."user_data(
@@ -201,7 +201,34 @@ for($i=1;$i<=2000;$i++)
 }
 $sql2 = implode(',',$arr);
 mysql_query($sql.$sql2,
-$connect)or die("message=F,Invalid query: " . mysql_error()); 
+$connect)or die("message=F,Invalid query: " . mysql_error()); */
+
+mysql_query("
+Create TABLE g2_".$sql_table."prop_shop(
+gameid varchar(32) NOT NULL Unique Key,
+shop varchar(512),
+base varchar(512),
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+mysql_query("
+Create TABLE g2_".$sql_table."pvp(
+gameid varchar(32) NOT NULL Unique Key,
+task varchar(512),
+online varchar(512),
+offline varchar(512),
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+//积分数据
+mysql_query("
+Create TABLE g2_".$sql_table."pvp_offline(
+gameid varchar(32) NOT NULL Unique Key,
+data varchar(1024),
+score INT UNSIGNED,
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
 
 
 

@@ -34,10 +34,6 @@ do{
 	}
 	
 	
-	$userData->pk_common->lastkey == $msg->key;
-	$userData->pk_common->lastreturn = $returnData;
-	
-	
 	$pkData = $userData->pk_common->pkdata;
 	
 	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key,$pkData->seed);

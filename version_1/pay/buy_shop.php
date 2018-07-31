@@ -30,7 +30,7 @@
 		}
 		if(!$shopValue->times)
 			$shopValue->times = 0;
-		$need = $shopValue->diamond *($shopValue->times + 1);
+		$need = floor($shopValue->diamond *($shopValue->times*0.2 + 1));
 		// if($shopValue->isbuy)
 		// {
 			// $returnData->fail = 3;
@@ -43,14 +43,34 @@
 			$returnData->sync_diamond = $userData->diamond;
 			break;
 		}
+		$award = new stdClass();
+		$award->props = array();
 		if($shopValue->id == 'coin')
+		{
 			$userData->addCoin($shopValue->num);
+			$award->coin = $shopValue->num;
+		}
 		else if($shopValue->id == 'energy')
+		{
 			$userData->addEnergy($shopValue->num);
+			$award->energy = $shopValue->num;
+		}
+		else if($shopValue->id == 'box_resource')
+		{
+			$awardNum = $shopValue->num;
+			require_once($filePath."pay/box_resource.php");
+		}
 		else if(substr($shopValue->id,0,5) == 'skill')
+		{
+			// $award->skills = array();
+			// $award->skills[substr($shopValue->id,5)] = $shopValue->num;
 			$userData->addSkill(substr($shopValue->id,5),$shopValue->num);
+		}
 		else
+		{
 			$userData->addProp($shopValue->id,$shopValue->num);
+			$award->props->{$shopValue->id} = $shopValue->num;
+		}
 		$userData->addDiamond(-$need);
 		
 		$arr[$shopKey]->times++;
