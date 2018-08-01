@@ -45,10 +45,7 @@
 		
 		$sql = "update ".getSQLTable('pvp')." set task='".json_encode($task)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
-		
-		
-		
-		
+
 	}while(false);
 	
 ?> 

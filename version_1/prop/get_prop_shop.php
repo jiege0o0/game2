@@ -11,7 +11,7 @@
 		
 		if($result)
 		{
-			$shopBase = json_decode($result['base'])
+			$shopBase = json_decode($result['shop_base']);
 		}
 
 		//生成shop数据	
@@ -31,14 +31,14 @@
 				{
 					if(rand(0,20*$level)<$ownnum)//卖
 					{
-						$total = floor($ownnum/100/2)
-						$sellNum = rand(1,$total);
+						$total = floor($ownnum/100/2);
+						$sellNum = rand(1,$total)*100;
 						$sellType = 1;
 					}
 					else//买
 					{
 						$total = max(1,floor((20*$level - $ownnum)/100/2));
-						$sellNum = rand(1,$total);
+						$sellNum = rand(1,$total)*100;
 						$sellType = 2;
 					}
 				}
@@ -51,7 +51,7 @@
 				if($sellType == 1)
 					$diamond = floor($sellRate * $sellNum);
 				else
-					$diamond = floor($sellRate * $sellNum * 2);
+					$diamond = floor($sellRate * $sellNum * 1.5);
 					
 				array_push($arr,array(
 					'id'=>$key,

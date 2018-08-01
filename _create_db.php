@@ -207,7 +207,7 @@ mysql_query("
 Create TABLE g2_".$sql_table."prop_shop(
 gameid varchar(32) NOT NULL Unique Key,
 shop varchar(512),
-base varchar(512),
+shop_base varchar(512),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 

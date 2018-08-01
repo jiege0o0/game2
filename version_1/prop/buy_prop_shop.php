@@ -10,8 +10,8 @@
 			break;
 		}
 		$arr = json_decode($result['shop']);
-		if($result['base'])
-			$base = json_decode($result['base']);
+		if($result['shop_base'])
+			$base = json_decode($result['shop_base']);
 		else
 			$base = new stdClass();
 		// debug($result['shop']);
@@ -52,7 +52,7 @@
 			}
 			$userData->addProp($shopValue->id,-$shopValue->num);
 			$userData->addCoin($shopValue->diamond);
-			$base->{$shopValue->id} -= $shopValue->num/100;
+			$base->{$shopValue->id} -= $shopValue->num/50;
 		}
 		else
 		{
@@ -64,12 +64,13 @@
 			}
 			$userData->addProp($shopValue->id,$shopValue->num);
 			$userData->addCoin(-$shopValue->diamond);
-			$base->{$shopValue->id} += $shopValue->num/100;
+			$base->{$shopValue->id} += $shopValue->num/50;
 		}
 		
 		$shopValue->isbuy = true;
-		$sql = "update ".getSQLTable('shop')." set shop='".json_encode($arr)."',base='".json_encode($base)."' where gameid='".$userData->gameid."'";
+		$sql = "update ".getSQLTable('prop_shop')." set shop='".json_encode($arr)."',shop_base='".json_encode($base)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
+		debug($sql);
 		
 		
 	}while(false);
