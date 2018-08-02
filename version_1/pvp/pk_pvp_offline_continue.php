@@ -3,6 +3,12 @@ $id=$msg->id;
 require_once($filePath."pk/pk_tool.php");
 
 do{		
+	if($userData->pk_common->pktype != 'pvp_offline')//最近不是打这个
+	{
+		$returnData -> fail = 1;
+		break;
+	}
+	
 	if(!$userData->testEnergy(1))//没体力
 	{
 		$returnData -> fail = 1;

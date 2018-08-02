@@ -231,51 +231,55 @@
 		$mpList = getMPList();
 		$stepCD = 50;
 		$mpCost = 0;
-		$list = explode(",",$list);
-		$len = count($list);
-		for($i=0;$i<$len;$i++)
-        {
-			$group = explode("#",$list[$i]);
-			$time = $group[0]*$stepCD; 
-			$id = $group[1];
-			if($id < 200)//@skillID
+		if($list)
+		{
+			$list = explode(",",$list);
+			$len = count($list);
+			for($i=0;$i<$len;$i++)
 			{
-				$mpCost += $monster_base[$id]['cost'];
-			}
-			else
-			{
-				$mpCost += $skill_base[$id]['cost'];
-				if($skill_base[$id]['sv4'] == -10001)
+				$group = explode("#",$list[$i]);
+				$time = $group[0]*$stepCD; 
+				$id = $group[1];
+				if($id < 200)//@skillID
 				{
-					addMPTime($mpList,$time + 3000 + $skill_base[$id]['cd']*1000,$skill_base[$id]['sv1']+ $skill_base[$id]['cost']);
+					$mpCost += $monster_base[$id]['cost'];
 				}
-			}
+				else
+				{
+					$mpCost += $skill_base[$id]['cost'];
+					if($skill_base[$id]['sv4'] == -10001)
+					{
+						addMPTime($mpList,$time + 3000 + $skill_base[$id]['cd']*1000,$skill_base[$id]['sv1']+ $skill_base[$id]['cost']);
+					}
+				}
 
-			if($mpList[$mpCost] > $time)//MP不够
-			{
-				$result->fail = 101;
-				break;
-			}	
-			if($id < 500)//非报警卡
-			{
-				$index = array_search($id, $orgin);
-				$isOK = $index === 0 || ($index>0 && $index <6);//只可以用前6张
-				if(!$isOK)//使用了不合法的卡
+				if($mpList[$mpCost] > $time)//MP不够
 				{
-					$result->fail = 102;
+					$result->fail = 101;
 					break;
+				}	
+				if($id < 500)//非报警卡
+				{
+					$index = array_search($id, $orgin);
+					$isOK = $index === 0 || ($index>0 && $index <6);//只可以用前6张
+					if(!$isOK)//使用了不合法的卡
+					{
+						$result->fail = 102;
+						break;
+					}
+					array_splice($orgin,$index,1);
 				}
-				array_splice($orgin,$index,1);
+				
+				array_push($result->list,array(
+					"mid"=>$id,
+					"time"=>$time,
+					"id"=>$i,
+					));
 			}
-			
-			array_push($result->list,array(
-				"mid"=>$id,
-				"time"=>$time,
-				"id"=>$i,
-				));
 		}
 		
-		//返还未使用的技能卡
+		
+		//记录未使用的技能卡
 		$len = count($orgin);
 		for($i=0;$i<$len;$i++)
 		{

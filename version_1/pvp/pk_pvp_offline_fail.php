@@ -42,59 +42,46 @@ do{
 	$isPKWin = false;
 	require_once($filePath."pvp/finish_task.php");
 
-	$mySorce = $offlineData->sorce;
-	if(!$mySorce)
-		$mySorce = 0;
+	$myScore = $offlineData->score;
+	if(!$myScore)
+		$myScore = 0;
 	
 	$award = new stdClass();
 	$enemy = $pkData->players[1];
 	if($enemy->gameid == 'npc')//打电脑
 	{
-		$addSorce = -3;
+		$addScore = -3;
 	}
 	else
 	{
-		if($mySorce < $enemy->sorce)
-			$addSorce = -max(5,15 - pow($enemy->sorce - $mySorce,0.6));
+		if($myScore < $enemy->score)
+			$addScore = -max(5,15 - pow($enemy->score - $myScore,0.6));
 		else
-			$addSorce = -(15 + pow($mySorce - $enemy->sorce,0.6));
+			$addScore = -(15 + pow($myScore - $enemy->score,0.6));
 	}
-	if($mySorce < 3000)
-		$addSorce = floor($addSorce*(7000+$mySorce/3000)/10000);
-	if(-$addSorce > $mySorce)
-		$addSorce = -$mySorce;
+	if($myScore < 3000)
+		$addScore = floor($addScore*(7000+$myScore/3000)/10000);
+	if(-$addScore > $myScore)
+		$addScore = -$myScore;
 		
-	$award->offline_value = $addSorce;
+	$award->offline_value = $addScore;
 	
 	
-	$offlineData->sorce = max(0,$mySorce + $addSorce);
+	$offlineData->score = max(0,$myScore + $addScore);
 		
-	if(!$offlineData->winnum)
-		$offlineData->winnum = -1;
-	else if($offlineData->winnum < 0)
-		$offlineData->winnum --;
+	if(!$offlineData->cwin)
+		$offlineData->cwin = -1;
+	else if($offlineData->cwin < 0)
+		$offlineData->cwin --;
 	else 
-		$offlineData->winnum = 0;
+		$offlineData->cwin = 0;
 		
 	if(!$offlineData->time)
 		$offlineData->time = time();
 		
-	if(!$offlineData->list)
-		$offlineData->list = array();
-	if($enemy->gameid != 'npc')	
-	{
-		array_push($offlineData->list,$enemy->gameid);
-		while(count($offlineData->list) > 5);
-			array_shift($offlineData->list);
-	}
-	
-		
-	
-	
-	
 	
 	$returnData->award = $award;
-	$returnData->sorce = $offlineData->sorce;
+	$returnData->score = $offlineData->score;
 	$returnData->task = $task;
 	
 
@@ -103,11 +90,11 @@ do{
 	
 	//更新列表
 	$myPlayer = $pkData->players[0];
-	$myPlayer->score = $offlineData->sorce;
-	$sql = "update ".getSQLTable('pvp_offline')." set data='".json_encode($myPlayer)."',score=".$offlineData->sorce.",time=".time()." where gameid='".$userData->gameid."'";
+	$myPlayer->score = $offlineData->score;
+	$sql = "update ".getSQLTable('pvp_offline')." set data='".json_encode($myPlayer)."',score=".$offlineData->score.",time=".time()." where gameid='".$userData->gameid."'";
 	if(!$conne->uidRst($sql))
 	{
-		$sql = "insert into ".getSQLTable('pvp_offline')."(gameid,data,score,time) values('".$userData->gameid."','".json_encode($myPlayer)."',".$offlineData->sorce.",".time().")";
+		$sql = "insert into ".getSQLTable('pvp_offline')."(gameid,data,score,time) values('".$userData->gameid."','".json_encode($myPlayer)."',".$offlineData->score.",".time().")";
 		$conne->uidRst($sql);
 	}
 

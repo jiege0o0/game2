@@ -17,11 +17,17 @@ do{
 	if($offlineData->score)
 		$myScore = $offlineData->score;
 	$winNum = 0;
-	if($offlineData->winnum)
-		$winNum = $offlineData->winnum;
-	$lastList = $offlineData->list;
-	if(!$lastList)
-		$lastList = array();
+	if($offlineData->cwin)
+		$winNum = $offlineData->cwin;
+		
+	if(!$offlineData->pknum)
+		$offlineData->pknum = 1;
+	else
+		$offlineData->pknum ++;
+		
+	$offlineData->list;
+	if(!$offlineData->list)
+		$offlineData->list = array();
 	
 	$force1 = floor($myScore * (0.9 + $winNum/100));
 	$force2 = floor($myScore * (1.1 + $winNum/100));
@@ -35,7 +41,7 @@ do{
 	{
 		foreach($result as $key=>$value)
 		{
-			if(!in_array($value['gameid'],$lastList,true))
+			if(!in_array($value['gameid'],$offlineData->list,true))
 			{
 				array_push($enemyData,$value);
 			}
@@ -44,6 +50,9 @@ do{
 		if($enemy)
 		{
 			$enemy = json_decode($enemy);
+			array_push($offlineData->list,$enemy->gameid);
+			while(count($offlineData->list) > 5)
+				array_shift($offlineData->list);
 		}
 	}
 	
@@ -51,7 +60,7 @@ do{
 	{
 		require_once($filePath."cache/map2.php");
 		$enemy = createNpcPlayer(2,2,$hang_base[rand(101,200)]);
-		$enemy->nick = base64_encode('神秘人'）
+		$enemy->nick = base64_encode('神秘人');
 	}
 	$enemy->force = 500;
 	
@@ -81,6 +90,10 @@ do{
 	$userData->pk_common->pkdata = $pkData;
 	$userData->pk_common->time = time();
 	$userData->setChangeKey('pk_common');
+	
+
+	$sql = "update ".getSQLTable('pvp')." set offline='".json_encode($offlineData)."' where gameid='".$userData->gameid."'";
+	$conne->uidRst($sql);
 	
 	
 

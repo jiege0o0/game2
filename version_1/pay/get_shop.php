@@ -22,7 +22,7 @@
 		//生成shop数据	
 		$arr = array();
 		$level = $userData->hang->level;
-		foreach($prop_base as $key=>$value)
+		/*foreach($prop_base as $key=>$value)
 		{
 			if($value['hanglevel'] && $value['hanglevel']<=$level)//资源道具
 			{
@@ -45,7 +45,7 @@
 					'diamond'=>$num * $value['diamond']
 				));
 			}
-		}
+		}*/
 		
 		//资源宝箱
 		for($i=1;$i<=24;$i++)
@@ -60,7 +60,7 @@
 	
 				
 		//钱
-		$coinLevel = 0;
+		/*$coinLevel = 0;
 		for($i=1;$i<=22;$i++)
 		{
 			$coinLevel += $userData->getTecLevel(300 + $i);
@@ -71,7 +71,7 @@
 					'num'=>$coin,
 					'times'=>0,
 					'diamond'=>60
-				));
+				));*/
 				
 				
 		//升级卡

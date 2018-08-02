@@ -5,19 +5,7 @@
 	$task = json_decode($result['task']);
 	
 	do{	
-		if($index == 0)//´ó½±
-		{
-			if(!$task->total || $task->total < 100)
-			{
-				$returnData -> fail = 1;
-				break;
-			}
-			
-			$task->total -= 100;
-			break;
-		}
 		
-		$index--;
 		if(!$task->list[$index])
 		{
 			$returnData -> fail = 2;
@@ -37,12 +25,13 @@
 		}
 		
 		$task->list[$index]->award = 1;
-		$task->total += $task->list[$index]->exp;
 		
 		$awardNum = $task->list[$index]->box;
 		require_once($filePath."pay/box_resource.php");
-		$award->pvp_exp = $task->list[$index]->exp;
+		if($index != 0)
+			$task->list[0]->current ++;
 		
+		$returnData->task = $task;
 		$sql = "update ".getSQLTable('pvp')." set task='".json_encode($task)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
 
