@@ -15,8 +15,12 @@
 		if($result && isSameDate($result['time']))
 		{
 			$returnData->shop = json_decode($result['shop']);
-			$returnData->info = json_decode($result['info']);
-			break;
+			if($returnData->shop[0]->key)
+			{
+				$returnData->info = json_decode($result['info']);
+				break;
+			}
+			
 		}
 		//-----------------跨天了----------------
 		
@@ -38,11 +42,12 @@
 
 		//{id,num,diamond},
 		//生成shop数据	
+		$key = 1;
 		$arr = array();
 		$level = $userData->hang->level;
 		if(!$level)
 			$level = 1;
-		foreach($prop_base as $key=>$value)
+		/*foreach($prop_base as $key=>$value)
 		{
 			if($value['hanglevel'] && $value['hanglevel']<=$level)//资源道具
 			{
@@ -77,13 +82,26 @@
 					'id'=>'coin',
 					'num'=>$coin,
 					'diamond'=>60
+				));*/
+				
+		//资源宝箱
+		for($i=1;$i<=24;$i++)
+		{
+			array_push($arr,array(
+					'id'=>'box_resource',
+					'num'=>$i,
+					'times'=>0,
+					'key'=>$key++,
+					'diamond'=>floor(pow($i,0.95) * 20*1.5)
 				));
+		}
 		
 		//体力
 		$num = rand(10,20);
 		array_push($arr,array(
 					'id'=>'energy',
 					'num'=>$num,
+					'key'=>$key++,
 					'diamond'=>$num*5
 				));
 
@@ -101,8 +119,12 @@
 		{
 			if($value['level'] <= $tecLevel && $userData->getSkill($key) < 999)//@skill
 			{
-				$num = rand(5,10);
-				array_push($skillArr,array('id'=>'skill'.$value['id'],'num'=>$num,'diamond'=>$num*10));
+				$num = rand(10,30);
+				array_push($skillArr,array(
+				'id'=>'skill'.$value['id'],
+				'num'=>$num,
+				'key'=>$key++,
+				'diamond'=>$num*10));
 			}
 		}
 		usort($skillArr,randomSortFun);

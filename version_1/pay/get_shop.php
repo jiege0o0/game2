@@ -15,13 +15,17 @@
 		if($result && isSameDate($result['time']))
 		{
 			$returnData->shop = json_decode($result['shop']);
-			break;
+			if($returnData->shop[0]->key)
+			{
+				break;
+			}
 		}
 
 		//{id,num,diamond},
 		//生成shop数据	
 		$arr = array();
 		$level = $userData->hang->level;
+		$key=1;
 		/*foreach($prop_base as $key=>$value)
 		{
 			if($value['hanglevel'] && $value['hanglevel']<=$level)//资源道具
@@ -54,6 +58,7 @@
 					'id'=>'box_resource',
 					'num'=>$i,
 					'times'=>0,
+					'key'=>$key++,
 					'diamond'=>floor(pow($i,0.95) * 20)
 				));
 		}
@@ -90,6 +95,7 @@
 					'id'=>101,
 					'num'=>1,
 					'times'=>0,
+					'key'=>$key++,
 					'level'=>$nextLevel,
 					'diamond'=>$need
 				));
@@ -106,7 +112,12 @@
 			if($value['level'] <= $tecLevel && $userData->getSkill($key) < 999)//@skill
 			{
 				$num = rand(5,10);
-				array_push($skillArr,array('id'=>'skill'.$value['id'],'num'=>$num,'diamond'=>$num*10,'times'=>0,));
+				array_push($skillArr,array(
+				'id'=>'skill'.$value['id'],
+				'num'=>$num,
+				'key'=>$key++,
+				'diamond'=>$num*10,
+				'times'=>0,));
 			}
 		}
 		

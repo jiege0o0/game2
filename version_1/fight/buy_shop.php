@@ -11,7 +11,7 @@
 		$arr = json_decode($result['shop']);
 		foreach($arr as $key=>$value)
 		{
-			if($value->id == $id)
+			if($value->key == $id)
 			{
 				$shopValue = $value;
 				$shopKey = $key;
@@ -37,14 +37,34 @@
 			$returnData->value = $info->value;
 			break;
 		}
+		$award = new stdClass();
+		$award->props = array();
 		if($shopValue->id == 'coin')
+		{
 			$userData->addCoin($shopValue->num);
+			$award->coin = $shopValue->num;
+		}
 		else if($shopValue->id == 'energy')
+		{
 			$userData->addEnergy($shopValue->num);
+			$award->energy = $shopValue->num;
+		}
+		else if($shopValue->id == 'box_resource')
+		{
+			$awardNum = $shopValue->num;
+			require_once($filePath."pay/box_resource.php");
+		}
 		else if(substr($shopValue->id,0,5) == 'skill')
+		{
+			// $award->skills = array();
+			// $award->skills[substr($shopValue->id,5)] = $shopValue->num;
 			$userData->addSkill(substr($shopValue->id,5),$shopValue->num);
+		}
 		else
+		{
 			$userData->addProp($shopValue->id,$shopValue->num);
+			$award->props->{$shopValue->id} = $shopValue->num;
+		}
 			
 		$info->value -=$shopValue->diamond;
 		

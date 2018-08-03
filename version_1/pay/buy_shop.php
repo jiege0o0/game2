@@ -15,7 +15,7 @@
 		
 		foreach($arr as $key=>$value)
 		{
-			if($value->id == $id)
+			if($value->key == $id)
 			{
 				$shopValue = $value;
 				$shopKey = $key;

@@ -20,7 +20,7 @@ do{
 	{
 		require_once($filePath."cache/base.php");
 		//计算关卡战力
-		$force= $userData->tec_force + max(round($info->step/28*$userData->tec_force),2*$info->step);
+		$force= $userData->tec_force + max(round($info->step/25*$userData->tec_force),2*$info->step);
 		$enemy = array();
 		$enemy['force'] = $force;
 		
