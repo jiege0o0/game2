@@ -46,6 +46,8 @@ do{
 	$myScore = $offlineData->score;
 	if(!$myScore)
 		$myScore = 0;
+	$myScore += $offlineData->subscore;
+	$offlineData->subscore = 0;
 	
 	$award = new stdClass();
 	$enemy = $pkData->players[1];
@@ -103,6 +105,7 @@ do{
 	//更新列表
 	$myPlayer = $pkData->players[0];
 	$myPlayer->score = $offlineData->score;
+	$myPlayer->level = $userData->level;
 	$sql = "update ".getSQLTable('pvp_offline')." set data='".json_encode($myPlayer)."',score=".$offlineData->score.",time=".time()." where gameid='".$userData->gameid."'";
 	if(!$conne->uidRst($sql))
 	{

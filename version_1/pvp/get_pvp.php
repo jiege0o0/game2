@@ -13,7 +13,7 @@
 			$task = json_decode($result['task']);
 			$online = json_decode($result['online']);
 			$offline = json_decode($result['offline']);
-
+			debug($result['time']);
 			if(isSameDate($result['time']))
 			{
 				$returnData->task = $task;
@@ -63,7 +63,8 @@
 						if($skillID < 200 && $value['level'] == 0 || in_array($skillID,$userData->card->monster,true))//@skill
 							array_push($temp,$skillID);
 					}
-					$oo->mid = array_rand($temp,1);
+					debug($temp);
+					$oo->mid = $temp[rand(0,count($temp)-1)];
 					$oo->num = rand(9,15);
 					$oo->box = $oo->num > 12?2:1;
 					break;
@@ -84,7 +85,7 @@
 		$returnData->offline = $offline;
 		if($result)
 		{
-			$sql = "update ".getSQLTable('pvp')." set task='".json_encode($task)."' where gameid='".$userData->gameid."'";
+			$sql = "update ".getSQLTable('pvp')." set task='".json_encode($task)."',time=".time()." where gameid='".$userData->gameid."'";
 		}
 		else
 		{	

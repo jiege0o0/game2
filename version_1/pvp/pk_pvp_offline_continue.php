@@ -46,6 +46,23 @@ do{
 	$userData->setChangeKey('pk_common');
 	
 	
+	$myScore = 0;
+	$sql = "select * from ".getSQLTable('pvp')." where gameid='".$userData->gameid."'";
+	$result = $conne->getRowsRst($sql);
+	$conne->close_rst();
+	$offlineData = json_decode($result['offline']);
+	
+	if($offlineData->score)
+		$myScore = $offlineData->score;
+	$preSubScore = min(30,$myScore);
+	$offlineData->subscore = $preSubScore;
+	$offlineData->score = $myScore - $preSubScore;
+	
+	
+	$sql = "update ".getSQLTable('pvp')." set offline='".json_encode($offlineData)."' where gameid='".$userData->gameid."'";
+	$conne->uidRst($sql);
+	
+	
 
 }while(false);
 

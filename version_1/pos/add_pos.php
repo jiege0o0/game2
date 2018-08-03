@@ -1,6 +1,7 @@
 <?php 
 $id=$msg->id;
 $type=$msg->type;
+$name=$msg->name;
 $temp = str_replace("|",",",$msg->list);
 $list = explode(",",$temp);
 
@@ -23,6 +24,8 @@ do{
 	$posData = new stdClass();
 	$posData->id = $id;
 	$posData->list = $msg->list;
+	if($name)
+		$posData->name = base64_encode($name);
 
 		
 	if($type == 'atk')

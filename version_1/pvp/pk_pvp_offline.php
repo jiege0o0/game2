@@ -28,6 +28,10 @@ do{
 	$offlineData->list;
 	if(!$offlineData->list)
 		$offlineData->list = array();
+		
+	$preSubScore = min(30,$myScore);
+	$offlineData->subscore = $preSubScore;
+	$offlineData->score = $myScore - $preSubScore;
 	
 	$force1 = floor($myScore * (0.9 + $winNum/100));
 	$force2 = floor($myScore * (1.1 + $winNum/100));
@@ -36,6 +40,7 @@ do{
 	
 	$sql = "select * from ".getSQLTable('pvp_offline')." where score between ".$force1." and ".$force2." and gameid!='".$msg->gameid."' ORDER BY time DESC limit 20";
 	$result = $conne->getRowsArray($sql);
+	debug($sql);
 	$enemyData = array();
 	if($result)
 	{
@@ -43,13 +48,17 @@ do{
 		{
 			if(!in_array($value['gameid'],$offlineData->list,true))
 			{
-				array_push($enemyData,$value);
+				array_push($enemyData,$value['data']);
 			}
 		}
-		$enemy = array_rand($enemyData,1);
-		if($enemy)
+		$len = count($enemyData);
+		if($len)
 		{
-			$enemy = json_decode($enemy);
+			$enemyStr = $enemyData[rand(0,$len-1)];
+			$enemy = json_decode($enemyStr);
+			$enemy->team=2;
+			$enemy->id=2;
+			
 			array_push($offlineData->list,$enemy->gameid);
 			while(count($offlineData->list) > 5)
 				array_shift($offlineData->list);
@@ -61,6 +70,7 @@ do{
 		require_once($filePath."cache/map2.php");
 		$enemy = createNpcPlayer(2,2,$hang_base[rand(101,200)]);
 		$enemy->nick = base64_encode('神秘人');
+		$enemy->head=0;
 	}
 	$enemy->force = 500;
 	

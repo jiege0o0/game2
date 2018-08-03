@@ -18,6 +18,7 @@
 				{
 					$returnData -> fail = 2;
 					$returnData -> id = $skillID;
+					debug($skillID);
 					break;
 				}
 				if($skillID > 200 && !$userData->card->skill->{$skillID})//@skillID
