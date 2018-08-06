@@ -7,7 +7,7 @@ http://hangegame.com/game2/user/_create_user_db.php
 http://172.17.196.195:90/game2/test.php?serverid=1
 
 http://172.17.196.195:9021/index.html?debug_server=1&debug=1
-http://172.17.196.195:9021/index.html?debug_server=1&app=1
+http://172.17.196.195:9021/index.html?debug_server=1&app=1&game_version=3
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&app=1
@@ -78,11 +78,30 @@ UI加上小兵装饰？
 交易所
 
 
-竞技场段位名字
+--竞技场段位名字
 竞技场帮助
 交易所帮助
+--段位排行
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--技能宝箱
 --首页竞技场图标
-远征商店
+--远征商店
+--商城显示钻石
 -多玩家竞技场
 
 
@@ -91,6 +110,9 @@ UI加上小兵装饰？
 1v1阵容对战，任务礼包，结算，奖励
 
 
+
+//段位排行
+//段位结算
 //下个版本才出英雄
 英雄系统？
 抽卡？升星（解锁技能），阵容中配置英雄

@@ -1,6 +1,7 @@
 <?php 
 $id=$msg->id;
 require_once($filePath."pk/pk_tool.php");
+require_once($filePath."pvp/pvp_tool.php");
 
 do{		
 	if(!$userData->testEnergy(1))//没体力
@@ -16,6 +17,7 @@ do{
 	$offlineData = json_decode($result['offline']);
 	if($offlineData->score)
 		$myScore = $offlineData->score;
+	$myLevel = getPVPLevel($myScore);
 	$winNum = 0;
 	if($offlineData->cwin)
 		$winNum = $offlineData->cwin;
@@ -33,14 +35,14 @@ do{
 	$offlineData->subscore = $preSubScore;
 	$offlineData->score = $myScore - $preSubScore;
 	
-	$force1 = floor($myScore * (0.9 + $winNum/100));
-	$force2 = floor($myScore * (1.1 + $winNum/100));
+	$force1 = floor($myScore * (0.8 + $winNum/100));
+	$force2 = floor($myScore * (1.2 + $winNum/100));
 	if($force2 - $force1 < 50)
 		$force2 += 50 - $force1;
 	
 	$sql = "select * from ".getSQLTable('pvp_offline')." where score between ".$force1." and ".$force2." and gameid!='".$msg->gameid."' ORDER BY time DESC limit 20";
 	$result = $conne->getRowsArray($sql);
-	debug($sql);
+	// debug($sql);
 	$enemyData = array();
 	if($result)
 	{
@@ -58,6 +60,8 @@ do{
 			$enemy = json_decode($enemyStr);
 			$enemy->team=2;
 			$enemy->id=2;
+			$otherLevel = getPVPLevel($enemy->score);
+			$enemy->def = max(0,5 + ($myLevel - $otherLevel));
 			
 			array_push($offlineData->list,$enemy->gameid);
 			while(count($offlineData->list) > 5)
@@ -67,12 +71,14 @@ do{
 	
 	if(!$enemy)//没敌人就从关卡中找一个
 	{
-		require_once($filePath."cache/map2.php");
+		$mapIndex = ceil($userData->hang->level/100)+1;
+		require_once($filePath."cache/map".$mapIndex.".php");
 		$enemy = createNpcPlayer(2,2,$hang_base[rand(101,200)]);
 		$enemy->nick = base64_encode('神秘人');
 		$enemy->head=0;
+		$enemy->def = 5 + $myLevel;
 	}
-	$enemy->force = 500;
+	$enemy->force = 1000;
 	
 	
 	$pkData = new stdClass();
@@ -89,7 +95,7 @@ do{
 		}
 	}
 	$myPlayer = createUserPlayer(1,1,$userData,$list,true);
-	$myPlayer->force = 500;
+	$myPlayer->force = 1000;
 	array_push($pkData->players,$myPlayer);
 	array_push($pkData->players,$enemy);
 

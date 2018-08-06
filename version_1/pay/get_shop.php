@@ -106,25 +106,20 @@
 		
 		//必有1个技能
 		$tecLevel = $userData->level;
-		$skillArr = array();
+		$skillAble = false;
 		foreach($skill_base as $key=>$value)
 		{
 			if($value['level'] <= $tecLevel && $userData->getSkill($key) < 999)//@skill
 			{
-				$num = rand(5,10);
-				array_push($skillArr,array(
-				'id'=>'skill'.$value['id'],
-				'num'=>$num,
-				'key'=>$key++,
-				'diamond'=>$num*10,
-				'times'=>0,));
+				$skillAble = true;
+				break;
 			}
 		}
 		
 		
 
 		$tempNum = 5;
-		if($skillArr[0])
+		if($skillAble)
 			$tempNum = 4;
 		
 		if(count($arr) > $tempNum)//最多取6个
@@ -143,10 +138,16 @@
 				
 	
 		
-		if($skillArr[0])
+		if($skillAble)
 		{
-			usort($skillArr,randomSortFun);
-			array_push($arr,$skillArr[0]);
+			$num = rand(1,3);
+			array_push($arr,array(
+					'id'=>'box_skill',
+					'num'=>$num,
+					'times'=>0,
+					'key'=>$key++,
+					'diamond'=>floor(pow($num,0.95) * 240)
+				));
 		}
 		
 		
