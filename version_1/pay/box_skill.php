@@ -21,9 +21,18 @@ do{
 	}
 	
 	usort($skillArr,randomSortFun);
-	$skillID = $skillArr[0];
-	$num = 30*$awardNum;
-	$award->skills[$skillID] = $num;
+	while($awardNum > 0)
+	{
+		$skillID = array_shift($skillArr);
+		array_push($skillArr,$skillID);
+		$num = 30;
+		if($award->skills[$skillID])
+			$award->skills[$skillID] += $num;
+		else
+			$award->skills[$skillID] = $num;
+		$awardNum--;
+	}
+	
 
 	$userData->addSkill($skillID,$num);
 	
