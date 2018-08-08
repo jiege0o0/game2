@@ -31,7 +31,7 @@ do{
 	if(!$offlineData->list)
 		$offlineData->list = array();
 		
-	$preSubScore = min(30,$myScore);
+	$preSubScore = min(20,$myScore);
 	$offlineData->subscore = $preSubScore;
 	$offlineData->score = $myScore - $preSubScore;
 	
@@ -71,9 +71,10 @@ do{
 	
 	if(!$enemy)//没敌人就从关卡中找一个
 	{
-		$mapIndex = ceil($userData->hang->level/100)+1;
+		$level = $userData->hang->level + rand(5,60);
+		$mapIndex = ceil($level/100);
 		require_once($filePath."cache/map".$mapIndex.".php");
-		$enemy = createNpcPlayer(2,2,$hang_base[rand(101,200)]);
+		$enemy = createNpcPlayer(2,2,$hang_base[$level]);
 		$enemy->nick = base64_encode('神秘人');
 		$enemy->head=0;
 		$enemy->def = 5 + $myLevel;

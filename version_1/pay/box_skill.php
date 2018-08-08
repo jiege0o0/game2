@@ -1,7 +1,8 @@
 <?php 
 require_once($filePath."cache/base.php");
 do{
-	$award = new stdClass();
+	if(!$award)
+		$award = new stdClass();
 	$award->skills = array();
 
 	$tecLevel = $userData->level;

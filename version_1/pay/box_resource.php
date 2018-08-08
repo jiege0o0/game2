@@ -17,7 +17,8 @@ do{
 	$level = $userData->hang->level;
 	// $awardNum = 1;
 	$awardCD = 3600 * $awardNum;
-	$award = new stdClass();
+	if(!$award)
+		$award = new stdClass();
 	$award->props = array();
 	
 	$coinCD = 10;//3600/(90+$level*10 + floor($level/5)*20);

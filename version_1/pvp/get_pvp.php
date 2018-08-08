@@ -1,5 +1,9 @@
 <?php 
 	require_once($filePath."cache/base.php");
+	$pvpEndTime = 1535904000;
+	$pvpCD = 24*3600*28;
+	$round = ceil(max(0,time() - $pvpEndTime) /$pvpCD)  + 1;
+	$roundChange = false;
 	do{
 		// $sql = "select * from ".getSQLTable('pvp_offline')." where gameid='".$userData->gameid."'";
 		// $returnData->offline = $conne->getRowsRst($sql);
@@ -13,13 +17,39 @@
 			$task = json_decode($result['task']);
 			$online = json_decode($result['online']);
 			$offline = json_decode($result['offline']);
-			debug($result['time']);
+			
+				
+				
 			if(isSameDate($result['time']))
 			{
 				$returnData->task = $task;
 				$returnData->online = $online;
 				$returnData->offline = $offline;
 				break;
+			}
+			
+			if(!$online->round)//容错旧数据
+			{
+				$online->round = $round;
+				$offline->round = $round;
+				$roundChange = true;
+			}
+			
+			if($online->round != $round)//跨赛季了
+			{	
+				$online->round = $round;
+				$offline->round = $round;
+				
+				$online->award = $online->score;
+				if($online->score && $online->score > 3000)
+					$online->score = 3000 + ceil(($online->score - 3000)/2);
+					
+				$offline->award = $offline->score;
+				if($offline->score && $offline->score > 3000)
+					$offline->score = 3000 + ceil(($offline->score - 3000)/2);
+					
+				require_once($filePath."pvp/pvp_round_change.php");
+				$roundChange = true;
 			}
 			
 		}
@@ -29,6 +59,10 @@
 			$online = new stdClass();
 			$offline = new stdClass();
 			$task->total = 0;
+			$online->round = $round;
+			$offline->round = $round;
+			
+			require_once($filePath."pvp/pvp_round_change.php");
 		}
 
 		$task->list = array();
@@ -86,10 +120,12 @@
 		if($result)
 		{
 			$sql = "update ".getSQLTable('pvp')." set task='".json_encode($task)."',time=".time()." where gameid='".$userData->gameid."'";
+			if($roundChange)
+				$sql = "update ".getSQLTable('pvp')." set task='".json_encode($task)."',online='".json_encode($online)."',offline='".json_encode($offline)."',time=".time()." where gameid='".$userData->gameid."'";
 		}
 		else
 		{	
-			$sql = "insert into ".getSQLTable('pvp')."(gameid,task,online,offline,time) values('".$userData->gameid."','".json_encode($task)."','{}','{}',".time().")";
+			$sql = "insert into ".getSQLTable('pvp')."(gameid,task,online,offline,time) values('".$userData->gameid."','".json_encode($task)."','".json_encode($online)."','".json_encode($offline)."',".time().")";
 		}
 		
 		$conne->uidRst($sql);

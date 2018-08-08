@@ -206,17 +206,17 @@ $connect)or die("message=F,Invalid query: " . mysql_error()); */
 mysql_query("
 Create TABLE g2_".$sql_table."prop_shop(
 gameid varchar(32) NOT NULL Unique Key,
-shop varchar(512),
-shop_base varchar(512),
+shop varchar(1024),
+shop_base varchar(1024),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 mysql_query("
 Create TABLE g2_".$sql_table."pvp(
 gameid varchar(32) NOT NULL Unique Key,
-task varchar(512),
-online varchar(512),
-offline varchar(512),
+task varchar(1024),
+online varchar(1024),
+offline varchar(1024),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 

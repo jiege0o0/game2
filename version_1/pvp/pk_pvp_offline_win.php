@@ -53,14 +53,14 @@ do{
 	$enemy = $pkData->players[1];
 	if($enemy->gameid == 'npc')//´òµçÄÔ
 	{
-		$addScore = 5;
+		$addScore = 8;
 	}
 	else
 	{
 		if($myScore >= $enemy->score)
-			$addScore = max(5,15 - pow($myScore - $enemy->score,0.6));
+			$addScore = max(8,20 - pow($myScore - $enemy->score,0.6));
 		else
-			$addScore = 15 + pow($enemy->score - $myScore,0.6);
+			$addScore = 20 + pow($enemy->score - $myScore,0.6);
 	}
 	$award->offline_value = $addScore;
 	$award->coin = $addScore*50;

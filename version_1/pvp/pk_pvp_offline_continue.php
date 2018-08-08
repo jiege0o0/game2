@@ -38,7 +38,7 @@ do{
 		}
 	}
 	$myPlayer = createUserPlayer(1,1,$userData,$list,true);
-	$myPlayer->force = 500;
+	$myPlayer->force = 1000;
 	array_push($pkData->players,$myPlayer);
 	array_push($pkData->players,$enemy);
 
@@ -59,7 +59,7 @@ do{
 	
 	if($offlineData->score)
 		$myScore = $offlineData->score;
-	$preSubScore = min(30,$myScore);
+	$preSubScore = min(20,$myScore);
 	$offlineData->subscore = $preSubScore;
 	$offlineData->score = $myScore - $preSubScore;
 	
