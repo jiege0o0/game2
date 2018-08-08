@@ -43,11 +43,13 @@
 		{
 			$userData->addCoin($shopValue->num);
 			$award->coin = $shopValue->num;
+			$returnData->award = $award;
 		}
 		else if($shopValue->id == 'energy')
 		{
 			$userData->addEnergy($shopValue->num);
 			$award->energy = $shopValue->num;
+			$returnData->award = $award;
 		}
 		else if($shopValue->id == 'box_resource')
 		{
@@ -64,6 +66,7 @@
 		{
 			$userData->addProp($shopValue->id,$shopValue->num);
 			$award->props->{$shopValue->id} = $shopValue->num;
+			$returnData->award = $award;
 		}
 			
 		$info->value -=$shopValue->diamond;

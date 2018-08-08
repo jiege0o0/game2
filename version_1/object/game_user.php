@@ -59,7 +59,7 @@ class GameUser{
 		$this->diamond = (int)$data['diamond'];
 		$this->land_key = $data['land_key'];
 		$this->prop = $this->decode($data['prop']);
-		$this->energy = $this->decode($data['energy'],'{"v":40,"t":'.$this->regtime.'}');
+		$this->energy = $this->decode($data['energy'],'{"v":60,"t":'.$this->regtime.'}');
 		$this->active = $this->decode($data['active'],'{"task":{}}');//»î¶¯
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":{}}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"cd":""}');
