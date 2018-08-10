@@ -34,7 +34,7 @@ class GameUser{
 	public $openData;
 
 	//初始化类
-	function __construct($data,$openData=null){
+	function __construct($data,$openData=null,$type=0){
 		$this->gameid = $data['gameid'];
 		$this->uid = $data['uid'];
 		$this->nick = $data['nick'];
@@ -48,11 +48,15 @@ class GameUser{
 		$this->pk_common = $this->decode($data['pk_common'],'{"pktype":"","pkdata":null}');
 		$this->tec = $this->decode($data['tec'],'{}');
 		
+		if($type == 1)
+		{
+			$this->card = $this->decode($data['card'],'{"hero":{},"monster":[],"skill":{"201":30,"202":30,"203":30}}');
+		}
+		
 		
 		if($openData == null)
 			return;
 		$this->openData = $openData;
-		
 		$this->coin = $this->decode($data['coin'],'{"v":100,"t":'.time().',"st":0}');
 		$this->rmb = (int)$data['rmb'];
 		$this->regtime = (int)$data['regtime'];
@@ -63,7 +67,7 @@ class GameUser{
 		$this->active = $this->decode($data['active'],'{"task":{}}');//活动
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":{}}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"cd":""}');
-		$this->card = $this->decode($data['card'],'{"monster":[],"skill":{"201":30,"202":30,"203":30}}');
+		$this->card = $this->decode($data['card'],'{"hero":{},"monster":[],"skill":{"201":30,"202":30,"203":30}}');
 		
 	}
 	
@@ -312,12 +316,55 @@ class GameUser{
 		$this->setChangeKey('card');	
 	}
 	
+	//改变英雄数量
+	function addHero($heroID,$num){
+		global $returnData;
+		if(!$this->card->hero)
+			$this->card->hero = new stdClass();
+		if(!$this->card->hero->{$heroID})
+		{
+			$this->card->hero->{$heroID} = $num;
+		}
+		else
+		{
+			$this->card->hero->{$heroID} += $num;
+			if(!$this->card->hero->{$heroID})
+				unset($this->card->hero->{$heroID});
+		}
+		
+		if(!$returnData->sync_hero)
+		{
+			$returnData->sync_hero = new stdClass();
+		}
+		if($this->card->hero->{$heroID})
+			$returnData->sync_hero->{$heroID} = $this->card->hero->{$heroID};
+		else
+			$returnData->sync_hero->{$heroID} = 0;
+			
+		$this->setChangeKey('card');	
+	}
+	
 	function getSkill($skillID){
 		if(!$this->card->skill->{$skillID})
 		{
 			return 0;
 		}
 		return $this->card->skill->{$skillID};
+	}
+	
+	function getHeroLevel($heroID){
+		if(!$this->card->hero->{$heroID})
+		{
+			return 0;
+		}
+		$arr = array(0,1,10,30,60,110);
+		$num =  $this->card->hero->{$heroID};
+		for($i=5;$i>=0;$i--)
+        {
+             if($num >= $arr[$i])
+                return $i;
+        }
+		return 0;
 	}
 	
 	

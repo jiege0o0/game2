@@ -52,58 +52,32 @@
 	}
 	
 	//改金币时产
-	if(!$userData->active->p5)
+	if(!$userData->active->p6)
 	{
-		$userData->active->p5 = 1;
+		$userData->active->p6 = 1;
 		$userData->setChangeKey('active');	
 		
-		require_once($filePath."cache/base.php"); 
-		if($userData->hourcoin > 10)
+		if($userData->hang->level >= 50)
 		{
-			$force = 10;
-			foreach($tec_base as $key=>$value)
-			{
-				if($value['type'] == 3)
-				{
-					$level = $userData->getTecLevel($key);
-					if($level)
-					{
-						$addValue = getTecValueX($level + $value['coinlv'] - 1,20);
-						$force += $addValue;
-					}
-				}
-			}
-			$userData->hourcoin = $force;
-			$returnData->sync_hourcoin = $force;
-			$userData->setChangeKey('hourcoin');
+			require_once($filePath."cache/base.php"); 
+			$oo = new stdClass();
+			$oo->title = base64_encode('英雄礼包');
+			$oo->des = base64_encode('英雄系统现已开启，现为你送上一份英雄礼包！');
+			$oo->award = new stdClass();
+			$oo->award->hero = new stdClass();
+			$oo->award->hero->{101} = 1;
+			$oo = json_encode($oo);
+			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,stat,time) values('sys','".$userData->gameid."',101,'".$oo."',0,".$time.")";
+			// $conne->uidRst($sql);
+			array_push($runSqlArr,$sql);
 			
-			$rankType = 'hourcoin';
-			$rankScore = $userData->hourcoin;
-			require($filePath."rank/add_rank.php");
+			$userData->openData['mailtime'] = $time;
+			$userData->setOpenDataChange();
+			$userData->setChangeKey('mailtime');
+			$addMailAward = true;
 		}
 		
-		$force = 0;
-		foreach($tec_base as $key=>$value)
-		{
-			if($value['type'] == 2)
-			{
-				$level = $userData->getTecLevel($key);
-				if($level)
-				{
-					$addValue = getTecValueX($level + $value['coinlv'] - 1,1.5);
-					$force += $addValue;
-				}
-			}
-		}
-		$userData->tec_force = $force;
-		$returnData->sync_tec_force = $force;
-		$userData->setChangeKey('tec_force');
-
-		$rankType = 'force';
-		$rankScore = $userData->tec_force;
-		require($filePath."rank/add_rank.php");
 		
-		require($filePath."slave/slave_reset_list.php");
 	}
 	
 	

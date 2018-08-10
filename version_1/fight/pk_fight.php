@@ -14,6 +14,7 @@ do{
 	$result = $conne->getRowsRst($sql);
 	$info = json_decode($result['info']);
 	$list = $info->card;
+	$hero = $info->hero;
 	
 	//产生敌人
 	if(!$info->enemy)
@@ -67,7 +68,7 @@ do{
 	$pkData->check = true;
 	$pkData->seed = time();
 	$pkData->players = array();
-	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
+	array_push($pkData->players,createUserPlayer(1,1,$userData,$list,$hero));
 	array_push($pkData->players,$info->enemy);
 
 	

@@ -1,6 +1,8 @@
 <?php 
 $id=$msg->id;
 $type=$msg->type;
+if($msg->hero)
+	$hero = explode(",",$msg->hero);
 if($msg->list)
 {
 	$temp = str_replace("|",",",$msg->list);
@@ -21,12 +23,15 @@ do{
 		$returnData -> fail = 1;
 		break;
 	}
-	if($list)
+	if($list || $hero)
 	{
 		require_once($filePath."pos/test_list.php");
 		if($returnData -> fail)
 			break;
-		$findData->list = $msg->list;
+		if($msg->list)
+			$findData->list = $msg->list;
+		if($msg->hero)
+			$findData->hero = $msg->hero;
 	}
 
 	

@@ -20,6 +20,7 @@ do{
 			if($value->id == $id)
 			{
 				$list = $value->list;
+				$hero = $value->hero;
 				break;
 			}
 		}
@@ -31,6 +32,7 @@ do{
 		if($value->id == $id)
 		{
 			$list = $value->list;
+			$hero = $value->hero;
 			break;
 		}
 	}
@@ -64,7 +66,7 @@ do{
 	if($hangIndex > 20)
 		recordPKData('hang',$list,$isAuto?'a':'');
 	$hang_base[$hangIndex]['force']=$force;
-	array_push($pkData->players,createUserPlayer(1,1,$userData,$list,$isAuto));
+	array_push($pkData->players,createUserPlayer(1,1,$userData,$list,$hero,$isAuto));
 	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);
 	$nick = '战役守卫'.$hangIndex;
 	$player->nick = base64_encode($nick);

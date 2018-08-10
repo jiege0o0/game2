@@ -66,6 +66,7 @@ do{
 		if($value->id == $id)
 		{
 			$list = $value->list;
+			$hero = $value->hero;
 			break;
 		}
 	}
@@ -89,7 +90,7 @@ do{
 		$returnData -> fail = 3;
 		break;
 	}
-	$otherData = new GameUser($otherData);
+	$otherData = new GameUser($otherData,null,1);
 
 	
 	$defList = array();
@@ -107,7 +108,9 @@ do{
 		$returnData -> fail = 4;
 		break;
 	}
-	$defList = $defList[rand(0,$len-1)]->list;
+	$defIndex = rand(0,$len-1);
+	$defList = $defList[$defIndex]->list;
+	$defHero = $defList[$defIndex]->hero;
 	
 	$sql = "select * from ".getSQLTable('slave')." where gameid='".$msg->gameid."'";
 	$result = $conne->getRowsRst($sql);
@@ -122,8 +125,8 @@ do{
 	$pkData->seed = time();
 	$pkData->players = array();
 	$pkData->check = true;
-	array_push($pkData->players,createUserPlayer(1,1,$userData,$list));
-	array_push($pkData->players,createDefPlayer(2,2,$otherData,$defList));
+	array_push($pkData->players,createUserPlayer(1,1,$userData,$list,$hero));
+	array_push($pkData->players,createDefPlayer(2,2,$otherData,$defList,$defHero));
 	
 	$returnData -> pkdata = $pkData;
 	$userData->addEnergy(-1);

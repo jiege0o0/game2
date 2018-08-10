@@ -1,6 +1,8 @@
 <?php 
 $card = $msg->list;
+$heroBase = $msg->hero;
 $list = explode(",",$card);
+$hero = explode(",",$heroBase);
 require_once($filePath."pk/pk_tool.php");
 
 
@@ -13,8 +15,6 @@ if(isSameDate($result['time']))
 }
 
 do{		
-	
-	
 	if(!$userData->testEnergy(1))//没体力
 	{
 		$returnData -> fail = 11;
@@ -55,6 +55,7 @@ do{
 		recordPKData('fight_init',$card);
 	
 	$info->card = $card;
+	$info->hero = $heroBase;
 	$info->step = 0;//当前步骤
 	$info->enemy = '';//当前敌人
 	$info->award = '';//待选列表

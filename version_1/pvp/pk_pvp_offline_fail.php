@@ -57,9 +57,9 @@ do{
 	else
 	{
 		if($myScore < $enemy->score)
-			$addScore = -max(5,15 - pow($enemy->score - $myScore,0.6));
+			$addScore = -max(5,15 - ceil(pow($enemy->score - $myScore,0.6)));
 		else
-			$addScore = -(15 + pow($myScore - $enemy->score,0.6));
+			$addScore = -(15 + floor(pow($myScore - $enemy->score,0.6)));
 	}
 	if($myScore < 3000)
 		$addScore = floor($addScore*(7000+$myScore/3000)/10000);
@@ -69,7 +69,7 @@ do{
 	$award->offline_value = $addScore;
 	
 	
-	$offlineData->score = max(0,$myScore + $addScore);
+	$offlineData->score = floor(max(0,$myScore + $addScore));
 		
 	if(!$offlineData->cwin)
 		$offlineData->cwin = -1;

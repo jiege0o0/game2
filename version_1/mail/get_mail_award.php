@@ -35,6 +35,13 @@ do{
 			$userData->addProp($key,$value);
 		}
 	}
+	if($award->hero)
+	{
+		foreach($award->hero as $key=>$value)
+		{
+			$userData->addHero($key,$value);
+		}
+	}
 	
 	
 	$sql = "update ".getSQLTable('mail')." set stat=1 where id=".$msg->id."";

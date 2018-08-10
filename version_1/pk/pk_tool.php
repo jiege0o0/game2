@@ -1,6 +1,6 @@
 <?php 
 	//创建玩家数据
-	function createUserPlayer($id,$team,$userData,$list,$isAuto=false){
+	function createUserPlayer($id,$team,$userData,$list,$hero,$isAuto=false){
 		$player = new stdClass();
 		$player->id = $id;
 		$player->team = $team;
@@ -35,12 +35,25 @@
 			}
 		}
 		
+		if($hero)
+		{
+			$arr = explode(",",$hero);
+			for($i=0;$i<5;$i++)
+			{
+				$hid = $arr[$i];
+				if(!$hid)
+					$hid = 0;
+				$arr[$i] = $hid.'|'.$userData->getHeroLevel($hid);
+			}
+			$player->hero = join(",",$arr);
+		}
+		
 		$player->hp = $userData->getHp();
 		return $player;
 	}
 	
 	//创建玩家防御数据
-	function createDefPlayer($id,$team,$userData,$list){
+	function createDefPlayer($id,$team,$userData,$list,$hero){
 		$player = new stdClass();
 		$player->id = $id;
 		$player->team = $team;
@@ -52,6 +65,18 @@
 		$player->def = 10;
 		$player->autolist = $list;
 		$player->hp = $userData->getHp();
+		if($hero)
+		{
+			$arr = explode(",",$hero);
+			for($i=0;$i<5;$i++)
+			{
+				$hid = $arr[$i];
+				if(!$hid)
+					$hid = 0;
+				$arr[$i] = $hid.'|'.$userData->getHeroLevel($hid);
+			}
+			$player->hero = join(",",$arr);
+		}
 		return $player;
 	}
 	
@@ -65,6 +90,7 @@
 		$player->type = $data['type'];
 		$player->autolist = $data['list'];
 		$player->hp = $data['hp'];
+		$player->hero = $data['hero'];
 		$player->def = 5;
 		
 		//找头像

@@ -92,10 +92,11 @@ do{
 		if($value->id == $id)
 		{
 			$list = $value->list;
+			$hero = $value->hero;
 			break;
 		}
 	}
-	$myPlayer = createUserPlayer(1,1,$userData,$list,true);
+	$myPlayer = createUserPlayer(1,1,$userData,$list,$hero,true);
 	$myPlayer->force = 1000;
 	array_push($pkData->players,$myPlayer);
 	array_push($pkData->players,$enemy);
