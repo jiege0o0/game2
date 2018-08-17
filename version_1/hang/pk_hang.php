@@ -68,6 +68,18 @@ do{
 	$hang_base[$hangIndex]['force']=$force;
 	array_push($pkData->players,createUserPlayer(1,1,$userData,$list,$hero,$isAuto));
 	$player = createNpcPlayer(2,2,$hang_base[$hangIndex]);
+	if($player->hero)
+	{
+		$player->hero = explode(",",$player->hero);
+		$heroLevel = max(1,min(5,floor(pow($hangIndex/100,0.8))));
+		foreach($player->hero as $key=>$value)
+		{
+			$player->hero[$key] = $value.'|'.$heroLevel;
+		}
+		$player->hero = join(",",$player->hero);
+	}
+	
+	
 	$nick = '战役守卫'.$hangIndex;
 	$player->nick = base64_encode($nick);
 	

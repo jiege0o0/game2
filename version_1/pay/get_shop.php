@@ -62,6 +62,8 @@
 					'diamond'=>floor(pow($i,0.95) * 20)
 				));
 		}
+		
+		
 	
 				
 		//Ǯ
@@ -115,6 +117,26 @@
 				break;
 			}
 		}
+		
+		if($level >= 50)
+		{
+			foreach($monster_base as $key=>$value)
+			{
+				if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel && $userData->getHeroLevel($key) < 5)//@hero
+				{
+					$num = rand(1,3);
+					array_push($arr,array(
+						'id'=>'box_hero',
+						'num'=>$num,
+						'times'=>0,
+						'key'=>$key++,
+						'diamond'=>floor(pow($i,0.95) * 350)
+					));
+					break;
+				}
+			}
+		}
+		
 		
 		
 

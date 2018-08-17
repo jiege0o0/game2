@@ -67,6 +67,11 @@
 			$awardNum = $shopValue->num;
 			require_once($filePath."pay/box_skill.php");
 		}
+		else if($shopValue->id == 'box_hero')
+		{
+			$awardNum = $shopValue->num;
+			require_once($filePath."pay/box_hero.php");
+		}
 		else if(substr($shopValue->id,0,5) == 'skill')
 		{
 			// $award->skills = array();

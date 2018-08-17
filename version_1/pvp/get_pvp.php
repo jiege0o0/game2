@@ -79,7 +79,13 @@
 			{
 				case 0://完成所有任务
 					$oo->num = 3;
-					$oo->box = 3;
+					$rd = rand(1,100);
+					if($rd <= 5)
+						$oo->hero = 1;
+					else if($rd <= 20)
+						$oo->skill = 1;
+					else 
+						$oo->box = 3;
 					break;
 				case 1://进行5场比赛
 					$oo->num = rand(5,10);

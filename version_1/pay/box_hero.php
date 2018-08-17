@@ -3,13 +3,13 @@ require_once($filePath."cache/base.php");
 do{
 	if(!$award)
 		$award = new stdClass();
-	$award->skills = array();
+	$award->hero = array();
 
 	$tecLevel = $userData->level;
 	$skillArr = array();
-	foreach($skill_base as $key=>$value)
+	foreach($monster_base as $key=>$value)
 	{
-		if($value['level'] <= $tecLevel && $userData->getSkill($key) < 999)//@skill
+		if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel && $userData->getHeroLevel($key) < 5)//@skill
 		{
 			array_push($skillArr,$key);
 		}
@@ -26,15 +26,19 @@ do{
 	{
 		$skillID = array_shift($skillArr);
 		array_push($skillArr,$skillID);
-		$num = 30;
-		if($award->skills[$skillID])
-			$award->skills[$skillID] += $num;
+		$num = 1;
+		if($award->hero[$skillID])
+			$award->hero[$skillID] += $num;
 		else
-			$award->skills[$skillID] = $num;
+			$award->hero[$skillID] = $num;
 		$awardNum--;
-		$userData->addSkill($skillID,$num);
+		$userData->addHero($skillID,$num);
 	}
+	
 
+
+	
+	
 	$returnData->award = $award;	
 }while(false)
 ?> 

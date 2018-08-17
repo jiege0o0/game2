@@ -49,6 +49,12 @@ do{
 	$award->props = array();
 	$addCoin = 90+$hangIndex*15 + floor($hangIndex/5)*30;
 	
+	if($hangIndex == 50)
+	{
+		$awardNum = 1;
+		require_once($filePath."pay/box_hero.php");
+	}
+	
 	$index = array_search($hangIndex, $upProp);
 	debug($index);
 	debug($userData->getPropNum(101) + ($userData->level - 1));

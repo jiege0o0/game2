@@ -27,11 +27,16 @@ do{
 		
 		$tecLevel = $userData->level;
 		$skillArr = array();
+		$heroArr = array();
 		foreach($monster_base as $key=>$value)
 		{
 			if($value['level'] <= $tecLevel)
 			{
 				array_push($skillArr,$value);
+			}
+			else if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel)
+			{
+				array_push($heroArr,$value);
 			}
 		}
 		shuffle($skillArr);
@@ -51,6 +56,18 @@ do{
 		
 		$enemy['type'] = $skillArr[0]['type'];
 		$enemy['hp'] = $userData->getHp();
+		
+		if($info->step > 5 && $userData->hang->level >= 50)//加入英雄
+		{
+			$heroLevel = max(1,min(5,floor(pow($userData->hang->level/100,0.8))));
+			shuffle($heroArr);
+			$skillArr = array_slice($heroArr,0,min(5,$info->step - 5));
+			foreach($skillArr as $key=>$value)
+			{
+				$skillArr[$key] = $value['id'].'|'.$heroLevel;
+			}
+			$enemy['hero'] = join(",",$skillArr);
+		}
 		
 		
 		$player = createNpcPlayer(2,2,$enemy);

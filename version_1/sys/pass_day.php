@@ -51,8 +51,31 @@
 		// $writeDB = true;
 	}
 	
+	if(!$userData->active->p7 && time() < 1534348800)
+	{
+		$oo = new stdClass();
+		$oo->title = base64_encode('服务器异常补偿');
+		$oo->des = base64_encode('在8月14日晚间由于服务器异常导致服务中断，现补偿以下内容');
+		$oo->award = new stdClass();
+		$oo->award->diamond = 60;
+		$oo = json_encode($oo);
+		$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,stat,time) values('sys','".$userData->gameid."',101,'".$oo."',0,".$time.")";
+		// $conne->uidRst($sql);
+		array_push($runSqlArr,$sql);
+		
+		
+		$userData->active->p7 = 1;
+		$userData->openData['mailtime'] = $time;
+		$userData->setOpenDataChange();
+		$userData->setChangeKey('mailtime');
+		$userData->setChangeKey('active');
+		
+		$addMailAward = true;
+		// $writeDB = true;
+	}
+	
 	//改金币时产
-	if(!$userData->active->p6)
+	/*if(!$userData->active->p6)
 	{
 		$userData->active->p6 = 1;
 		$userData->setChangeKey('active');	
@@ -65,7 +88,7 @@
 			$oo->des = base64_encode('英雄系统现已开启，现为你送上一份英雄礼包！');
 			$oo->award = new stdClass();
 			$oo->award->hero = new stdClass();
-			$oo->award->hero->{101} = 1;
+			$oo->award->hero->{rand(101,105)} = 1;
 			$oo = json_encode($oo);
 			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,stat,time) values('sys','".$userData->gameid."',101,'".$oo."',0,".$time.")";
 			// $conne->uidRst($sql);
@@ -78,7 +101,7 @@
 		}
 		
 		
-	}
+	}*/
 	
 	
 	

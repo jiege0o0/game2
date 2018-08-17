@@ -75,6 +75,16 @@ do{
 		$mapIndex = ceil($level/100);
 		require_once($filePath."cache/map".$mapIndex.".php");
 		$enemy = createNpcPlayer(2,2,$hang_base[$level]);
+		if($enemy->hero)
+		{
+			$enemy->hero = explode(",",$enemy->hero);
+			$heroLevel = max(1,min(5,floor(pow($level/100,0.8))));
+			foreach($enemy->hero as $key=>$value)
+			{
+				$enemy->hero[$key] = $value.'|'.$heroLevel;
+			}
+			$enemy->hero = join(",",$enemy->hero);
+		}
 		$enemy->nick = base64_encode('神秘人');
 		$enemy->head=0;
 		$enemy->def = 5 + $myLevel;
