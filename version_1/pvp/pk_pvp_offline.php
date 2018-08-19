@@ -18,6 +18,7 @@ do{
 	if($offlineData->score)
 		$myScore = $offlineData->score;
 	$myLevel = getPVPLevel($myScore);
+	$maxHeroLevel = min(5,ceil($myLevel/3));
 	$winNum = 0;
 	if($offlineData->cwin)
 		$winNum = $offlineData->cwin;
@@ -78,7 +79,7 @@ do{
 		if($enemy->hero)
 		{
 			$enemy->hero = explode(",",$enemy->hero);
-			$heroLevel = max(1,min(5,floor(pow($level/100,0.8))));
+			$heroLevel = max(1,min($maxHeroLevel,floor(pow($level/100,0.8))));
 			foreach($enemy->hero as $key=>$value)
 			{
 				$enemy->hero[$key] = $value.'|'.$heroLevel;
@@ -106,6 +107,7 @@ do{
 			break;
 		}
 	}
+	$userData->maxHeroLevel = $maxHeroLevel;
 	$myPlayer = createUserPlayer(1,1,$userData,$list,$hero,true);
 	$myPlayer->force = 1000;
 	array_push($pkData->players,$myPlayer);

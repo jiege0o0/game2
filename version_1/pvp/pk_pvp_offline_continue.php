@@ -38,6 +38,12 @@ do{
 			break;
 		}
 	}
+	
+	$myScore = $offlineData->score;
+	$myLevel = getPVPLevel($myScore);
+	$maxHeroLevel = min(5,ceil($myLevel/3));
+	
+	$userData->maxHeroLevel = $maxHeroLevel;
 	$myPlayer = createUserPlayer(1,1,$userData,$list,$hero,true);
 	$myPlayer->force = 1000;
 	array_push($pkData->players,$myPlayer);

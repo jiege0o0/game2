@@ -43,7 +43,10 @@
 				$hid = $arr[$i];
 				if(!$hid)
 					$hid = 0;
-				$arr[$i] = $hid.'|'.$userData->getHeroLevel($hid);
+				$heroLevel = $userData->getHeroLevel($hid);
+				if($userData->maxHeroLevel)
+					$heroLevel = min($heroLevel,$userData->maxHeroLevel);
+				$arr[$i] = $hid.'|'.$heroLevel;
 			}
 			$player->hero = join(",",$arr);
 		}
