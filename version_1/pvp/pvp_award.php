@@ -25,17 +25,17 @@
 		}
 		
 		$task->list[$index]->award = 1;
-		if(task->list[$index]->box)
+		if($task->list[$index]->box)
 		{
 			$awardNum = $task->list[$index]->box;
 			require_once($filePath."pay/box_resource.php");
 		}
-		else if(task->list[$index]->skill)
+		else if($task->list[$index]->skill)
 		{
 			$awardNum = $task->list[$index]->skill;
 			require_once($filePath."pay/box_skill.php");
 		}
-		else if(task->list[$index]->hero)
+		else if($task->list[$index]->hero)
 		{
 			$awardNum = $task->list[$index]->hero;
 			require_once($filePath."pay/box_hero.php");
