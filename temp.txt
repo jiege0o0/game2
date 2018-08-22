@@ -91,7 +91,7 @@ node index.js
 --结算合英雄宝箱
 --英雄段位描述
 
-关卡加英雄
+--关卡加英雄
 再加6个英雄
 
 5，6，7，8，9，10
@@ -283,7 +283,7 @@ SlaveManager.getInstance().getProtectedWord(this.gameid,this.master)
 骷髅士兵:基础生命[20->15]，出生士兵数量[2->3]个
 骷髅矿工:基础攻击[40->50],基础生命[100->10],护盾抵挡次数[3->5]
 
-已完成：DM.createHang(11,27);
+已完成：DM.createHang(11,27);DM.createHangHero(11,5)
 
 https://mall.flash8f.com/loading1.php?openid=E524AC511C836629EEF314BBCDCEBCAF&openkey=C6015394DBDBE54A10E2466EF19670E2&iscloseSocket=&ip=s2001-mall.flash8f.com&area=2001&port=8011
 
