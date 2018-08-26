@@ -6,6 +6,8 @@ if($msg->list)
 	$temp = str_replace("|",",",$msg->list);
 	$list = explode(",",$temp);
 }
+if(isset($msg->hero))
+	$hero = explode(",",$msg->hero);
 
 
 do{

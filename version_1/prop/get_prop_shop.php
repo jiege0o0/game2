@@ -29,7 +29,7 @@
 				$sellType = 0;
 				if($ownnum > 100)//¿ÉÂô
 				{
-					if($userData->level < 6 || rand(0,10*$level)<$ownnum)//Âô
+					if($userData->level < 6 || rand(0,15*$level)<$ownnum)//Âô
 					{
 						$total = floor($ownnum/100/2);
 						$sellNum = rand(1,$total)*100;

@@ -81,7 +81,7 @@
 		else
 		{
 			$userData->addProp($shopValue->id,$shopValue->num);
-			$award->props->{$shopValue->id} = $shopValue->num;
+			$award->props[$shopValue->id] = $shopValue->num;
 			$returnData->award = $award;
 		}
 		$userData->addDiamond(-$need);

@@ -4,7 +4,8 @@ $type=$msg->type;
 $name=$msg->name;
 $temp = str_replace("|",",",$msg->list);
 $list = explode(",",$temp);
-$hero = explode(",",$msg->hero);
+if(isset($msg->hero))
+	$hero = explode(",",$msg->hero);
 
 do{
 	if($type == 'atk')
@@ -25,7 +26,8 @@ do{
 	$posData = new stdClass();
 	$posData->id = $id;
 	$posData->list = $msg->list;
-	$posData->hero = $msg->hero;
+	if($msg->hero)
+		$posData->hero = $msg->hero;
 	if($name)
 		$posData->name = base64_encode($name);
 
