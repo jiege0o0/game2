@@ -80,9 +80,9 @@
 				case 0://完成所有任务
 					$oo->num = 3;
 					$rd = rand(1,100);
-					if($rd <= 5)
+					if($rd <= 20)
 						$oo->hero = 1;
-					else if($rd <= 20)
+					else if($rd <= 50)
 						$oo->skill = 1;
 					else 
 						$oo->box = 3;

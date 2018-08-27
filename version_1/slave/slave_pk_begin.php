@@ -93,24 +93,25 @@ do{
 	$otherData = new GameUser($otherData,null,1);
 
 	
-	$defList = array();
+	$defPosList = array();
 	foreach($otherData->def_list->list as $key=>$value)
 	{
 		if(!$value->close)
 		{
-			array_push($defList,$value);
+			array_push($defPosList,$value);
 		}
 	}
 	
-	$len = count($defList);
+	$len = count($defPosList);
 	if($len == 0)//Ã»·ÀÓùÕó
 	{
 		$returnData -> fail = 4;
 		break;
 	}
 	$defIndex = rand(0,$len-1);
-	$defList = $defList[$defIndex]->list;
-	$defHero = $defList[$defIndex]->hero;
+	$defList = $defPosList[$defIndex]->list;
+	$defHero = $defPosList[$defIndex]->hero;
+	
 	
 	$sql = "select * from ".getSQLTable('slave')." where gameid='".$msg->gameid."'";
 	$result = $conne->getRowsRst($sql);
@@ -133,6 +134,7 @@ do{
 	$userData->pk_common->pktype = 'slave';
 	$userData->pk_common->pkdata = $pkData;
 	$userData->pk_common->pkcard = $list;
+	$userData->pk_common->hero = $hero;
 	$userData->pk_common->otherid = $otherid;
 	$userData->pk_common->master = $master;
 	$userData->pk_common->nick = base64_encode($otherData->nick);

@@ -45,16 +45,15 @@ do{
 	{
 		array_push($upProp,$prop_base[$i]['hanglevel']);
 	}
-	$award = new stdClass();
-	$award->props = array();
-	$addCoin = 90+$hangIndex*15 + floor($hangIndex/5)*30;
-	
+	$award = new stdClass();	
 	if($hangIndex == 50)
 	{
 		$awardNum = 1;
 		require_once($filePath."pay/box_hero.php");
 	}
 	
+	$award->props = array();
+	$addCoin = 90+$hangIndex*15 + floor($hangIndex/5)*30;
 	$index = array_search($hangIndex, $upProp);
 	debug($index);
 	debug($userData->getPropNum(101) + ($userData->level - 1));

@@ -243,6 +243,17 @@
 		$card = $player->card;
 		if(!$card)
 			$card = $player->autolist;
+		if($player->hero)
+		{
+			$hero = explode(",",$player->hero);
+			foreach($hero as $k=>$value)
+			{
+				$temp = explode("|",$value);
+				$hero[$k] = $temp[0];
+			}
+		}
+		else
+			$hero = array();
 		$orgin = explode(",",$card);
 			
         $serverKey = substr(md5($cd.$card.$list.$seed),-8);
@@ -289,14 +300,31 @@
 				}	
 				if($id < 500)//非报警卡
 				{
-					$index = array_search($id, $orgin);
-					$isOK = $index === 0 || ($index>0 && $index <6);//只可以用前6张
-					if(!$isOK)//使用了不合法的卡
+					$isHero = $id >100 && $id < 130;
+					if($isHero)
 					{
-						$result->fail = 102;
-						break;
+						if($hero[0] != $id)//使用了不合法的卡
+						{
+						$result->aaa = 1;
+							$result->fail = 104;
+							debug($id);
+							debug($hero);
+							break;
+						}
+						array_shift($hero);
 					}
-					array_splice($orgin,$index,1);
+					else
+					{
+						$index = array_search($id, $orgin);
+						$isOK = $index === 0 || ($index>0 && $index <6);//只可以用前6张
+						if(!$isOK)//使用了不合法的卡
+						{
+							$result->fail = 102;
+							break;
+						}
+						array_splice($orgin,$index,1);
+					}
+
 				}
 				
 				array_push($result->list,array(

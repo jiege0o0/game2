@@ -57,7 +57,7 @@ do{
 		$enemy['type'] = $skillArr[0]['type'];
 		$enemy['hp'] = $userData->getHp();
 		
-		if($info->step > 5 && $userData->hang->level >= 50)//加入英雄
+		if($info->step > 3 && $userData->hang->level >= 50)//加入英雄
 		{
 			$heroLevel = max(1,min(5,floor(pow($userData->hang->level/100,0.8))));
 			shuffle($heroArr);

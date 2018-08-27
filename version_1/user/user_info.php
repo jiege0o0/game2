@@ -21,7 +21,7 @@
 			break;
 		}		
 		
-		$otherUser =  new GameUser($result);
+		$otherUser =  new GameUser($result,null,1);
 		$returnUser = new stdClass();
 		$returnUser->gameid = $otherUser->gameid;
 		$returnUser->uid = $otherUser->uid;
@@ -33,6 +33,9 @@
 		$returnUser->tec_force = $otherUser->tec_force;
 		$returnUser->last_land = $otherUser->last_land;
 		$returnUser->last_card = $otherUser->pk_common->pkcard;
+		$returnUser->last_hero = $otherUser->pk_common->pkhero;
+		$returnUser->hero_level = $otherUser->card->hero; 
+		debug($otherUser->card);
 		
 		$returnUser->hp = $otherUser->getHp();
 		$returnUser->maxslave = $otherUser->getMaxSlave();

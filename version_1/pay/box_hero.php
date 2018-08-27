@@ -17,7 +17,7 @@ do{
 	
 	if(!$skillArr[0])
 	{
-		$returnData -> fail = 101;
+		$returnData -> fail = 102;
 		break;
 	}
 	

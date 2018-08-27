@@ -118,20 +118,14 @@
 			}
 		}
 		
+		$heroAble = false;
 		if($level >= 50)
 		{
 			foreach($monster_base as $key=>$value)
 			{
 				if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel && $userData->getHeroLevel($key) < 5)//@hero
 				{
-					$num = rand(1,3);
-					array_push($arr,array(
-						'id'=>'box_hero',
-						'num'=>$num,
-						'times'=>0,
-						'key'=>$key++,
-						'diamond'=>floor(pow($i,0.95) * 350)
-					));
+					$heroAble = true;
 					break;
 				}
 			}
@@ -142,7 +136,9 @@
 
 		$tempNum = 5;
 		if($skillAble)
-			$tempNum = 4;
+			$tempNum --;
+		if($heroAble)
+			$tempNum --;
 		
 		if(count($arr) > $tempNum)//最多取6个
 		{
@@ -170,6 +166,18 @@
 					'key'=>$key++,
 					'diamond'=>floor(pow($num,0.95) * 240)
 				));
+		}
+		
+		if($heroAble)
+		{
+			$num = rand(1,3);
+			array_push($arr,array(
+				'id'=>'box_hero',
+				'num'=>$num,
+				'times'=>0,
+				'key'=>$key++,
+				'diamond'=>floor(pow($num,0.95) * 400)
+			));
 		}
 		
 		

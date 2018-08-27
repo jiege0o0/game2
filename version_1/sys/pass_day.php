@@ -51,7 +51,7 @@
 		// $writeDB = true;
 	}
 	
-	if(!$userData->active->p7 && time() < 1534348800)
+	/*if(!$userData->active->p7 && time() < 1534348800)
 	{
 		$oo = new stdClass();
 		$oo->title = base64_encode('服务器异常补偿');
@@ -72,11 +72,12 @@
 		
 		$addMailAward = true;
 		// $writeDB = true;
-	}
+	}*/
 	
 	//改金币时产
-	/*if(!$userData->active->p6)
+	if(!$userData->active->p6)
 	{
+	
 		$userData->active->p6 = 1;
 		$userData->setChangeKey('active');	
 		
@@ -88,7 +89,27 @@
 			$oo->des = base64_encode('英雄系统现已开启，现为你送上一份英雄礼包！');
 			$oo->award = new stdClass();
 			$oo->award->hero = new stdClass();
-			$oo->award->hero->{rand(101,105)} = 1;
+			$heroNum = ceil($userData->hang->level/30);
+			$heroList = array();
+			$tecLevel = $userData->level;
+			foreach($monster_base as $key=>$value)
+			{
+				if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel)
+				{
+					array_push($heroList,$key);
+				}
+			}
+			$len = count($heroList)-1;
+			while($heroNum>0)
+			{
+				$heroNum --;
+				$heroid = $heroList[rand(0,$len)];
+				if($oo->award->hero->{$heroid})
+					$oo->award->hero->{$heroid}++;
+				else
+					$oo->award->hero->{$heroid} = 1;
+			}
+			
 			$oo = json_encode($oo);
 			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,stat,time) values('sys','".$userData->gameid."',101,'".$oo."',0,".$time.")";
 			// $conne->uidRst($sql);
@@ -101,7 +122,7 @@
 		}
 		
 		
-	}*/
+	}
 	
 	
 	

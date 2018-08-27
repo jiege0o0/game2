@@ -119,6 +119,8 @@ do{
 	$userData->pk_common->pktype = 'pvp_offline';
 	$userData->pk_common->pkdata = $pkData;
 	$userData->pk_common->time = time();
+	$userData->pk_common->pkcard = $list;
+	$userData->pk_common->hero = $hero;
 	$userData->setChangeKey('pk_common');
 	
 

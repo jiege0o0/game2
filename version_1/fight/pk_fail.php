@@ -17,14 +17,20 @@ do{
 	$list = explode(",",$list);
 	foreach($list as $key=>$value)
 	{
-		$group = explode("#",$list[$i]);
+		$group = explode("#",$value);
 		$id = $group[1];
 		if($id < 500)
 		{
 			$index = array_search($id, $card);
-			array_splice($card,$index,1);		
+			if($card[$index] == $id)
+			{
+				array_splice($card,$index,1);	
+				$haveDelete = true;
+			}		
 		}	
 	}
+	if(!$haveDelete)//最少去除一张
+		array_shift($card);
 	$info->card = join(",",$card);
 	$returnData->card = $info->card;
 

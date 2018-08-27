@@ -50,18 +50,25 @@ do{
 	$card = explode(",",$info->card);
 	foreach($playerData->list as $key=>$value)
 	{
-		if($value->mid < 500)
+		if($value['mid'] < 500)
 		{
-			$index = array_search($value->mid, $card);
-			array_splice($card,$index,1);			
+			$index = array_search($value['mid'], $card);
+			if($card[$index] == $value['mid'])
+			{
+				array_splice($card,$index,1);	
+				$haveDelete = true;
+			}				
 		}
 	}
+	if(!$haveDelete)//最少去除一张
+		array_shift($card);
 	$info->card = join(",",$card);
 	$info->step ++;
 	$info->enemy = '';
 	
 	
 	//补充卡组
+	$skillNum = rand(3,7);
 	$tecLevel = min($userData->tec_force/10,950);
 	$skillArr = array();
 	$awardSkillArr = array();
@@ -74,20 +81,26 @@ do{
 				array_push($awardSkillArr,$value['id']);
 		}
 	}
+	
+	usort($skillArr,randomSortFun);
+	$skillArr = array_slice($skillArr,0,$skillNum);
+	
+	
 	$tecLevel = $userData->getTecLevel(1);
+	$monsterArr = array();
 	foreach($monster_base as $key=>$value)
 	{
 		if($value['level'] <= $tecLevel)
 		{
-			array_push($skillArr,$value['id']);
-			array_push($skillArr,$value['id']);
-			array_push($skillArr,$value['id']);
+			array_push($monsterArr,$value['id']);
+			array_push($monsterArr,$value['id']);
 		}
 	}
+	usort($monsterArr,randomSortFun);
+	$monsterArr = array_slice($monsterArr,0,9-$skillNum);
 	
-	usort($skillArr,randomSortFun);
-	$skillArr = array_slice($skillArr,0,9);
-	$info->award = join(",",$skillArr);
+	
+	$info->award = join(",",$monsterArr).','.join(",",$skillArr);
 	
 
 	
