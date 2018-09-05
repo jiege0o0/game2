@@ -201,7 +201,7 @@ for($i=1;$i<=2000;$i++)
 }
 $sql2 = implode(',',$arr);
 mysql_query($sql.$sql2,
-$connect)or die("message=F,Invalid query: " . mysql_error()); */
+$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
 mysql_query("
 Create TABLE g2_".$sql_table."prop_shop(
@@ -226,6 +226,13 @@ Create TABLE g2_".$sql_table."pvp_offline(
 gameid varchar(32) NOT NULL Unique Key,
 data varchar(1024),
 score INT UNSIGNED,
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); */
+
+mysql_query("
+Create TABLE g2_".$sql_table."answer(
+gameid varchar(32) NOT NULL Unique Key,
+info varchar(1024),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
