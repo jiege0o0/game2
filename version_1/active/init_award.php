@@ -1,9 +1,11 @@
 <?php 
 require_once($filePath."cache/base.php"); 
 do{
+	$level = $userData->hang->level;
 	$award = new stdClass();
 	$coinCD = 10;
 	$coinLevel = 0;
+	$awardCD = 3600 * $awardNum;
 	for($i=1;$i<=22;$i++)
 	{
 		$coinLevel += $userData->getTecLevel(300 + $i);
@@ -14,7 +16,7 @@ do{
 	$award->props = array();
 	
 	if($awardNum <=2)
-		break
+		break;
 	
 	$num = $awardNum > 6?2:1;
 	while($num)
@@ -81,7 +83,7 @@ do{
 		$award->props[$propsArr[0]['id']] = floor($awardNum*0.6*$propsArr[0]['num']);
 		array_shift($propsArr);
 	}
-}while(false)
+}while(false);
 
 function getPropCD($clv,$slv,$tlv){
 	$hourEarn = (floor(min(max(1,$clv-$slv),100)/10) + 1)*(1 + $tlv*5/100);

@@ -236,6 +236,28 @@ info varchar(1024),
 time INT UNSIGNED
 )",$connect)or die("message=F,Invalid query: " . mysql_error()); 
 
+mysql_query("
+Create TABLE g2_".$sql_table."random(
+gameid varchar(32) NOT NULL Unique Key,
+info varchar(1024),
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+mysql_query("
+Create TABLE g2_".$sql_table."choose(
+gameid varchar(32) NOT NULL Unique Key,
+info varchar(1024),
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+mysql_query("
+Create TABLE g2_".$sql_table."endless(
+gameid varchar(32) NOT NULL Unique Key,
+info varchar(1024),
+time INT UNSIGNED
+)",$connect)or die("message=F,Invalid query: " . mysql_error()); 
+
+
 
 
 

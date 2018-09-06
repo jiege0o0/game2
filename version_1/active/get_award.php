@@ -1,14 +1,38 @@
 <?php 
-require_once($filePath."cache/base.php"); 
 do{
-	$sql = "select * from ".getSQLTable('pvp')." where gameid='".$userData->gameid."'";
-	$result = $conne->getRowsRst($sql);
-	if($result)
+	if($award->coin)
 	{
-		$offline = json_decode($result['offline']);
-		$returnData->pvp = $offline->score;
+		$userData->addCoin($award->coin);
 	}
-	$returnData->active = $active_base;
+	if($award->diamond)
+	{
+		$userData->addDiamond($award->diamond);
+	}
+	if($award->energy)
+	{
+		$userData->addEnergy($award->energy);
+	}
+	if($award->props)
+	{
+		foreach($award->props as $key=>$value)
+		{
+			$userData->addProp($key,$value);
+		}
+	}
+	if($award->skills)
+	{
+		foreach($award->skills as $key=>$value)
+		{
+			$userData->addSkill($key,$value);
+		}
+	}
+	if($award->hero)
+	{
+		foreach($award->hero as $key=>$value)
+		{
+			$userData->addHero($key,$value);
+		}
+	}
 }while(false)
 
 ?> 

@@ -10,6 +10,8 @@ do{
 		if($time >= $start && $time<= $end)
 		{
 			$currentActive = $value;
+			$currentActive['start'] = $start;
+			$currentActive['end'] = $end;
 			break;
 		}
 	}
