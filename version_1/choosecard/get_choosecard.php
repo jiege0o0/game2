@@ -6,10 +6,8 @@
 			$returnData->fail = 1;
 			break;
 		}
-		require_once($dataFilePath."active/".$currentActive['v1'].".php");
-		$returnData->question=$question;
 		
-		$sql = "select * from ".getSQLTable('answer')." where gameid='".$userData->gameid."'";
+		$sql = "select * from ".getSQLTable('choose')." where gameid='".$userData->gameid."'";
 		$result = $conne->getRowsRst($sql);
 		debug($result['time'].'_'.$currentActive['start']);
 		if($result && $result['time'] > $currentActive['start'])
@@ -20,18 +18,21 @@
 		
 		$awardNum = 1;
 		require($filePath."active/init_award.php");
+		require($filePath."choosecard/random_choosecard.php");
 		
 		$info = new stdClass();
 		$info->index = 0;//当前步骤
-		$info->num = 5;//免费次数
+		$info->num = 3;//免费次数
 		$info->win_award = $award;//奖励
 		$info->final_award = $currentActive['faward'] ;//奖励
+		$info->choose = $skillArr;
+		$info->cardlist = '';
 		$returnData->info = $info;
 		
 		if($result)
-			$sql = "update ".getSQLTable('answer')." set info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
+			$sql = "update ".getSQLTable('choose')." set info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
 		else
-			$sql = "insert into ".getSQLTable('answer')."(gameid,info,time) values('".$userData->gameid."','".json_encode($info)."',".time().")";
+			$sql = "insert into ".getSQLTable('choose')."(gameid,info,time) values('".$userData->gameid."','".json_encode($info)."',".time().")";
 		$conne->uidRst($sql);
 
 		

@@ -48,6 +48,7 @@ do{
 	$myPlayer->card = $myPlayer->autolist;
 	unset($myPlayer->autolist);
 	$myPlayer->nick = base64_encode($userData->nick);
+	$myPlayer->head = $userData->head;
 	
 	$pkData = new stdClass();
 	$pkData->seed = time();

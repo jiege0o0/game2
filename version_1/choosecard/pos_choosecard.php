@@ -1,26 +1,24 @@
 <?php 
-	$id = $msg->id;
+	$list = explode(",",$msg->list);
 	do{
 		$sql = "select * from ".getSQLTable('choose')." where gameid='".$userData->gameid."'";
 		$result = $conne->getRowsRst($sql);
 		$info = json_decode($result['info']);
+		$orgin = explode(",",$info->cardlist);
 		
-		if(!in_array($id, $info->choose))
+		if(count($list) != count($orgin))
 		{
 			$returnData->fail = 1;
 			break;
 		}
-		$cardlist = explode(",",$info->cardlist);
-		array_push($cardlist,$id);
-		if(count($cardlist)<30)
+		sort($list);
+		sort($orgin);
+		if(join(",",$list) != join(",",$orgin))
 		{
-			require($filePath."choosecard/random_choosecard.php");
-			$info->choose = $skillArr;
-		}	
-		else
-			$info->choose ='';
-			
-		$info->cardlist = join(",",$cardlist);
+			$returnData->fail = 2;
+			break;
+		}
+		$info->cardlist = $msg->list;
 		
 		$sql = "update ".getSQLTable('answer')." set info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);

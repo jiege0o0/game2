@@ -5,7 +5,7 @@ require_once($filePath."pk/pk_tool.php");
 require_once($filePath."cache/base.php");
 
 do{		
-	if($userData->pk_common->pktype != 'answer')//最近不是打这个
+	if($userData->pk_common->pktype != 'choose')//最近不是打这个
 	{
 		$returnData -> fail = 1;
 		break;
@@ -34,7 +34,7 @@ do{
 		break;
 	}
 	
-	$sql = "select * from ".getSQLTable('answer')." where gameid='".$userData->gameid."'";
+	$sql = "select * from ".getSQLTable('choose')." where gameid='".$userData->gameid."'";
 	$result = $conne->getRowsRst($sql);	
 	$info = json_decode($result['info']);
 	$info->num++;
@@ -49,7 +49,9 @@ do{
 	$returnData->win_award = $award;
 	$info->win_award = $award;//奖励
 	
-	$sql = "update ".getSQLTable('answer')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
+	unset($info->pkData);
+	
+	$sql = "update ".getSQLTable('choose')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 	$conne->uidRst($sql);
 }while(false);
 

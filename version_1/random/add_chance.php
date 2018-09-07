@@ -1,5 +1,5 @@
 <?php 
-	$need = 10;
+	$need = 30;
 	do{
 		if($userData->diamond < $need)
 		{
@@ -8,17 +8,17 @@
 			break;
 		}
 		
-		$sql = "select * from ".getSQLTable('answer')." where gameid='".$userData->gameid."'";
+		$sql = "select * from ".getSQLTable('random')." where gameid='".$userData->gameid."'";
 		$result = $conne->getRowsRst($sql);
 		$info = json_decode($result['info']);
 
-		$info->num += 3;//免费次数
+		$info->num += 5;//免费次数
 		
 		$returnData->num = $info->num;
 		
 		$userData->addDiamond(-$need);
 		
-		$sql = "update ".getSQLTable('answer')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
+		$sql = "update ".getSQLTable('random')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
 
 	}while(false);

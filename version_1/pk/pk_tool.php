@@ -298,7 +298,7 @@
 					$result->fail = 101;
 					break;
 				}	
-				if($id < 500)//非报警卡
+				if($id < 500 && !$player->isRandom)//非报警卡
 				{
 					$isHero = $id >100 && $id < 130;
 					if($isHero)
@@ -313,7 +313,7 @@
 						}
 						array_shift($hero);
 					}
-					else
+					else 
 					{
 						$index = array_search($id, $orgin);
 						$isOK = $index === 0 || ($index>0 && $index <6);//只可以用前6张
