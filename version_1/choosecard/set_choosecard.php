@@ -10,7 +10,10 @@
 			$returnData->fail = 1;
 			break;
 		}
-		$cardlist = explode(",",$info->cardlist);
+		if($info->cardlist)
+			$cardlist = explode(",",$info->cardlist);
+		else
+			$cardlist = array();
 		array_push($cardlist,$id);
 		if(count($cardlist)<30)
 		{
@@ -21,8 +24,9 @@
 			$info->choose ='';
 			
 		$info->cardlist = join(",",$cardlist);
+		$returnData->choose = $info->choose;
 		
-		$sql = "update ".getSQLTable('answer')." set info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
+		$sql = "update ".getSQLTable('choose')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
 		
 	}while(false);

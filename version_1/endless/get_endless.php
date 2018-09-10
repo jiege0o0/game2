@@ -1,15 +1,13 @@
 <?php 
 	require_once($filePath."active/current_active.php");
 	do{
-		if(!$currentActive || $currentActive['type'] != 2)
+		if(!$currentActive || $currentActive['type'] != 5)
 		{
 			$returnData->fail = 1;
 			break;
 		}
-		require_once($dataFilePath."active/".$currentActive['v1'].".php");
-		$returnData->question=$question;
 		
-		$sql = "select * from ".getSQLTable('answer')." where gameid='".$userData->gameid."'";
+		$sql = "select * from ".getSQLTable('endless')." where gameid='".$userData->gameid."'";
 		$result = $conne->getRowsRst($sql);
 		debug($result['time'].'_'.$currentActive['start']);
 		if($result && $result['time'] > $currentActive['start'])
@@ -29,9 +27,9 @@
 		$returnData->info = $info;
 		
 		if($result)
-			$sql = "update ".getSQLTable('answer')." set info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
+			$sql = "update ".getSQLTable('endless')." set info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
 		else
-			$sql = "insert into ".getSQLTable('answer')."(gameid,info,time) values('".$userData->gameid."','".json_encode($info)."',".time().")";
+			$sql = "insert into ".getSQLTable('endless')."(gameid,info,time) values('".$userData->gameid."','".json_encode($info)."',".time().")";
 		$conne->uidRst($sql);
 
 		

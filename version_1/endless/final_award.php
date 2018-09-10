@@ -1,6 +1,6 @@
 <?php 
 	do{
-		$sql = "select * from ".getSQLTable('answer')." where gameid='".$userData->gameid."'";
+		$sql = "select * from ".getSQLTable('endless')." where gameid='".$userData->gameid."'";
 		$result = $conne->getRowsRst($sql);
 		$info = json_decode($result['info']);
 		
@@ -33,7 +33,7 @@
 		
 		unset($info->final_award);
 		
-		$sql = "update ".getSQLTable('answer')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
+		$sql = "update ".getSQLTable('endless')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
 
 	}while(false);

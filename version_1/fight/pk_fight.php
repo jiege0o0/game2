@@ -21,7 +21,7 @@ do{
 	{
 		require_once($filePath."cache/base.php");
 		//计算关卡战力
-		$force= $userData->tec_force + max(round($info->step/25*$userData->tec_force),2*$info->step);
+		$force= $userData->tec_force + max(round($info->index/20*$userData->tec_force),2*$info->index);
 		$enemy = array();
 		$enemy['force'] = $force;
 		
@@ -44,7 +44,7 @@ do{
 		usort($skillArr,"my_fight_sort");
 		array_splice($skillArr,rand(2,3),1);
 		$arr = array();
-		$len = max(2,round($userData->maxCardNum()*0.2)) + $info->step;//*ceil($userData->maxCardNum()*0.05);//$userData->maxCardNum() + 3;
+		$len = max(2,round($userData->maxCardNum()*0.2)) + $info->index;//*ceil($userData->maxCardNum()*0.05);//$userData->maxCardNum() + 3;
 		for($i=0;$i<$len;$i++)
 		{
 			array_push($arr,$skillArr[rand(0,2)]['id']);
@@ -57,11 +57,11 @@ do{
 		$enemy['type'] = $skillArr[0]['type'];
 		$enemy['hp'] = $userData->getHp();
 		
-		if($info->step > 3 && $userData->hang->level >= 50)//加入英雄
+		if($info->index > 3 && $userData->hang->level >= 50)//加入英雄
 		{
 			$heroLevel = max(1,min(5,floor(pow($userData->hang->level/100,0.8))));
 			shuffle($heroArr);
-			$skillArr = array_slice($heroArr,0,min(5,$info->step - 5));
+			$skillArr = array_slice($heroArr,0,min(5,$info->index - 5));
 			foreach($skillArr as $key=>$value)
 			{
 				$skillArr[$key] = $value['id'].'|'.$heroLevel;
@@ -71,7 +71,7 @@ do{
 		
 		
 		$player = createNpcPlayer(2,2,$enemy);
-		$nick = '远征守卫'.($info->step + 1);
+		$nick = '远征守卫'.($info->index + 1);
 		$player->nick = base64_encode($nick);
 		
 		$info->enemy = $player;
@@ -94,7 +94,7 @@ do{
 	$userData->addEnergy(-1);
 	$userData->pk_common->pktype = 'fight';
 	$userData->pk_common->pkdata = $pkData;
-	$userData->pk_common->level = $info->step;
+	$userData->pk_common->level = $info->index;
 	$userData->pk_common->time = time();
 	$userData->setChangeKey('pk_common');
 	

@@ -44,7 +44,7 @@ do{
 	require($filePath."active/get_award.php");
 	$returnData->award = $award;
 	
-	$awardNum = $info->index;
+	$awardNum = $info->index+1;
 	require($filePath."active/init_award.php");
 	$returnData->win_award = $award;
 	$info->win_award = $award;//½±Àø

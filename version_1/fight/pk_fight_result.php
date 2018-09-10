@@ -27,11 +27,6 @@ do{
 	$userData->pk_common->lastreturn = $returnData;
 	$userData->setChangeKey('pk_common');
 	
-	if($userData->pk_common->level != $info->step)
-	{
-		$returnData -> fail = 2;
-		break;
-	}
 	
 	
 	$pkData = $userData->pk_common->pkdata;
@@ -63,77 +58,22 @@ do{
 	if(!$haveDelete)//最少去除一张
 		array_shift($card);
 	$info->card = join(",",$card);
-	$info->step ++;
+	$info->index ++;
 	$info->enemy = '';
 	
-	
-	//补充卡组
-	$skillNum = rand(3,7);
-	$tecLevel = min($userData->tec_force/10,950);
-	$skillArr = array();
-	$awardSkillArr = array();
-	foreach($skill_base as $key=>$value)
-	{
-		if($value['level'] <= $tecLevel)
-		{
-			array_push($skillArr,$value['id']);
-			if($userData->getSkill($value['id']) < 999)//奖励用的
-				array_push($awardSkillArr,$value['id']);
-		}
-	}
-	
-	usort($skillArr,randomSortFun);
-	$skillArr = array_slice($skillArr,0,$skillNum);
-	
-	
-	$tecLevel = $userData->getTecLevel(1);
-	$monsterArr = array();
-	foreach($monster_base as $key=>$value)
-	{
-		if($value['level'] <= $tecLevel)
-		{
-			array_push($monsterArr,$value['id']);
-			array_push($monsterArr,$value['id']);
-		}
-	}
-	usort($monsterArr,randomSortFun);
-	$monsterArr = array_slice($monsterArr,0,9-$skillNum);
-	
-	
-	$info->award = join(",",$monsterArr).','.join(",",$skillArr);
-	
-
-	
-	
-	
-	
-	$award = new stdClass();
-	$addCoin = ($info->step)*15 + floor($force/20);
-	$award->coin = $addCoin;
-	$userData->addCoin($addCoin);
-	
-	$addValue = $info->step*8;
-	$award->fightvalue = $addValue;
-	$info->value += $addValue;
-	
-	//奖励1-2个技能
-	if(count($awardSkillArr)>0)
-	{
-		$award->skills = new stdClass();
-		usort($awardSkillArr,randomSortFun);
-		$num = rand(1,2);
-		for($i=0;$i<$num;$i++)
-		{
-			if($awardSkillArr[$i])
-			{
-				$award->skills->{$awardSkillArr[$i]} = 1;
-				$userData->addSkill($awardSkillArr[$i],1);
-			}
-		}
-	}
-	
-	
+	$award = $info->win_award;
+	require($filePath."active/get_award.php");
 	$returnData->award = $award;
+	
+	$awardNum = $info->index + 1;
+	require($filePath."active/init_award.php");
+	$returnData->win_award = $award;
+	$info->win_award = $award;//奖励
+	
+	require_once($filePath."fight/get_award_card.php");
+	$info->award = $getAwardCard;
+	
+	
 	$returnData->cardaward = $info->award;
 	$returnData->card = $info->card;
 	

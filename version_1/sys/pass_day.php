@@ -75,40 +75,32 @@
 	}*/
 	
 	//改金币时产
-	if(!$userData->active->p6)
+	if(!$userData->active->p8)
 	{
 	
-		$userData->active->p6 = 1;
+		$userData->active->p8 = 1;
 		$userData->setChangeKey('active');	
+		$num = 0;
+		if($userData->hang->level >= 20)
+		{
+			$sql = "select * from ".getSQLTable('fight')." where gameid='".$userData->gameid."'";
+			$result = $conne->getRowsRst($sql);
+			if($result)
+			{
+				$info = json_decode($result['info']);
+				$num = $info->value;
+			}
+		}
 		
-		if($userData->hang->level >= 50)
+		if($num)
 		{
 			require_once($filePath."cache/base.php"); 
 			$oo = new stdClass();
-			$oo->title = base64_encode('英雄礼包');
-			$oo->des = base64_encode('英雄系统现已开启，现为你送上一份英雄礼包！');
+			$oo->title = base64_encode('远征调整补偿');
+			$oo->des = base64_encode('远征系统已调整到活动中，玩家现有秘石将按比例转为钻石作为补偿');
 			$oo->award = new stdClass();
-			$oo->award->hero = new stdClass();
-			$heroNum = ceil($userData->hang->level/30);
-			$heroList = array();
-			$tecLevel = $userData->level;
-			foreach($monster_base as $key=>$value)
-			{
-				if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel)
-				{
-					array_push($heroList,$key);
-				}
-			}
-			$len = count($heroList)-1;
-			while($heroNum>0)
-			{
-				$heroNum --;
-				$heroid = $heroList[rand(0,$len)];
-				if($oo->award->hero->{$heroid})
-					$oo->award->hero->{$heroid}++;
-				else
-					$oo->award->hero->{$heroid} = 1;
-			}
+			$oo->award->diamond = ceil($num/5);
+
 			
 			$oo = json_encode($oo);
 			$sql = "insert into ".getSQLTable('mail')."(from_gameid,to_gameid,type,content,stat,time) values('sys','".$userData->gameid."',101,'".$oo."',0,".$time.")";

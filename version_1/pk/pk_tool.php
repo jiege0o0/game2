@@ -1,6 +1,6 @@
 <?php 
 	//创建玩家数据
-	function createUserPlayer($id,$team,$userData,$list,$hero,$isAuto=false){
+	function createUserPlayer($id,$team,$userData,$list,$hero='',$isAuto=false){
 		$player = new stdClass();
 		$player->id = $id;
 		$player->team = $team;

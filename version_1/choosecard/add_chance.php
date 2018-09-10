@@ -13,11 +13,12 @@
 		$info = json_decode($result['info']);
 
 		require($filePath."choosecard/random_choosecard.php");
-		$info->num = 3;//免费次数
+		$info->num = 5;//免费次数
 		$info->choose = $skillArr;
 		$info->cardlist = '';
 		
 		$returnData->num = $info->num;
+		$returnData->choose = $info->choose;
 		
 		$userData->addDiamond(-$need);
 		

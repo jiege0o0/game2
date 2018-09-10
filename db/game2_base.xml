@@ -7,7 +7,7 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Created>2006-09-16T00:00:00Z</Created>
-  <LastSaved>2018-08-25T09:59:24Z</LastSaved>
+  <LastSaved>2018-09-10T08:03:23Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -19,6 +19,7 @@
   <WindowWidth>14805</WindowWidth>
   <WindowTopX>240</WindowTopX>
   <WindowTopY>105</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -121,8 +122,7 @@
     <Cell><Data ss:Type="String">#mcnum</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">#mv_atk</Data></Cell>
     <Cell><Data ss:Type="String">#mv_atk2</Data></Cell>
-    <Cell ss:Index="31" ss:StyleID="s63"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">#%old</Font></ss:Data></Cell>
+    <Cell ss:Index="31" ss:StyleID="s63"><Data ss:Type="String">#%old</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34.5">
     <Cell ss:Index="4"><Data ss:Type="String">类型</Data></Cell>
@@ -187,7 +187,7 @@
     <Cell><Data ss:Type="String">精通幻影身法，有#1%机率闪避敌人的普通攻击</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">90</Data></Cell>
+    <Cell><Data ss:Type="Number">85</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">35</Data></Cell>
     <Cell><Data ss:Type="Number">80</Data></Cell>
@@ -342,9 +342,9 @@
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">450</Data></Cell>
+    <Cell><Data ss:Type="Number">480</Data></Cell>
     <Cell><Data ss:Type="Number">45</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">0.8</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -402,7 +402,7 @@
     <Cell><Data ss:Type="String">战鼓光环的作用下，能使所有的已方单位增加#1%攻击力</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">600</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
@@ -412,7 +412,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="Number">28</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">100</Data></Cell>
@@ -442,7 +442,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
     <Cell><Data ss:Type="Number">1.2</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
@@ -472,7 +472,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">27</Data></Cell>
+    <Cell><Data ss:Type="Number">22</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">100</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
@@ -504,7 +504,7 @@
     <Cell><Data ss:Type="Number">21</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">100</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -524,7 +524,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">400</Data></Cell>
+    <Cell><Data ss:Type="Number">440</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -532,7 +532,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">29</Data></Cell>
+    <Cell><Data ss:Type="Number">26</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">150</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
@@ -593,7 +593,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">35</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
@@ -617,7 +617,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">510</Data></Cell>
     <Cell><Data ss:Type="Number">42</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -654,7 +654,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="Number">29</Data></Cell>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
@@ -679,7 +679,7 @@
     <Cell><Data ss:Type="Number">1500</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">1.5</Data></Cell>
+    <Cell><Data ss:Type="Number">1.8</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">18</Data></Cell>
@@ -745,7 +745,7 @@
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">200</Data></Cell>
     <Cell><Data ss:Type="Number">12</Data></Cell>
@@ -776,9 +776,9 @@
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
@@ -807,10 +807,10 @@
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -932,7 +932,7 @@
     <Cell><Data ss:Type="Number">18</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -952,7 +952,7 @@
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="Number">90</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">2300</Data></Cell>
+    <Cell><Data ss:Type="Number">2100</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">2.5</Data></Cell>
@@ -993,7 +993,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">25</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
-    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
@@ -1022,7 +1022,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">27</Data></Cell>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -1053,7 +1053,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">28</Data></Cell>
+    <Cell><Data ss:Type="Number">26</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">100</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
@@ -1085,10 +1085,10 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">23</Data></Cell>
+    <Cell><Data ss:Type="Number">27</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
-    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1139,7 +1139,7 @@
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">450</Data></Cell>
+    <Cell><Data ss:Type="Number">440</Data></Cell>
     <Cell><Data ss:Type="Number">55</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">0.8</Data></Cell>
@@ -1147,7 +1147,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">22</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
@@ -1209,9 +1209,9 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">27</Data></Cell>
+    <Cell><Data ss:Type="Number">28</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="Number">300</Data></Cell>
+    <Cell><Data ss:Type="Number">320</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">150</Data></Cell>
     <Cell><Data ss:Type="Number">150</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1239,7 +1239,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">16</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="Number">31</Data></Cell>
+    <Cell><Data ss:Type="Number">33</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell><Data ss:Type="Number">90</Data></Cell>
@@ -1270,10 +1270,10 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">100</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1304,7 +1304,7 @@
     <Cell><Data ss:Type="Number">13</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">120</Data></Cell>
-    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
@@ -1333,11 +1333,11 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">19</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">100</Data></Cell>
-    <Cell><Data ss:Type="Number">45</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
     <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1390,12 +1390,12 @@
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">0.9</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="Number">-2</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
@@ -1424,7 +1424,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">17</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -1480,7 +1480,7 @@
     <Cell><Data ss:Type="Number">390</Data></Cell>
     <Cell><Data ss:Type="Number">55</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1.1000000000000001</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
@@ -1515,11 +1515,11 @@
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">17</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">100</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">90</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1550,8 +1550,8 @@
     <Cell><Data ss:Type="Number">13</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">120</Data></Cell>
-    <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">70</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1632,7 +1632,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">65</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="Number">470</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">0.9</Data></Cell>
@@ -1640,7 +1640,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell><Data ss:Type="Number">23</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">65</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">80</Data></Cell>
@@ -1662,7 +1662,7 @@
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">480</Data></Cell>
+    <Cell><Data ss:Type="Number">420</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1701,7 +1701,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">16</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="Number">32</Data></Cell>
+    <Cell><Data ss:Type="Number">34</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="Number">140</Data></Cell>
@@ -1731,7 +1731,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">90</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
@@ -1839,9 +1839,9 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">1-</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
-    <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">450</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1858,12 +1858,12 @@
     <Cell><Data ss:Type="String">5</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1005</Data></Cell>
-    <Cell><Data ss:Type="Number">65</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">550</Data></Cell>
+    <Cell><Data ss:Type="Number">80</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1.1000000000000001</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="Number">1.1000000000000001</Data></Cell>
@@ -1878,11 +1878,11 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1010</Data></Cell>
     <Cell><Data ss:Type="Number">70</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">45</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1.3</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="Number">1.1000000000000001</Data></Cell>
@@ -1897,7 +1897,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1014</Data></Cell>
     <Cell><Data ss:Type="Number">70</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">45</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -1916,7 +1916,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1018</Data></Cell>
     <Cell><Data ss:Type="Number">80</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
     <Cell><Data ss:Type="Number">45</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -1935,8 +1935,8 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">760</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">850</Data></Cell>
     <Cell><Data ss:Type="Number">48</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1953,9 +1953,9 @@
     <Cell><Data ss:Type="String">11</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1011</Data></Cell>
-    <Cell><Data ss:Type="Number">55</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">740</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">700</Data></Cell>
     <Cell><Data ss:Type="Number">48</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1972,9 +1972,9 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">1-</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
-    <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell><Data ss:Type="Number">55</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">630</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1987,13 +1987,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">109</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">暴力鹰</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">暴君鹰</Data></Cell>
     <Cell><Data ss:Type="String">7</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1007</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
     <Cell><Data ss:Type="Number">55</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -2006,16 +2006,16 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">110</Data></Cell>
-    <Cell><Data ss:Type="String">风暴雕</Data></Cell>
+    <Cell><Data ss:Type="String">领队雕</Data></Cell>
     <Cell><Data ss:Type="String">12</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1012</Data></Cell>
-    <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">55</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1.2</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="Number">1.1000000000000001</Data></Cell>
@@ -2030,7 +2030,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1015</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -2049,7 +2049,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1019</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -2067,9 +2067,9 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">1-</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
-    <Cell><Data ss:Type="Number">65</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1000</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
     <Cell><Data ss:Type="Number">55</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -2087,8 +2087,8 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1009</Data></Cell>
     <Cell><Data ss:Type="Number">70</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">560</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">500</Data></Cell>
     <Cell><Data ss:Type="Number">55</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -2106,7 +2106,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1016</Data></Cell>
     <Cell><Data ss:Type="Number">70</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -2125,7 +2125,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">600</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -2144,8 +2144,8 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1008</Data></Cell>
     <Cell><Data ss:Type="Number">35</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">550</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -2162,9 +2162,9 @@
     <Cell><Data ss:Type="String">13</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1013</Data></Cell>
-    <Cell><Data ss:Type="Number">30</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">150</Data></Cell>
+    <Cell><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">220</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -2182,7 +2182,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1017</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">500</Data></Cell>
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -2200,9 +2200,9 @@
     <Cell><Data ss:Type="String">6</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1006</Data></Cell>
-    <Cell><Data ss:Type="Number">58</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">780</Data></Cell>
+    <Cell><Data ss:Type="Number">55</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">53</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -2220,7 +2220,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">1020</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">800</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
@@ -2246,13 +2246,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>2</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2264,11 +2263,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveRow>54</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3775,7 +3775,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>103</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3788,10 +3788,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>119</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -4864,12 +4865,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <TopRowVisible>6</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>16</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4879,7 +4879,7 @@
  <Worksheet ss:Name="#hero_skill_base">
   <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="106" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="13.5">
-   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="22.5"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="90"/>
    <Column ss:AutoFitWidth="0" ss:Width="456"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">id</Data></Cell>
@@ -4897,7 +4897,8 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">101</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">降低敌方所有单位#1%防御（全屏光环）</Data></Cell>
+    <Cell><Data ss:Type="String">腐蚀光环</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">降低敌方所有单位#1%的防御</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
@@ -4905,7 +4906,8 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="Number">101</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">降低敌方所有单位#1%攻击力（全屏光环）</Data></Cell>
+    <Cell><Data ss:Type="String">虚弱光环</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">降低敌方所有单位#1%的攻击力</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
@@ -4913,7 +4915,8 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">101</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">降低敌方所有单位#1%速度（全屏光环）</Data></Cell>
+    <Cell><Data ss:Type="String">寒冰光环</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">降低敌方所有单位#1%的速度</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
    </Row>
@@ -4921,15 +4924,17 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="Number">101</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">随机转化一个#1范围内的敌方随从</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">转化</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">随机转化一个#1范围内的敌方随从。技能冷却：#CD秒</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">300</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">101</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">出生时产生一个分身</Data></Cell>
+    <Cell><Data ss:Type="String">大分身</Data></Cell>
+    <Cell><Data ss:Type="String">出生时产生额外一个分身</Data></Cell>
     <Cell><Data ss:Type="Number">-1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
    </Row>
@@ -4937,78 +4942,88 @@
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">102</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">万箭齐发，对前方#1范围内的单位造成$2点伤害</Data></Cell>
+    <Cell><Data ss:Type="String">万箭齐发</Data></Cell>
+    <Cell><Data ss:Type="String">对前方#1范围内的单位造成$2点伤害。技能冷却：#CD秒</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">300</Data></Cell>
-    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="Number">102</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">使中箭的单位减速#1%，持续#2秒</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">冰箭</Data></Cell>
+    <Cell><Data ss:Type="String">使中箭的单位减速#1%，持续#2秒</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">30</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">102</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">使中箭的单位获得燃烧效果，每秒减血$1点，持续#2秒</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">火箭</Data></Cell>
+    <Cell><Data ss:Type="String">使中箭的单位获得燃烧效果，每秒减血$1点，持续#2秒</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell><Data ss:Type="Number">102</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">有#1%机率使中箭的单位晕眩#2秒</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">重箭</Data></Cell>
+    <Cell><Data ss:Type="String">有#1%机率使中箭的单位晕眩#2秒</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">60</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">102</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">万箭齐发CD降至#1秒</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">快速装填</Data></Cell>
+    <Cell><Data ss:Type="String">万箭齐发冷却降至#1秒</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">11</Data></Cell>
     <Cell><Data ss:Type="Number">103</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">增加我方所有单位#1%防御（全屏光环）</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">强甲光环</Data></Cell>
+    <Cell><Data ss:Type="String">增加我方所有单位#1%防御</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">12</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">12</Data></Cell>
     <Cell><Data ss:Type="Number">103</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">每次攻击降低目标#1%防御</Data></Cell>
+    <Cell><Data ss:Type="String">破甲</Data></Cell>
+    <Cell><Data ss:Type="String">每次攻击降低目标#1%防御</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">13</Data></Cell>
     <Cell><Data ss:Type="Number">103</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">有#1%几率对前方#2范围进行盾击，对范围内单位造成$3点伤害</Data></Cell>
+    <Cell><Data ss:Type="String">盾击</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">有#1%几率对前方#2范围进行盾击，对范围内单位额外造成$3点伤害</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">20</Data></Cell>
-    <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell><Data ss:Type="Number">103</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">盾击触发时使目标单位晕眩#1秒</Data></Cell>
+    <Cell><Data ss:Type="String">盾猛</Data></Cell>
+    <Cell><Data ss:Type="String">盾击触发时使目标单位晕眩#1秒</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell><Data ss:Type="Number">103</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">提升盾击触发几率到#1%</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">盾击强化</Data></Cell>
+    <Cell><Data ss:Type="String">提升盾击触发几率到#1%</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">40</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">16</Data></Cell>
@@ -5064,97 +5079,108 @@
     <Cell><Data ss:Type="Number">26</Data></Cell>
     <Cell><Data ss:Type="Number">106</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">感染被攻击单位#1范围内的敌方单位，降低其#2%防御，持续#3秒</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">30</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">感染</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">感染被攻击单位#1范围内的敌方单位，降低其#2%的防御，持续#3秒</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">27</Data></Cell>
     <Cell><Data ss:Type="Number">106</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">使受感染者中毒，每秒损失$2点生命</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">30</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">毒素</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">使受感染者中毒，每秒损失$2点生命</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">28</Data></Cell>
     <Cell><Data ss:Type="Number">106</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">每有一个受感染者死亡，回复自身$1点生命</Data></Cell>
+    <Cell><Data ss:Type="String">生命吸取</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">每有一个受感染者死亡，回复自身$1点生命</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">80</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">29</Data></Cell>
     <Cell><Data ss:Type="Number">106</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">对所有受感染者造成$1点伤害，并回复自身对应的生命值</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="String">强取生命</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">对所有受感染者造成$1点伤害，并回复自身对应的生命值。技能冷却：#CD秒</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="Number">106</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">使感染范围增加至#1</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="String">终极感染</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">使感染范围增加至#1</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">150</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">31</Data></Cell>
     <Cell><Data ss:Type="Number">107</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">把苞子寄生到攻击目标上，被寄生者(随从)死后会产生一个无敌的残魂，残魂持续#1秒</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">寄生</Data></Cell>
+    <Cell><Data ss:Type="String">把苞子寄生到被攻击的随从身上，被寄生者死后会产生一个无敌的残魂，残魂持续#1秒</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">32</Data></Cell>
     <Cell><Data ss:Type="Number">107</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">被寄生者会受$1/秒的毒性伤害</Data></Cell>
+    <Cell><Data ss:Type="String">毒素</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">被寄生者会受$1/秒的毒性伤害</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">33</Data></Cell>
     <Cell><Data ss:Type="Number">107</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">被寄生者死后会把苞子扩散到#1范围内的友军身上</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">扩散</Data></Cell>
+    <Cell><Data ss:Type="String">被寄生者死后会把苞子扩散到#1范围内的友军身上</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">40</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">34</Data></Cell>
     <Cell><Data ss:Type="Number">107</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">残魂消失后会把期间产生的累计伤害转化为生命补充到英雄身上</Data></Cell>
+    <Cell><Data ss:Type="String">生命补充</Data></Cell>
+    <Cell><Data ss:Type="String">残魂消失后会把期间产生的累计伤害转化为生命值补充到英雄身上</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">35</Data></Cell>
     <Cell><Data ss:Type="Number">107</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">被寄生者死后会产生#1个残魂</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">双生</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">被寄生者死后有#1机率会额外多产生1个残魂</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">70</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">36</Data></Cell>
     <Cell><Data ss:Type="Number">108</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">增加我方所有单位#1%速度（全屏光环）</Data></Cell>
+    <Cell><Data ss:Type="String">极速光环</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">增加我方所有单位#1%速度</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">37</Data></Cell>
     <Cell><Data ss:Type="Number">108</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">对随机一个敌方单位造成$1点伤害，并晕眩#2秒</Data></Cell>
+    <Cell><Data ss:Type="String">雷击</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">对随机一个敌方单位进行雷击，造成$1点伤害，并使其晕眩#2秒。技能冷却：#CD秒</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">38</Data></Cell>
     <Cell><Data ss:Type="Number">108</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">对所有敌方单位造成$1-$2点伤害</Data></Cell>
+    <Cell><Data ss:Type="String">闪电风暴</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">对所有敌方单位进行一次大范围的雷暴，分别造成$1-$2点伤害。技能冷却：#CD秒</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">20</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">40</Data></Cell>
@@ -5163,7 +5189,8 @@
     <Cell><Data ss:Type="Number">39</Data></Cell>
     <Cell><Data ss:Type="Number">108</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">有#1%的机率对攻者其的单位造成$2伤害，并降速#3%，持续#4秒</Data></Cell>
+    <Cell><Data ss:Type="String">雷电护盾</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">有#1%的机率对攻者其的单位造成$2伤害，并减速#3%，持续#4秒</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell><Data ss:Type="Number">50</Data></Cell>
@@ -5173,83 +5200,92 @@
     <Cell><Data ss:Type="Number">40</Data></Cell>
     <Cell><Data ss:Type="Number">108</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">每次触发技能后，回复自身技能伤害值#1%的生命</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">电疗</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">每次触发技能后，回复自身技能伤害值#1%的生命</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">60</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">41</Data></Cell>
     <Cell><Data ss:Type="Number">109</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">每有一个已方单位死亡，增加自身#1%攻击力</Font></ss:Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">愤怒</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">每有一个友方单位死亡，增加自身#1%的攻击力</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">42</Data></Cell>
     <Cell><Data ss:Type="Number">109</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">每有一个已方单位死亡，增加自身#1%速度</Font></ss:Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">火爆</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">每有一个友方单位死亡，增加自身#1%的速度</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">10</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">43</Data></Cell>
     <Cell><Data ss:Type="Number">109</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">有#1%的机率造成#2%暴击</Data></Cell>
+    <Cell><Data ss:Type="String">暴击</Data></Cell>
+    <Cell><Data ss:Type="String">攻击时有#1%的机率造成#2%的暴击</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">150</Data></Cell>
+    <Cell><Data ss:Type="Number">160</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">44</Data></Cell>
     <Cell><Data ss:Type="Number">109</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">当血量低于#1%时，会吃掉#2范围内最近的一个友方随从并回复生命值</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">吞吃</Data></Cell>
+    <Cell><Data ss:Type="String">当血量低于#1%时，会吃掉#2范围内最近的一个友方随从并回复相应生命值。技能冷却：#CD秒</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">40</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">45</Data></Cell>
     <Cell><Data ss:Type="Number">109</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">死亡后会在原地重新召唤被吃掉的随从，亡灵持续#1秒</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="String">回归</Data></Cell>
+    <Cell><Data ss:Type="String">当英雄死亡后会在原地重新召唤被吃掉随从的亡灵</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">46</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">增加我方所有远程单位#1%攻击力（全屏光环）</Data></Cell>
+    <Cell><Data ss:Type="String">强击光环</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">增加我方所有远程单位#1%的攻击力</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">47</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">增加我方所有远程单位#1%速度（全屏光环）</Data></Cell>
+    <Cell><Data ss:Type="String">命令光环</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">增加我方所有远程单位#1%的速度</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">48</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">增加我方所有近战单位#1%防御（全屏光环）</Data></Cell>
+    <Cell><Data ss:Type="String">厚甲光环</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">增加我方所有近战单位#1%的防御</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">49</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">马上降低出战区卡牌#1秒CD</Data></Cell>
+    <Cell><Data ss:Type="String">征召</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">马上降低出战区所有随从卡牌#1秒的CD。技能冷却：#CD秒</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">10</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">110</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">所有战区单位出战后直接出现在身边</Data></Cell>
+    <Cell><Data ss:Type="String">集合</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">所有出战区的单位出战后直接出现在身边</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">51</Data></Cell>
@@ -5305,80 +5341,90 @@
     <Cell><Data ss:Type="Number">61</Data></Cell>
     <Cell><Data ss:Type="Number">113</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">增加自己#1%的攻击力</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="String">攻击强化</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">增加自身#1%的攻击力</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">62</Data></Cell>
     <Cell><Data ss:Type="Number">113</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">增加自己#1%的速度</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="String">速度强化</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">增加自身#1%的速度</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">30</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">63</Data></Cell>
     <Cell><Data ss:Type="Number">113</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">攻击中有#1的机率造成#2%伤害</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">60</Data></Cell>
+    <Cell><Data ss:Type="String">暴击</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">攻击中有#1的机率造成#2%伤害</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">64</Data></Cell>
     <Cell><Data ss:Type="Number">113</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">攻击后有#1%机率进入狂化，提升#2%速度，持续#3秒</Data></Cell>
+    <Cell><Data ss:Type="String">狂化</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">攻击后有#1%机率进入狂化，提升#2%速度，持续#3秒</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">20</Data></Cell>
-    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">65</Data></Cell>
     <Cell><Data ss:Type="Number">113</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">获得#1%的吸血</Data></Cell>
+    <Cell><Data ss:Type="String">吸血</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">攻击时获得#1%的吸血</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">66</Data></Cell>
     <Cell><Data ss:Type="Number">114</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">有#1%机率闪避物理攻击</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">40</Data></Cell>
+    <Cell><Data ss:Type="String">闪避</Data></Cell>
+    <Cell><Data ss:Type="String">被攻击时有#1%机率进行闪避</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">67</Data></Cell>
     <Cell><Data ss:Type="Number">114</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">每攻击#1次后会对#3范围内当前生命值最少的敌方随从造成$2点伤害(无视魔免)</Data></Cell>
+    <Cell><Data ss:Type="String">剌杀</Data></Cell>
+    <Cell><Data ss:Type="String">每攻击#1次后会对#3范围内当前生命值最少的敌方单位造成$2点伤害(无视魔免)</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">60</Data></Cell>
-    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">300</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">68</Data></Cell>
     <Cell><Data ss:Type="Number">114</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">每攻击#1次后会对#3范围内当前生命值最高的敌方随从造成$2点伤害(无视魔免)</Data></Cell>
+    <Cell><Data ss:Type="String">强袭</Data></Cell>
+    <Cell><Data ss:Type="String">每攻击#1次后会对#3范围内当前生命值最高的敌方单位造成$2点伤害(无视魔免)</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">500</Data></Cell>
-    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">600</Data></Cell>
+    <Cell><Data ss:Type="Number">300</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">69</Data></Cell>
     <Cell><Data ss:Type="Number">114</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">攻击中有#1%机率产生分身，分身的血量和攻击为本体的#2%，持续#3秒</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">20</Data></Cell>
-    <Cell><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">影分身</Data></Cell>
+    <Cell><Data ss:Type="String">攻击中有#1%机率产生分身，分身的血量和攻击为本体的#2%，持续#3秒</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">60</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">70</Data></Cell>
     <Cell><Data ss:Type="Number">114</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">每杀死一个敌方随从后增加#1%速度</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="String">嗜血</Data></Cell>
+    <Cell><Data ss:Type="String">每杀死一个敌方单位后增加#1%速度</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">71</Data></Cell>
@@ -5409,48 +5455,54 @@
     <Cell><Data ss:Type="Number">76</Data></Cell>
     <Cell><Data ss:Type="Number">116</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">使我方所有单位获得$1点/秒的回血（全屏光环）</Data></Cell>
+    <Cell><Data ss:Type="String">回血光环</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">使我方所有单位获得$1点/秒的回血</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">77</Data></Cell>
     <Cell><Data ss:Type="Number">116</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">使#1范围内的一个受伤友方单位获得$2点/秒回血，持续#3秒</Data></Cell>
+    <Cell><Data ss:Type="String">强化冶疗</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">使#1范围内的一个受伤友方单位获得$2点/秒回血，持续#3秒。技能冷却：#CD秒</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">300</Data></Cell>
-    <Cell><Data ss:Type="Number">50</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">35</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">78</Data></Cell>
     <Cell><Data ss:Type="Number">116</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">回复所有友方单位$1点生命</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="String">多重冶疗</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">回复所有友方单位$1点生命。技能冷却：#CD秒</Data></Cell>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="Number">60</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">79</Data></Cell>
     <Cell><Data ss:Type="Number">116</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">回复#1范围一个友方单位$2点生命</Data></Cell>
+    <Cell><Data ss:Type="String">大冶疗术</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">回复#1范围一个友方单位$2点生命。技能冷却：#CD秒</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">300</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="Number">200</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">180</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">80</Data></Cell>
     <Cell><Data ss:Type="Number">116</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">每次主动治疗可增加目标单位$1点攻击力</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="String">兴奋剂</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">每次主动治疗可增加目标单位$1点攻击力</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s63"><Data ss:Type="Number">6</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">81</Data></Cell>
     <Cell><Data ss:Type="Number">117</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">随机增加#1范围一个友方单位$2点攻击力</Data></Cell>
+    <Cell><Data ss:Type="String">攻击提升</Data></Cell>
+    <Cell><Data ss:Type="String">随机增加#1范围一个友方单位$2点攻击力。技能冷却：#CD秒</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">300</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
@@ -5459,16 +5511,18 @@
     <Cell><Data ss:Type="Number">82</Data></Cell>
     <Cell><Data ss:Type="Number">117</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">随机增加#1范围一个友方单位#2点防御</Data></Cell>
+    <Cell><Data ss:Type="String">防御提升</Data></Cell>
+    <Cell><Data ss:Type="String">随机增加#1范围一个友方单位#2点防御。技能冷却：#CD秒</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">300</Data></Cell>
-    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">83</Data></Cell>
     <Cell><Data ss:Type="Number">117</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">随机使#1范围一个友方单位魔免</Data></Cell>
+    <Cell><Data ss:Type="String">魔免</Data></Cell>
+    <Cell><Data ss:Type="String">随机使#1范围一个友方单位魔免。技能冷却：#CD秒</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="Number">300</Data></Cell>
    </Row>
@@ -5476,7 +5530,8 @@
     <Cell><Data ss:Type="Number">84</Data></Cell>
     <Cell><Data ss:Type="Number">117</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">随机使#1范围一个友方单位增加$2点/秒的回血速度</Data></Cell>
+    <Cell><Data ss:Type="String">生命提升</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">随机使#1范围一个友方单位增加$2点/秒的回血速度。技能冷却：#CD秒</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="Number">300</Data></Cell>
     <Cell><Data ss:Type="Number">30</Data></Cell>
@@ -5485,46 +5540,49 @@
     <Cell><Data ss:Type="Number">85</Data></Cell>
     <Cell><Data ss:Type="Number">117</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">使用技能时有#1%机率额外多释放一次</Data></Cell>
+    <Cell><Data ss:Type="String">多重进化</Data></Cell>
+    <Cell><Data ss:Type="String">使用技能时有#1%机率额外多释放一次</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">86</Data></Cell>
     <Cell><Data ss:Type="Number">118</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">死后分裂成#1个单位</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">分裂Ⅰ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">死后分裂成#1个单位</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">87</Data></Cell>
     <Cell><Data ss:Type="Number">118</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">死后分裂成#1个单位</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">分裂Ⅱ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">死后分裂成#1个单位</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">88</Data></Cell>
     <Cell><Data ss:Type="Number">118</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">死后分裂成#1个单位</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">分裂Ⅲ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">死后分裂成#1个单位</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">4</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">89</Data></Cell>
     <Cell><Data ss:Type="Number">118</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">死后分裂成#1个单位</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="String">分裂Ⅳ</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">死后分裂成#1个单位</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="Number">5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">90</Data></Cell>
     <Cell><Data ss:Type="Number">118</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s63"><Data ss:Type="String">分裂单位死后可再分裂一次，但攻击和血量只有原来一半</Data></Cell>
+    <Cell><Data ss:Type="String">终极分裂</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">分裂单位死后有#1机率可再分裂一次，但攻击和血量只有原来一半</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">91</Data></Cell>
@@ -5555,28 +5613,34 @@
     <Cell><Data ss:Type="Number">96</Data></Cell>
     <Cell><Data ss:Type="Number">120</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">制造一个随机友方随从的分身，分身生命值固定为$1，持续#2秒 </Data></Cell>
+    <Cell><Data ss:Type="String">镜像</Data></Cell>
+    <Cell><Data ss:Type="String">制造一个随机友方随从的镜像，镜像生命值固定为$1，持续#2秒。技能冷却：#CD秒</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">200</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
     <Cell><Data ss:Type="Number">20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">97</Data></Cell>
     <Cell><Data ss:Type="Number">120</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">使制造的单位获得魔免效果</Data></Cell>
+    <Cell><Data ss:Type="String">魔免</Data></Cell>
+    <Cell><Data ss:Type="String">使制造的镜像获得魔免效果，增加$1点镜像生命</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">98</Data></Cell>
     <Cell><Data ss:Type="Number">120</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">使制造的单位获得亡语：回复本英雄生命，回复值为该单位的生命上限</Data></Cell>
+    <Cell><Data ss:Type="String">回光</Data></Cell>
+    <Cell><Data ss:Type="String">使制造的镜像位获得亡语：回复本英雄生命，回复值为该镜像的生命上限，增加$1点镜像生命</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">50</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">99</Data></Cell>
     <Cell><Data ss:Type="Number">120</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">增加所有分身$1生命及生命上限，6CD</Data></Cell>
+    <Cell><Data ss:Type="String">镜像强化</Data></Cell>
+    <Cell><Data ss:Type="String">增加所有镜像$1点生命值及生命上限。技能冷却：#CD秒</Data></Cell>
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="Number">100</Data></Cell>
    </Row>
@@ -5584,8 +5648,9 @@
     <Cell><Data ss:Type="Number">100</Data></Cell>
     <Cell><Data ss:Type="Number">120</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">每次制造#1个随从</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">多重镜像</Data></Cell>
+    <Cell><Data ss:Type="String">每次制造镜像有#1%的机率可多产生1个镜像</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="Number">75</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">101</Data></Cell>
@@ -5629,7 +5694,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>79</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5642,12 +5707,79 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>90</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>49</ActiveRow>
+     <ActiveCol>6</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="%active_base">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="13.5">
+   <Column ss:Index="2" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="174.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="189"/>
+   <Column ss:AutoFitWidth="0" ss:Width="70.5" ss:Span="1"/>
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="83.25"/>
+   <Row>
+    <Cell><Data ss:Type="String">id</Data></Cell>
+    <Cell><Data ss:Type="String">start</Data></Cell>
+    <Cell><Data ss:Type="String">end</Data></Cell>
+    <Cell><Data ss:Type="String">type</Data></Cell>
+    <Cell><Data ss:Type="String">faward</Data></Cell>
+    <Cell><Data ss:Type="String">v1</Data></Cell>
+    <Cell><Data ss:Type="String">v2</Data></Cell>
+    <Cell><Data ss:Type="String">v3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s65"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">2018-09-03 06:00:00</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s65"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">2018-09-15 22:00:00</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">hero</Data></Cell>
+    <Cell><Data ss:Type="String">question1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s65"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">2018-09-16 06:00:00</Font></ss:Data></Cell>
+    <Cell ss:StyleID="s65"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">2018-09-28 22:00:00</Font></ss:Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">skill</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">box</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

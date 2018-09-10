@@ -1,7 +1,7 @@
 <?php 
 	require_once($filePath."active/current_active.php");
 	do{
-		if(!$currentActive || $currentActive['type'] != 2)
+		if(!$currentActive || $currentActive['type'] != 4)
 		{
 			$returnData->fail = 1;
 			break;
@@ -22,7 +22,7 @@
 		
 		$info = new stdClass();
 		$info->index = 0;//当前步骤
-		$info->num = 3;//免费次数
+		$info->num = 5;//免费次数
 		$info->win_award = $award;//奖励
 		$info->final_award = $currentActive['faward'] ;//奖励
 		$info->choose = $skillArr;

@@ -42,6 +42,9 @@
 		unset($userData->active->p2);
 		unset($userData->active->p3);
 		unset($userData->active->p4);
+		unset($userData->active->p5);
+		unset($userData->active->p6);
+		unset($userData->active->p7);
 		require_once($filePath."sys/pass_day.php");
 		// $addMailAward = false;
 		

@@ -41,7 +41,7 @@ do{
 		$enemyData=array('force'=>800 + $index*50,'type'=>0,'list'=>$card,'hp'=>3);	
 		$enemy = createNpcPlayer(2,2,$enemyData);
 		$enemy->def = 0;
-		$enemy->nick = base64_encode('随机'.$index);
+		$enemy->nick = base64_encode('选卡'.$index);
 		
 		$myPlayer = createUserPlayer(1,1,$userData,$info->cardlist);
 		$myPlayer->force = 1000;
@@ -59,6 +59,20 @@ do{
 	else
 	{
 		$pkData = $info->pkData;
+		$enemy = $pkData->players[1];
+	
+		$myPlayer = createUserPlayer(1,1,$userData,$info->cardlist);
+		$myPlayer->force = 1000;
+		
+		
+		$pkData = new stdClass();
+		$pkData->seed = time();
+		$pkData->players = array();
+		$pkData->check = true;
+		array_push($pkData->players,$myPlayer);
+		array_push($pkData->players,$enemy);
+		
+		$info->pkData = $pkData;
 	}
 	
 	$returnData -> pkdata = $pkData;

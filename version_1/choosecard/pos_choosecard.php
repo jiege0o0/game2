@@ -19,8 +19,9 @@
 			break;
 		}
 		$info->cardlist = $msg->list;
+		$returnData->list = $info->cardlist;
 		
-		$sql = "update ".getSQLTable('answer')." set info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
+		$sql = "update ".getSQLTable('choose')." set info='".json_encode($info)."',time=".time()." where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);
 		
 	}while(false);
