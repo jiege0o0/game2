@@ -9,9 +9,11 @@
 
 		$sql = "select * from ".getSQLTable('fight')." where gameid='".$userData->gameid."'";
 		$result = $conne->getRowsRst($sql);
-		if($result && $result['time'] > $currentActive['start'])
+		if($result && floor($result['time']) > $currentActive['start'])
 		{
 			$returnData->info = json_decode($result['info']);
+			debug($result['time']);
+			debug($currentActive['start']);
 			break;
 		}
 		$awardNum = 1;
