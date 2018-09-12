@@ -154,6 +154,7 @@ do{
 	if($userData->getCoin() < $coin)
 	{
 		$returnData -> fail = 1;
+		$returnData -> need = $coin;
 		$returnData -> level = $userData->getTecLevel($id);
 		$returnData->sync_coin = $userData->coin;
 		break;

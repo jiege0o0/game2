@@ -45,6 +45,7 @@ do{
 		
 		$myPlayer = createUserPlayer(1,1,$userData,$info->cardlist);
 		$myPlayer->force = 1000;
+		$myPlayer->hp = 3;
 		
 		
 		$pkData = new stdClass();

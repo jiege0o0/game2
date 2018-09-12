@@ -62,7 +62,7 @@ do{
 			$hero = join(",",$hero);
 		}
 			
-		$enemyData=array('force'=>1000 + $index*100,'type'=>0,'list'=>$card,'hp'=>99,'hero'=>$hero);	
+		$enemyData=array('force'=>ceil($userData->tec_force*(1+$index/12)),'type'=>0,'list'=>$card,'hp'=>99,'hero'=>$hero);	
 		$enemy = createNpcPlayer(2,2,$enemyData);
 		$enemy->def = 0;
 		$enemy->nick = base64_encode('无尽'.$index);

@@ -21,7 +21,7 @@ do{
 	{
 		require_once($filePath."cache/base.php");
 		//计算关卡战力
-		$force= $userData->tec_force + max(round($info->index/20*$userData->tec_force),2*$info->index);
+		$force= $userData->tec_force + max(round($info->index/30*$userData->tec_force),2*$info->index);
 		$enemy = array();
 		$enemy['force'] = $force;
 		
@@ -44,7 +44,7 @@ do{
 		usort($skillArr,"my_fight_sort");
 		array_splice($skillArr,rand(2,3),1);
 		$arr = array();
-		$len = max(2,round($userData->maxCardNum()*0.2)) + $info->index;//*ceil($userData->maxCardNum()*0.05);//$userData->maxCardNum() + 3;
+		$len = 3 + $info->index;//*ceil($userData->maxCardNum()*0.05);//$userData->maxCardNum() + 3;
 		for($i=0;$i<$len;$i++)
 		{
 			array_push($arr,$skillArr[rand(0,2)]['id']);

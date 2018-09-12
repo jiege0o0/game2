@@ -1,4 +1,6 @@
 <?php 
-	date_default_timezone_set('PRC'); 
-	echo strtotime('2018-09-03 06:00:00');
+	$a = new stdClass();
+	$a->aa = 2;
+	$a->bb = 2;
+	echo count($a);
 ?> 
