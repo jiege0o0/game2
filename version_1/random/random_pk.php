@@ -39,7 +39,7 @@ do{
 		$list = explode("|",$answerData);
 		$card = $list[0];
 			
-		$enemyData=array('force'=>800 + $index*40,'type'=>0,'list'=>$card,'hp'=>3);	
+		$enemyData=array('force'=>800 + $index*35,'type'=>0,'list'=>$card,'hp'=>3);	
 		$enemy = createNpcPlayer(2,2,$enemyData);
 		$enemy->def = 0;
 		$enemy->nick = base64_encode('随机'.$index);
