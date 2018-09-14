@@ -70,8 +70,14 @@ do{
 	$returnData->win_award = $award;
 	$info->win_award = $award;//½±Àø
 	
-	require_once($filePath."fight/get_award_card.php");
-	$info->award = $getAwardCard;
+	
+	if($info->index >=12)
+		$info->award = '';
+	else
+	{
+		require_once($filePath."fight/get_award_card.php");
+		$info->award = $getAwardCard;
+	}
 	
 	
 	$returnData->cardaward = $info->award;
