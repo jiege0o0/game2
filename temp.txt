@@ -10,7 +10,7 @@ http://172.17.196.195:9021/index.html?debug_server=1&debug=1
 http://172.17.196.195:9021/index.html?debug_server=1&app=1&game_version=3
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&game_version=3
-http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&app=1
+http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&app=1&game_version=4
 http://172.17.196.195:9020/index.html?debug_server=1&app=1&game_version=2
 http://172.17.196.195:9020/index.html
 PKData.getInstance().random()
@@ -74,7 +74,7 @@ node index.js
 --帮助说明
 跨点测试
 
-技能换图片
+主动技能图片优化
 重新截屏
 
 --技能帮助UI优化

@@ -1,6 +1,7 @@
 <?php 
 $answerPath=$msg->path;
 $index=$msg->index;
+$userlist=$msg->userlist;
 require_once($filePath."pk/pk_tool.php");
 require_once($dataFilePath."active/".$answerPath.".php");
 do{		
@@ -45,8 +46,13 @@ do{
 	$myPlayer = createNpcPlayer(1,1,$myPlayerData);
 	$myPlayer->def = 0;
 	$myPlayer->gameid = $userData->gameid;
-	$myPlayer->card = $myPlayer->autolist;
-	unset($myPlayer->autolist);
+	if($userlist)
+		$myPlayer->autolist = $userlist;
+	else
+	{
+		$myPlayer->card = $myPlayer->autolist;
+		unset($myPlayer->autolist);
+	}
 	$myPlayer->nick = base64_encode($userData->nick);
 	$myPlayer->head = $userData->head;
 	

@@ -44,7 +44,11 @@ do{
 		usort($skillArr,"my_fight_sort");
 		array_splice($skillArr,rand(2,3),1);
 		$arr = array();
-		$len = 3 + $info->index;//*ceil($userData->maxCardNum()*0.05);//$userData->maxCardNum() + 3;
+		array_push($arr,$skillArr[0]['id']);
+		array_push($arr,$skillArr[1]['id']);
+		array_push($arr,$skillArr[2]['id']);
+		shuffle($arr);
+		$len = $info->index;//*ceil($userData->maxCardNum()*0.05);//$userData->maxCardNum() + 3;
 		for($i=0;$i<$len;$i++)
 		{
 			array_push($arr,$skillArr[rand(0,2)]['id']);
