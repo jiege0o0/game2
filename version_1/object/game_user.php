@@ -262,7 +262,7 @@ class GameUser{
 		return 1 + $this->getTecLevel(3);
 	}
 	function maxCardNum(){
-		return 19 + $this->getTecLevel(4);
+		return 9 + $this->getTecLevel(4);
 	}
 	
 	//取道具数量

@@ -73,7 +73,7 @@ do{
 					$propCD = getPropCD($level,$value['hanglevel'],$userData->getTecLevel(300 + $key));
 					if($propCD)
 					{
-						$addProp = floor($awardCD/$propCD);
+						$addProp = ceil($awardCD/$propCD/2);
 						array_push($propsArr,array('id'=>$key,'num'=>$addProp));
 					}
 				}

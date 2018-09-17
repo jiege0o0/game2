@@ -91,7 +91,7 @@ do{
 	}
 	$myPlayer = createUserPlayer(1,1,$userData,$list,$hero,false);
 	$myPlayer->hp = 1;
-	$myPlayer->force = 1000;
+	// $myPlayer->force = 1000;
 	
 	$pkData = new stdClass();
 	$pkData->seed = time();

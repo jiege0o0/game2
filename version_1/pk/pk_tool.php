@@ -16,23 +16,55 @@
 		else
 		{
 			$list = explode(",",$list);
+			
+			$list = array_reverse($list);
 			$len = count($list);
-			if($len <= 6)
+			$add = 1;
+			$total = 0;
+			for($i=0;$i<$len;$i++)
 			{
-				$player->card = join(",",$list);
+				$rate = $add;
+				$list[$i] = array('id'=>$list[$i],'rate'=>$rate);
+				$add += $i+1;
+				$total += $rate;
 			}
-			else
-			{	
-				$len = ceil(($len-6)/6);
-				$newList = array_slice($list,0,6);
+			
+			$newList = array();
+			while($len)
+			{
+				$rate = 0;
+				$current = rand(1,$total);
 				for($i=0;$i<$len;$i++)
 				{
-					$temp = array_slice($list,6 + $i*6,6);
-					usort($temp,randomSortFun);
-					$newList = array_merge($newList,$temp);
+					$rate += $list[$i]['rate'];
+					if($current <= $rate)
+					{
+						$total -= $list[$i]['rate'];
+						array_push($newList,$list[$i]['id']);
+						array_splice($list,$i,1);
+						break;
+					}
 				}
-				$player->card = join(",",$newList);
+				$len--;
 			}
+			 $player->card = join(",",$newList);
+			
+			// if($len <= 6)
+			// {
+				// $player->card = join(",",$list);
+			// }
+			// else
+			// {	
+				// $len = ceil(($len-6)/6);
+				// $newList = array_slice($list,0,6);
+				// for($i=0;$i<$len;$i++)
+				// {
+					// $temp = array_slice($list,6 + $i*6,6);
+					// usort($temp,randomSortFun);
+					// $newList = array_merge($newList,$temp);
+				// }
+				// $player->card = join(",",$newList);
+			// }
 		}
 		
 		if($hero)
