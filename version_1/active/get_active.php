@@ -1,5 +1,5 @@
 <?php 
-require_once($filePath."cache/base.php"); 
+require_once($filePath."cache/active_base.php"); 
 do{
 	$sql = "select * from ".getSQLTable('pvp')." where gameid='".$userData->gameid."'";
 	$result = $conne->getRowsRst($sql);

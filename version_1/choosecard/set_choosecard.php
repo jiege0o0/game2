@@ -15,7 +15,7 @@
 		else
 			$cardlist = array();
 		array_push($cardlist,$id);
-		if(count($cardlist)<30)
+		if(count($cardlist)<20)
 		{
 			require($filePath."choosecard/random_choosecard.php");
 			$info->choose = $skillArr;
