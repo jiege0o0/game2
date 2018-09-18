@@ -38,7 +38,7 @@ do{
 	}
 
 	
-	if(!$info->pkData)
+	if(!$info->enemy)
 	{
 		$begin = min(max($userData->level - 2,2),16);
 		$level = $begin + ceil($index/3);
@@ -69,7 +69,7 @@ do{
 	}
 	else
 	{
-		$enemy = $info->pkData->players[1];
+		$enemy = $info->enemy;
 	}
 	
 	
@@ -109,6 +109,7 @@ do{
 	$userData->setChangeKey('pk_common');
 	
 
+	$info->enemy = $enemy;
 	$info->num --;
 	$sql = "update ".getSQLTable('endless')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 	$conne->uidRst($sql);

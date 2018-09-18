@@ -29,7 +29,7 @@ do{
 		break;
 	}
 
-	if(!$info->pkData)
+	if(!$info->enemy)
 	{
 		$begin = min(max($userData->level - 2,2),16);
 		$level = $begin + ceil($index/3);
@@ -43,38 +43,27 @@ do{
 		$enemy->def = 0;
 		$enemy->nick = base64_encode('选卡'.$index);
 		
-		$myPlayer = createUserPlayer(1,1,$userData,$info->cardlist);
-		$myPlayer->force = 1000;
-		$myPlayer->hp = 3;
 		
-		
-		$pkData = new stdClass();
-		$pkData->seed = time();
-		$pkData->players = array();
-		$pkData->check = true;
-		array_push($pkData->players,$myPlayer);
-		array_push($pkData->players,$enemy);
-		
-		$info->pkData = $pkData;
 	}
 	else
 	{
-		$pkData = $info->pkData;
-		$enemy = $pkData->players[1];
-	
-		$myPlayer = createUserPlayer(1,1,$userData,$info->cardlist);
-		$myPlayer->force = 1000;
-		
-		
-		$pkData = new stdClass();
-		$pkData->seed = time();
-		$pkData->players = array();
-		$pkData->check = true;
-		array_push($pkData->players,$myPlayer);
-		array_push($pkData->players,$enemy);
-		
-		$info->pkData = $pkData;
+		$enemy = $info->enemy;
 	}
+	
+	$myPlayer = createUserPlayer(1,1,$userData,$info->cardlist);
+	$myPlayer->force = 1000;
+	$myPlayer->hp = 3;
+	
+	
+	$pkData = new stdClass();
+	$pkData->seed = time();
+	$pkData->players = array();
+	$pkData->check = true;
+	array_push($pkData->players,$myPlayer);
+	array_push($pkData->players,$enemy);
+	
+	$info->enemy = $enemy;
+		
 	
 	$returnData -> pkdata = $pkData;
 	$userData->addEnergy(-1);

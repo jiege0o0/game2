@@ -30,7 +30,7 @@ do{
 		break;
 	}
 	
-	if(!$info->pkData)
+	if(!$info->enemy)
 	{
 		$begin = min(max($userData->level - 2,2),16);
 		$level = $begin + ceil($index/3);
@@ -43,30 +43,21 @@ do{
 		$enemy = createNpcPlayer(2,2,$enemyData);
 		$enemy->def = 0;
 		$enemy->nick = base64_encode('随机'.$index);
-		
-		$myPlayerData=array('force'=>1000,'type'=>$userData->type,'list'=>'1','hp'=>3);	
-		$myPlayer = createNpcPlayer(1,1,$myPlayerData);
-		$myPlayer->def = 0;
-		$myPlayer->gameid = $userData->gameid;
-		$myPlayer->card = $myPlayer->autolist;
-		unset($myPlayer->autolist);
-		$myPlayer->nick = base64_encode($userData->nick);
-		$myPlayer->head = $userData->head;
-		
-		$pkData = new stdClass();
-		$pkData->seed = time();
-		$pkData->players = array();
-		$pkData->check = true;
-		array_push($pkData->players,$myPlayer);
-		array_push($pkData->players,$enemy);
-		
-		$info->pkData = $pkData;
 	}
 	else
 	{
-		$pkData = $info->pkData;
+		$enemy = $info->enemy;
 	}
 	
+	
+	$myPlayerData=array('force'=>1000,'type'=>$userData->type,'list'=>'1','hp'=>3);	
+	$myPlayer = createNpcPlayer(1,1,$myPlayerData);
+	$myPlayer->def = 0;
+	$myPlayer->gameid = $userData->gameid;
+	$myPlayer->card = $myPlayer->autolist;
+	unset($myPlayer->autolist);
+	$myPlayer->nick = base64_encode($userData->nick);
+	$myPlayer->head = $userData->head;
 	
 	
 	$returnData -> pkdata = $pkData;
@@ -77,6 +68,7 @@ do{
 	$userData->setChangeKey('pk_common');
 	
 
+	$info->enemy = $enemy;
 	$info->num --;
 	$sql = "update ".getSQLTable('random')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 	$conne->uidRst($sql);
