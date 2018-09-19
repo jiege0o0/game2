@@ -51,6 +51,8 @@ do{
 	$returnData->win_award = $award;
 	$info->win_award = $award;//½±Àø
 	
+	unset($info->enemy);
+	
 	$sql = "update ".getSQLTable('endless')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 	$conne->uidRst($sql);
 }while(false);

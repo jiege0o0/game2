@@ -72,7 +72,11 @@ do{
 	
 	
 	if($info->index >=12)
+	{
 		$info->award = '';
+		$info->card = '';
+		$info->hero = '';
+	}
 	else
 	{
 		require_once($filePath."fight/get_award_card.php");

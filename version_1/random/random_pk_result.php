@@ -50,7 +50,7 @@ do{
 	$returnData->win_award = $award;
 	$info->win_award = $award;//½±Àø
 	
-	unset($info->pkData);
+	unset($info->enemy);
 	
 	$sql = "update ".getSQLTable('random')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 	$conne->uidRst($sql);

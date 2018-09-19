@@ -31,6 +31,7 @@
 	//直接输出到网页
 	function trace($v,$isSimple=false){
 		//return;
+
 		echo '<br/>';
 		if($isSimple)
 			echo ($v);

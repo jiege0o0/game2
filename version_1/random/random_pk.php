@@ -38,11 +38,16 @@ do{
 		$answerData = $pkActiveBase[rand(0,29)];
 		$list = explode("|",$answerData);
 		$card = $list[0];
+		
+		$addMp = floor($index/3);
+		if($addMp)
+			$card = '40'.$addMp.','.$card;
 			
-		$enemyData=array('force'=>800 + $index*35,'type'=>0,'list'=>$card,'hp'=>3);	
+		$enemyData=array('force'=>840 + $index*30,'type'=>0,'list'=>$card,'hp'=>3);	
 		$enemy = createNpcPlayer(2,2,$enemyData);
 		$enemy->def = 0;
 		$enemy->nick = base64_encode('随机'.$index);
+
 	}
 	else
 	{
@@ -59,6 +64,13 @@ do{
 	$myPlayer->nick = base64_encode($userData->nick);
 	$myPlayer->head = $userData->head;
 	
+	$pkData = new stdClass();
+	$pkData->seed = time();
+	$pkData->players = array();
+	$pkData->check = true;
+	array_push($pkData->players,$myPlayer);
+	array_push($pkData->players,$enemy);
+		
 	
 	$returnData -> pkdata = $pkData;
 	$userData->addEnergy(-1);

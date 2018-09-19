@@ -16,6 +16,8 @@
 	{
 		foreach($skill_base as $key=>$value)
 		{
+			if($key == 268 || $key == 269 || $key == 270)
+				continue;
 			if($value['level'] <= $tecLevel)
 			{
 				array_push($skillArr,$key);

@@ -25,7 +25,7 @@ class ArrayUtilClass{
 		if($data && $fields && $type && count($fields) == count($type))
         {
 			$this->len = count($fields);
-			echo $this->listSort(array(),array());
+			// echo $this->listSort(array(),array());
             usort($data,'$this->listSort');
         }
         return $data;

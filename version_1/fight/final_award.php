@@ -4,7 +4,7 @@
 		$result = $conne->getRowsRst($sql);
 		$info = json_decode($result['info']);
 		
-		if(!$info->final_award)
+		if($info->get_final_award)
 		{
 			$returnData->fail = 1;
 			break;
@@ -31,7 +31,8 @@
 			require_once($filePath."pay/box_hero.php");
 		}
 		
-		unset($info->final_award);
+		$info->get_final_award = true;
+		$info->win_award = $award;
 		
 		$sql = "update ".getSQLTable('fight')." set info='".json_encode($info)."' where gameid='".$userData->gameid."'";
 		$conne->uidRst($sql);

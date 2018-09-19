@@ -37,8 +37,12 @@ do{
 		$answerData = $pkActiveBase[rand(0,29)];
 		$list = explode("|",$answerData);
 		$card = $list[0];
+		$addMp = floor($index/3);
+		if($addMp)
+			$card = '40'.$addMp.','.$card;
+		
 			
-		$enemyData=array('force'=>800 + $index*35,'type'=>0,'list'=>$card,'hp'=>3);	
+		$enemyData=array('force'=>850 + $index*25,'type'=>0,'list'=>$card,'hp'=>3);	
 		$enemy = createNpcPlayer(2,2,$enemyData);
 		$enemy->def = 0;
 		$enemy->nick = base64_encode('选卡'.$index);

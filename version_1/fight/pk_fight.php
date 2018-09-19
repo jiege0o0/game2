@@ -53,13 +53,19 @@ do{
 		{
 			array_push($arr,$skillArr[rand(0,2)]['id']);
 		}
+		
 		$enemy['list'] = join(",",$arr);
+		$addMp = floor($info->index/4);
+		if($addMp)
+			$enemy['list'] = '40'.$addMp.','.$enemy['list'] ;
 		
 
 		
 		
 		$enemy['type'] = $skillArr[0]['type'];
 		$enemy['hp'] = $userData->getHp();
+		if($enemy['hp'] < $info->index*0.7)
+			$enemy['hp'] = ceil($info->index*0.7);
 		
 		if($info->index > 3 && $userData->hang->level >= 50)//加入英雄
 		{
