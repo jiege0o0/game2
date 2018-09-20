@@ -118,18 +118,22 @@
 		$userData->pk_version = $pk_version;
 		$returnData->data = $userData;
 		$userData->opentime = $serverOpenTime;
-		
-		$logtime = 1533690592;
+
+		$logtime = 1533690594;
 		if($msg->logtime < $logtime)
 		{
 			$returnData->logtext = new stdClass();
 			$returnData->logtext->text = 
-				'新增英雄系统，该系统50级后开放|'.
-				'英雄会在战斗中自动出战，无需玩家操控|'.
-				'竞技场和商店中可获得英雄宝箱|'.
-				'80级战役开始敌人会出现英雄|'.
-				'为了进一步增加策略性，增大了所有随从类卡牌的出兵间隔|'.
-				'为了平衡间隔调整后的卡牌，对相当部分卡牌的属性作出了微调';
+				'增加周期活动，每个时期会有不同的活动模式，完成后会有[丰厚奖励]|'.
+				'调整[《远征副本》]并移进周期活动中|'.
+				'周期活动中增加[《解迷模式》]|'.
+				'周期活动中增加[《随机模式》]|'.
+				'周期活动中增加[《选牌模式》]|'.
+				'周期活动中增加[《无尽模式》]|'.
+				'合并竞技场中的自动场和手动场|'.
+				'强化法术卡牌|'.
+				'降低初始手牌数量|'.
+				'界面优化和BUG处理';
 			$returnData->logtext->time = $logtime;
 		}
 		
