@@ -9,6 +9,11 @@ do{
 		$returnData -> fail = 1;
 		break;
 	}
+	if(!deleteSkillCard($list))//技能卡数量不足
+	{
+		$returnData -> fail = 3;
+		break;
+	}
 	
 	$myScore = 0;
 	$sql = "select * from ".getSQLTable('pvp')." where gameid='".$userData->gameid."'";

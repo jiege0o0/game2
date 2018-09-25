@@ -29,8 +29,14 @@ do{
 			$award->diamond = $awardNum;
 			continue;
 		}
+		
+		if($rd < 15 && !$award->props[101] && $awardNum > 10)
+		{
+			$award->props[101] = 1;
+			continue;
+		}
 	
-		if($rd < 20)//技能
+		if($rd < 25)//技能
 		{
 			if(!$skillArr)
 			{
@@ -57,7 +63,7 @@ do{
 			}	
 		}
 		
-		if($rd < 30 && !$award->energy)
+		if($rd < 40 && !$award->energy)
 		{
 			$award->energy = $awardNum;
 			continue;

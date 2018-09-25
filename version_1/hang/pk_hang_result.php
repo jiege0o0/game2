@@ -40,32 +40,61 @@ do{
 		break;
 	}
 	
-	$upProp = array(-1);//19个
-	for($i=4;$i<=22;$i++)
-	{
-		array_push($upProp,$prop_base[$i]['hanglevel']);
-	}
+	// $upProp = array(-1);//19个
+	// for($i=4;$i<=22;$i++)
+	// {
+		// array_push($upProp,$prop_base[$i]['hanglevel']);
+	// }
 	$award = new stdClass();	
-	if($hangIndex == 50)
+	if($hangIndex >= 50 && $hangIndex%5 == 0)//英雄
 	{
 		$awardNum = 1;
 		require_once($filePath."pay/box_hero.php");
 	}
 	
 	$award->props = array();
-	$addCoin = 90+$hangIndex*15 + floor($hangIndex/5)*30;
-	$index = array_search($hangIndex, $upProp);
-	debug($index);
-	debug($userData->getPropNum(101) + ($userData->level - 1));
-	if($index && $userData->getPropNum(101) + ($userData->level - 1) < $index)
-	{
-		$award->props[101] = 1;
-		$userData->addProp(101,1);
-		$addCoin += 500;
-	}
+	$addCoin = 800 + $hangIndex*10;//90+$hangIndex*15 + floor($hangIndex/5)*30;
+	// $index = array_search($hangIndex, $upProp);
+	// debug($index);
+	// debug($userData->getPropNum(101) + ($userData->level - 1));
+	// if($index && $userData->getPropNum(101) + ($userData->level - 1) < $index)
+	// {
+		// $award->props[101] = 1;
+		// $userData->addProp(101,1);
+		// $addCoin += 500;
+	// }
 	
 	$userData->addCoin($addCoin);
 	$award->coin = $addCoin;
+	
+	if($hangIndex > 0 && $hangIndex%8 == 0)
+	{
+		$award->props[101] = 1;
+		$userData->addProp(101,1);
+	}
+	
+	if($hangIndex > 3)//技能
+	{
+		$tecLevel = $userData->level;
+		$skillArr = array();
+
+		foreach($skill_base as $key=>$value)
+		{
+			if($value['level'] <= $tecLevel && $userData->getSkill($key) < 999)//@skill
+			{
+				array_push($skillArr,$key);
+			}
+		}
+
+		if($skillArr[0])
+		{
+			$award->skills = array();
+			shuffle($skillArr);
+			$skillID = $skillArr[0];
+			$award->skills[$skillID] = 1;
+			$userData->addSkill($skillID,1);
+		}
+	}
 	
 	// if(!$award->props[101] && $hangIndex%2 == 0)
 	// {
@@ -75,24 +104,24 @@ do{
 	
 	
 	
-	$propArr = array();
-	if($hangIndex > 10)
-		$propLevel = $hangIndex + 5;
-	else
-		$propLevel = $hangIndex;
+	// $propArr = array();
+	// if($hangIndex > 10)
+		// $propLevel = $hangIndex + 5;
+	// else
+		// $propLevel = $hangIndex;
 	
-	foreach($prop_base as $key=>$value)
-	{
-		if($value['hanglevel'] && $value['hanglevel']<=$propLevel)
-		{
-			array_push($propArr,$value);
-		}
-	}
-	usort($propArr,"my_hang_sort");
-	$addProp = $propArr[rand(0,2)];
-	$num = (int)min(100,max(0,($hangIndex - $addProp['hanglevel'])/10) + 5);
-	$award->props[$addProp['id']] = $num;
-	$userData->addProp($addProp['id'],$num);
+	// foreach($prop_base as $key=>$value)
+	// {
+		// if($value['hanglevel'] && $value['hanglevel']<=$propLevel)
+		// {
+			// array_push($propArr,$value);
+		// }
+	// }
+	// usort($propArr,"my_hang_sort");
+	// $addProp = $propArr[rand(0,2)];
+	// $num = (int)min(100,max(0,($hangIndex - $addProp['hanglevel'])/10) + 5);
+	// $award->props[$addProp['id']] = $num;
+	// $userData->addProp($addProp['id'],$num);
 	
 	$returnData->award = $award;
 	

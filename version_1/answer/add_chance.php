@@ -12,7 +12,7 @@
 		$result = $conne->getRowsRst($sql);
 		$info = json_decode($result['info']);
 
-		$info->num += 5;//免费次数
+		$info->num += 10;//免费次数
 		
 		$returnData->num = $info->num;
 		

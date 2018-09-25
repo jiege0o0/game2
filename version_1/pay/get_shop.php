@@ -59,7 +59,7 @@
 					'num'=>$i,
 					'times'=>0,
 					'key'=>$key++,
-					'diamond'=>floor(pow($i,0.95) * 20)
+					'diamond'=>floor(pow($i,0.95) * 16)
 				));
 		}
 		
@@ -82,28 +82,17 @@
 				
 				
 		//升级卡
-		if($level >= 10 && $userData->getPropNum(101) == 0)
+		if($level >= 10 && rand(1,50) == 1)
 		{
-			for($i=4;$i<=22;$i++)
-			{
-				$upProp[$i-2] = $prop_base[$i]['hanglevel'];
-			}
-			$passLevel = (int)$upProp[$userData->level];
-			$nextLevel = (int)$upProp[$userData->level+1];
-			if($nextLevel && $level < $nextLevel && (!$passLevel || $level>=$passLevel))
-			{
-				$need = $userData->level * 100 + 88;
-				array_push($arr,array(
-					'id'=>101,
-					'num'=>1,
-					'times'=>0,
-					'key'=>$key++,
-					'level'=>$nextLevel,
-					'diamond'=>$need
-				));
-			}
-			
-			
+			$need = 88;
+			array_push($arr,array(
+				'id'=>101,
+				'num'=>1,
+				'times'=>0,
+				'key'=>$key++,
+				'level'=>$nextLevel,
+				'diamond'=>$need
+			));
 		}
 		
 		//必有1个技能
@@ -164,7 +153,7 @@
 					'num'=>$num,
 					'times'=>0,
 					'key'=>$key++,
-					'diamond'=>floor(pow($num,0.95) * 240)
+					'diamond'=>floor(pow($num,0.95) * 200)
 				));
 		}
 		
@@ -176,7 +165,7 @@
 				'num'=>$num,
 				'times'=>0,
 				'key'=>$key++,
-				'diamond'=>floor(pow($num,0.95) * 400)
+				'diamond'=>floor(pow($num,0.95) * 320)
 			));
 		}
 		

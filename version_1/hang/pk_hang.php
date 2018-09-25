@@ -80,7 +80,7 @@ do{
 	}
 	
 	
-	$nick = '战役守卫'.$hangIndex;
+	$nick = '守卫'.$hangIndex;
 	$player->nick = base64_encode($nick);
 	
 	
@@ -98,6 +98,11 @@ do{
 	if($maxDef < $player->def)
 		$player->def = $maxDef;
 	array_push($pkData->players,$player);
+	
+	if($hangIndex%10 == 0)
+	{
+		$pkData->needcd = (30 + floor($hangIndex/50)*5)*1000;
+	}
 	
 	$returnData -> pkdata = $pkData;
 	$userData->addEnergy(-1);

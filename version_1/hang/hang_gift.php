@@ -41,7 +41,7 @@ do{
 	
 	$award = new stdClass();
 	$award->props = array();
-	$addCoin = getCoinNeed($giftTimes)*15;
+	$addCoin = getCoinNeed($giftTimes)*20;
 	$userData->addCoin($addCoin);
 	$award->coin = $addCoin;
 	$addPropNum = getOtherNeed($giftTimes,1)*2;

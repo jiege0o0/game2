@@ -23,7 +23,7 @@
 		
 		$info = new stdClass();
 		$info->index = 0;//当前步骤
-		$info->num = 5;//免费次数
+		$info->num = 10;//免费次数
 		$info->win_award = $award;//奖励
 		$info->final_award = $currentActive['faward'] ;//奖励
 		$returnData->info = $info;

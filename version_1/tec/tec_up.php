@@ -122,14 +122,14 @@ $vo = $tec_base[$id];
 // var coin = this.getCoinNeed((lv + vo.coinlv - 1)*(0.8+vo.step + vo.coinlv/200)) //需要的钱
 // $coin = getCoinNeed($vo['coinlv'] + $lv*(((int)$vo['step'])+0.8)); 
 $coin = getCoinNeed(($lv + $vo['coinlv'] - 1)*(((int)$vo['step'])+0.8 + $vo['coinlv']/200)); 
-debug($coin);
+// debug($coin);
 $arr = array();
 $idAdd = 0;
 if($vo['type'] == 1)//通用类型需要的道具会变化
 {
 	$idAdd += $lv - 1;
 	if($vo['id'] == 1)
-		array_push($arr,array('id'=>101,'num'=>1));
+		array_push($arr,array('id'=>101,'num'=>$lv));
 }
 if($vo['prop1'])
 	array_push($arr,array('id'=>$vo['prop1']+ $idAdd,'num'=>getOtherNeed($lv,1)));
@@ -146,6 +146,24 @@ do{
 		if($userData->getTecLevel(1) < $userData->getTecLevel($id) + $vo['level'])
 		{
 			$returnData -> fail = 3;
+			$returnData -> level = $userData->getTecLevel($id);
+			break;
+		}
+	}
+	if($id == 1)//判断挂机等级
+	{
+		 $needLevel = 1;
+         foreach($prop_base as $key=>$value)
+         {
+             if($value['droplevel'] == $lv+1)
+			{
+				$needLevel = $value['hanglevel'];
+				break;				
+			}
+         }
+		if($userData->hang->level < $needLevel)
+		{
+			$returnData -> fail = 4;
 			$returnData -> level = $userData->getTecLevel($id);
 			break;
 		}

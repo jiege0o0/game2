@@ -20,6 +20,11 @@ do{
 		$returnData -> fail = 1;
 		break;
 	}
+	if(!deleteSkillCard($list))//技能卡数量不足
+	{
+		$returnData -> fail = 3;
+		break;
+	}
 	
 	$pkData = $userData->pk_common->pkdata;
 	$enemy = $pkData->players[1];
