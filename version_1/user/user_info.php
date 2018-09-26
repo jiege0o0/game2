@@ -34,7 +34,7 @@
 		$returnUser->last_land = $otherUser->last_land;
 		$returnUser->last_card = $otherUser->pk_common->pkcard;
 		$returnUser->last_hero = $otherUser->pk_common->pkhero;
-		$returnUser->hero_level = $otherUser->card->hero; 
+		$returnUser->hero_level = $otherUser->card->herolv; 
 		debug($otherUser->card);
 		
 		$returnUser->hp = $otherUser->getHp();

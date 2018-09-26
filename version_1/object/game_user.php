@@ -67,7 +67,7 @@ class GameUser{
 		$this->active = $this->decode($data['active'],'{"task":{}}');//活动
 		$this->atk_list = $this->decode($data['atk_list'],'{"list":{}}');
 		$this->hang = $this->decode($data['hang'],'{"level":0,"cd":""}');
-		$this->card = $this->decode($data['card'],'{"hero":{},"monster":[],"skill":{"201":30,"202":30,"203":30}}');
+		$this->card = $this->decode($data['card'],'{"herolv":{},"hero":{},"monster":[],"skill":{"201":30,"202":30,"203":30}}');
 		
 	}
 	
@@ -344,6 +344,26 @@ class GameUser{
 		$this->setChangeKey('card');	
 	}
 	
+	function addHeroLV($heroID){
+		global $returnData;
+		if(!$this->card->herolv)
+			$this->card->herolv = new stdClass();
+		if(!$this->card->herolv->{$heroID})
+		{
+			$this->card->herolv->{$heroID} = 1;
+		}
+
+		$this->card->herolv->{$heroID} ++;
+		
+		if(!$returnData->sync_herolv)
+		{
+			$returnData->sync_herolv = new stdClass();
+		}
+		$returnData->sync_herolv->{$heroID} = $this->card->herolv->{$heroID};
+			
+		$this->setChangeKey('card');	
+	}
+	
 	function getSkill($skillID){
 		if(!$this->card->skill->{$skillID})
 		{
@@ -352,7 +372,25 @@ class GameUser{
 		return $this->card->skill->{$skillID};
 	}
 	
+	//取英雄等级
 	function getHeroLevel($heroID){
+		if(!$this->card->hero->{$heroID})
+		{
+			return 0;
+		}
+		if(!$this->card->herolv)
+		{
+			$this->card->herolv = new stdClass();
+		}
+		if(!$this->card->herolv->{$heroID})
+		{
+			return 1;
+		}
+		return $this->card->herolv->{$heroID};
+	}
+	
+	//取英雄等级上限
+	function getMaxHeroLevel($heroID){
 		if(!$this->card->hero->{$heroID})
 		{
 			return 0;

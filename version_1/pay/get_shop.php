@@ -112,7 +112,7 @@
 		{
 			foreach($monster_base as $key=>$value)
 			{
-				if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel && $userData->getHeroLevel($key) < 5)//@hero
+				if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel && $userData->getMaxHeroLevel($key) < 5)//@hero
 				{
 					$heroAble = true;
 					break;

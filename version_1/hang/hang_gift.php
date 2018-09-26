@@ -44,7 +44,7 @@ do{
 	$addCoin = getCoinNeed($giftTimes)*20;
 	$userData->addCoin($addCoin);
 	$award->coin = $addCoin;
-	$addPropNum = getOtherNeed($giftTimes,1)*2;
+	$addPropNum = floor(getOtherNeed($giftTimes,1)*1.5);
 	for($i=1;$i<=3;$i++)
 	{
 		$award->props[$i] = $addPropNum;
