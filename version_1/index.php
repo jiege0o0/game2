@@ -177,6 +177,10 @@
 	
 	
 	
+	
+	
+	
+	
 	unset($returnData->stopLog);	
 	if(isset($msg->landid) && isset($msg->gameid) && !$returnData->fail && !$mySendData->error)
 		$userData->write2DB();
@@ -195,6 +199,15 @@
 		$mySendData->debug = $debugArr;
 	}
 	
+	if(!$gameid)
+		$gameid = $msg->gameid;
+	if($gameid)
+	{
+		if($returnData->fail)
+			userLog2($gameid,$_POST['head']." |fail:".$returnData->fail);
+		else
+			userLog2($gameid,$_POST['head']);
+	}
 	
 	sendToClient($mySendData);
 ?>
