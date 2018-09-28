@@ -106,7 +106,7 @@
 				$msgtime = max($msg->mailtime,time() - 72*3600);
 				$sql = "select * from ".getSQLTable('mail')." where to_gameid='".$userData->gameid."' and type>100 and stat!=1 and time>".$msgtime;
 				$result = $conne->getRowsArray($sql);
-				debug($sql);
+				
 				if($result)
 					$returnData->mailnum = count($result);
 			}
@@ -118,22 +118,30 @@
 		$userData->pk_version = $pk_version;
 		$returnData->data = $userData;
 		$userData->opentime = $serverOpenTime;
+		
+		$sql = "select awardtime from ".getSQLTable('slave')." where master='".$userData->gameid."' and gameid!='".$userData->gameid."' ORDER BY awardtime ASC limit 1";
+		$result = $conne->getRowsRst($sql);
+		debug($sql);
+		if($result)
+			$returnData->lastslavetime = $result['awardtime'];
 
 		$logtime = 1533690594;
 		if($msg->logtime < $logtime)
 		{
+
+
+
+
+
+
 			$returnData->logtext = new stdClass();
 			$returnData->logtext->text = 
-				'增加周期活动，每个时期会有不同的活动模式，完成后会有[丰厚奖励]|'.
-				'调整[《远征副本》]并移进周期活动中|'.
-				'周期活动中增加[《解迷模式》]|'.
-				'周期活动中增加[《随机模式》]|'.
-				'周期活动中增加[《选牌模式》]|'.
-				'周期活动中增加[《无尽模式》]|'.
-				'合并竞技场中的自动场和手动场|'.
-				'强化法术卡牌|'.
-				'降低初始手牌数量|'.
-				'界面优化和BUG处理';
+				'调整奴隶功能解锁等级到战役10开放|'.
+				'战役每10关会有一个特殊关卡，需在指定时间内完成|'.
+				'调整战役后的掉落，会出现更多的金币，进化石，技能卡牌和英雄|'.
+				'英雄进化需使用进化石，科技升级的需求也有所调整|'.
+				'调整随从卡牌和技能卡牌的开放等级|'.
+				'游戏操作体验优化及部分UI调整';
 			$returnData->logtext->time = $logtime;
 		}
 		
