@@ -125,7 +125,7 @@
 		if($result)
 			$returnData->lastslavetime = $result['awardtime'];
 
-		$logtime = 1533690594;
+		$logtime = 1533690595;
 		if($msg->logtime < $logtime)
 		{
 
