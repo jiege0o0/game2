@@ -21,7 +21,7 @@ do{
 	{
 		require_once($filePath."cache/base.php");
 		//计算关卡战力
-		$force= $userData->tec_force + max(round($info->index/100*$userData->tec_force),2*$info->index);
+		$force= $userData->tec_force + max(round($info->index/120*$userData->tec_force),2*$info->index);
 		$enemy = array();
 		$enemy['force'] = $force;
 		
@@ -48,7 +48,7 @@ do{
 		array_push($arr,$skillArr[1]['id']);
 		array_push($arr,$skillArr[2]['id']);
 		shuffle($arr);
-		$len = $info->index;//*ceil($userData->maxCardNum()*0.05);//$userData->maxCardNum() + 3;
+		$len = $info->index+3;//*ceil($userData->maxCardNum()*0.05);//$userData->maxCardNum() + 3;
 		for($i=0;$i<$len;$i++)
 		{
 			array_push($arr,$skillArr[rand(0,2)]['id']);
@@ -81,7 +81,7 @@ do{
 		
 		
 		$player = createNpcPlayer(2,2,$enemy);
-		$nick = '远征守卫'.($info->index + 1);
+		$nick = '远征'.($info->index + 1);
 		$player->nick = base64_encode($nick);
 		
 		$info->enemy = $player;

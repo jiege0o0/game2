@@ -95,7 +95,7 @@ do{
 	
 	$pkData = new stdClass();
 	$pkData->seed = time();
-	$pkData->endless = (30 + $index*15)*1000;
+	$pkData->endless = (30 + $index*5)*1000;
 	$pkData->players = array();
 	$pkData->check = true;
 	array_push($pkData->players,$myPlayer);
