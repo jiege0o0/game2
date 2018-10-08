@@ -105,6 +105,7 @@
 			{
 				$msgtime = max($msg->mailtime,time() - 72*3600);
 				$sql = "select * from ".getSQLTable('mail')." where to_gameid='".$userData->gameid."' and type>100 and stat!=1 and time>".$msgtime;
+				$conne->close_rst();
 				$result = $conne->getRowsArray($sql);
 				
 				if($result)
@@ -119,11 +120,20 @@
 		$returnData->data = $userData;
 		$userData->opentime = $serverOpenTime;
 		
-		$sql = "select awardtime from ".getSQLTable('slave')." where master='".$userData->gameid."' and gameid!='".$userData->gameid."' ORDER BY awardtime ASC limit 1";
-		$result = $conne->getRowsRst($sql);
-		debug($sql);
-		if($result)
-			$returnData->lastslavetime = $result['awardtime'];
+		$sql = "select awardtime from ".getSQLTable('slave')." where master='".$userData->gameid."' and gameid!='".$userData->gameid."'";
+		$conne->close_rst();
+		$resultSlave = $conne->getRowsArray($sql);
+		debug($resultSlave);
+		if($resultSlave && count($resultSlave))
+		{
+			$returnData->loginslavenum = 0;
+			foreach($resultSlave as $key=>$value)
+			{
+				if(!$returnData->lastslavetime || $returnData->lastslavetime > $value['awardtime'])
+					$returnData->lastslavetime = $value['awardtime'];
+				$returnData->loginslavenum ++;
+			}
+		}
 
 		$logtime = 1533690595;
 		if($msg->logtime < $logtime)

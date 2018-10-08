@@ -9,7 +9,7 @@ http://172.17.196.195:90/game2/test.php?serverid=1
 http://172.17.196.195:9021/index.html?debug_server=1&debug=1
 http://172.17.196.195:9021/index.html?debug_server=1&app=1&game_version=3
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1
-http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&game_version=3
+http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&game_version=6
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&app=1&game_version=4
 http://172.17.196.195:9020/index.html?debug_server=1&app=1&game_version=2
 http://172.17.196.195:9020/index.html
@@ -29,6 +29,7 @@ tsc
 build.bat
 //运行
 node index.js
+PKServerManager.getInstance().connect()
 
 
 
@@ -78,6 +79,9 @@ node index.js
 
 
 --提示点击进行挑战（3级前）
+
+查描述的问题
+
 加新英雄
 PK服务器
 

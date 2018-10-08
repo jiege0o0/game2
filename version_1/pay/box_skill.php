@@ -26,7 +26,10 @@ do{
 	{
 		$skillID = array_shift($skillArr);
 		array_push($skillArr,$skillID);
-		$num = 30;
+		if($awardSkillNumOnce)
+			$num = $awardSkillNumOnce;
+		else
+			$num = 30;
 		if($award->skills[$skillID])
 			$award->skills[$skillID] += $num;
 		else
