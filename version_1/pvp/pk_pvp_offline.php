@@ -46,7 +46,7 @@ do{
 	if($force2 - $force1 < 50)
 		$force2 += 50 - $force1;
 	
-	$sql = "select * from ".getSQLTable('pvp_offline')." where score between ".$force1." and ".$force2." and gameid!='".$msg->gameid."' ORDER BY time DESC limit 20";
+	$sql = "select * from ".getSQLTable('pvp_offline')." where data!='' and score between ".$force1." and ".$force2." and gameid!='".$msg->gameid."' ORDER BY time DESC limit 20";
 	$result = $conne->getRowsArray($sql);
 	// debug($sql);
 	$enemyData = array();

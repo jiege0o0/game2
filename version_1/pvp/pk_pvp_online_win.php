@@ -28,13 +28,13 @@ do{
 	
 	$userData->pk_common->lastkey = $msg->key;
 	$userData->pk_common->lastreturn = $returnData;
+	$userData->pk_common->pkdata->pkstarttime = 0;
 	$userData->setChangeKey('pk_common');
 	
 
 	$pkData = $userData->pk_common->pkdata;
-	$playerData = getUserPKData($list,$pkData->players[0],$msg->cd,$msg->key,$pkData->seed);
+	$playerData = getUserPKData($list,$pkData->pkdata,$msg->cd,$msg->key,$pkData->seed);
 	backSkillCard($playerData->skill);
-	$enempList = $pkData->players[1]->autolist;
 	if($playerData -> fail)//出怪顺序有问题
 	{
 		$returnData -> fail = $playerData -> fail;
@@ -50,7 +50,7 @@ do{
 	$offlineData->subscore = 0;
 	
 	$award = new stdClass();
-	$enemy = $pkData->players[1];
+	$enemy = $pkData->enemy;
 	
 	if($myScore >= $enemy->score)
 		$addScore = max(8,20 - floor(pow($myScore - $enemy->score,0.6)));
@@ -98,13 +98,10 @@ do{
 	$conne->uidRst($sql);
 	
 	//更新列表
-	$myPlayer = $pkData->players[0];
-	$myPlayer->score = $offlineData->score;
-	$myPlayer->level = $userData->level;
-	$sql = "update ".getSQLTable('pvp_offline')." set data='".json_encode($myPlayer)."',score=".$offlineData->score.",time=".time()." where gameid='".$userData->gameid."'";
+	$sql = "update ".getSQLTable('pvp_offline')." set score=".$offlineData->score." where gameid='".$userData->gameid."'";
 	if(!$conne->uidRst($sql))
 	{
-		$sql = "insert into ".getSQLTable('pvp_offline')."(gameid,data,score,time) values('".$userData->gameid."','".json_encode($myPlayer)."',".$offlineData->score.",".time().")";
+		$sql = "insert into ".getSQLTable('pvp_offline')."(gameid,score,time) values('".$userData->gameid."',".$offlineData->score.",".time().")";
 		$conne->uidRst($sql);
 	}
 

@@ -244,6 +244,35 @@
 		return true;
     }
 	
+	//测试技能卡数量
+	function testSkillCard($card){
+		global $userData,$returnData;
+		$arr = explode(",",$card);
+		$len = count($arr);
+		$useSkillNum = new stdClass();
+		for($i=0;$i<$len;$i++)
+		{
+			$skillID = (int)$arr[$i];
+			if($skillID >= 200)//@skillID
+			{
+				if(!$useSkillNum->{$skillID})
+					$useSkillNum->{$skillID} = 0;
+				$num = $userData->getSkill($skillID) - $useSkillNum->{$skillID};
+				
+				if($num>0)
+				{
+					$useSkillNum->{$skillID} ++;
+				}
+				else
+				{
+					$returnData->sync_skill->{$skillID} = $userData->getSkill($skillID);
+					return false;
+				}
+			}
+		}
+		return true;
+    }
+	
 	//返还技能卡牌
 	function backSkillCard($list){
 		global $userData;
