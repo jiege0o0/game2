@@ -61,7 +61,7 @@ do{
 	$myPlayer->force = 1000;
 	
 	$pkData = new stdClass();
-	$pkData->source = $myScore;
+	$pkData->score = $myScore;
 	$pkData->gameid = $userData->gameid;
 	$pkData->pktype = 'pvp';
 	$pkData->pkdata = $myPlayer;

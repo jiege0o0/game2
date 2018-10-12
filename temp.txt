@@ -86,8 +86,8 @@ PKServerManager.getInstance().connect()
 PK服务器
 
 
-数据错误重置，服务器也跟据时间判断一下
-断线重连
+--数据错误重置，服务器也跟据时间判断一下
+--断线重连
 PK中聊天
 PK不显示加速
 
