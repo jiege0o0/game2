@@ -64,7 +64,7 @@ function resetHourCoin(){
 			$level = $userData->getTecLevel($key);
 			if($level)
 			{
-				$addValue = getTecValue($level + $value['coinlv'] - 1,20);
+				$addValue = getTecValue($level + $value['coinlv'] - 1,20,10);
 				$force += $addValue;
 			}
 		}
@@ -106,8 +106,7 @@ function resetForce(){
 	require($filePath."slave/slave_reset_list.php");
 }
 
-function getTecValue($level,$step){
-	$v = 1;
+function getTecValue($level,$step,$v=1){
 	for($i=1;$i<$level;$i++)
 	{	
 		$v += max(1,floor($step*$i));
@@ -143,7 +142,7 @@ if($vo['prop3'])
 do{
 	if($vo['type'] == 1 && $id != 1)
 	{
-		if($userData->getTecLevel(1) < $userData->getTecLevel($id) + $vo['level'])
+		if($userData->getTecLevel(1) < $userData->getTecLevel($id) * $vo['level'])
 		{
 			$returnData -> fail = 3;
 			$returnData -> level = $userData->getTecLevel($id);

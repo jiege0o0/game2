@@ -121,6 +121,10 @@
 				
 				$isFinsih = $count >= $value1;
                 break;
+			case 'tec':
+				$count = $userData->getTecLevel(1);
+				$isFinsih = $count >= $value1;
+                break;
             case 'cardnum':
 				$count = 0;
 				foreach($monster_base as $key=>$value)
@@ -176,6 +180,7 @@
 			$award->props[101] = $taskVO['prop101'];
 			$userData->addProp(101,$taskVO['prop101']);
 		}
+		unset($returnData->fail);
 		
 		$returnData->award = $award;
 		

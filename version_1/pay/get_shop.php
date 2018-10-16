@@ -165,7 +165,7 @@
 				'num'=>$num,
 				'times'=>0,
 				'key'=>$key++,
-				'diamond'=>floor(pow($num,0.95) * 320)
+				'diamond'=>floor(pow($num,0.95) * 250)
 			));
 		}
 		
