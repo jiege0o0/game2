@@ -15,6 +15,11 @@ do{
 		$returnData -> fail = 1;
 		break;
 	}
+	if(!$userData->pk_common->pkdata->pkstarttime)//最近不是打这个
+	{
+		$returnData -> fail = 2;
+		break;
+	}
 	
 	if($userData->pk_common->lastkey == $msg->key)
 	{
@@ -33,6 +38,12 @@ do{
 	
 
 	$pkData = $userData->pk_common->pkdata;
+	if(!testPVPServerKey($msg->serverkey,$pkData->pkdata))//与PVP服务器返回的key对不上
+	{
+		$returnData -> fail = 110;
+		break;
+	}
+	
 	$playerData = getUserPKData($list,$pkData->pkdata,$msg->cd,$msg->key,$pkData->seed);
 	backSkillCard($playerData->skill);
 	if($playerData -> fail)//出怪顺序有问题

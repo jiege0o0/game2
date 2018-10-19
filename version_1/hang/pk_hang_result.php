@@ -73,7 +73,25 @@ do{
 		$userData->addProp(101,1);
 	}
 	
-	if($hangIndex > 3)//技能
+	if($hangIndex <= 20)//道具
+	{
+		$num = 3 + floor($hangIndex/5);
+		$award->props[1] = $num;
+		$userData->addProp(1,$num);
+		
+		$award->props[2] = $num;
+		$userData->addProp(2,$num);
+		
+		$award->props[3] = $num;
+		$userData->addProp(3,$num);
+		if($hangIndex > 10)
+		{
+			$award->props[4] = $num;
+			$userData->addProp(4,$num);
+		}
+	}
+	
+	if($hangIndex > 20)//技能
 	{
 		$tecLevel = $userData->level;
 		$skillArr = array();

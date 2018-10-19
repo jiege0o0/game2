@@ -284,6 +284,12 @@
 		}
 	}
 	
+	function testPVPServerKey($key,$playerData){
+		// md5.incode(this.gameid + '_' + this.pkData.card + '_hange0o0_server1')
+		
+		return $key == substr(md5($playerData->gameid.'_'.$playerData->card.'_hange0o0_server'),-8);
+	}
+	
 	
 	//得到用于PK的数据结构 step#id,step#id,
 	function getUserPKData($list,$player,$cd,$key,$seed){

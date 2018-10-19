@@ -77,7 +77,10 @@ do{
 	
 	if(!$enemy)//没敌人就从关卡中找一个
 	{
-		$level = $userData->hang->level + rand(5,60);
+		$level = $userData->hang->level + rand(5,35);
+		$level += $winNum*2;
+		if($level < 1)
+			$level = 1;
 		$mapIndex = ceil($level/100);
 		require_once($filePath."cache/map".$mapIndex.".php");
 		$enemy = createNpcPlayer(2,2,$hang_base[$level]);

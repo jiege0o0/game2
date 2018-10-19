@@ -16,6 +16,12 @@ do{
 		break;
 	}
 	
+	if(!$userData->pk_common->pkdata->pkstarttime)//最近不是打这个
+	{
+		$returnData -> fail = 2;
+		break;
+	}
+	
 	if($userData->pk_common->lastkey == $msg->key)
 	{
 		$lastData = $userData->pk_common->lastreturn;
@@ -26,13 +32,23 @@ do{
 		break;
 	}
 	
+	
 	$userData->pk_common->lastkey = $msg->key;
 	$userData->pk_common->lastreturn = $returnData;
 	$userData->pk_common->pkdata->pkstarttime = 0;
 	$userData->setChangeKey('pk_common');
 	
+	
+	
 
 	$pkData = $userData->pk_common->pkdata;
+	
+	if(!testPVPServerKey($msg->serverkey,$pkData->pkdata))//与PVP服务器返回的key对不上
+	{
+		$returnData -> fail = 110;
+		break;
+	}
+	
 	$playerData = getUserPKData($list,$pkData->pkdata,$msg->cd,$msg->key,$pkData->seed);
 	if($playerData -> fail)//出怪顺序有问题
 	{
