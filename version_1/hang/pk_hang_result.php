@@ -84,7 +84,7 @@ do{
 		
 		$award->props[3] = $num;
 		$userData->addProp(3,$num);
-		if($hangIndex > 10)
+		if($hangIndex >= 8)
 		{
 			$award->props[4] = $num;
 			$userData->addProp(4,$num);

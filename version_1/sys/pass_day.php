@@ -30,7 +30,7 @@
 		$oo->title = base64_encode('新手礼包');
 		$oo->des = base64_encode('欢迎加入到我们的大家庭，在此为你送上一点资源以表心意，祝你游戏愉快！');
 		$oo->award = new stdClass();
-		$oo->award->coin = 200;
+		$oo->award->coin = 2000;
 		$oo->award->props = new stdClass();
 		$oo->award->props->{1} = 20;
 		$oo->award->props->{2} = 20;
