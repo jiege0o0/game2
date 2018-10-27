@@ -11,6 +11,12 @@
 	// $sql_db = 'qdm218719323_db';
 	
 	
+	// $sql_url = "120.77.153.203";
+	// $sql_user = "root";	
+	// $sql_password = "B18763cc0dc8";	
+	// $sql_db = 'game2';
+	
+	
 	$sql_table = 'no'.$serverID.'_';
 	$sql_pre = 'g2_';
 	

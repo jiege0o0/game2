@@ -135,7 +135,7 @@
 			}
 		}
 
-		$logtime = 1533690595;
+		$logtime = 1533690596;
 		if($msg->logtime < $logtime)
 		{
 

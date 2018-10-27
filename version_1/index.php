@@ -203,12 +203,16 @@
 		$gameid = $msg->gameid;
 	if($gameid && $_POST['head'] != 'sys.login_server2' && $mySendData->error != 2)
 	{
-		if($returnData->fail)
-			userLog2($gameid,$_POST['head']." |fail:".$returnData->fail);
-		else if($mySendData->error)
-			userLog2($gameid,$_POST['head']." |error:".$mySendData->error);
-		else
-			userLog2($gameid,$_POST['head']);
+		if($userData && time()-$userData->regtime < 7*24*3600)//7天内才记
+		{
+			if($returnData->fail)
+				userLog2($gameid,$_POST['head']." |fail:".$returnData->fail);
+			else if($mySendData->error)
+				userLog2($gameid,$_POST['head']." |error:".$mySendData->error);
+			else
+				userLog2($gameid,$_POST['head']);
+		}
+		
 	}
 	
 	sendToClient($mySendData);

@@ -4,7 +4,13 @@ http://172.17.196.195:90/game2/user/_create_user_db.php
 http://hangegame.com/game2/_create_db.php?serverid=1
 http://hangegame.com/game2/user/_create_user_db.php
 
+http://120.77.153.203/game2/_create_db.php?serverid=1
+http://120.77.153.203/game2/user/_create_user_db.php
+
+
 http://172.17.196.195:90/game2/test.php?serverid=1
+
+http://172.17.196.195:9021/index.html?debug_server=1&app=2&game_version=1
 
 http://172.17.196.195:9021/index.html?debug_server=1&debug=1
 http://172.17.196.195:9021/index.html?debug_server=1&app=1&game_version=3
@@ -30,6 +36,15 @@ build.bat
 //运行
 node index.js
 PKServerManager.getInstance().connect()
+
+
+//后台自动运行
+cd /home/www/server/build
+forever start main.js
+forever stop main.js
+forever list
+
+//node main.js
 
 
 
@@ -89,8 +104,10 @@ PKServerManager.getInstance().connect()
 
 加新英雄PK服务器
 数据库hourcoin默认值10-》100
+生成迷题，activelist.php放入，要对应之前的
+
 --客户端title报错
-自动去掉不合法卡牌
+--自动去掉不合法卡牌
 --引导的位置，紧贴按钮？
 
 
@@ -98,9 +115,30 @@ PKServerManager.getInstance().connect()
 【重磅！】增加实时PVP，玩家之间可在线进行实时PK了！
 统一所有单位的移动速度
 增加任务系统及奖励
-
 BUG修复及体验优化
 
+lftp 120.77.153.203                        #连接到ftp服务器
+cd pub/                            #切换到pub目录
+put /etc/issue                     #上传文件
+get test.1                         #下载文件
+
+sudo su root
+chmod 改权限
+ftp://120.77.153.203/
+sudo cat/root/env.txt
+
+----121.43.18.69
+
+http://120.77.153.203
+root
+127.0.0.1:3306
+
+
+
+<?php
+$active_base = array();
+$questionIndex=4;
+?>
 
 
 
