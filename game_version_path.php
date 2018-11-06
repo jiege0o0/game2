@@ -5,7 +5,7 @@
 	else if($_POST['debug_server'] == 1)
 		$filePath = dirname(__FILE__).'/version_1/';
 	else
-		$filePath = dirname(__FILE__).'/version_2/';
+		$filePath = dirname(__FILE__).'/version_1/';
 		
 	$dataFilePath = dirname(__FILE__).'/';	
 	

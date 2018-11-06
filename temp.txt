@@ -19,6 +19,14 @@ http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&game_version
 http://172.17.196.195:9020/index.html?debug_server=1&debug=1&hide=1&app=1&game_version=4
 http://172.17.196.195:9020/index.html?debug_server=1&app=1&game_version=2
 http://172.17.196.195:9020/index.html
+
+http://172.17.196.195:90/game2/pay_qunhei.php?ext=1_qh5028262|1|101|99362&orderno=123
+
+http://120.77.153.203/game2_client/client_qunhei.php
+http://120.77.153.203/game2_client/client_qunhei.php?username=5028262&serverid=1&time=1506653351&isadult=1&flag=001dd884dd89702aebb6007e78c4fac7&unid=&uimg=http://m.qunhei.com/Static/Default/Home/images/bg_touxiang_wutouxiang.png&nname=卡斗士
+
+
+
 PKData.getInstance().random()
 PKCode.getInstance().onStep()
 //取数据
@@ -102,9 +110,19 @@ forever list
 
 
 
+
+定费模式
+-英雄补全
+-战役补全
+--对战录像
+
+
+
+
+数据库转移？
 加新英雄PK服务器
 数据库hourcoin默认值10-》100
-生成迷题，activelist.php放入，要对应之前的
+activelist.php放入，要对应之前的
 
 --客户端title报错
 --自动去掉不合法卡牌

@@ -101,7 +101,7 @@ do{
 	
 	if($hangIndex%10 == 0)
 	{
-		$pkData->needcd = min(35 + floor($hangIndex/50)*3,120)*1000;
+		$pkData->needcd = min(40 + floor($hangIndex/30)*5,150)*1000;
 	}
 	
 	$returnData -> pkdata = $pkData;

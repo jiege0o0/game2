@@ -236,6 +236,7 @@
 				}
 				else
 				{
+					$returnData->sync_skill = new stdClass();
 					$returnData->sync_skill->{$skillID} = $orginSkillNum->{$skillID};
 					return false;
 				}

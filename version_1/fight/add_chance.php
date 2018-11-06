@@ -1,5 +1,5 @@
 <?php 
-	$need = 30;
+	$need = 10;
 	do{
 		if($userData->diamond < $need)
 		{
