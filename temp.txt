@@ -22,6 +22,9 @@ http://172.17.196.195:9020/index.html
 
 http://172.17.196.195:90/game2/pay_qunhei.php?ext=1_qh5028262|1|101|99362&orderno=123
 
+×¢£ºµÇÂ¼²âÊÔµØÖ·->http://m.qunhei.com/game/login/gid/4089.html
+http://open.qunhei.com/
+http://120.77.153.203/game2/pay_qunhei.php?ext=1_qh5028262|1|101|99362&orderno=123
 http://120.77.153.203/game2_client/client_qunhei.php
 http://120.77.153.203/game2_client/client_qunhei.php?username=5028262&serverid=1&time=1506653351&isadult=1&flag=001dd884dd89702aebb6007e78c4fac7&unid=&uimg=http://m.qunhei.com/Static/Default/Home/images/bg_touxiang_wutouxiang.png&nname=¿¨¶·Ê¿
 
