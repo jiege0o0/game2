@@ -82,7 +82,7 @@
 				
 				
 		//Éý¼¶¿¨
-		if($level >= 10 && rand(1,50) == 1)
+		if($level >= 10 && rand(1,20) == 1)
 		{
 			$need = 88;
 			array_push($arr,array(
@@ -108,8 +108,8 @@
 		}
 		
 		$heroAble = false;
-		if($level >= 50)
-		{
+		// if($level >= 50)
+		// {
 			foreach($monster_base as $key=>$value)
 			{
 				if($value['id'] > 100 && $value['id'] < 130 && $value['level']-1000 <= $tecLevel && $userData->getMaxHeroLevel($key) < 5)//@hero
@@ -118,7 +118,7 @@
 					break;
 				}
 			}
-		}
+		// }
 		
 		
 		

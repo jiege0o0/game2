@@ -46,7 +46,7 @@ do{
 		// array_push($upProp,$prop_base[$i]['hanglevel']);
 	// }
 	$award = new stdClass();	
-	if($hangIndex >= 50 && $hangIndex%5 == 0)//гЂал
+	if($hangIndex == 1 || $hangIndex%5 == 0)//гЂал
 	{
 		$awardNum = 1;
 		require_once($filePath."pay/box_hero.php");

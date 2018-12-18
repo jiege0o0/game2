@@ -67,7 +67,7 @@ do{
 		if($enemy['hp'] < $info->index*0.7)
 			$enemy['hp'] = ceil($info->index*0.7);
 		
-		if($info->index > 3 && $userData->hang->level >= 50)//加入英雄
+		if($info->index > 3)//加入英雄 && $userData->hang->level >= 50
 		{
 			$heroLevel = max(1,min(5,floor(pow($userData->hang->level/100,0.8))));
 			shuffle($heroArr);
